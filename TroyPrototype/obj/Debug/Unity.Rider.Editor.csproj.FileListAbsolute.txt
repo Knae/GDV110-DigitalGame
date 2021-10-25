@@ -1,2 +1,0 @@
-M:\Project\MDS Stuff\July2021\GameDesign\TroyPrototype\obj\Debug\Unity.Rider.Editor.csproj.CoreCompileInputs.cache
-M:\Project\MDS Stuff\July2021\GameDesign\TroyPrototype\obj\Debug\Unity.Rider.Editor.csproj.AssemblyReference.cache
