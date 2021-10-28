@@ -6,9 +6,11 @@ using UnityEngine.UI;
 public class ItemPickup : MonoBehaviour
 {
     [SerializeField]
-    private Text pickUpText;
+    public Text pickUpText;
+    public GameObject m_ObjectNearby = null;
 
-    public bool pickUpAllowed;
+    private bool pickUpAllowed;
+
 
     // Use this for initialization
     private void Start()
@@ -29,6 +31,7 @@ public class ItemPickup : MonoBehaviour
         {
             pickUpText.gameObject.SetActive(true);
             pickUpAllowed = true;
+            m_ObjectNearby = collision.gameObject;
         }
     }
 
@@ -38,11 +41,13 @@ public class ItemPickup : MonoBehaviour
         {
             pickUpText.gameObject.SetActive(false);
             pickUpAllowed = false;
+            m_ObjectNearby = null;
         }
     }
 
     private void PickUp()
     {
+        m_ObjectNearby.GetComponentInChildren<WeaponFiring>().SetWeaponToSpray();
         Destroy(gameObject);
     }
 }

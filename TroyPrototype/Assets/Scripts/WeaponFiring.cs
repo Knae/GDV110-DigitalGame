@@ -4,34 +4,65 @@ using UnityEngine;
 
 public class WeaponFiring : MonoBehaviour
 {
-    public Transform gunFirePoint;
-    public GameObject projectilePrefab;
-    public float m_fBulletForce = 2.0f;
-    public float m_fFiringDelay = 0.1f;
+    public enum WEAPONMODE
+    {
+        NONE,
+        BASIC,
+        SPRAY
+    }
+    private WEAPONMODE m_iCurrentWeaponMode = WEAPONMODE.NONE;
+    private BaseBulletPattern m_refCurrentPattern;
+    private BulletPatternSpray m_refBulletSprayPattern;
+    private BulletPatternBasic m_refBulletBasicPattern;
 
-    private float m_fCounterTime = 0.0f;
+    private void Start()
+    {
+        //Get references to bullet pattern scripts attached to player's
+        //weapons
+        m_refBulletSprayPattern = GetComponent<BulletPatternSpray>();
+        m_refBulletBasicPattern = GetComponent<BulletPatternBasic>();
+        ChangeWeaponMode(m_refBulletBasicPattern);
+    }
 
     // Update is called once per frame
-    private void Update()
+    void Update()
     {
-        m_fCounterTime += 1.0f * Time.deltaTime;
-    }
-    void FixedUpdate()
-    {
-        if(Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1"))
         {
-            if(m_fCounterTime>=0.25f)
+            m_refCurrentPattern.fireProjectiles();
+        }
+        else if (Input.GetKeyDown(KeyCode.X))
+        {
+            switch (m_iCurrentWeaponMode)
             {
-                m_fCounterTime = 0;
-                fireProjectiles();
+                case WEAPONMODE.BASIC:
+                {
+                    ChangeWeaponMode(m_refBulletSprayPattern);
+                    m_iCurrentWeaponMode = WEAPONMODE.SPRAY;
+                    break;
+                }
+                case WEAPONMODE.SPRAY:
+                {
+                    ChangeWeaponMode(m_refBulletBasicPattern);
+                    m_iCurrentWeaponMode = WEAPONMODE.BASIC;
+                    break;
+                }
+                default:
+                {
+                    break;
+                }
             }
         }
     }
 
-    void fireProjectiles()
+    private void ChangeWeaponMode(BaseBulletPattern _inputPattern)
     {
-        GameObject newBullet =  Instantiate(projectilePrefab, gunFirePoint.position, gunFirePoint .rotation);
-        Rigidbody2D newBulletBody = newBullet.GetComponent < Rigidbody2D>();
-        newBulletBody.AddForce(gunFirePoint.up * m_fBulletForce, ForceMode2D.Impulse);
+        m_refCurrentPattern = _inputPattern;
+    }
+
+    public void SetWeaponToSpray()
+    {
+        ChangeWeaponMode(m_refBulletSprayPattern);
+        m_iCurrentWeaponMode = WEAPONMODE.SPRAY;
     }
 }

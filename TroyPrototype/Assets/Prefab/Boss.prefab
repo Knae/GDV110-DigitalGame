@@ -68,19 +68,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyBody: {fileID: 0}
-  gunBody: {fileID: 2913850534668828877}
+  gunBody: {fileID: 9074304322755571274}
   gunFirePoint: {fileID: 1164306730141704234}
   projectilePrefab: {fileID: 8393412603370758224, guid: d5d5b48b48e230e48a7bbb554d601bd0,
     type: 3}
   HP: 10
+  m_fDestroyedAngle: 90
   m_fBulletForce: 1.5
   m_fFiringPeriod: 3
   m_fFiringCooldown: 2
   m_fFiringDelay: 0.2
   m_fRange: 1
-  m_fCurrentDelay: 0
-  m_fFiringTime: 0
-  currentState: 1
 --- !u!1 &3055445110492758108
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,19 +147,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyBody: {fileID: 0}
-  gunBody: {fileID: 7164287713710315780}
+  gunBody: {fileID: 9074304322755571274}
   gunFirePoint: {fileID: 5740673110824442038}
   projectilePrefab: {fileID: 8393412603370758224, guid: d5d5b48b48e230e48a7bbb554d601bd0,
     type: 3}
   HP: 10
+  m_fDestroyedAngle: 90
   m_fBulletForce: 1.5
   m_fFiringPeriod: 3
   m_fFiringCooldown: 2
   m_fFiringDelay: 0.2
   m_fRange: 1
-  m_fCurrentDelay: 0
-  m_fFiringTime: 0
-  currentState: 1
 --- !u!1 &3913700961148370292
 GameObject:
   m_ObjectHideFlags: 0

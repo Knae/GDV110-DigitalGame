@@ -4,21 +4,23 @@ using UnityEngine;
 
 public class BossWeapons : MonoBehaviour
 {
-    public Rigidbody2D enemyBody;
-    public Rigidbody2D gunBody;
+    public GameObject enemyBody;
+    public GameObject gunBody;
     public Transform gunFirePoint;
     public GameObject projectilePrefab;
     [Header("Weapon Stats")]
     public int HP = 10;
+    public float m_fDestroyedAngle = 90.0f;
     public float m_fBulletForce = 1.5f;
     public float m_fFiringPeriod = 3.0f;
     public float m_fFiringCooldown = 2.0f;
     public float m_fFiringDelay = 0.2f;
     public float m_fRange = 1.0f;
 
-    public float m_fCurrentDelay = 0f;
-    public float m_fFiringTime = 0.0f;
-    public STATES currentState = STATES.NOTFIRING;
+    private float m_fCurrentDelay = 0f;
+    private float m_fFiringTime = 0.0f;
+    private STATES currentState = STATES.NOTFIRING;
+    private float m_fAngle = 0f;
 
     public enum STATES
     {
@@ -82,7 +84,7 @@ public class BossWeapons : MonoBehaviour
 
     bool CheckIfPlayerInRange()
     {
-        float distance = Vector3.Distance(enemyBody.position,transform.position);
+        float distance = Vector3.Distance(enemyBody.transform.position,transform.position);
         return distance <= m_fRange;
     }
     void GunsAreThinking(bool _playerInRange)
@@ -138,13 +140,18 @@ public class BossWeapons : MonoBehaviour
     {
         if(HP>0)
         {
-            Vector2 lookDir = enemyBody.position - gunBody.position;
-            float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
-            gunBody.rotation = angle;
+            m_fAngle = FindAngleBetweenPoints(enemyBody.transform.position, transform.position);
+            gunBody.transform.rotation = Quaternion.Euler(0f, 0f, m_fAngle);
         }
         else
-        {
-            gunBody.rotation = 90.0f;
+        {   
+            gunBody.transform.rotation = Quaternion.Euler(0f, 0f, m_fDestroyedAngle);
         }
+    }
+
+    private float FindAngleBetweenPoints(Vector3 _inPointA, Vector3 _inPointB)
+    {
+        float angle = Mathf.Atan2(_inPointA.y - _inPointB.y, _inPointA.x - _inPointB.x) * Mathf.Rad2Deg;
+        return angle;
     }
 }

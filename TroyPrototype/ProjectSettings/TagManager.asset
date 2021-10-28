@@ -11,6 +11,7 @@ TagManager:
   - ProjectilePlayer
   - ProjectileEnemy
   - Indestructible
+  - Pickups
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - TerrainInFrontPlayer
   - 
   - 
   - 
@@ -59,4 +60,7 @@ TagManager:
     locked: 0
   - name: Projectiles
     uniqueID: 106040597
+    locked: 0
+  - name: TerrainInFrontPlayer
+    uniqueID: 1087660929
     locked: 0

@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7119942938870557112}
   - component: {fileID: 7119942938870557111}
   - component: {fileID: 621196109013265663}
+  - component: {fileID: 3304202735012123128}
+  - component: {fileID: 4370411510432476081}
   m_Layer: 0
   m_Name: sprGun
   m_TagString: Untagged
@@ -95,11 +97,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54a3daef9942f2b40a15c236cba88142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3304202735012123128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7119942938870557113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d91c85e233086c4ebe778a969610cc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   gunFirePoint: {fileID: 7119942939825017639}
   projectilePrefab: {fileID: 8393412603370758224, guid: 6467b842f4465ba428b59633dc21e641,
     type: 3}
-  m_fBulletForce: 2
-  m_fFiringDelay: 0.1
+  m_fBulletForceBase: 2
+  m_fFiringDelayBase: 0.5
+  m_fDamageBase: 1
+--- !u!114 &4370411510432476081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7119942938870557113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f1a319f89c024b49a1cbf7a451e2030, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunFirePoint: {fileID: 7119942939825017639}
+  projectilePrefab: {fileID: 8393412603370758224, guid: 6467b842f4465ba428b59633dc21e641,
+    type: 3}
+  m_fBulletForceBase: 2
+  m_fFiringDelayBase: 0.5
+  m_fDamageBase: 1
+  m_iNumberOfPelletsToCreate: 10
+  m_fMaximumForce: 3
+  m_fMinimumForce: 2
+  m_fPelletLifeTime: 2
+  m_fBulletForce_Spray: 1
+  m_fFiringDelay_Spray: 2
+  m_fPelletDamage: 0.2
+  m_iTotalAmmo: 20
 --- !u!1 &7119942939825017640
 GameObject:
   m_ObjectHideFlags: 0

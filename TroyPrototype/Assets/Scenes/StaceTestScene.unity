@@ -516,7 +516,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickUpText: {fileID: 1316175597}
-  pickUpAllowed: 0
 --- !u!61 &1002085868
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -680,7 +679,7 @@ PrefabInstance:
         type: 3}
       propertyPath: enemyBody
       value: 
-      objectReference: {fileID: 1938879451}
+      objectReference: {fileID: 1904269025}
     - target: {fileID: 3218340001901250755, guid: 8d6c148c786db0748b1916afc3b60189,
         type: 3}
       propertyPath: Player
@@ -705,7 +704,7 @@ PrefabInstance:
         type: 3}
       propertyPath: enemyBody
       value: 
-      objectReference: {fileID: 1938879451}
+      objectReference: {fileID: 1904269025}
     - target: {fileID: 9074304322755571274, guid: 8d6c148c786db0748b1916afc3b60189,
         type: 3}
       propertyPath: m_Name
@@ -1063,6 +1062,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1904269025 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6516721840786313220, guid: 741e092a9b442b44aad75e8f1e3e3eac,
+    type: 3}
+  m_PrefabInstance: {fileID: 6516721841112474578}
+  m_PrefabAsset: {fileID: 0}
 --- !u!50 &1938879451 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 3461488959947619450, guid: 741e092a9b442b44aad75e8f1e3e3eac,
