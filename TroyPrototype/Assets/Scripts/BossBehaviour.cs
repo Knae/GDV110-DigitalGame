@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BossBehaviour : MonoBehaviour
 {
+    public Rigidbody2D BossBody;
     public Rigidbody2D BossGunL;
     public Rigidbody2D BossGunR;
     public Rigidbody2D Player;
@@ -15,6 +16,7 @@ public class BossBehaviour : MonoBehaviour
     public float m_fMaximumDistanceFromPlayer = 1.1f;
 
     private bool m_bIsMoving = false;
+    private Vector2 m_PositionToPlayer=new Vector2( 0, 0);
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -23,7 +25,9 @@ public class BossBehaviour : MonoBehaviour
             if(CheckIfTooFar())
             {
                 m_bIsMoving = true;
-                transform.position = Vector3.MoveTowards(transform.position, Player.position, m_fMovementSpd*Time.deltaTime);
+                m_PositionToPlayer = Vector2.MoveTowards(transform.position, Player.position, m_fMovementSpd*Time.deltaTime);
+
+                BossBody.MovePosition(m_PositionToPlayer);
             }
         }
         else
@@ -34,7 +38,8 @@ public class BossBehaviour : MonoBehaviour
             }
             else
             {
-               transform.position = Vector3.MoveTowards(transform.position, Player.position, m_fMovementSpd * Time.deltaTime);
+                m_PositionToPlayer = Vector2.MoveTowards(transform.position, Player.position, m_fMovementSpd * Time.deltaTime);
+               BossBody.MovePosition(m_PositionToPlayer);
             }
         }
     }

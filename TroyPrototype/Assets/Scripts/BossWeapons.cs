@@ -62,8 +62,8 @@ public class BossWeapons : MonoBehaviour
     {
         if (collision.tag == "ProjectilePlayer")
         {
+            HP -= collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
             Destroy(collision.gameObject);
-            HP--;
         }
     }
 

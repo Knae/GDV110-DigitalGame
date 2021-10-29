@@ -22,12 +22,14 @@ public class ItemPickup : MonoBehaviour
     private void Update()
     {
         if (pickUpAllowed && Input.GetKeyDown(KeyCode.E))
+        {
             PickUp();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name.Equals("Player"))
+        if (collision.gameObject.tag.Equals("Player"))
         {
             pickUpText.gameObject.SetActive(true);
             pickUpAllowed = true;
@@ -37,7 +39,7 @@ public class ItemPickup : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.name.Equals("Player"))
+        if (collision.gameObject.tag.Equals("Player"))
         {
             pickUpText.gameObject.SetActive(false);
             pickUpAllowed = false;
@@ -47,7 +49,11 @@ public class ItemPickup : MonoBehaviour
 
     private void PickUp()
     {
-        m_ObjectNearby.GetComponentInChildren<WeaponFiring>().SetWeaponToSpray();
-        Destroy(gameObject);
+        if(m_ObjectNearby != null)
+        {
+            m_ObjectNearby.GetComponentInChildren<WeaponFiring>().SetWeaponToSpray();
+            Destroy(gameObject);
+        }
+
     }
 }

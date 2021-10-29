@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 621196109013265663}
   - component: {fileID: 3304202735012123128}
   - component: {fileID: 4370411510432476081}
+  - component: {fileID: 668917839262868222}
   m_Layer: 0
   m_Name: sprGun
   m_TagString: Untagged
@@ -115,6 +116,7 @@ MonoBehaviour:
   m_fBulletForceBase: 2
   m_fFiringDelayBase: 0.5
   m_fDamageBase: 1
+  m_bUsedByAI: 0
 --- !u!114 &4370411510432476081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,14 +135,44 @@ MonoBehaviour:
   m_fBulletForceBase: 2
   m_fFiringDelayBase: 0.5
   m_fDamageBase: 1
+  m_bUsedByAI: 0
   m_iNumberOfPelletsToCreate: 10
   m_fMaximumForce: 3
-  m_fMinimumForce: 2
+  m_fMinimumForce: 2.5
+  m_fScatterRange: 0.75
   m_fPelletLifeTime: 2
-  m_fBulletForce_Spray: 1
-  m_fFiringDelay_Spray: 2
+  m_fFiringDelay_Spray: 1.5
   m_fPelletDamage: 0.2
   m_iTotalAmmo: 20
+--- !u!114 &668917839262868222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7119942938870557113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fed10fb9c2c52ab4e9dd4fa3f9197a28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunFirePoint: {fileID: 7119942939825017639}
+  projectilePrefab: {fileID: 8393412603370758224, guid: 6467b842f4465ba428b59633dc21e641,
+    type: 3}
+  m_fBulletForceBase: 2
+  m_fFiringDelayBase: 0.5
+  m_fDamageBase: 1
+  m_bUsedByAI: 0
+  m_iNumberOfPelletsToCreate: 5
+  m_fMaximumForce: 2
+  m_fMinimumForce: 1.5
+  m_fScatterRange: 0.25
+  m_fPelletLifeTime: 1
+  m_fBulletForce_Stream: 1
+  m_fFiringTime: 3
+  m_fFiringCooldown: 0.1
+  m_fPelletDamage: 0.05
+  m_iTotalAmmo: 200
 --- !u!1 &7119942939825017640
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,10 +196,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7119942939825017640}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 7.47, y: 1.89, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7119942938870557112}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}

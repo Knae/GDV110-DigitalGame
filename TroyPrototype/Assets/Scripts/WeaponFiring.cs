@@ -8,12 +8,14 @@ public class WeaponFiring : MonoBehaviour
     {
         NONE,
         BASIC,
-        SPRAY
+        SPRAY,
+        STREAM
     }
-    private WEAPONMODE m_iCurrentWeaponMode = WEAPONMODE.NONE;
+    private WEAPONMODE m_iCurrentWeaponMode = WEAPONMODE.BASIC;
     private BaseBulletPattern m_refCurrentPattern;
-    private BulletPatternSpray m_refBulletSprayPattern;
     private BulletPatternBasic m_refBulletBasicPattern;
+    private BulletPatternSpray m_refBulletSprayPattern;
+    private BulletPatternStream m_refBulletStreamPattern;
 
     private void Start()
     {
@@ -21,6 +23,7 @@ public class WeaponFiring : MonoBehaviour
         //weapons
         m_refBulletSprayPattern = GetComponent<BulletPatternSpray>();
         m_refBulletBasicPattern = GetComponent<BulletPatternBasic>();
+        m_refBulletStreamPattern = GetComponent<BulletPatternStream>();
         ChangeWeaponMode(m_refBulletBasicPattern);
     }
 
@@ -42,6 +45,12 @@ public class WeaponFiring : MonoBehaviour
                     break;
                 }
                 case WEAPONMODE.SPRAY:
+                {
+                    ChangeWeaponMode(m_refBulletStreamPattern);
+                    m_iCurrentWeaponMode = WEAPONMODE.STREAM;
+                    break;
+                }
+                case WEAPONMODE.STREAM:
                 {
                     ChangeWeaponMode(m_refBulletBasicPattern);
                     m_iCurrentWeaponMode = WEAPONMODE.BASIC;
@@ -65,4 +74,10 @@ public class WeaponFiring : MonoBehaviour
         ChangeWeaponMode(m_refBulletSprayPattern);
         m_iCurrentWeaponMode = WEAPONMODE.SPRAY;
     }
+    public void SetWeaponToStream()
+    {
+        ChangeWeaponMode(m_refBulletStreamPattern);
+        m_iCurrentWeaponMode = WEAPONMODE.STREAM;
+    }
+
 }

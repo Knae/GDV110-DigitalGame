@@ -12,8 +12,9 @@ public class BaseBulletPattern : MonoBehaviour
     public float m_fBulletForceBase = 2.0f;
     public float m_fFiringDelayBase = 0.5f;
     public float m_fDamageBase = 1f;
-    
-    
+    public bool m_bUsedByAI = false;
+
+
     protected float m_fCounterTime = 0.0f;
     protected float m_fBulletForce;
     protected float m_fFiringDelay;
@@ -28,15 +29,15 @@ public class BaseBulletPattern : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        if(m_fCounterTime<=m_fFiringDelay)
+        if (m_fCounterTime <= m_fFiringDelay)
         {
-          m_fCounterTime += 1.0f * Time.deltaTime;
+            m_fCounterTime += 1.0f * Time.deltaTime;
         }
     }
 
     public virtual bool fireProjectiles()
     {
-        if(m_fCounterTime>=m_fFiringDelay)
+        if (m_fCounterTime >= m_fFiringDelay)
         {
             GameObject newBullet = Instantiate(projectilePrefab, gunFirePoint.position, gunFirePoint.rotation);
             Rigidbody2D newBulletBody = newBullet.GetComponent<Rigidbody2D>();
@@ -49,5 +50,15 @@ public class BaseBulletPattern : MonoBehaviour
     public virtual float GetBulletDamage()
     {
         return m_fBulletDamage;
+    }
+
+    public virtual void SetAsUsedByAI()
+    {
+        m_bUsedByAI = true;
+    }
+
+    public virtual void SetAsUsedByPlayer()
+    {
+        m_bUsedByAI = false;
     }
 }

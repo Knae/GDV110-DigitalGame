@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 3011390317381366119}
   - component: {fileID: 2447649638400689698}
   - component: {fileID: 3141453624654921367}
-  - component: {fileID: 5049800513006527265}
   m_Layer: 0
   m_Name: ShotgunPickup
-  m_TagString: Untagged
+  m_TagString: Indestructible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,21 +78,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.32, y: 0.32}
   m_EdgeRadius: 0
---- !u!114 &5049800513006527265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3011390317381366118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fb5327eb4b723746b38410c271a3093, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickUpText: {fileID: 0}
 --- !u!1 &3011390317723420660
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,9 +91,10 @@ GameObject:
   - component: {fileID: 3011390317723420661}
   - component: {fileID: 3011390317723420659}
   - component: {fileID: 7222190350699692641}
+  - component: {fileID: 4581586813341017156}
   m_Layer: 0
   m_Name: PickUpSprite
-  m_TagString: Indestructible
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -200,5 +187,19 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.32, y: 0.32}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &4581586813341017156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3011390317723420660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fb5327eb4b723746b38410c271a3093, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickUpText: {fileID: 0}
+  m_ObjectNearby: {fileID: 0}
