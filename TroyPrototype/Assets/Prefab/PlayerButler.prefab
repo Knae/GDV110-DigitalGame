@@ -319,6 +319,7 @@ GameObject:
   - component: {fileID: 1868311935072767187}
   - component: {fileID: 1868311935072767196}
   - component: {fileID: 2544290109831210130}
+  - component: {fileID: 4136934129786803736}
   m_Layer: 0
   m_Name: PlayerButler
   m_TagString: Player
@@ -451,6 +452,19 @@ CapsuleCollider2D:
   m_Offset: {x: -0.044694502, y: -0.105163224}
   m_Size: {x: 0.42817277, y: 0.29089335}
   m_Direction: 1
+--- !u!114 &4136934129786803736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868311935072767184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dd70227adb259479944ae5b3e717c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueUI: {fileID: 0}
 --- !u!1001 &1868311934600684006
 PrefabInstance:
   m_ObjectHideFlags: 0
