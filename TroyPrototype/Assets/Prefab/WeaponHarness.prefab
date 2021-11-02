@@ -40,7 +40,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5975061013107749121}
   - component: {fileID: 5236181648781198365}
-  - component: {fileID: 2023041119605090580}
   m_Layer: 0
   m_Name: sptHvyGunL
   m_TagString: Untagged
@@ -112,32 +111,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &2023041119605090580
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2714555940623292001}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 16, y: 6.75}
-    newSize: {x: 16, y: 6.75}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 16, y: 6.75}
-  m_EdgeRadius: 0
 --- !u!1 &3487688399175622750
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,8 +120,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5239554754364688051}
-  - component: {fileID: 7921163225851452879}
   - component: {fileID: 2419015696580047658}
+  - component: {fileID: 7703728210048747080}
+  - component: {fileID: 7534817983014443393}
   m_Layer: 0
   m_Name: LeftGun
   m_TagString: Untagged
@@ -172,27 +146,6 @@ Transform:
   m_Father: {fileID: 2370612729907782792}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &7921163225851452879
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3487688399175622750}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!114 &2419015696580047658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,7 +169,64 @@ MonoBehaviour:
   m_fFiringPeriod: 3
   m_fFiringCooldown: 2
   m_fFiringDelay: 0.2
-  m_fRange: 1
+  m_fRange: 5
+  m_fAngle: 0
+  m_fAngleToTarget: 0
+  m_fDistanceFromPlayer: 0
+  m_bFacingEnemy: 0
+  currentState: 1
+--- !u!61 &7703728210048747080
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3487688399175622750}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.3967579, y: 0.03810817}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.7974001, y: 0.13026822}
+  m_EdgeRadius: 0
+--- !u!61 &7534817983014443393
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3487688399175622750}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.41532952, y: -0.09707904}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.16934097, y: 0.14063954}
+  m_EdgeRadius: 0
 --- !u!1 &3551209343157190571
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,7 +269,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2712046256861803970}
   - component: {fileID: 4019563264231024717}
-  - component: {fileID: 4166095667408605682}
   m_Layer: 0
   m_Name: sptHvyGunR
   m_TagString: Untagged
@@ -331,32 +340,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &4166095667408605682
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4696582184799536631}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 16, y: 6.75}
-    newSize: {x: 16, y: 6.75}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 16, y: 6.75}
-  m_EdgeRadius: 0
 --- !u!1 &6582906020350050879
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,8 +349,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4494188365374523713}
-  - component: {fileID: 5584389425861894194}
   - component: {fileID: 2729867288349796265}
+  - component: {fileID: 6816060063496464536}
+  - component: {fileID: 1946887616854236904}
   m_Layer: 0
   m_Name: RightGun
   m_TagString: Untagged
@@ -391,27 +375,6 @@ Transform:
   m_Father: {fileID: 2370612729907782792}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &5584389425861894194
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6582906020350050879}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!114 &2729867288349796265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -435,7 +398,64 @@ MonoBehaviour:
   m_fFiringPeriod: 3
   m_fFiringCooldown: 2
   m_fFiringDelay: 0.2
-  m_fRange: 1
+  m_fRange: 5
+  m_fAngle: 0
+  m_fAngleToTarget: 0
+  m_fDistanceFromPlayer: 0
+  m_bFacingEnemy: 0
+  currentState: 1
+--- !u!61 &6816060063496464536
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6582906020350050879}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.3958857, y: 0.039146006}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.8009696, y: 0.114914775}
+  m_EdgeRadius: 0
+--- !u!61 &1946887616854236904
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6582906020350050879}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.40946698, y: -0.0904091}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.14682129, y: 0.15196502}
+  m_EdgeRadius: 0
 --- !u!1 &7361022044599408074
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,23 +4,27 @@ using UnityEngine;
 
 public class BossWeapons : MonoBehaviour
 {
-    public GameObject enemyBody;
+    public Rigidbody2D enemyBody;
     public GameObject gunBody;
     public Transform gunFirePoint;
     public GameObject projectilePrefab;
     [Header("Weapon Stats")]
-    public int HP = 10;
+    public int HP = 50;
     public float m_fDestroyedAngle = 90.0f;
     public float m_fBulletForce = 1.5f;
     public float m_fFiringPeriod = 3.0f;
     public float m_fFiringCooldown = 2.0f;
     public float m_fFiringDelay = 0.2f;
     public float m_fRange = 1.0f;
+    [Header("Debug Variables")]
+    public float m_fAngle = 0f;
+    public float m_fAngleToTarget = 0f;
+    public float m_fDistanceFromPlayer = 0f;
+    public bool m_bFacingEnemy = false;
+    public STATES currentState = STATES.NOTFIRING;
 
     private float m_fCurrentDelay = 0f;
     private float m_fFiringTime = 0.0f;
-    private STATES currentState = STATES.NOTFIRING;
-    private float m_fAngle = 0f;
 
     public enum STATES
     {
@@ -33,13 +37,13 @@ public class BossWeapons : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        FaceGunsToEnemy();
-        if (HP<=0)
+        if (HP <= 0 && currentState != STATES.DESTROYED)
         {
             currentState = STATES.DESTROYED;
         }
         else
         {
+            m_bFacingEnemy = FaceGunsToEnemy();
             m_fCurrentDelay += 1.0f * Time.deltaTime;
             if (currentState == STATES.FIRING)
             {
@@ -58,9 +62,11 @@ public class BossWeapons : MonoBehaviour
             }
         }
     }
+
+    //private void OnCollisionEnter2D(Collision2D collision)
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "ProjectilePlayer")
+        if (collision.gameObject.layer == 9)
         {
             HP -= collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
             Destroy(collision.gameObject);
@@ -69,12 +75,12 @@ public class BossWeapons : MonoBehaviour
 
     void FixedUpdate()
     {
-        GunsAreThinking(CheckIfPlayerInRange());        
+        GunsAreThinking(CheckIfPlayerInRange());
     }
 
-    void fireProjectiles()
+    void fireWeapon()
     {
-        if(m_fCurrentDelay>=m_fFiringDelay)
+        if (m_fCurrentDelay >= m_fFiringDelay)
         {
             GameObject newBullet = Instantiate(projectilePrefab, gunFirePoint.position, gunFirePoint.rotation);
             Rigidbody2D newBulletBody = newBullet.GetComponent<Rigidbody2D>();
@@ -84,74 +90,98 @@ public class BossWeapons : MonoBehaviour
 
     bool CheckIfPlayerInRange()
     {
-        float distance = Vector3.Distance(enemyBody.transform.position,transform.position);
-        return distance <= m_fRange;
+        //float distance = Vector3.Distance(enemyBody.transform.position,transform.position);
+        //return distance <= m_fRange;
+        m_fDistanceFromPlayer = Vector3.Distance(enemyBody.position, transform.position);
+        return m_fDistanceFromPlayer <= m_fRange;
     }
     void GunsAreThinking(bool _playerInRange)
     {
         switch (currentState)
         {
             case STATES.NOTFIRING:
-            {
-                if(_playerInRange)
                 {
-                    currentState = STATES.FIRING;
-                    m_fCurrentDelay = 0;
+                    if (_playerInRange && m_bFacingEnemy)
+                    {
+                        currentState = STATES.FIRING;
+                        m_fCurrentDelay = 0;
                     }
-                break;
-            }
+                    break;
+                }
             case STATES.FIRING:
-            {
-                if(m_fCurrentDelay>=m_fFiringDelay)
                 {
-                    fireProjectiles();
-                    m_fCurrentDelay = 0;
-                }
+                    if (m_fCurrentDelay >= m_fFiringDelay)
+                    {
+                        fireWeapon();
+                        m_fCurrentDelay = 0;
+                    }
 
-                if(!_playerInRange)
-                {
-                   currentState = STATES.NOTFIRING;
+                    if (!_playerInRange || !m_bFacingEnemy)
+                    {
+                        currentState = STATES.NOTFIRING;
+                    }
+                    else if (m_fFiringTime >= m_fFiringPeriod)
+                    {
+                        m_fFiringTime = 0;
+                        m_fCurrentDelay = 0;
+                        currentState = STATES.COOLINGDOWN;
+                    }
+                    break;
                 }
-                else if(m_fFiringTime >= m_fFiringPeriod)
-                {
-                    m_fFiringTime = 0;
-                    m_fCurrentDelay = 0;
-                    currentState = STATES.COOLINGDOWN;
-                }
-                break;
-            }
             case STATES.COOLINGDOWN:
-            {
-                if(m_fCurrentDelay >= m_fFiringCooldown)
                 {
-                    currentState = STATES.NOTFIRING;
+                    if (m_fCurrentDelay >= m_fFiringCooldown)
+                    {
+                        currentState = STATES.NOTFIRING;
+                    }
+                    break;
                 }
-                break;
-            }
             case STATES.DESTROYED:
-            {
-                
-                break;
-            }
+                {
+
+                    break;
+                }
         }
     }
 
-    void FaceGunsToEnemy()
+    bool FaceGunsToEnemy()
     {
-        if(HP>0)
+        if (HP > 0)
         {
-            m_fAngle = FindAngleBetweenPoints(enemyBody.transform.position, transform.position);
-            gunBody.transform.rotation = Quaternion.Euler(0f, 0f, m_fAngle);
+            FindAngleBetweenPoints(enemyBody.transform.position);
+            if (!CheckIfLookingAtPlayer())
+            {
+                gunBody.transform.rotation = Quaternion.Euler(0f, 0f, m_fAngle);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
         else
-        {   
+        {
             gunBody.transform.rotation = Quaternion.Euler(0f, 0f, m_fDestroyedAngle);
+            return false;
         }
     }
 
-    private float FindAngleBetweenPoints(Vector3 _inPointA, Vector3 _inPointB)
+    private void FindAngleBetweenPoints(Vector3 _inPointA)
     {
-        float angle = Mathf.Atan2(_inPointA.y - _inPointB.y, _inPointA.x - _inPointB.x) * Mathf.Rad2Deg;
-        return angle;
+        m_fAngle = Mathf.Atan2(_inPointA.y - transform.position.y, _inPointA.x - transform.position.x) * Mathf.Rad2Deg;
+    }
+
+    private bool CheckIfLookingAtPlayer()
+    {
+        RaycastHit2D checkSight = Physics2D.Raycast(gunFirePoint.position, gunFirePoint.up, m_fRange+10, ~LayerMask.GetMask("Projectiles"));
+        Debug.DrawRay(gunFirePoint.position, gunFirePoint.up * (m_fRange+10), Color.yellow);
+        if (checkSight.collider != null && checkSight.collider.gameObject.tag == "Player")
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

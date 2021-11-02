@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8681639432902537009}
   - component: {fileID: 36327167655461351}
   - component: {fileID: 3020916263486150386}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: projectilePlayer
   m_TagString: ProjectilePlayer
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da85cdac0fa909b42bfba439a7d9c190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fLifetime: 5
+  m_fRange: 5
   thisBulletCollider: {fileID: 36327167655461351}
 --- !u!58 &36327167655461351
 CircleCollider2D:

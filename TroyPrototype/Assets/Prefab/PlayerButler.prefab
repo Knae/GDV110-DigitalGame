@@ -111,7 +111,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1868311934107096666}
-  - component: {fileID: 1868311934107096644}
   - component: {fileID: 1868311934107096645}
   m_Layer: 0
   m_Name: gunHolder
@@ -135,25 +134,6 @@ Transform:
   m_Father: {fileID: 1868311935072767197}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1868311934107096644
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1868311934107096667}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!212 &1868311934107096645
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -406,7 +386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791c42cd357095049a5b3d9e80a3cc42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBody: {fileID: 1868311935072767184}
+  playerBody: {fileID: 1868311935072767196}
   gunObject: {fileID: 1868311934107096667}
   playerTorsoAnimator: {fileID: 1868311933991894937}
   playerLegsAnimator: {fileID: 1868311934786901440}

@@ -8,13 +8,16 @@ public class BaseBulletPattern : MonoBehaviour
     public Transform gunFirePoint;
     public GameObject projectilePrefab;
 
-    [Header("Player Weapon Settings")]
+    [Header(" Weapon Settings")]
     public float m_fBulletForceBase = 2.0f;
     public float m_fFiringDelayBase = 0.5f;
     public float m_fDamageBase = 1f;
+    public float m_fRange = 3.0f;
     public bool m_bUsedByAI = false;
+    public int m_iTotalAmmo = 20;
 
 
+    protected int m_iCurrentAmmoCount = 0;
     protected float m_fCounterTime = 0.0f;
     protected float m_fBulletForce;
     protected float m_fFiringDelay;
@@ -25,6 +28,7 @@ public class BaseBulletPattern : MonoBehaviour
         m_fBulletForce = m_fBulletForceBase;
         m_fFiringDelay = m_fFiringDelayBase;
         m_fBulletDamage = m_fDamageBase;
+        m_iCurrentAmmoCount = m_iTotalAmmo;
     }
 
     protected virtual void FixedUpdate()
@@ -40,6 +44,7 @@ public class BaseBulletPattern : MonoBehaviour
         if (m_fCounterTime >= m_fFiringDelay)
         {
             GameObject newBullet = Instantiate(projectilePrefab, gunFirePoint.position, gunFirePoint.rotation);
+            newBullet.GetComponent<BulletLifetime>().SetBulletRange(m_fRange);
             Rigidbody2D newBulletBody = newBullet.GetComponent<Rigidbody2D>();
             newBulletBody.AddForce(gunFirePoint.up * m_fBulletForce, ForceMode2D.Impulse);
             m_fCounterTime = 0.0f;
@@ -60,5 +65,10 @@ public class BaseBulletPattern : MonoBehaviour
     public virtual void SetAsUsedByPlayer()
     {
         m_bUsedByAI = false;
+    }
+
+    public virtual void Reset()
+    {
+        m_iCurrentAmmoCount = m_iTotalAmmo;
     }
 }

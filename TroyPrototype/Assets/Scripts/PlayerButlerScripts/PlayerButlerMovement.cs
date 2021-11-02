@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerButlerMovement : MonoBehaviour
 {
-    public GameObject playerBody;
+    public Rigidbody2D playerBody;
     public GameObject gunObject;
     public Animator playerTorsoAnimator;
     public Animator playerLegsAnimator;
@@ -20,8 +20,8 @@ public class PlayerButlerMovement : MonoBehaviour
     public float HP = 10;
     public float angle = 0.0f;
 
-    private Vector3 movementvector = new Vector3(0, 0, 0);
-    private Vector3 mousePos = new Vector3(0, 0, 0);
+    private Vector2 movementvector = new Vector3(0, 0, 0);
+    private Vector2 mousePos = new Vector3(0, 0, 0);
 
     // Update is called once per frame
     void Update()
@@ -39,7 +39,7 @@ public class PlayerButlerMovement : MonoBehaviour
         gunObject.transform.rotation = Quaternion.Euler( 0f, 0f, angle);
 
         //process movement
-        playerBody.transform.Translate(movementvector * Time.deltaTime);
+        playerBody.MovePosition(playerBody.position + (movementvector * Time.deltaTime));
 
         playerTorsoAnimator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
         playerTorsoAnimator.SetFloat("Vertical", Input.GetAxis("Vertical"));

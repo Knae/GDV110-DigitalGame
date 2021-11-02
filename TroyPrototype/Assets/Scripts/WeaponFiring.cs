@@ -32,7 +32,10 @@ public class WeaponFiring : MonoBehaviour
     {
         if (Input.GetButton("Fire1"))
         {
-            m_refCurrentPattern.fireProjectiles();
+            if(!m_refCurrentPattern.fireProjectiles())
+            {
+                SetWeaponToBasic(); ;
+            }
         }
         else if (Input.GetKeyDown(KeyCode.X))
         {
@@ -40,20 +43,17 @@ public class WeaponFiring : MonoBehaviour
             {
                 case WEAPONMODE.BASIC:
                 {
-                    ChangeWeaponMode(m_refBulletSprayPattern);
-                    m_iCurrentWeaponMode = WEAPONMODE.SPRAY;
+                        SetWeaponToSpray();
                     break;
                 }
                 case WEAPONMODE.SPRAY:
                 {
-                    ChangeWeaponMode(m_refBulletStreamPattern);
-                    m_iCurrentWeaponMode = WEAPONMODE.STREAM;
+                        SetWeaponToStream();
                     break;
                 }
                 case WEAPONMODE.STREAM:
                 {
-                    ChangeWeaponMode(m_refBulletBasicPattern);
-                    m_iCurrentWeaponMode = WEAPONMODE.BASIC;
+                        SetWeaponToBasic();
                     break;
                 }
                 default:
@@ -67,6 +67,7 @@ public class WeaponFiring : MonoBehaviour
     private void ChangeWeaponMode(BaseBulletPattern _inputPattern)
     {
         m_refCurrentPattern = _inputPattern;
+        m_refCurrentPattern.Reset();
     }
 
     public void SetWeaponToSpray()
@@ -77,7 +78,14 @@ public class WeaponFiring : MonoBehaviour
     public void SetWeaponToStream()
     {
         ChangeWeaponMode(m_refBulletStreamPattern);
+
         m_iCurrentWeaponMode = WEAPONMODE.STREAM;
+    }
+
+    public void SetWeaponToBasic()
+    {
+        ChangeWeaponMode(m_refBulletBasicPattern);
+        m_iCurrentWeaponMode = WEAPONMODE.BASIC;
     }
 
 }

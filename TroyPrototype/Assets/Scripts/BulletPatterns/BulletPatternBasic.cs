@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BulletPatternBasic : BaseBulletPattern
 {
-    //[Header("Pattern Specific Settings - Basic")]
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
