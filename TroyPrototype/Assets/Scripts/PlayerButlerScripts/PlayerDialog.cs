@@ -9,13 +9,26 @@ public class PlayerDialog : MonoBehaviour
     public DialogueUI DialogueUI => dialogueUI;
 
     public IInteractable Interactable { get; set; }
-    
 
-    private void Update()
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.E))
+    //   {
+    //       Interactable?.Interact(this);
+    //    }
+    //
+    //
+    //}
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (other.CompareTag("DialogueActivator"))
         {
-             Interactable?.Interact(this);
+          
+            Interactable?.Interact(this);
+            
         }
     }
+
+
 }

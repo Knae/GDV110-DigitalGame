@@ -23,6 +23,7 @@ public class TypewriterEffect : MonoBehaviour
 
         float t = 0;
         int charIndex = 0;
+        int index = 0;
 
         while (charIndex < textToType.Length)
         {
@@ -32,7 +33,11 @@ public class TypewriterEffect : MonoBehaviour
 
             textLabel.text = textToType.Substring(0, charIndex);
 
-            source.PlayOneShot(clip);
+            if (charIndex == index)
+            {
+                source.PlayOneShot(clip);
+                index++;
+            }
 
             yield return null;
         }

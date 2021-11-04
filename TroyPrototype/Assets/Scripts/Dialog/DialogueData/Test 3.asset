@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: Test
-  m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
+  m_Script: {fileID: 11500000, guid: c027a58a9d7cbce4898031a9c3624dae, type: 3}
+  m_Name: Test 3
+  m_EditorClassIdentifier: 
   dialogue:
-  - "Something something something darkside. \nSomething something something complete."
-  - Need to change the blip sound as it doesn't sound right.
-  - What do you guys think?
+  - Test 3 Test 3 Test 3 Test 3 Test 3 Test 3 Test 3 Test 3
+  - Testinggggggggg.
