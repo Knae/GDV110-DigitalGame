@@ -27,7 +27,7 @@ TagManager:
   - Enemies
   - Player
   - Destructible
-  - 
+  - Objects
   - 
   - 
   - 
@@ -50,7 +50,7 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
+  - name: Objects
     uniqueID: 2783122799
     locked: 0
   - name: Player
@@ -62,6 +62,6 @@ TagManager:
   - name: Projectiles
     uniqueID: 106040597
     locked: 0
-  - name: TerrainInFrontPlayer
+  - name: DisplayOverEntities
     uniqueID: 1087660929
     locked: 0

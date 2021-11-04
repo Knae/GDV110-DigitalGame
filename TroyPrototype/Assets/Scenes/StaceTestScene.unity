@@ -384,8 +384,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15.92, y: 288.4}
-  m_SizeDelta: {x: 226.23724, y: 839.2269}
+  m_AnchoredPosition: {x: -16.16, y: 286.1}
+  m_SizeDelta: {x: 237.19196, y: 672.28125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &475933162
 MonoBehaviour:
@@ -866,6 +866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueObject: {fileID: 11400000, guid: b54ad07c519f42644b3cb37829a01b3e, type: 2}
+  DialogueDisplay: {fileID: 355952012}
 --- !u!61 &979648397
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -928,8 +929,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1511844497
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f6fe2bab102b4d34e9d90ace1607b07c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1666,7 +1667,7 @@ GameObject:
   - component: {fileID: 1839101727}
   - component: {fileID: 1839101726}
   - component: {fileID: 1839101725}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Dialogue3Trigger
   m_TagString: DialogueActivator
   m_Icon: {fileID: 0}
@@ -1686,6 +1687,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueObject: {fileID: 11400000, guid: 7b5d8aeea71e81943be5ce153bb9c4fe, type: 2}
+  DialogueDisplay: {fileID: 355952012}
 --- !u!61 &1839101726
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1748,8 +1750,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1511844497
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f6fe2bab102b4d34e9d90ace1607b07c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1808,6 +1810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueObject: {fileID: 11400000, guid: 76e3d8500d63f9c44b581d15a2a1719b, type: 2}
+  DialogueDisplay: {fileID: 355952012}
 --- !u!61 &1884914995
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1870,8 +1873,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1511844497
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f6fe2bab102b4d34e9d90ace1607b07c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
