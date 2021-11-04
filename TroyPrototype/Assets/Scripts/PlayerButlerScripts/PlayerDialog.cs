@@ -6,7 +6,6 @@ public class PlayerDialog : MonoBehaviour
 {
     [SerializeField] private DialogueUI dialogueUI;
 
-
     public DialogueUI DialogueUI => dialogueUI;
 
     public IInteractable Interactable { get; set; }
