@@ -24,9 +24,9 @@ TagManager:
   - 
   - TerrainInFrontPlayer
   - Projectiles
-  - 
-  - 
-  - 
+  - Enemies
+  - Player
+  - Destructible
   - 
   - 
   - 

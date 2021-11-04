@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1868311933991894943}
   - component: {fileID: 1868311933991894942}
   - component: {fileID: 1868311933991894937}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PlayerTorso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1868311934107096666}
   - component: {fileID: 1868311934107096645}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: gunHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 1868311934786901441}
   - component: {fileID: 1868311934786901443}
   - component: {fileID: 1868311934786901440}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PlayerLegs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -300,7 +300,7 @@ GameObject:
   - component: {fileID: 1868311935072767196}
   - component: {fileID: 2544290109831210130}
   - component: {fileID: 4136934129786803736}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PlayerButler
   m_TagString: Player
   m_Icon: {fileID: 0}

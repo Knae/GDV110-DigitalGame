@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class BulletLifetime : MonoBehaviour
 {
-    //public GameObject objThis;
     public float m_fRange = 5.0f;
     public CircleCollider2D thisBulletCollider;
 
+    [Header("BulletSettings")]
     private int m_iDamage = 1;
     private Vector3 m_PrevPos = Vector3.zero;
     private float m_fDistanceTraveled = 0f;

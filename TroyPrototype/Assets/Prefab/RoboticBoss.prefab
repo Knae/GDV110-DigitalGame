@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 7478368376352134711}
   - component: {fileID: 41158282028772375}
   - component: {fileID: 1585804948326718763}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BossSprite
-  m_TagString: Untagged
+  m_TagString: BossBody
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 5161095693866298926}
   - component: {fileID: 5379251310529786997}
   - component: {fileID: 8678962175989401932}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RoboticBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
