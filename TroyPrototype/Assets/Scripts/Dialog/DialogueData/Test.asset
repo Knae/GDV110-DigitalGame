@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Test
   m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
   dialogue:
-  - Something something something darkside. Something something something complete.
-  - Lalalalalalala
+  - "Something something something darkside. \nSomething something something complete."
+  - Need to change the blip sound as it doesn't sound right.
+  - What do you guys think?
