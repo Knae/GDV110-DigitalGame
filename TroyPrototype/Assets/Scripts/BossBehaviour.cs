@@ -17,21 +17,26 @@ public class BossBehaviour : MonoBehaviour
     [Header("Debug")]
     public bool m_bIsMoving = false;
     public float distance = 0;
-    //private Vector2 m_PositionToPlayer= Vector2.zero;
     public Vector2 m_DirectionToPlayer = Vector2.zero;
  
     void FixedUpdate()
     {
-        BossAnimator.SetFloat("Horizontal",2*m_DirectionToPlayer.x);
+        if(m_DirectionToPlayer.x>0)
+        {
+            BossAnimator.SetBool("FaceLeft",false);
+        }
+        else if(m_DirectionToPlayer.x<0)
+        {
+            BossAnimator.SetBool("FaceLeft", true);
+        }
+
         if(!m_bIsMoving)
         {
             if(CheckIfTooFar())
             {
                 m_bIsMoving = true;
-                //m_PositionToPlayer = Vector2.MoveTowards(transform.position, Player.position, m_fMovementSpd*Time.deltaTime);
-                //BossBody.MovePosition(m_PositionToPlayer);
-                //BossBody.transform.Translate(m_DirectionToPlayer*m_fMovementSpd*Time.deltaTime);\
                 BossBody.MovePosition(BossBody.position + (m_DirectionToPlayer * m_fMovementSpd * Time.deltaTime));
+                BossAnimator.SetFloat("Horizontal", m_DirectionToPlayer.x);
             }
         }
         else
@@ -40,13 +45,12 @@ public class BossBehaviour : MonoBehaviour
             {
                 m_bIsMoving = false;
                 m_DirectionToPlayer = Vector2.zero;
+                BossAnimator.SetFloat("Horizontal", m_DirectionToPlayer.x);
             }
             else
             {
-                //m_PositionToPlayer = Vector2.MoveTowards(transform.position, Player.position, m_fMovementSpd * Time.deltaTime);
-                //BossBody.MovePosition(m_PositionToPlayer);
-                //BossBody.transform.Translate(m_DirectionToPlayer * m_fMovementSpd * Time.deltaTime);
                 BossBody.MovePosition(BossBody.position + (m_DirectionToPlayer * m_fMovementSpd * Time.deltaTime));
+                BossAnimator.SetFloat("Horizontal", m_DirectionToPlayer.x);
             }
         }
     }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2511067316935659117}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePointL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5975061013107749121}
   - component: {fileID: 5236181648781198365}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: sptHvyGunL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,9 +123,9 @@ GameObject:
   - component: {fileID: 2419015696580047658}
   - component: {fileID: 7703728210048747080}
   - component: {fileID: 7534817983014443393}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LeftGun
-  m_TagString: Untagged
+  m_TagString: BossPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -236,7 +236,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2370612729907782792}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WeaponHarness
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +269,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2712046256861803970}
   - component: {fileID: 4019563264231024717}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: sptHvyGunR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,9 +352,9 @@ GameObject:
   - component: {fileID: 2729867288349796265}
   - component: {fileID: 6816060063496464536}
   - component: {fileID: 1946887616854236904}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RightGun
-  m_TagString: Untagged
+  m_TagString: BossPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -465,7 +465,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3314822900867171995}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePointR
   m_TagString: Untagged
   m_Icon: {fileID: 0}

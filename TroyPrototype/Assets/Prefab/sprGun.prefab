@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3304202735012123128}
   - component: {fileID: 4370411510432476081}
   - component: {fileID: 668917839262868222}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: sprGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7119942939825017639}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: gunFirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

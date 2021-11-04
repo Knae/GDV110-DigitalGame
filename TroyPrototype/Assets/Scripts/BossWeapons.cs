@@ -66,7 +66,7 @@ public class BossWeapons : MonoBehaviour
     //private void OnCollisionEnter2D(Collision2D collision)
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 9)
+        if (collision.gameObject.tag == "ProjectilePlayer")
         {
             HP -= collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
             Destroy(collision.gameObject);
@@ -90,9 +90,7 @@ public class BossWeapons : MonoBehaviour
 
     bool CheckIfPlayerInRange()
     {
-        //float distance = Vector3.Distance(enemyBody.transform.position,transform.position);
-        //return distance <= m_fRange;
-        m_fDistanceFromPlayer = Vector3.Distance(enemyBody.position, transform.position);
+        m_fDistanceFromPlayer = Vector3.Distance(enemyBody.position, gunFirePoint.transform.position);
         return m_fDistanceFromPlayer <= m_fRange;
     }
     void GunsAreThinking(bool _playerInRange)
@@ -173,8 +171,9 @@ public class BossWeapons : MonoBehaviour
 
     private bool CheckIfLookingAtPlayer()
     {
-        RaycastHit2D checkSight = Physics2D.Raycast(gunFirePoint.position, gunFirePoint.up, m_fRange+10, ~LayerMask.GetMask("Projectiles"));
-        Debug.DrawRay(gunFirePoint.position, gunFirePoint.up * (m_fRange+10), Color.yellow);
+        int maskIgnoreProjectileAndBoss = (1 << 9) | (1<<10) | (1<<12); 
+        RaycastHit2D checkSight = Physics2D.Raycast(gunFirePoint.position, gunFirePoint.up, m_fRange+10, ~maskIgnoreProjectileAndBoss);
+        //Debug.DrawRay(gunFirePoint.position, gunFirePoint.up * (m_fRange+10), Color.yellow);
         if (checkSight.collider != null && checkSight.collider.gameObject.tag == "Player")
         {
             return true;
