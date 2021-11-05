@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerButlerMovement : MonoBehaviour
 {
@@ -17,7 +18,18 @@ public class PlayerButlerMovement : MonoBehaviour
     public float m_fMoveSpeed = 2.0f;
 
     [Header("Variables")]
-    public float HP = 10;
+   //health system variables
+    public int HP;
+    public int NumOHeart;
+
+    public Image[] hearts;
+    public Sprite fullHearts;
+    public Sprite emptyHearts;
+    //GetDamage
+
+    int damage = 1;
+
+    ////////////////////////////////
     public float angle = 0.0f;
 
     private Vector2 movementvector = new Vector3(0, 0, 0);
@@ -30,6 +42,33 @@ public class PlayerButlerMovement : MonoBehaviour
 
         movementvector.x = Input.GetAxis("Horizontal") * m_fMoveSpeed;
         movementvector.y = Input.GetAxis("Vertical") * m_fMoveSpeed;
+
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            if (HP > NumOHeart) //Keep HP to the maximum they have displayed
+            {
+                HP = NumOHeart;
+            }
+
+            if (i < HP) //Displays full hearts or emptyHearts
+            {
+                hearts[i].sprite = fullHearts;
+            }
+            else
+            {
+                hearts[i].sprite = emptyHearts;
+            }
+
+            if (i < NumOHeart)
+            {
+                hearts[i].enabled = true;
+            }
+            else
+            {
+                hearts[i].enabled = false;
+            }
+        }
+
     }
 
     void FixedUpdate()
@@ -51,10 +90,12 @@ public class PlayerButlerMovement : MonoBehaviour
     {
         if(collision.tag == "ProjectileEnemy")
         {
-            HP -= collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
+            NumOHeart -= damage;
+            NumOHeart -= collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
             Destroy(collision.gameObject);
         }
     }
+
 
     private float FindAngleBetweenPoints(Vector3 _inPointA, Vector3 _inPointB)
     {

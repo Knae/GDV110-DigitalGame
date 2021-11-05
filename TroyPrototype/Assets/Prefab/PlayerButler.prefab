@@ -343,6 +343,10 @@ MonoBehaviour:
   m_bDebugMode: 0
   m_fMoveSpeed: 2
   HP: 10
+  NumOHeart: 0
+  hearts: []
+  fullHearts: {fileID: 0}
+  emptyHearts: {fileID: 0}
   angle: 0
 --- !u!50 &1868311935072767196
 Rigidbody2D:
