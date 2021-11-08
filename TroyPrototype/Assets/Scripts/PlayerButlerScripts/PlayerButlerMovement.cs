@@ -18,14 +18,15 @@ public class PlayerButlerMovement : MonoBehaviour
     public float m_fMoveSpeed = 2.0f;
 
     [Header("Variables")]
-   //health system variables
-    public int HP;
-    public int NumOHeart;
+    //health system variables
+    public HealthBar healthbar;
 
-    public Image[] hearts;
-    public Sprite fullHearts;
-    public Sprite emptyHearts;
-    //GetDamage
+    public int maxHealth = 100;
+    public int currentHealth;
+
+   
+
+   
 
     int damage = 1;
 
@@ -35,6 +36,15 @@ public class PlayerButlerMovement : MonoBehaviour
     private Vector2 movementvector = new Vector3(0, 0, 0);
     private Vector2 mousePos = new Vector3(0, 0, 0);
 
+
+    void Start()
+    {
+        currentHealth = maxHealth;
+        healthbar.SetMaxHealth(maxHealth);
+    }
+
+
+
     // Update is called once per frame
     void Update()
     {
@@ -42,32 +52,6 @@ public class PlayerButlerMovement : MonoBehaviour
 
         movementvector.x = Input.GetAxis("Horizontal") * m_fMoveSpeed;
         movementvector.y = Input.GetAxis("Vertical") * m_fMoveSpeed;
-
-        for (int i = 0; i < hearts.Length; i++)
-        {
-            if (HP > NumOHeart) //Keep HP to the maximum they have displayed
-            {
-                HP = NumOHeart;
-            }
-
-            if (i < HP) //Displays full hearts or emptyHearts
-            {
-                hearts[i].sprite = fullHearts;
-            }
-            else
-            {
-                hearts[i].sprite = emptyHearts;
-            }
-
-            if (i < NumOHeart)
-            {
-                hearts[i].enabled = true;
-            }
-            else
-            {
-                hearts[i].enabled = false;
-            }
-        }
 
     }
 
@@ -90,9 +74,11 @@ public class PlayerButlerMovement : MonoBehaviour
     {
         if(collision.tag == "ProjectileEnemy")
         {
-            NumOHeart -= damage;
-            NumOHeart -= collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
+         
+            currentHealth -= collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
             Destroy(collision.gameObject);
+
+            healthbar.SetHealth(currentHealth);
         }
     }
 
