@@ -31,7 +31,7 @@ public class AINavigation : MonoBehaviour
     {
         agent.SetDestination(m_vec3DestinationPosition);
         float temp = Vector3.Distance(m_vec3DestinationPosition, transform.position);
-        if ( temp <= (agent.stoppingDistance+0.5f))
+        if ( temp <= (agent.stoppingDistance+0.75f))
         {
             m_bReachedLocation = true;
         }

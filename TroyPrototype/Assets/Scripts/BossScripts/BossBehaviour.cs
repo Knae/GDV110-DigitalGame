@@ -25,6 +25,7 @@ public class BossBehaviour : MonoBehaviour
     //If lost sight, then should stop
     [SerializeField] private bool m_bIsMoving = false;
     [SerializeField] private float distance = 0;
+    [SerializeField] private Vector2 bossCurrentSpeed;
     [SerializeField] private Vector2 m_DirectionToPlayer = Vector2.zero;
     [SerializeField] private bool m_bPlayerSighted = false;
     [SerializeField] private bool m_bWander;
@@ -47,6 +48,7 @@ public class BossBehaviour : MonoBehaviour
 
     private void FixedUpdate()
     {
+        m_navMeshAgent.speed = m_fMovementSpd;
         BossBody.velocity = Vector2.zero;
 
         if (m_ScriptAINavigate == null)
@@ -95,6 +97,15 @@ public class BossBehaviour : MonoBehaviour
         {
             m_ScriptAINavigate.enabled = true;
             m_navMeshAgent.enabled = true;
+            bossCurrentSpeed = m_navMeshAgent.velocity;
+            if(bossCurrentSpeed.magnitude > 1 )
+            {
+                BossAnimator.SetFloat("Horizontal", bossCurrentSpeed.x + Mathf.Abs(bossCurrentSpeed.y));
+            }
+            else
+            {
+                BossAnimator.SetFloat("Horizontal", 0);
+            }
         }
             
     }
@@ -162,6 +173,8 @@ public class BossBehaviour : MonoBehaviour
                 m_bWander = false;
                 m_fTimePlayerOutOfSight = 0;
                 StopCoroutine(GoToLastKnowLocation());
+                //m_fTimePlayerOutOfSight = 0;
+                print("Found player, moving to where player is.");
             }
             else if(m_bPlayerSighted)
             {
@@ -191,11 +204,14 @@ public class BossBehaviour : MonoBehaviour
         if(m_ScriptAINavigate.GetIfReachedPosition())
         {
             m_bIsMoving = false;
-            BossAnimator.SetFloat("Horizontal", 0);
             print("Reached last known location. Waiting....");
-            while ( /*!(m_bPlayerSighted) && */(m_fTimePlayerOutOfSight < m_fDelayAfterLosingSight) )
+            float delay = 0f;
+            //while ( /*!(m_bPlayerSighted) && */(m_fTimePlayerOutOfSight < m_fDelayAfterLosingSight) )
+            while ( /*!(m_bPlayerSighted) && */(delay < m_fDelayAfterLosingSight))
             {
-                m_fTimePlayerOutOfSight += 1 * Time.deltaTime;
+                //m_fTimePlayerOutOfSight += 1 * Time.deltaTime;
+                //BossAnimator.SetFloat("Horizontal", 0);
+                delay += 1 * Time.deltaTime;
                 yield return null;
             }
 
@@ -221,7 +237,6 @@ public class BossBehaviour : MonoBehaviour
         Vector2 chosenPatrolPoint = Vector2.zero;
         if( m_WanderSpot.Length > 0 )
         {
-            print("Start Wandering...");
             print("Start Wandering...");
             WaitForSeconds delay = new WaitForSeconds(3);
             while (!m_bPlayerSighted)

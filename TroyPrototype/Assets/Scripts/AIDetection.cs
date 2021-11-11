@@ -15,7 +15,7 @@ public class AIDetection : MonoBehaviour
         m_bPlayerInRange = false;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if(m_bPlayerInRange)
         {
@@ -24,7 +24,12 @@ public class AIDetection : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    m_bPlayerInRange = true;
+    //}
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
         m_bPlayerInRange = true;
     }

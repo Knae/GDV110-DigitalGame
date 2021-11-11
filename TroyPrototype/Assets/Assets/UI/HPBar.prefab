@@ -183,10 +183,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6400965754896276251}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74fd352d5a504ed4397778ca66c5bc34, type: 3}
+  m_Script: {fileID: 11500000, guid: 857ce7a31f7e965418b5040b400f4eee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Slider: {fileID: 0}
+  slider: {fileID: 6400965755912714233}
   Low: {r: 0, g: 0, b: 0, a: 0}
   High: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &6400965755319012742

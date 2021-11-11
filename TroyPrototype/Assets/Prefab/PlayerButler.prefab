@@ -299,6 +299,7 @@ GameObject:
   - component: {fileID: 1868311935072767196}
   - component: {fileID: 2544290109831210130}
   - component: {fileID: 4136934129786803736}
+  - component: {fileID: 1382202931498083884}
   m_Layer: 11
   m_Name: PlayerButler
   m_TagString: Player
@@ -340,9 +341,8 @@ MonoBehaviour:
   playerTorsoAnimator: {fileID: 1868311933991894937}
   playerLegsAnimator: {fileID: 1868311934786901440}
   gameCam: {fileID: 0}
-  m_bDebugMode: 0
-  m_fMoveSpeed: 2
   healthbar: {fileID: 0}
+  m_fMoveSpeed: 2
   maxHealth: 100
   currentHealth: 0
   angle: 0
@@ -396,6 +396,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueUI: {fileID: 0}
+--- !u!114 &1382202931498083884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868311935072767184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14d0898dad3a18744a2197aefcd62d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorArrow: {fileID: 2800000, guid: 40890d93e320f104e98ab4131ad31fc1, type: 3}
 --- !u!82 &3214854272504894405
 AudioSource:
   m_ObjectHideFlags: 0
