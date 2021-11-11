@@ -15,16 +15,14 @@ public class DialogueActivator : MonoBehaviour, IInteractable
         {
             DialogueDisplay.ShowDialogue(dialogueObject);
         }
+
+
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player")/* && other.TryGetComponent(out PlayerDialog player)*/)
         {
-            //if (player.Interactable is DialogueActivator dialogueActivator && dialogueActivator == this)
-            //{
-            //    player.Interactable = null;
-            //}
             bDialogueDone = true;
         }
     }

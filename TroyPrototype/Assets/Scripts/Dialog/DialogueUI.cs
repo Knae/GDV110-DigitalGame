@@ -30,7 +30,7 @@ public class DialogueUI : MonoBehaviour
 
     private IEnumerator StepThroughDialogue(DialogueObject dialogueObject)
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.1f);
 
         foreach (string dialogue in dialogueObject.Dialogue)
         {
@@ -46,5 +46,11 @@ public class DialogueUI : MonoBehaviour
         IsOpen = false;
         dialogueBox.SetActive(false);
         textLabel.text = string.Empty;
+
+        GameObject pauseObject = GameObject.Find("PauseSystem");
+        Pause pauseScript = pauseObject.GetComponent<Pause>();
+        pauseScript.isPaused = false;
+        pauseScript.isAlreadyPaused = false;
+
     }
 }

@@ -18,6 +18,11 @@ public class TypewriterEffect : MonoBehaviour
 
     private IEnumerator TypeText(string textToType, TMP_Text textLabel)
     {
+        GameObject pauseObject = GameObject.Find("PauseSystem");
+        Pause pauseScript = pauseObject.GetComponent<Pause>();
+        pauseScript.isPaused = true;
+        pauseScript.isAlreadyPaused = true;
+
         textLabel.text = string.Empty;
         //yield return new WaitForSeconds(1);
 
@@ -27,7 +32,7 @@ public class TypewriterEffect : MonoBehaviour
 
         while (charIndex < textToType.Length)
         {
-            t += Time.deltaTime * typewriterSpeed;
+            t += Time.unscaledDeltaTime * typewriterSpeed;
             charIndex = Mathf.FloorToInt(t);
             charIndex = Mathf.Clamp(charIndex, 0, textToType.Length);
 

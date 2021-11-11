@@ -10,4 +10,5 @@ public class DialogueObject : ScriptableObject
     public string[] Dialogue => dialogue;
 
 
+
 }
