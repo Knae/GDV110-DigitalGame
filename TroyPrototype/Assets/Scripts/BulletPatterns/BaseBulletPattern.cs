@@ -23,6 +23,9 @@ public class BaseBulletPattern : MonoBehaviour
     protected float m_fFiringDelay;
     protected float m_fBulletDamage;
 
+    public AudioSource source;
+    public AudioClip clip;
+
     protected virtual void Awake()
     {
         m_fBulletForce = m_fBulletForceBase;
@@ -48,6 +51,7 @@ public class BaseBulletPattern : MonoBehaviour
             Rigidbody2D newBulletBody = newBullet.GetComponent<Rigidbody2D>();
             newBulletBody.AddForce(gunFirePoint.up * m_fBulletForce, ForceMode2D.Impulse);
             m_fCounterTime = 0.0f;
+            source.PlayOneShot(clip);
         }
         return true;
     }
