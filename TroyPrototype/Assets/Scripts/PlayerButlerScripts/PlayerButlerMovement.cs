@@ -33,8 +33,6 @@ public class PlayerButlerMovement : MonoBehaviour
         healthbar.SetMaxHealth(maxHealth);
     }
 
-
-
     // Update is called once per frame
     void Update()
     {

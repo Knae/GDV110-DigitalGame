@@ -8,20 +8,20 @@ public class BaseBulletPattern : MonoBehaviour
     public Transform gunFirePoint;
     public GameObject projectilePrefab;
 
-    [Header(" Weapon Settings")]
+    [Header("Base Weapon Values")]
     public float m_fBulletForceBase = 2.0f;
     public float m_fFiringDelayBase = 0.5f;
     public float m_fDamageBase = 1f;
-    public float m_fRange = 3.0f;
-    public bool m_bUsedByAI = false;
-    public int m_iTotalAmmo = 20;
 
-
-    protected int m_iCurrentAmmoCount = 0;
-    protected float m_fCounterTime = 0.0f;
-    protected float m_fBulletForce;
-    protected float m_fFiringDelay;
-    protected float m_fBulletDamage;
+    [Header("Debug Variables")]
+    [SerializeField] protected float m_fRange = 3.0f;
+    [SerializeField] protected bool m_bUsedByAI = false;
+    [SerializeField] protected int m_iTotalAmmo = 20;
+    [SerializeField] protected int m_iCurrentAmmoCount = 0;
+    [SerializeField] protected float m_fCounterTime = 0.0f;
+    [SerializeField] protected float m_fBulletForce;
+    [SerializeField] protected float m_fFiringDelay;
+    [SerializeField] protected float m_fBulletDamage;
 
     public AudioSource source;
     public AudioClip clip;
@@ -51,7 +51,10 @@ public class BaseBulletPattern : MonoBehaviour
             Rigidbody2D newBulletBody = newBullet.GetComponent<Rigidbody2D>();
             newBulletBody.AddForce(gunFirePoint.up * m_fBulletForce, ForceMode2D.Impulse);
             m_fCounterTime = 0.0f;
-            source.PlayOneShot(clip);
+            if (source != null)
+            {
+                source.PlayOneShot(clip);
+            }
         }
         return true;
     }

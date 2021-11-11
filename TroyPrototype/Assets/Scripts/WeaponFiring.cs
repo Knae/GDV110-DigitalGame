@@ -9,13 +9,15 @@ public class WeaponFiring : MonoBehaviour
         NONE,
         BASIC,
         SPRAY,
-        STREAM
+        STREAM,
+        REPEATER
     }
     private WEAPONMODE m_iCurrentWeaponMode = WEAPONMODE.BASIC;
     private BaseBulletPattern m_refCurrentPattern;
     private BulletPatternBasic m_refBulletBasicPattern;
     private BulletPatternSpray m_refBulletSprayPattern;
     private BulletPatternStream m_refBulletStreamPattern;
+    private BulletPatternRepeater m_refBulletRepeaterPattern;
 
     private void Start()
     {
@@ -24,6 +26,7 @@ public class WeaponFiring : MonoBehaviour
         m_refBulletSprayPattern = GetComponent<BulletPatternSpray>();
         m_refBulletBasicPattern = GetComponent<BulletPatternBasic>();
         m_refBulletStreamPattern = GetComponent<BulletPatternStream>();
+        m_refBulletRepeaterPattern = GetComponent<BulletPatternRepeater>();
         ChangeWeaponMode(m_refBulletBasicPattern);
     }
 
@@ -43,17 +46,22 @@ public class WeaponFiring : MonoBehaviour
             {
                 case WEAPONMODE.BASIC:
                 {
-                        SetWeaponToSpray();
+                    SetWeaponToSpray();
                     break;
                 }
                 case WEAPONMODE.SPRAY:
                 {
-                        SetWeaponToStream();
+                    SetWeaponToStream();
                     break;
                 }
                 case WEAPONMODE.STREAM:
                 {
-                        SetWeaponToBasic();
+                    SetWeaponToRepeater();
+                    break;
+                }
+                case WEAPONMODE.REPEATER:
+                {
+                    SetWeaponToBasic();
                     break;
                 }
                 default:
@@ -80,6 +88,13 @@ public class WeaponFiring : MonoBehaviour
         ChangeWeaponMode(m_refBulletStreamPattern);
 
         m_iCurrentWeaponMode = WEAPONMODE.STREAM;
+    }
+
+    public void SetWeaponToRepeater()
+    {
+        ChangeWeaponMode(m_refBulletRepeaterPattern);
+
+        m_iCurrentWeaponMode = WEAPONMODE.REPEATER;
     }
 
     public void SetWeaponToBasic()
