@@ -10,28 +10,18 @@ public class PlayerButlerMovement : MonoBehaviour
     public Animator playerTorsoAnimator;
     public Animator playerLegsAnimator;
     public Camera gameCam;
-
-    [Header("Debug")]
-    public bool m_bDebugMode = false;
-
-    [Header("Movement")]
-    public float m_fMoveSpeed = 2.0f;
-
-    [Header("Variables")]
-    //health system variables
     public HealthBar healthbar;
 
-    public int maxHealth = 100;
-    public int currentHealth;
+    //[Header("Debug")]
+    //[SerializeField] private bool m_bDebugMode = false;
 
-   
+    [Header("Movement")]
+    [SerializeField] private float m_fMoveSpeed = 2.0f;
 
-   
-
-    int damage = 1;
-
-    ////////////////////////////////
-    public float angle = 0.0f;
+    [Header("Variables")]
+    [SerializeField] private int maxHealth = 100;
+    [SerializeField] private int currentHealth;
+    [SerializeField] private float angle = 0.0f;
 
     private Vector2 movementvector = new Vector3(0, 0, 0);
     private Vector2 mousePos = new Vector3(0, 0, 0);
@@ -52,7 +42,6 @@ public class PlayerButlerMovement : MonoBehaviour
 
         movementvector.x = Input.GetAxis("Horizontal") * m_fMoveSpeed;
         movementvector.y = Input.GetAxis("Vertical") * m_fMoveSpeed;
-
     }
 
     void FixedUpdate()
