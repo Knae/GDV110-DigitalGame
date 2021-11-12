@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class BulletLifetime : MonoBehaviour
 {
-    public float m_fRange = 5.0f;
     public CircleCollider2D thisBulletCollider;
 
     [Header("BulletSettings")]
-    private int m_iDamage = 1;
-    private Vector3 m_PrevPos = Vector3.zero;
-    private float m_fDistanceTraveled = 0f;
+    [SerializeField] private int m_iDamage = 1;
+    [SerializeField] private float m_fRange = 0.0f;
+    [SerializeField] private float m_fDistanceTraveled = 0f;
+    [SerializeField] private Vector3 m_PrevPos = Vector3.zero;
 
     private void Awake()
     {
@@ -25,7 +25,7 @@ public class BulletLifetime : MonoBehaviour
         if (m_fRange<0)
         {
             Destroy(gameObject);
-        }
+        }        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,6 +36,11 @@ public class BulletLifetime : MonoBehaviour
             Destroy(gameObject);
         }
         else if(collision.gameObject.layer == LayerMask.GetMask("Projectiles"))
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+        else if (collision.tag == "EnemyProjectiles" || collision.tag == "PlayerProjectiles")
         {
             Destroy(collision.gameObject);
             Destroy(gameObject);

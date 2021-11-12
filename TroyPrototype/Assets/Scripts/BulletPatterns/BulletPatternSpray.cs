@@ -19,10 +19,7 @@ public class BulletPatternSpray : BaseBulletPattern
 
     protected override void Awake()
     {
-        m_fFiringDelay = m_fFiringDelay_Spray;
-        m_fBulletDamage = m_fPelletDamage;
-        m_iTotalAmmo = m_fMaxAmmo_Spray;
-        m_iCurrentAmmoCount = m_iTotalAmmo;
+        ResetSettings();
     }
 
     protected override void FixedUpdate()
@@ -34,7 +31,7 @@ public class BulletPatternSpray : BaseBulletPattern
     {
         if(m_iCurrentAmmoCount > 0 || m_bUsedByAI)
         {
-            if (m_fCounterTime >= m_fFiringDelay)
+            if (m_fCounterTime >= m_fTimeBetweenShots)
             {
                 while (m_iPelletsCreated <= m_iNumberOfPelletsToCreate)
                 {
@@ -58,8 +55,16 @@ public class BulletPatternSpray : BaseBulletPattern
         }
     }
 
-    public override void Reset()
+    public override void ResetAmmo()
     {
-        base.Reset();
+        base.ResetAmmo();
+    }
+
+    public override void ResetSettings()
+    {
+        m_fTimeBetweenShots = m_fFiringDelay_Spray;
+        m_fBulletDamage = m_fPelletDamage;
+        m_iTotalAmmo = m_fMaxAmmo_Spray;
+        m_iCurrentAmmoCount = m_iTotalAmmo;
     }
 }

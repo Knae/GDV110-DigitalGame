@@ -12,9 +12,6 @@ public class PlayerButlerMovement : MonoBehaviour
     public Camera gameCam;
     public HealthBar healthbar;
 
-    //[Header("Debug")]
-    //[SerializeField] private bool m_bDebugMode = false;
-
     [Header("Movement")]
     [SerializeField] private float m_fMoveSpeed = 2.0f;
 
@@ -22,6 +19,10 @@ public class PlayerButlerMovement : MonoBehaviour
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private int currentHealth;
     [SerializeField] private float angle = 0.0f;
+
+    [Header("Debug")]
+    //[SerializeField] private bool m_bDebugMode = false;
+    [SerializeField] private bool m_bGodMode = true;
 
     private Vector2 movementvector = new Vector3(0, 0, 0);
     private Vector2 mousePos = new Vector3(0, 0, 0);
@@ -36,6 +37,8 @@ public class PlayerButlerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        healthbar.SetHealth(currentHealth);
         mousePos = gameCam.ScreenToWorldPoint(Input.mousePosition);
 
         movementvector.x = Input.GetAxis("Horizontal") * m_fMoveSpeed;
@@ -61,11 +64,12 @@ public class PlayerButlerMovement : MonoBehaviour
     {
         if(collision.tag == "ProjectileEnemy")
         {
-         
-            currentHealth -= collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
-            Destroy(collision.gameObject);
 
-            healthbar.SetHealth(currentHealth);
+            if (!m_bGodMode)
+            {
+                currentHealth -= collision.gameObject.GetComponent<BulletLifetime>().GetDamage(); 
+            }
+            Destroy(collision.gameObject);
         }
     }
 

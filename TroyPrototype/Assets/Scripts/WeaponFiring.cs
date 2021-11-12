@@ -12,7 +12,10 @@ public class WeaponFiring : MonoBehaviour
         STREAM,
         REPEATER
     }
-    private WEAPONMODE m_iCurrentWeaponMode = WEAPONMODE.BASIC;
+
+    [Header("Debug")]
+    [SerializeField] private WEAPONMODE m_iCurrentWeaponMode = WEAPONMODE.BASIC;
+
     private BaseBulletPattern m_refCurrentPattern;
     private BulletPatternBasic m_refBulletBasicPattern;
     private BulletPatternSpray m_refBulletSprayPattern;
@@ -75,7 +78,7 @@ public class WeaponFiring : MonoBehaviour
     private void ChangeWeaponMode(BaseBulletPattern _inputPattern)
     {
         m_refCurrentPattern = _inputPattern;
-        m_refCurrentPattern.Reset();
+        m_refCurrentPattern.ResetAmmo();
     }
 
     public void SetWeaponToSpray()

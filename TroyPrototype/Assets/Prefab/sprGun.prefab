@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54a3daef9942f2b40a15c236cba88142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_iCurrentWeaponMode: 1
 --- !u!114 &3304202735012123128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,7 +125,7 @@ MonoBehaviour:
   m_iCurrentAmmoCount: 0
   m_fCounterTime: 0
   m_fBulletForce: 0
-  m_fFiringDelay: 0
+  m_fTimeBetweenShots: 0
   m_fBulletDamage: 0
   source: {fileID: 0}
   clip: {fileID: 0}
@@ -152,7 +153,7 @@ MonoBehaviour:
   m_iCurrentAmmoCount: 0
   m_fCounterTime: 0
   m_fBulletForce: 0
-  m_fFiringDelay: 0
+  m_fTimeBetweenShots: 0
   m_fBulletDamage: 0
   source: {fileID: 0}
   clip: {fileID: 0}
@@ -189,7 +190,7 @@ MonoBehaviour:
   m_iCurrentAmmoCount: 0
   m_fCounterTime: 0
   m_fBulletForce: 0
-  m_fFiringDelay: 0
+  m_fTimeBetweenShots: 0
   m_fBulletDamage: 0
   source: {fileID: 0}
   clip: {fileID: 0}
@@ -222,24 +223,31 @@ MonoBehaviour:
   m_fBulletForceBase: 2
   m_fFiringDelayBase: 0.5
   m_fDamageBase: 1
-  m_fRange: 3
+  m_fRange: 1000
   m_bUsedByAI: 0
   m_iTotalAmmo: 20
-  m_iCurrentAmmoCount: 20
+  m_iCurrentAmmoCount: 0
   m_fCounterTime: 0
   m_fBulletForce: 0
-  m_fFiringDelay: 0
+  m_fTimeBetweenShots: 0
   m_fBulletDamage: 0
   source: {fileID: 0}
   clip: {fileID: 0}
   m_fScatterRange: 0.15
-  m_fRepeaterRange: 8
+  m_fRepeaterRange: 1000
   m_fBulletForce_Repeater: 5
-  m_fFiringDelay_Repeater: 0.1
+  m_fTimeBetweenShots_Repeater: 0.1
+  m_fWindupTime: 0
   m_fFiringTime: 1.5
   m_fFiringCooldown: 0.5
   m_fBulletDamage_Repeater: 0.5
   m_iTotalAmmo_Repeater: 400
+  m_bHasCooldown: 0
+  m_bIsOnDelay: 0
+  m_bIsOnCooldown: 0
+  m_bWasFiring: 0
+  m_fTimeAfterLastShot: 0
+  m_eCurrentState: 1
 --- !u!82 &1354256240459482672
 AudioSource:
   m_ObjectHideFlags: 0

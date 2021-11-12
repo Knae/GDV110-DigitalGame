@@ -23,11 +23,7 @@ public class BulletPatternStream : BaseBulletPattern
 
     protected override void Awake()
     {
-        m_fBulletForce = m_fBulletForce_Stream;
-        m_fFiringDelay = 0f;
-        m_fBulletDamage = m_fPelletDamage;
-        m_iTotalAmmo = m_iTotalAmmo_Stream;
-        m_iCurrentAmmoCount = m_iTotalAmmo;
+        ResetSettings();
     }
 
     protected override void FixedUpdate()
@@ -97,8 +93,17 @@ public class BulletPatternStream : BaseBulletPattern
         }
     }
 
-    public override void Reset()
+    public override void ResetAmmo()
     {
-        base.Reset();
+        base.ResetAmmo();
+    }
+
+    public override void ResetSettings()
+    {
+        m_fBulletForce = m_fBulletForce_Stream;
+        m_fTimeBetweenShots = 0f;
+        m_fBulletDamage = m_fPelletDamage;
+        m_iTotalAmmo = m_iTotalAmmo_Stream;
+        m_iCurrentAmmoCount = m_iTotalAmmo;
     }
 }

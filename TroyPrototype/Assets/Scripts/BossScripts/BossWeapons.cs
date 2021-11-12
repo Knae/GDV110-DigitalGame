@@ -9,7 +9,7 @@ public class BossWeapons : MonoBehaviour
     public GameObject gunBody;
     public Transform gunFirePoint;
     public GameObject projectilePrefab;
-    [Header("Weapon Stats")]
+    [Header("Weapon Stats - old")]
     [SerializeField] private int HP = 50;
     [SerializeField] private float m_fDestroyedAngle = 90.0f;
     [SerializeField] private float m_fBulletForce = 1.5f;
@@ -17,7 +17,22 @@ public class BossWeapons : MonoBehaviour
     [SerializeField] private float m_fFiringCooldown = 2.0f;
     [SerializeField] private float m_fFiringDelay = 0.2f;
     [SerializeField] private float m_fRange = 1.0f;
+    [Header("Weapon Stats - new")]
+    [SerializeField] private BulletPatternRepeater m_refRepeaterGun_Boss;
+    [SerializeField] private float m_fFiringPeriod_Repeater = 4.0f;
+    [SerializeField] private float m_fFiringCooldown_Repeater = 0.5f;
+    [SerializeField] private float m_fDamage_Repeater = 0.5f;
+    //[SerializeField] private BulletPatternSpray m_refShotgun_Boss;
+    //[SerializeField] private float m_fFiringDelay_Shotgun = 1.2f;
+    //[SerializeField] private float m_fDamage_ShotgunPellet = 0.2f;
+    [SerializeField] private BulletPatternStream m_refFlameStreamGun_Boss;
+    [SerializeField] private float m_fFiringTime_Stream = 1.5f;
+    [SerializeField] private float m_fFiringCooldown_Streaam = 0.5f;
+    [SerializeField] private float m_fDamage_StreamPellet = 0.02f;
+    [SerializeField] private BaseBulletPattern m_refCurrentPattern;
+
     [Header("Debug Variables")]
+    [SerializeField] private bool m_bEnableFiringTime;
     [SerializeField] private float m_fAngle = 0f;
     [SerializeField] private float m_fAngleToTarget = 0f;
     [SerializeField] private float m_fDistanceFromPlayer = 0f;
@@ -40,7 +55,14 @@ public class BossWeapons : MonoBehaviour
 
     private void Start()
     {
+        m_refRepeaterGun_Boss = GetComponent<BulletPatternRepeater>();
+        m_refRepeaterGun_Boss.m_fFiringTime =  m_fFiringPeriod_Repeater;
+        m_refRepeaterGun_Boss.m_fFiringCooldown = m_fFiringCooldown_Repeater;
+        m_refRepeaterGun_Boss.m_fBulletDamage_Repeater = m_fDamage_Repeater;
+
         m_ScriptParentBehaviour = bossBody.GetComponent<BossBehaviour>();
+        //m_refShotgun_Boss = GetComponent<BulletPatternSpray>();
+        m_refFlameStreamGun_Boss = GetComponent<BulletPatternStream>();
     }
 
     // Update is called once per frame
@@ -55,20 +77,23 @@ public class BossWeapons : MonoBehaviour
             m_bFacingEnemy = FaceGunsToEnemy();
 
             m_fCurrentDelay += 1.0f * Time.deltaTime;
-            if (currentState == STATES.FIRING)
+            if (m_bEnableFiringTime)
             {
-                m_fFiringTime += 1 * Time.deltaTime;
-            }
-            else if (currentState == STATES.NOTFIRING)
-            {
-                if (m_fFiringTime > 0)
+                if (currentState == STATES.FIRING)
                 {
-                    m_fFiringTime -= 1 * Time.deltaTime;
-                    if (m_fFiringTime < 0)
-                    {
-                        m_fFiringTime = 0;
-                    }
+                    m_fFiringTime += 1 * Time.deltaTime;
                 }
+                else if (currentState == STATES.NOTFIRING)
+                {
+                    if (m_fFiringTime > 0)
+                    {
+                        m_fFiringTime -= 1 * Time.deltaTime;
+                        if (m_fFiringTime < 0)
+                        {
+                            m_fFiringTime = 0;
+                        }
+                    }
+                } 
             }
         }
     }
@@ -90,12 +115,13 @@ public class BossWeapons : MonoBehaviour
 
     void fireWeapon()
     {
-        if (m_fCurrentDelay >= m_fFiringDelay)
-        {
-            GameObject newBullet = Instantiate(projectilePrefab, gunFirePoint.position, gunFirePoint.rotation);
-            Rigidbody2D newBulletBody = newBullet.GetComponent<Rigidbody2D>();
-            newBulletBody.AddForce(gunFirePoint.up * m_fBulletForce, ForceMode2D.Impulse);
-        }
+        m_refCurrentPattern.fireProjectiles();
+        //if (m_fCurrentDelay >= m_fFiringDelay)
+        //{
+        //    GameObject newBullet = Instantiate(projectilePrefab, gunFirePoint.position, gunFirePoint.rotation);
+        //    Rigidbody2D newBulletBody = newBullet.GetComponent<Rigidbody2D>();
+        //    newBulletBody.AddForce(gunFirePoint.up * m_fBulletForce, ForceMode2D.Impulse);
+        //}
     }
 
     bool CheckIfPlayerInRange()
@@ -204,5 +230,10 @@ public class BossWeapons : MonoBehaviour
         {
             return false;
         }
+    }
+
+    public void ChangeWeaponPattern()
+    {
+
     }
 }

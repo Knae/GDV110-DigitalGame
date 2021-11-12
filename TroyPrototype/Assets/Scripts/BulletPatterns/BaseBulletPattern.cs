@@ -14,13 +14,13 @@ public class BaseBulletPattern : MonoBehaviour
     public float m_fDamageBase = 1f;
 
     [Header("Debug Variables")]
-    [SerializeField] protected float m_fRange = 3.0f;
+    [SerializeField] protected float m_fRange = 1000.0f;
     [SerializeField] protected bool m_bUsedByAI = false;
     [SerializeField] protected int m_iTotalAmmo = 20;
     [SerializeField] protected int m_iCurrentAmmoCount = 0;
     [SerializeField] protected float m_fCounterTime = 0.0f;
     [SerializeField] protected float m_fBulletForce;
-    [SerializeField] protected float m_fFiringDelay;
+    [SerializeField] protected float m_fTimeBetweenShots;
     [SerializeField] protected float m_fBulletDamage;
 
     public AudioSource source;
@@ -28,15 +28,12 @@ public class BaseBulletPattern : MonoBehaviour
 
     protected virtual void Awake()
     {
-        m_fBulletForce = m_fBulletForceBase;
-        m_fFiringDelay = m_fFiringDelayBase;
-        m_fBulletDamage = m_fDamageBase;
-        m_iCurrentAmmoCount = m_iTotalAmmo;
+        ResetSettings();
     }
 
     protected virtual void FixedUpdate()
     {
-        if (m_fCounterTime <= m_fFiringDelay)
+        if (m_fCounterTime <= m_fTimeBetweenShots)
         {
             m_fCounterTime += 1.0f * Time.deltaTime;
         }
@@ -44,7 +41,7 @@ public class BaseBulletPattern : MonoBehaviour
 
     public virtual bool fireProjectiles()
     {
-        if (m_fCounterTime >= m_fFiringDelay)
+        if (m_fCounterTime >= m_fTimeBetweenShots)
         {
             GameObject newBullet = Instantiate(projectilePrefab, gunFirePoint.position, gunFirePoint.rotation);
             newBullet.GetComponent<BulletLifetime>().SetBulletRange(m_fRange);
@@ -74,8 +71,16 @@ public class BaseBulletPattern : MonoBehaviour
         m_bUsedByAI = false;
     }
 
-    public virtual void Reset()
+    public virtual void ResetAmmo()
     {
+        m_iCurrentAmmoCount = m_iTotalAmmo;
+    }
+
+    public virtual void ResetSettings()
+    {
+        m_fBulletForce = m_fBulletForceBase;
+        m_fTimeBetweenShots = m_fFiringDelayBase;
+        m_fBulletDamage = m_fDamageBase;
         m_iCurrentAmmoCount = m_iTotalAmmo;
     }
 }
