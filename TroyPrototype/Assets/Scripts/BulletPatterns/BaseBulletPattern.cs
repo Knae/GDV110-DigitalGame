@@ -14,7 +14,7 @@ public class BaseBulletPattern : MonoBehaviour
     public float m_fDamageBase = 1f;
     public float m_fRange = 3.0f;
     public bool m_bUsedByAI = false;
-    public int m_iTotalAmmo = 20;
+    public int m_iTotalAmmo = 99;
 
 
     protected int m_iCurrentAmmoCount = 0;
@@ -74,5 +74,10 @@ public class BaseBulletPattern : MonoBehaviour
     public virtual void Reset()
     {
         m_iCurrentAmmoCount = m_iTotalAmmo;
+    }
+
+    public virtual int GetCurrentAmmoLeft()
+    {
+        return m_iCurrentAmmoCount;
     }
 }

@@ -11,6 +11,10 @@ public class WeaponFiring : MonoBehaviour
         SPRAY,
         STREAM
     }
+
+    [Header("Debug")]
+    [SerializeField] private int m_iAmmoLeft = 0;
+
     private WEAPONMODE m_iCurrentWeaponMode = WEAPONMODE.BASIC;
     private BaseBulletPattern m_refCurrentPattern;
     private BulletPatternBasic m_refBulletBasicPattern;
@@ -30,6 +34,8 @@ public class WeaponFiring : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        m_iAmmoLeft = GetAmmoLeft();
+
         if (Input.GetButton("Fire1"))
         {
             if(!m_refCurrentPattern.fireProjectiles())
@@ -88,4 +94,8 @@ public class WeaponFiring : MonoBehaviour
         m_iCurrentWeaponMode = WEAPONMODE.BASIC;
     }
 
+    public int GetAmmoLeft()
+    {
+        return m_refCurrentPattern.GetCurrentAmmoLeft();
+    }
 }
