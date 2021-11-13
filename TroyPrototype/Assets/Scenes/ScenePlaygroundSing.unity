@@ -108846,6 +108846,16 @@ PrefabInstance:
       propertyPath: m_fMovementSpd
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5604973516097121996, guid: fb38649e31ab3af498e551b5b394d819,
+        type: 3}
+      propertyPath: enemyBody
+      value: 
+      objectReference: {fileID: 1609806443}
+    - target: {fileID: 8520865963710626543, guid: fb38649e31ab3af498e551b5b394d819,
+        type: 3}
+      propertyPath: enemyBody
+      value: 
+      objectReference: {fileID: 1609806443}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb38649e31ab3af498e551b5b394d819, type: 3}
 --- !u!114 &1875251851 stripped
