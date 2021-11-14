@@ -105,5 +105,6 @@ public class BulletPatternStream : BaseBulletPattern
         m_fBulletDamage = m_fPelletDamage;
         m_iTotalAmmo = m_iTotalAmmo_Stream;
         m_iCurrentAmmoCount = m_iTotalAmmo;
+        m_fRange = m_fPelletRangeMax;
     }
 }

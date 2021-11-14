@@ -66,5 +66,6 @@ public class BulletPatternSpray : BaseBulletPattern
         m_fBulletDamage = m_fPelletDamage;
         m_iTotalAmmo = m_fMaxAmmo_Spray;
         m_iCurrentAmmoCount = m_iTotalAmmo;
+        m_fRange = m_fPelletRangeMax;
     }
 }

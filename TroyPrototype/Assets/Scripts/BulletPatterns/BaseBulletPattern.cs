@@ -61,6 +61,11 @@ public class BaseBulletPattern : MonoBehaviour
         return m_fBulletDamage;
     }
 
+    public virtual float GetRange()
+    {
+        return m_fRange;
+    }
+
     public virtual void SetAsUsedByAI()
     {
         m_bUsedByAI = true;

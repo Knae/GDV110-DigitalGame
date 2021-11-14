@@ -200,6 +200,7 @@ public class BulletPatternRepeater : BaseBulletPattern
         m_fBulletDamage = m_fBulletDamage_Repeater;
         m_iTotalAmmo = m_iTotalAmmo_Repeater;
         m_iCurrentAmmoCount = m_iTotalAmmo;
+        m_fRange = m_fRepeaterRange;
         //m_bIsOnDelay = false;
     }
 }

@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class BossBehaviour : MonoBehaviour
 {
-    public Rigidbody2D BossBody;
-    public Rigidbody2D Player;
-    public Animator BossAnimator; 
+    public Rigidbody2D m_rgdbdyBossBody;
+    public Rigidbody2D m_rgdbdyPlayer;
+    public Animator m_animrBossAnimator;
+    public SpriteRenderer m_sprtrRenderer;
 
     [Header("Behaviour Constants")]
     [SerializeField] private float HP = 15f;
@@ -46,11 +47,8 @@ public class BossBehaviour : MonoBehaviour
         m_bWander = true;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        m_navMeshAgent.speed = m_fMovementSpd;
-        BossBody.velocity = Vector2.zero;
-
         if (m_ScriptAINavigate == null)
         {
             m_bUseNavMesh = false;
@@ -58,12 +56,20 @@ public class BossBehaviour : MonoBehaviour
 
         if (m_DirectionToPlayer.x > 0)
         {
-            BossAnimator.SetBool("FaceLeft", false);
+            m_animrBossAnimator.SetBool("FaceLeft", false);
+            m_sprtrRenderer.flipX = true;
         }
         else if (m_DirectionToPlayer.x < 0)
         {
-            BossAnimator.SetBool("FaceLeft", true);
+            m_animrBossAnimator.SetBool("FaceLeft", true);
+            m_sprtrRenderer.flipX = false;
         }
+    }
+
+    private void FixedUpdate()
+    {
+        m_navMeshAgent.speed = m_fMovementSpd;
+        m_rgdbdyBossBody.velocity = Vector2.zero;
 
         if(!m_bUseNavMesh)
         {
@@ -74,8 +80,8 @@ public class BossBehaviour : MonoBehaviour
                 if (CheckIfTooFar())
                 {
                     //m_bIsMoving = true;
-                    BossBody.MovePosition(BossBody.position + (m_DirectionToPlayer * m_fMovementSpd * Time.deltaTime));
-                    BossAnimator.SetFloat("Horizontal", m_DirectionToPlayer.x);
+                    m_rgdbdyBossBody.MovePosition(m_rgdbdyBossBody.position + (m_DirectionToPlayer * m_fMovementSpd * Time.deltaTime));
+                    m_animrBossAnimator.SetFloat("Horizontal", m_DirectionToPlayer.x);
                 }
             }
             else
@@ -84,12 +90,12 @@ public class BossBehaviour : MonoBehaviour
                 {
                     m_bIsMoving = false;
                     m_DirectionToPlayer = Vector2.zero;
-                    BossAnimator.SetFloat("Horizontal", m_DirectionToPlayer.x);
+                    m_animrBossAnimator.SetFloat("Horizontal", m_DirectionToPlayer.x);
                 }
                 else
                 {
-                    BossBody.MovePosition(BossBody.position + (m_DirectionToPlayer * m_fMovementSpd * Time.deltaTime));
-                    BossAnimator.SetFloat("Horizontal", m_DirectionToPlayer.x);
+                    m_rgdbdyBossBody.MovePosition(m_rgdbdyBossBody.position + (m_DirectionToPlayer * m_fMovementSpd * Time.deltaTime));
+                    m_animrBossAnimator.SetFloat("Horizontal", m_DirectionToPlayer.x);
                 }
             }
         }
@@ -100,11 +106,11 @@ public class BossBehaviour : MonoBehaviour
             bossCurrentSpeed = m_navMeshAgent.velocity;
             if(bossCurrentSpeed.magnitude > 1 )
             {
-                BossAnimator.SetFloat("Horizontal", bossCurrentSpeed.x + Mathf.Abs(bossCurrentSpeed.y));
+                m_animrBossAnimator.SetFloat("Horizontal", bossCurrentSpeed.x + Mathf.Abs(bossCurrentSpeed.y));
             }
             else
             {
-                BossAnimator.SetFloat("Horizontal", 0);
+                m_animrBossAnimator.SetFloat("Horizontal", 0);
             }
         }
             
@@ -133,8 +139,8 @@ public class BossBehaviour : MonoBehaviour
 
     private float CalculateDistance()
     {
-        float temp = Vector2.Distance(Player.position, BossBody.position);
-        Vector2 vectorDiff = Player.position - BossBody.position;
+        float temp = Vector2.Distance(m_rgdbdyPlayer.position, m_rgdbdyBossBody.position);
+        Vector2 vectorDiff = m_rgdbdyPlayer.position - m_rgdbdyBossBody.position;
 
         if (vectorDiff.x == 0)
         {
@@ -162,7 +168,7 @@ public class BossBehaviour : MonoBehaviour
         if(m_bUseNavMesh)
         {
             int maskIgnoreProjectileAndBoss = (1 << 9) | (1 << 10) | (1 << 12) | (1 << 14);
-            Vector2 vectorToPlayer = Player.position - BossBody.position;
+            Vector2 vectorToPlayer = m_rgdbdyPlayer.position - m_rgdbdyBossBody.position;
             RaycastHit2D checkSight = Physics2D.Raycast(this.transform.position, vectorToPlayer, m_fMaximumDistanceFromPlayer+10, ~maskIgnoreProjectileAndBoss);
             //Debug.DrawRay(gunFirePoint.position, gunFirePoint.up * (m_fRange+10), Color.yellow);
             if (checkSight.collider != null && checkSight.collider.gameObject.tag == "Player")
@@ -197,7 +203,7 @@ public class BossBehaviour : MonoBehaviour
         while(/*!(m_bPlayerSighted || */!m_ScriptAINavigate.GetIfReachedPosition() )
         {
             CalculateDistance();
-            BossAnimator.SetFloat("Horizontal", m_DirectionToPlayer.x);
+            m_animrBossAnimator.SetFloat("Horizontal", m_DirectionToPlayer.x);
             yield return null;
         }
 

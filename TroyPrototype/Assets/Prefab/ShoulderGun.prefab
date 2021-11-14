@@ -27,8 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
-  m_Children:
-  - {fileID: 315913478496159159}
+  m_Children: []
   m_Father: {fileID: 9020704519900082951}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -92,7 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9020704519900082951}
   - component: {fileID: 1488143131181415390}
-  - component: {fileID: 6030837365751731327}
+  - component: {fileID: 4491669480728609345}
   - component: {fileID: 2041929139738243015}
   - component: {fileID: 4654182320581594087}
   m_Layer: 10
@@ -109,14 +108,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6273286411733371815}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.38268343, w: 0.92387956}
   m_LocalPosition: {x: 0.712, y: 0.528, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5678336433606037704}
+  - {fileID: 315913478496159159}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
 --- !u!58 &1488143131181415390
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -133,7 +133,7 @@ CircleCollider2D:
   m_Offset: {x: -0.0011419058, y: 0.0011418462}
   serializedVersion: 2
   m_Radius: 0.22365779
---- !u!114 &6030837365751731327
+--- !u!114 &4491669480728609345
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6273286411733371815}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1623782ed967ca2448c244b0a762a372, type: 3}
+  m_Script: {fileID: 11500000, guid: 168e285a4a639804abec9f13a463fdc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyBody: {fileID: 0}
@@ -151,6 +151,11 @@ MonoBehaviour:
   gunFirePoint: {fileID: 315913478496159159}
   projectilePrefab: {fileID: 8393412603370758224, guid: d5d5b48b48e230e48a7bbb554d601bd0,
     type: 3}
+  m_fRotationOffset: 45
+  m_sprtRenderer: {fileID: 4027092690402909901}
+  m_sprtShoulderSprite:
+  - {fileID: 791571116986712617, guid: e6ac2881a9c0d9a4eab72b25e2c36779, type: 3}
+  - {fileID: -2568895108108525184, guid: e6ac2881a9c0d9a4eab72b25e2c36779, type: 3}
   HP: 50
   m_fDestroyedAngle: 90
   m_fBulletForce: 1.5
@@ -168,6 +173,7 @@ MonoBehaviour:
   m_fDamage_StreamPellet: 0.02
   m_refCurrentPattern: {fileID: 0}
   m_bEnableFiringTime: 0
+  m_bStopRotation: 0
   m_fAngle: 0
   m_fAngleToTarget: 0
   m_fDistanceFromPlayer: 0
@@ -278,10 +284,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7046081518697967591}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.273, y: -0.273, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.92387956, w: 0.38268343}
+  m_LocalPosition: {x: 0.20475, y: -0.20475, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 5678336433606037704}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 9020704519900082951}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -135}
