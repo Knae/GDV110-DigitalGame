@@ -219,6 +219,12 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!82 &315405555 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3034211711205786522, guid: 6318487c28c34e24688458f02e051e9e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1868311934413127349}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &322750565
 GameObject:
   m_ObjectHideFlags: 0
@@ -110297,6 +110303,11 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.504
       objectReference: {fileID: 0}
+    - target: {fileID: 3762600463744806942, guid: 6318487c28c34e24688458f02e051e9e,
+        type: 3}
+      propertyPath: source
+      value: 
+      objectReference: {fileID: 315405555}
     - target: {fileID: 4615500669481919751, guid: 6318487c28c34e24688458f02e051e9e,
         type: 3}
       propertyPath: m_bHasCooldown

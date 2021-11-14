@@ -211,9 +211,9 @@ MonoBehaviour:
   m_fScatterRange: 0.15
   m_fRepeaterRange: 1000
   m_fBulletForce_Repeater: 5
-  m_fTimeBetweenShots_Repeater: 0.1
+  m_fTimeBetweenShots_Repeater: 0.05
   m_fWindupTime: 0
-  m_fFiringTime: 1.5
+  m_fFiringTime: 2
   m_fFiringCooldown: 0.5
   m_fBulletDamage_Repeater: 0.5
   m_iTotalAmmo_Repeater: 400
