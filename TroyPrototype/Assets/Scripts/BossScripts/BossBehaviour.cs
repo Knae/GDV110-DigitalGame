@@ -64,16 +64,20 @@ public class BossBehaviour : MonoBehaviour
             m_bUseNavMesh = false;
         }
 
-        if (m_DirectionToPlayer.x > 0)
+        if(m_bPlayerSighted)
         {
-            m_animrBossAnimator.SetBool("FaceLeft", false);
-            m_sprtrRenderer.flipX = true;
+            if (m_DirectionToPlayer.x > 0)
+            {
+                m_animrBossAnimator.SetBool("FaceLeft", false);
+                m_sprtrRenderer.flipX = true;
+            }
+            else if (m_DirectionToPlayer.x < 0)
+            {
+                m_animrBossAnimator.SetBool("FaceLeft", true);
+                m_sprtrRenderer.flipX = false;
+            }
         }
-        else if (m_DirectionToPlayer.x < 0)
-        {
-            m_animrBossAnimator.SetBool("FaceLeft", true);
-            m_sprtrRenderer.flipX = false;
-        }
+       
     }
 
     private void FixedUpdate()
@@ -127,14 +131,23 @@ public class BossBehaviour : MonoBehaviour
             
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.tag == "PlayerProjectile")
+        if (collision.gameObject.tag == "ProjectilePlayer")
         {
             HP -= collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
             Destroy(collision.gameObject);
         }
     }
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.tag == "ProjectilePlayer")
+    //    {
+    //        HP -= collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
+    //        Destroy(collision.gameObject);
+    //    }
+    //}
 
     private bool CheckIfTooFar()
     {
@@ -177,7 +190,7 @@ public class BossBehaviour : MonoBehaviour
     {
         if(m_bUseNavMesh)
         {
-            int maskIgnoreProjectileAndBoss = (1 << 9) | (1 << 10) | (1 << 12) | (1 << 14);
+            int maskIgnoreProjectileAndBoss = (1<<8) | (1 << 9) | (1 << 10) | (1 << 12) | (1 << 14);
             CalculateDistance();
             //Vector2 vectorToPlayer = m_rgdbdyPlayer.position - m_rgdbdyBossBody.position;
             RaycastHit2D checkSight = Physics2D.Raycast(this.transform.position, m_DirectionToPlayer, m_fMaximumDistanceFromPlayer+5, ~maskIgnoreProjectileAndBoss);

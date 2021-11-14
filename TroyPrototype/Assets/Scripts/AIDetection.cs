@@ -24,11 +24,6 @@ public class AIDetection : MonoBehaviour
 
     }
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    m_bPlayerInRange = true;
-    //}
-
     private void OnTriggerStay2D(Collider2D collision)
     {
         m_bPlayerInRange = true;

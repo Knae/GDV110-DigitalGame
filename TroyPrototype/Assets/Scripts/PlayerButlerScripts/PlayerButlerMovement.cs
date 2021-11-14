@@ -60,18 +60,29 @@ public class PlayerButlerMovement : MonoBehaviour
         playerLegsAnimator.SetFloat("Vertical", Input.GetAxis("Vertical"));
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.tag == "ProjectileEnemy")
+        if (collision.gameObject.tag == "ProjectileEnemy")
         {
-
             if (!m_bGodMode)
             {
-                currentHealth -= collision.gameObject.GetComponent<BulletLifetime>().GetDamage(); 
+                currentHealth -= collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
             }
             Destroy(collision.gameObject);
         }
     }
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if(collision.tag == "ProjectileEnemy")
+    //    {
+    //        if (!m_bGodMode)
+    //        {
+    //            currentHealth -= collision.gameObject.GetComponent<BulletLifetime>().GetDamage(); 
+    //        }
+    //        Destroy(collision.gameObject);
+    //    }
+    //}
 
 
     private float FindAngleBetweenPoints(Vector3 _inPointA, Vector3 _inPointB)

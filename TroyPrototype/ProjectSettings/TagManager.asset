@@ -22,14 +22,14 @@ TagManager:
   - UI
   - 
   - 
-  - TerrainInFrontPlayer
-  - Projectiles
+  - Projectiles-Enemy
+  - Projectiles-Player
   - Enemies
   - Player
   - Destructible
   - Objects
   - Invisible
-  - SceneWalls
+  - 
   - 
   - 
   - 

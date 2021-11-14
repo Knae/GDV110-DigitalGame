@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 3885167951078592981}
   m_Layer: 10
   m_Name: RoboticBossUsingNavMesh
-  m_TagString: Untagged
+  m_TagString: BossBody
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -191,6 +191,7 @@ MonoBehaviour:
   m_DirectionToPlayer: {x: 0, y: 0}
   m_bPlayerSighted: 0
   m_bWander: 0
+  m_CurrentMechIntegrity: 0
 --- !u!70 &8678962175989401932
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

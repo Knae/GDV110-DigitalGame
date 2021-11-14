@@ -120,7 +120,7 @@ MonoBehaviour:
   m_fBulletForceBase: 2
   m_fFiringDelayBase: 0.5
   m_fDamageBase: 1
-  m_fRange: 3
+  m_fRange: 10
   m_bUsedByAI: 0
   m_iTotalAmmo: 99
   m_iCurrentAmmoCount: 0
@@ -159,12 +159,12 @@ MonoBehaviour:
   source: {fileID: 0}
   clip: {fileID: 0}
   m_iNumberOfPelletsToCreate: 10
-  m_fMaximumForce: 3
-  m_fMinimumForce: 2.7
-  m_fScatterRange: 0.75
+  m_fMaximumForce: 4
+  m_fMinimumForce: 3.8
+  m_fScatterRange: 0.5
   m_fPelletRangeMax: 2
   m_fPelletRangeMin: 1.8
-  m_fFiringDelay_Spray: 1.5
+  m_fFiringDelay_Spray: 1
   m_fPelletDamage: 0.2
   m_fMaxAmmo_Spray: 20
 --- !u!114 &668917839262868222
@@ -197,7 +197,7 @@ MonoBehaviour:
   clip: {fileID: 0}
   m_iNumberOfPelletsToCreate: 5
   m_fMaximumForce: 2
-  m_fMinimumForce: 1.5
+  m_fMinimumForce: 1.8
   m_fScatterRange: 0.25
   m_fPelletRangeMax: 2.4
   m_fPelletRangeMin: 2
@@ -235,7 +235,7 @@ MonoBehaviour:
   source: {fileID: 0}
   clip: {fileID: 0}
   m_fScatterRange: 0.15
-  m_fRepeaterRange: 1000
+  m_fRepeaterRange: 100
   m_fBulletForce_Repeater: 5
   m_fTimeBetweenShots_Repeater: 0.1
   m_fWindupTime: 0

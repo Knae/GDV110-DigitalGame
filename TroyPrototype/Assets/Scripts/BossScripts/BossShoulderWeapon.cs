@@ -95,15 +95,6 @@ public class BossShoulderWeapon : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if(m_fAngle>0f  && m_sprtShoulderSprite.Length>1)
-        {
-            m_sprtRenderer.sprite = m_sprtShoulderSprite[1];
-        }
-        else
-        {
-            m_sprtRenderer.sprite = m_sprtShoulderSprite[0];
-        }
-
         if (m_fHP <= 0 && m_eCurrentState != STATES.DESTROYED)
         {
             m_eCurrentState = STATES.DESTROYED;
@@ -133,7 +124,8 @@ public class BossShoulderWeapon : MonoBehaviour
             }
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "ProjectilePlayer")
         {
@@ -141,6 +133,15 @@ public class BossShoulderWeapon : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.tag == "ProjectilePlayer")
+    //    {
+    //        m_fHP -= collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
+    //        Destroy(collision.gameObject);
+    //    }
+    //}
 
     void FixedUpdate()
     {
@@ -228,6 +229,15 @@ public class BossShoulderWeapon : MonoBehaviour
                 if (m_ScriptParentBehaviour.GetIfPlayerInSight() && !m_bStopRotation)
                 {
                     gunBody.transform.rotation = Quaternion.Euler(0f, 0f, m_fAngle + m_fRotationOffset);
+
+                    if (m_fAngle > 0f && m_sprtShoulderSprite.Length > 1)
+                    {
+                        m_sprtRenderer.sprite = m_sprtShoulderSprite[1];
+                    }
+                    else
+                    {
+                        m_sprtRenderer.sprite = m_sprtShoulderSprite[0];
+                    }
                 }
                 return false;
             }
@@ -258,7 +268,7 @@ public class BossShoulderWeapon : MonoBehaviour
     /// <returns></returns>
     private bool CheckIfLookingAtPlayer()
     {
-        int maskIgnoreProjectileAndBoss = (1 << 9) | (1 << 10) | (1 << 12) | (1 << 14);
+        int maskIgnoreProjectileAndBoss = (1 << 8) | (1 << 9) | (1 << 10) | (1 << 12) | (1 << 14);
         RaycastHit2D checkSight = Physics2D.Raycast(gunFirePoint.position, gunFirePoint.up, m_fRange+5, ~maskIgnoreProjectileAndBoss);
         //Debug.DrawRay(gunFirePoint.position, gunFirePoint.up * (m_fRange+10), Color.yellow);
         if (checkSight.collider != null && checkSight.collider.gameObject.tag == "Player")

@@ -11,6 +11,7 @@ public class BulletLifetime : MonoBehaviour
     [SerializeField] private float m_fRange = 0.0f;
     [SerializeField] private float m_fDistanceTraveled = 0f;
     [SerializeField] private Vector3 m_PrevPos = Vector3.zero;
+    [SerializeField] private bool m_bPlayerShot;
 
     private void Awake()
     {
@@ -28,24 +29,33 @@ public class BulletLifetime : MonoBehaviour
         }        
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        int check = LayerMask.GetMask("Projectiles");
-        if (collision.tag == "Indestructible")
+        if (collision.gameObject.tag == "Indestructible")
         {
             Destroy(gameObject);
         }
-        else if(collision.gameObject.layer == LayerMask.GetMask("Projectiles"))
-        {
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
-        }
-        else if (collision.tag == "EnemyProjectiles" || collision.tag == "PlayerProjectiles")
+        else if (   (collision.gameObject.tag == "ProjectilePlayer" && !m_bPlayerShot) ||
+                    (collision.gameObject.tag == "ProjectileEnemy" && m_bPlayerShot))
         {
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
     }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    int check = LayerMask.GetMask("Projectiles");
+    //    if (collision.tag == "Indestructible")
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //    else if (   (collision.gameObject.tag == "ProjectilePlayer" && !m_bPlayerShot) ||
+    //                (collision.gameObject.tag == "ProjectileEnemy" && m_bPlayerShot) )
+    //    {
+    //        Destroy(collision.gameObject);
+    //        Destroy(gameObject);
+    //    }
+    //}
 
     public void SetBulletRange (float _input)
     {
@@ -61,4 +71,9 @@ public class BulletLifetime : MonoBehaviour
     {
         return m_iDamage;
     }
+
+    //private void OnDestroy()
+    //{
+    //    print("This " + name + " has been destroyed");
+    //}
 }

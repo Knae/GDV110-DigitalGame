@@ -14,7 +14,7 @@ public class BaseBulletPattern : MonoBehaviour
     public float m_fDamageBase = 1f;
 
     [Header("Debug Variables")]
-    [SerializeField] protected float m_fRange = 1000.0f;
+    [SerializeField] protected float m_fRange = 5f;
     [SerializeField] protected bool m_bUsedByAI = false;
     [SerializeField] protected int m_iTotalAmmo = 99;
     [SerializeField] protected int m_iCurrentAmmoCount = 0;

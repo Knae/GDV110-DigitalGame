@@ -19,17 +19,31 @@ public class DestructibleObject : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(m_bCanBeDestroyedByBullets)
+        if (m_bCanBeDestroyedByBullets)
         {
-            if (collision.tag == "ProjectileEnemy" || collision.tag == "ProjectilePlayer")
+            if (collision.gameObject.tag == "ProjectileEnemy" || collision.gameObject.tag == "ProjectilePlayer")
             {
-                m_fDamageToTake  = collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
+                m_fDamageToTake = collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
                 Destroy(collision.gameObject);
                 ReceiveDamage(m_fDamageToTake);
                 m_fDamageToTake = 0;
             }
         }
     }
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if(m_bCanBeDestroyedByBullets)
+    //    {
+    //        if (collision.tag == "ProjectileEnemy" || collision.tag == "ProjectilePlayer")
+    //        {
+    //            m_fDamageToTake  = collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
+    //            Destroy(collision.gameObject);
+    //            ReceiveDamage(m_fDamageToTake);
+    //            m_fDamageToTake = 0;
+    //        }
+    //    }
+    //}
 };
