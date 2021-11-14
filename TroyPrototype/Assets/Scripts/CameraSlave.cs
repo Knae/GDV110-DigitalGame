@@ -7,6 +7,7 @@ public class CameraSlave : MonoBehaviour
     public Rigidbody2D objectPlayer;
     public Camera gameCamera;
 
+
     [Header("Camera Margins")]
     public float m_fMarginsX = 1.2f;
     public float m_fMarginsY = 1.2f;
@@ -21,7 +22,8 @@ public class CameraSlave : MonoBehaviour
         //Check both planes if camera exceeds either margins, then
         //compensate as necessary
         Vector3 targetLocation = gameCamera.transform.position;
-        if(!m_bIsMoving)
+
+        if (!m_bIsMoving)
         {
             if (CheckMarginX() || CheckMarginY() )
             {
