@@ -14,14 +14,9 @@ public class WeaponFiring : MonoBehaviour
     }
 
     [Header("Debug")]
-<<<<<<< HEAD
     [SerializeField] private WEAPONMODE m_iCurrentWeaponMode = WEAPONMODE.BASIC;
-
-=======
     [SerializeField] private int m_iAmmoLeft = 0;
 
-    private WEAPONMODE m_iCurrentWeaponMode = WEAPONMODE.BASIC;
->>>>>>> main
     private BaseBulletPattern m_refCurrentPattern;
     private BulletPatternBasic m_refBulletBasicPattern;
     private BulletPatternSpray m_refBulletSprayPattern;
