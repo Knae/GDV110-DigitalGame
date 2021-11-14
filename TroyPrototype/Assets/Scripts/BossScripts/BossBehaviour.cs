@@ -11,7 +11,7 @@ public class BossBehaviour : MonoBehaviour
     public SpriteRenderer m_sprtrRenderer;
 
     [Header("Behaviour Constants")]
-    [SerializeField] private float HP = 15f;
+    [SerializeField] private float HP = 50f;
     [SerializeField] private float m_fMovementSpd = 1.0f;
     [SerializeField] private float m_fMinimumDistanceFromPlayer = 0.8f;
     [SerializeField] private float m_fMaximumDistanceFromPlayer = 1.1f;
@@ -44,6 +44,7 @@ public class BossBehaviour : MonoBehaviour
     {
         m_ScriptAINavigate = GetComponent<AINavigation>();
         m_navMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        m_navMeshAgent.speed = m_fMovementSpd;
         m_bWander = true;
     }
 
@@ -106,7 +107,8 @@ public class BossBehaviour : MonoBehaviour
             bossCurrentSpeed = m_navMeshAgent.velocity;
             if(bossCurrentSpeed.magnitude > 1 )
             {
-                m_animrBossAnimator.SetFloat("Horizontal", bossCurrentSpeed.x + Mathf.Abs(bossCurrentSpeed.y));
+                //Make sure that horizontal has a value as long as currentSpeed is not zero in either axis
+                m_animrBossAnimator.SetFloat("Horizontal", bossCurrentSpeed.x + (Mathf.Abs(bossCurrentSpeed.y)* bossCurrentSpeed.normalized.x) );
             }
             else
             {
@@ -118,7 +120,7 @@ public class BossBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Projectile")
+        if (collision.tag == "PlayerProjectile")
         {
             HP -= collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
             Destroy(collision.gameObject);
@@ -127,40 +129,39 @@ public class BossBehaviour : MonoBehaviour
 
     private bool CheckIfTooFar()
     {
-        distance = CalculateDistance();
+        CalculateDistance();
         return distance > m_fMaximumDistanceFromPlayer;
     }
 
     private bool CheckIfCloseEnough()
     {
-        distance = CalculateDistance();
+        CalculateDistance();
         return distance <= m_fMinimumDistanceFromPlayer;
     }
 
-    private float CalculateDistance()
+    private void CalculateDistance()
     {
-        float temp = Vector2.Distance(m_rgdbdyPlayer.position, m_rgdbdyBossBody.position);
-        Vector2 vectorDiff = m_rgdbdyPlayer.position - m_rgdbdyBossBody.position;
+        distance = Vector2.Distance(m_rgdbdyPlayer.position, m_rgdbdyBossBody.position);
+        //Vector2 vectorDiff = m_rgdbdyPlayer.position - m_rgdbdyBossBody.position;
+        m_DirectionToPlayer = (m_rgdbdyPlayer.position - m_rgdbdyBossBody.position).normalized;
 
-        if (vectorDiff.x == 0)
-        {
-            m_DirectionToPlayer.x = 0;
-        }
-        else
-        {
-            m_DirectionToPlayer.x = (vectorDiff.x / (Mathf.Abs(vectorDiff.x)));
-        }
+        //if (vectorDiff.x == 0)
+        //{
+        //    m_DirectionToPlayer.x = 0;
+        //}
+        //else
+        //{
+        //    m_DirectionToPlayer.x = (vectorDiff.x / (Mathf.Abs(vectorDiff.x)));
+        //}
 
-        if (vectorDiff.y == 0)
-        {
-            m_DirectionToPlayer.y = 0;
-        }
-        else
-        {
-            m_DirectionToPlayer.y = (vectorDiff.y / (Mathf.Abs(vectorDiff.y)));
-        }
-
-        return temp;
+        //if (vectorDiff.y == 0)
+        //{
+        //    m_DirectionToPlayer.y = 0;
+        //}
+        //else
+        //{
+        //    m_DirectionToPlayer.y = (vectorDiff.y / (Mathf.Abs(vectorDiff.y)));
+        //}
     }
 
     public void CheckIfPlayerinView()
@@ -168,9 +169,10 @@ public class BossBehaviour : MonoBehaviour
         if(m_bUseNavMesh)
         {
             int maskIgnoreProjectileAndBoss = (1 << 9) | (1 << 10) | (1 << 12) | (1 << 14);
-            Vector2 vectorToPlayer = m_rgdbdyPlayer.position - m_rgdbdyBossBody.position;
-            RaycastHit2D checkSight = Physics2D.Raycast(this.transform.position, vectorToPlayer, m_fMaximumDistanceFromPlayer+10, ~maskIgnoreProjectileAndBoss);
-            //Debug.DrawRay(gunFirePoint.position, gunFirePoint.up * (m_fRange+10), Color.yellow);
+            CalculateDistance();
+            //Vector2 vectorToPlayer = m_rgdbdyPlayer.position - m_rgdbdyBossBody.position;
+            RaycastHit2D checkSight = Physics2D.Raycast(this.transform.position, m_DirectionToPlayer, m_fMaximumDistanceFromPlayer+5, ~maskIgnoreProjectileAndBoss);
+            Debug.DrawRay(transform.position, m_DirectionToPlayer * (m_fMaximumDistanceFromPlayer + 5), Color.blue);
             if (checkSight.collider != null && checkSight.collider.gameObject.tag == "Player")
             {
                 m_ScriptAINavigate.PlayerSpotted((int)(m_fMinimumDistanceFromPlayer));
@@ -276,8 +278,5 @@ public class BossBehaviour : MonoBehaviour
             m_bWander = false;
             yield break;
         }
-
-
-
     }
 }

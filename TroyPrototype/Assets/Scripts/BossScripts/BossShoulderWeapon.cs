@@ -245,7 +245,7 @@ public class BossShoulderWeapon : MonoBehaviour
     private bool CheckIfLookingAtPlayer()
     {
         int maskIgnoreProjectileAndBoss = (1 << 9) | (1 << 10) | (1 << 12) | (1 << 14);
-        RaycastHit2D checkSight = Physics2D.Raycast(gunFirePoint.position, gunFirePoint.up, m_fRange+10, ~maskIgnoreProjectileAndBoss);
+        RaycastHit2D checkSight = Physics2D.Raycast(gunFirePoint.position, gunFirePoint.up, m_fRange+5, ~maskIgnoreProjectileAndBoss);
         //Debug.DrawRay(gunFirePoint.position, gunFirePoint.up * (m_fRange+10), Color.yellow);
         if (checkSight.collider != null && checkSight.collider.gameObject.tag == "Player")
         {

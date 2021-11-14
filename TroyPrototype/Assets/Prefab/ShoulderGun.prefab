@@ -209,7 +209,7 @@ MonoBehaviour:
   source: {fileID: 0}
   clip: {fileID: 0}
   m_fScatterRange: 0.15
-  m_fRepeaterRange: 1000
+  m_fRepeaterRange: 20
   m_fBulletForce_Repeater: 5
   m_fTimeBetweenShots_Repeater: 0.05
   m_fWindupTime: 0
