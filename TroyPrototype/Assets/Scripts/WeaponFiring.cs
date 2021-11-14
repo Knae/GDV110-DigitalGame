@@ -14,8 +14,14 @@ public class WeaponFiring : MonoBehaviour
     }
 
     [Header("Debug")]
+<<<<<<< HEAD
     [SerializeField] private WEAPONMODE m_iCurrentWeaponMode = WEAPONMODE.BASIC;
 
+=======
+    [SerializeField] private int m_iAmmoLeft = 0;
+
+    private WEAPONMODE m_iCurrentWeaponMode = WEAPONMODE.BASIC;
+>>>>>>> main
     private BaseBulletPattern m_refCurrentPattern;
     private BulletPatternBasic m_refBulletBasicPattern;
     private BulletPatternSpray m_refBulletSprayPattern;
@@ -36,6 +42,8 @@ public class WeaponFiring : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        m_iAmmoLeft = GetAmmoLeft();
+
         if (Input.GetButton("Fire1"))
         {
             if(!m_refCurrentPattern.fireProjectiles())
@@ -106,4 +114,8 @@ public class WeaponFiring : MonoBehaviour
         m_iCurrentWeaponMode = WEAPONMODE.BASIC;
     }
 
+    public int GetAmmoLeft()
+    {
+        return m_refCurrentPattern.GetCurrentAmmoLeft();
+    }
 }

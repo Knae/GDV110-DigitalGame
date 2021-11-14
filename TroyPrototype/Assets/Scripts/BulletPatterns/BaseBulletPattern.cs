@@ -12,6 +12,12 @@ public class BaseBulletPattern : MonoBehaviour
     public float m_fBulletForceBase = 2.0f;
     public float m_fFiringDelayBase = 0.5f;
     public float m_fDamageBase = 1f;
+<<<<<<< HEAD
+=======
+    public float m_fRange = 3.0f;
+    public bool m_bUsedByAI = false;
+    public int m_iTotalAmmo = 99;
+>>>>>>> main
 
     [Header("Debug Variables")]
     [SerializeField] protected float m_fRange = 1000.0f;
@@ -81,11 +87,17 @@ public class BaseBulletPattern : MonoBehaviour
         m_iCurrentAmmoCount = m_iTotalAmmo;
     }
 
+<<<<<<< HEAD
     public virtual void ResetSettings()
     {
         m_fBulletForce = m_fBulletForceBase;
         m_fTimeBetweenShots = m_fFiringDelayBase;
         m_fBulletDamage = m_fDamageBase;
         m_iCurrentAmmoCount = m_iTotalAmmo;
+=======
+    public virtual int GetCurrentAmmoLeft()
+    {
+        return m_iCurrentAmmoCount;
+>>>>>>> main
     }
 }
