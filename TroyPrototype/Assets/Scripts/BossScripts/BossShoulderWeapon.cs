@@ -14,7 +14,7 @@ public class BossShoulderWeapon : MonoBehaviour
     [SerializeField] private SpriteRenderer m_sprtRenderer;
     [SerializeField] private Sprite[] m_sprtShoulderSprite;
     [Header("Weapon Stats - old")]
-    [SerializeField] private int HP = 50;
+    [SerializeField] private float m_fHP = 50;
     [SerializeField] private float m_fDestroyedAngle = 90.0f;
     [SerializeField] private float m_fBulletForce = 1.5f;
     [SerializeField] private float m_fFiringPeriod = 3.0f;
@@ -25,13 +25,14 @@ public class BossShoulderWeapon : MonoBehaviour
     [SerializeField] private BulletPatternRepeater m_refRepeaterGun_Boss;
     [SerializeField] private float m_fFiringPeriod_Repeater = 4.0f;
     [SerializeField] private float m_fFiringCooldown_Repeater = 0.5f;
+    [SerializeField] private float m_fFiringWindup_Repeater = 0.2f;
     [SerializeField] private float m_fDamage_Repeater = 0.5f;
     //[SerializeField] private BulletPatternSpray m_refShotgun_Boss;
     //[SerializeField] private float m_fFiringDelay_Shotgun = 1.2f;
     //[SerializeField] private float m_fDamage_ShotgunPellet = 0.2f;
     [SerializeField] private BulletPatternStream m_refFlameStreamGun_Boss;
     [SerializeField] private float m_fFiringTime_Stream = 1.5f;
-    [SerializeField] private float m_fFiringCooldown_Streaam = 0.5f;
+    [SerializeField] private float m_fFiringCooldown_Stream = 0.5f;
     [SerializeField] private float m_fDamage_StreamPellet = 0.02f;
     [SerializeField] private BaseBulletPattern m_refCurrentPattern;
 
@@ -43,7 +44,7 @@ public class BossShoulderWeapon : MonoBehaviour
     [SerializeField] private float m_fDistanceFromPlayer = 0f;
     [SerializeField] private bool m_bFacingEnemy = false;
     [SerializeField] private string m_strCollidedSightTag;
-    [SerializeField] private STATES currentState = STATES.NOTFIRING;
+    [SerializeField] private STATES m_eCurrentState = STATES.NOTFIRING;
 
     private float m_fCurrentDelay = 0f;
     private float m_fFiringTime = 0.0f;
@@ -67,18 +68,25 @@ public class BossShoulderWeapon : MonoBehaviour
         REPEATER
     }
 
-
     private void Start()
     {
+        m_ScriptParentBehaviour = bossBody.GetComponent<BossBehaviour>();
+
         m_refRepeaterGun_Boss = GetComponent<BulletPatternRepeater>();
         m_refRepeaterGun_Boss.m_fFiringTime =  m_fFiringPeriod_Repeater;
         m_refRepeaterGun_Boss.m_fFiringCooldown = m_fFiringCooldown_Repeater;
+        m_refRepeaterGun_Boss.m_fWindupTime = m_fFiringWindup_Repeater;
         m_refRepeaterGun_Boss.m_fBulletDamage_Repeater = m_fDamage_Repeater;
+        m_refRepeaterGun_Boss.m_bHasWindup = true;
+        m_refRepeaterGun_Boss.m_bHasCooldown = true;
         m_refRepeaterGun_Boss.SetAsUsedByAI();
 
-        m_ScriptParentBehaviour = bossBody.GetComponent<BossBehaviour>();
         //m_refShotgun_Boss = GetComponent<BulletPatternSpray>();
         m_refFlameStreamGun_Boss = GetComponent<BulletPatternStream>();
+        m_refFlameStreamGun_Boss.m_fFiringTime = m_fFiringTime_Stream;
+        m_refFlameStreamGun_Boss.m_fFiringCooldown = m_fFiringCooldown_Stream;
+        m_refFlameStreamGun_Boss.m_fPelletDamage = m_fDamage_StreamPellet;
+        m_refFlameStreamGun_Boss.SetAsUsedByAI();
 
         m_refCurrentPattern = m_refRepeaterGun_Boss;
         m_fRange = m_refCurrentPattern.GetRange();
@@ -96,9 +104,9 @@ public class BossShoulderWeapon : MonoBehaviour
             m_sprtRenderer.sprite = m_sprtShoulderSprite[0];
         }
 
-        if (HP <= 0 && currentState != STATES.DESTROYED)
+        if (m_fHP <= 0 && m_eCurrentState != STATES.DESTROYED)
         {
-            currentState = STATES.DESTROYED;
+            m_eCurrentState = STATES.DESTROYED;
         }
         else
         {
@@ -107,11 +115,11 @@ public class BossShoulderWeapon : MonoBehaviour
             m_fCurrentDelay += 1.0f * Time.deltaTime;
             if (m_bEnableFiringTime)
             {
-                if (currentState == STATES.FIRING)
+                if (m_eCurrentState == STATES.FIRING)
                 {
                     m_fFiringTime += 1 * Time.deltaTime;
                 }
-                else if (currentState == STATES.NOTFIRING)
+                else if (m_eCurrentState == STATES.NOTFIRING)
                 {
                     if (m_fFiringTime > 0)
                     {
@@ -129,19 +137,24 @@ public class BossShoulderWeapon : MonoBehaviour
     {
         if (collision.gameObject.tag == "ProjectilePlayer")
         {
-            HP -= collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
+            m_fHP -= collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
             Destroy(collision.gameObject);
         }
     }
 
     void FixedUpdate()
     {
+        //if (m_eCurrentState != STATES.DESTROYED && CheckIfPlayerInRange())
+        //{
+        //    m_refCurrentPattern.fireProjectiles();
+        //}
         GunsAreThinking(CheckIfPlayerInRange());
     }
 
     void fireWeapon()
     {
         m_refCurrentPattern.fireProjectiles();
+
         //if (m_fCurrentDelay >= m_fFiringDelay)
         //{
         //    GameObject newBullet = Instantiate(projectilePrefab, gunFirePoint.position, gunFirePoint.rotation);
@@ -157,56 +170,57 @@ public class BossShoulderWeapon : MonoBehaviour
     }
     void GunsAreThinking(bool _playerInRange)
     {
-        switch (currentState)
+        switch (m_eCurrentState)
         {
             case STATES.NOTFIRING:
+            {
+                if (_playerInRange && m_bFacingEnemy)
                 {
-                    if (_playerInRange && m_bFacingEnemy)
-                    {
-                        currentState = STATES.FIRING;
-                        m_fCurrentDelay = 0;
-                    }
-                    break;
+                    m_eCurrentState = STATES.FIRING;
+                    m_fCurrentDelay = 0;
                 }
+                break;
+            }
             case STATES.FIRING:
-                {
-                    if (m_fCurrentDelay >= m_fFiringDelay)
-                    {
-                        fireWeapon();
-                        m_fCurrentDelay = 0;
-                    }
+            {
+                //if (m_fCurrentDelay >= m_fFiringDelay)
+                //{
+                //    fireWeapon();
+                //    m_fCurrentDelay = 0;
+                //}
 
-                    if (!_playerInRange || !m_bFacingEnemy)
-                    {
-                        currentState = STATES.NOTFIRING;
-                    }
-                    else if (m_fFiringTime >= m_fFiringPeriod)
-                    {
-                        m_fFiringTime = 0;
-                        m_fCurrentDelay = 0;
-                        currentState = STATES.COOLINGDOWN;
-                    }
-                    break;
+                fireWeapon();
+
+                if (!_playerInRange || !m_bFacingEnemy)
+                {
+                    m_eCurrentState = STATES.NOTFIRING;
                 }
+                //else if (m_fFiringTime >= m_fFiringPeriod)
+                //{
+                //    m_fFiringTime = 0;
+                //    m_fCurrentDelay = 0;
+                //    m_eCurrentState = STATES.COOLINGDOWN;
+                //}
+                break;
+            }
             case STATES.COOLINGDOWN:
+            {
+                if (m_fCurrentDelay >= m_fFiringCooldown)
                 {
-                    if (m_fCurrentDelay >= m_fFiringCooldown)
-                    {
-                        currentState = STATES.NOTFIRING;
-                    }
-                    break;
+                    m_eCurrentState = STATES.NOTFIRING;
                 }
+                break;
+            }
             case STATES.DESTROYED:
-                {
-
-                    break;
-                }
+            {
+                break;
+            }
         }
     }
 
     bool FaceGunsToEnemy()
     {
-        if (HP > 0)
+        if (m_fHP > 0)
         {
             FindAngleBetweenPoints(enemyBody.transform.position);
             if (!CheckIfLookingAtPlayer())
@@ -224,7 +238,7 @@ public class BossShoulderWeapon : MonoBehaviour
         }
         else
         {
-            gunBody.transform.rotation = Quaternion.Euler(0f, 0f, m_fDestroyedAngle);
+            //gunBody.transform.rotation = Quaternion.Euler(0f, 0f, m_fDestroyedAngle);
             return false;
         }
     }
@@ -258,8 +272,31 @@ public class BossShoulderWeapon : MonoBehaviour
         }
     }
 
-    public void ChangeWeaponPattern()
+    public void ChangeWeaponPattern(WEAPONMODE _inputMode)
     {
+        switch (_inputMode)
+        {
+            case WEAPONMODE.STREAM:
+            {
+                m_refCurrentPattern = m_refFlameStreamGun_Boss;
+                break;
+            }
+            case WEAPONMODE.REPEATER:
+            {
+                m_refCurrentPattern = m_refRepeaterGun_Boss;
+                break;
+            }
+            default:
+            case WEAPONMODE.NONE:
+            case WEAPONMODE.BASIC:
+            case WEAPONMODE.SPRAY:
+                break;
+        }
+        m_fRange = m_refCurrentPattern.GetRange();
+    }
 
+    public float GetHP()
+    {
+        return m_fHP;
     }
 }

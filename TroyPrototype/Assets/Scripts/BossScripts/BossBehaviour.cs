@@ -22,7 +22,7 @@ public class BossBehaviour : MonoBehaviour
     [SerializeField] private Transform[] m_WanderSpot;
 
     [Header("Debug")]
-    //Using isMoving to mark if baoss is moving to player
+    //Using isMoving to mark if boss is moving to player
     //If lost sight, then should stop
     [SerializeField] private bool m_bIsMoving = false;
     [SerializeField] private float distance = 0;
@@ -30,10 +30,19 @@ public class BossBehaviour : MonoBehaviour
     [SerializeField] private Vector2 m_DirectionToPlayer = Vector2.zero;
     [SerializeField] private bool m_bPlayerSighted = false;
     [SerializeField] private bool m_bWander;
+    [SerializeField] private float m_CurrentMechIntegrity;
 
     private AINavigation m_ScriptAINavigate;
     private UnityEngine.AI.NavMeshAgent m_navMeshAgent;
     private float m_fTimePlayerOutOfSight;
+
+    enum BOSSSTATE
+    {
+        NONE,
+        THRESHOLD1,
+        THRESHOLD2,
+        THRESHOLD3
+    }
 
     public bool GetIfPlayerInSight()
     {
