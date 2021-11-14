@@ -346,6 +346,8 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   angle: 0
+  m_bGodMode: 1
+  m_bHasHealthBar: 0
 --- !u!50 &1868311935072767196
 Rigidbody2D:
   serializedVersion: 4
@@ -425,7 +427,12 @@ PrefabInstance:
         type: 3}
       propertyPath: source
       value: 
-      objectReference: {fileID: 803570575825872854}
+      objectReference: {fileID: 3034211711205786522}
+    - target: {fileID: 3744246900988011132, guid: ea91433af69a50d49910dbd2e8562f56,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7119942938870557112, guid: ea91433af69a50d49910dbd2e8562f56,
         type: 3}
       propertyPath: m_RootOrder
@@ -494,9 +501,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1868311934600684006}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &803570575825872854 stripped
+--- !u!82 &3034211711205786522 stripped
 AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1354256240459482672, guid: ea91433af69a50d49910dbd2e8562f56,
+  m_CorrespondingSourceObject: {fileID: 3744246900988011132, guid: ea91433af69a50d49910dbd2e8562f56,
     type: 3}
   m_PrefabInstance: {fileID: 1868311934600684006}
   m_PrefabAsset: {fileID: 0}
