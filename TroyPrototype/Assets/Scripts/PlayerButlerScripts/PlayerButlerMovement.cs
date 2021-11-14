@@ -23,6 +23,7 @@ public class PlayerButlerMovement : MonoBehaviour
     [Header("Debug")]
     //[SerializeField] private bool m_bDebugMode = false;
     [SerializeField] private bool m_bGodMode = true;
+    [SerializeField] private bool m_bHasHealthBar;
 
     private Vector2 movementvector = new Vector3(0, 0, 0);
     private Vector2 mousePos = new Vector3(0, 0, 0);
@@ -31,14 +32,26 @@ public class PlayerButlerMovement : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        healthbar.SetMaxHealth(maxHealth);
+        if(healthbar!=null)
+        {
+            healthbar.SetMaxHealth(maxHealth);
+            m_bHasHealthBar = true;
+        }
+        else
+        {
+            m_bHasHealthBar = false;
+        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(m_bHasHealthBar)
+        {
+            healthbar.SetHealth(currentHealth);
+        }
 
-        healthbar.SetHealth(currentHealth);
         mousePos = gameCam.ScreenToWorldPoint(Input.mousePosition);
 
         movementvector.x = Input.GetAxis("Horizontal") * m_fMoveSpeed;
