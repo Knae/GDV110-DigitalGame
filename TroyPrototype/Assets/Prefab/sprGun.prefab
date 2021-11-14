@@ -14,12 +14,7 @@ GameObject:
   - component: {fileID: 3304202735012123128}
   - component: {fileID: 4370411510432476081}
   - component: {fileID: 668917839262868222}
-<<<<<<< HEAD
-  - component: {fileID: 6476209979357594849}
-  - component: {fileID: 1354256240459482672}
-=======
   - component: {fileID: 3744246900988011132}
->>>>>>> main
   m_Layer: 11
   m_Name: sprGun
   m_TagString: Untagged
@@ -104,11 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54a3daef9942f2b40a15c236cba88142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-  m_iCurrentWeaponMode: 1
-=======
   m_iAmmoLeft: 0
->>>>>>> main
 --- !u!114 &3304202735012123128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,20 +120,9 @@ MonoBehaviour:
   m_fDamageBase: 1
   m_fRange: 3
   m_bUsedByAI: 0
-<<<<<<< HEAD
-  m_iTotalAmmo: 20
-  m_iCurrentAmmoCount: 0
-  m_fCounterTime: 0
-  m_fBulletForce: 0
-  m_fTimeBetweenShots: 0
-  m_fBulletDamage: 0
-  source: {fileID: 0}
-  clip: {fileID: 0}
-=======
   m_iTotalAmmo: 99
   source: {fileID: 3744246900988011132}
   clip: {fileID: 8300000, guid: 94971da2588f9114998ffdbede1f86b7, type: 3}
->>>>>>> main
 --- !u!114 &4370411510432476081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,14 +144,6 @@ MonoBehaviour:
   m_fRange: 3
   m_bUsedByAI: 0
   m_iTotalAmmo: 20
-<<<<<<< HEAD
-  m_iCurrentAmmoCount: 0
-  m_fCounterTime: 0
-  m_fBulletForce: 0
-  m_fTimeBetweenShots: 0
-  m_fBulletDamage: 0
-=======
->>>>>>> main
   source: {fileID: 0}
   clip: {fileID: 0}
   m_iNumberOfPelletsToCreate: 10
@@ -204,14 +176,6 @@ MonoBehaviour:
   m_fRange: 3
   m_bUsedByAI: 0
   m_iTotalAmmo: 20
-<<<<<<< HEAD
-  m_iCurrentAmmoCount: 0
-  m_fCounterTime: 0
-  m_fBulletForce: 0
-  m_fTimeBetweenShots: 0
-  m_fBulletDamage: 0
-=======
->>>>>>> main
   source: {fileID: 0}
   clip: {fileID: 0}
   m_iNumberOfPelletsToCreate: 5
@@ -225,54 +189,7 @@ MonoBehaviour:
   m_fFiringCooldown: 0.5
   m_fPelletDamage: 0.05
   m_iTotalAmmo_Stream: 200
-<<<<<<< HEAD
---- !u!114 &6476209979357594849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7119942938870557113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b1ccd88766caa744b9d8e01d480a33a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gunFirePoint: {fileID: 7119942939825017639}
-  projectilePrefab: {fileID: 8393412603370758224, guid: 6467b842f4465ba428b59633dc21e641,
-    type: 3}
-  m_fBulletForceBase: 2
-  m_fFiringDelayBase: 0.5
-  m_fDamageBase: 1
-  m_fRange: 1000
-  m_bUsedByAI: 0
-  m_iTotalAmmo: 20
-  m_iCurrentAmmoCount: 0
-  m_fCounterTime: 0
-  m_fBulletForce: 0
-  m_fTimeBetweenShots: 0
-  m_fBulletDamage: 0
-  source: {fileID: 0}
-  clip: {fileID: 0}
-  m_fScatterRange: 0.15
-  m_fRepeaterRange: 1000
-  m_fBulletForce_Repeater: 5
-  m_fTimeBetweenShots_Repeater: 0.1
-  m_fWindupTime: 0
-  m_fFiringTime: 1.5
-  m_fFiringCooldown: 0.5
-  m_fBulletDamage_Repeater: 0.5
-  m_iTotalAmmo_Repeater: 400
-  m_bHasCooldown: 0
-  m_bIsOnDelay: 0
-  m_bIsOnCooldown: 0
-  m_bWasFiring: 0
-  m_fTimeAfterLastShot: 0
-  m_eCurrentState: 1
---- !u!82 &1354256240459482672
-=======
 --- !u!82 &3744246900988011132
->>>>>>> main
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -282,15 +199,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-<<<<<<< HEAD
-  m_audioClip: {fileID: 8300000, guid: 94971da2588f9114998ffdbede1f86b7, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.6
-=======
   m_audioClip: {fileID: 8300000, guid: 9127d2e83c21ec04a939d4e505b7b6f4, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.2
->>>>>>> main
   m_Pitch: 1
   Loop: 0
   Mute: 0
