@@ -13,6 +13,7 @@ TagManager:
   - Indestructible
   - Pickups
   - DialogueActivator
+  - Enemy
   layers:
   - Default
   - TransparentFX

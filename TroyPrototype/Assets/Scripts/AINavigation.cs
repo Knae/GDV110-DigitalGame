@@ -41,7 +41,6 @@ public class AINavigation : MonoBehaviour
         }
     }
 
-
     public void PlayerSpotted(int _inStopDistance)
     {
         m_vec3DestinationPosition = target.position;
