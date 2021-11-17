@@ -338,9 +338,19 @@ PrefabInstance:
       propertyPath: enemyBody
       value: 
       objectReference: {fileID: 429520955}
+    - target: {fileID: 1991850299126590673, guid: fb38649e31ab3af498e551b5b394d819,
+        type: 3}
+      propertyPath: m_EnemyBody
+      value: 
+      objectReference: {fileID: 429520955}
     - target: {fileID: 2318393447216773362, guid: fb38649e31ab3af498e551b5b394d819,
         type: 3}
       propertyPath: enemyBody
+      value: 
+      objectReference: {fileID: 429520955}
+    - target: {fileID: 2318393447216773362, guid: fb38649e31ab3af498e551b5b394d819,
+        type: 3}
+      propertyPath: m_EnemyBody
       value: 
       objectReference: {fileID: 429520955}
     - target: {fileID: 3416627389337730600, guid: fb38649e31ab3af498e551b5b394d819,

@@ -110,6 +110,6 @@ public class BulletPatternStream : BaseBulletPattern
 
     public override float GetBulletForce()
     {
-        return base.GetBulletDamage();
+        return base.GetBulletForce();
     }
 }
