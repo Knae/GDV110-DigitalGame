@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MozartTest.unity
+    guid: fad65842a5ff31048a61f8254486bb56
+  - enabled: 1
+    path: Assets/Scenes/TEST.unity
+    guid: f1ebdaa3242768f41aeaee83f628b1a1
   m_configObjects: {}
