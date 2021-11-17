@@ -92,4 +92,9 @@ public class BaseBulletPattern : MonoBehaviour
     {
         return m_iCurrentAmmoCount;
     }
+
+    public virtual float GetBulletForce()
+    {
+        return m_fBulletForce;
+    }
 }

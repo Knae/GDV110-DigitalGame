@@ -13,4 +13,9 @@ public class BulletPatternBasic : BaseBulletPattern
     {
         return base.fireProjectiles();
     }
+
+    public override float GetBulletForce()
+    {
+        return base.GetBulletForce();
+    }
 }

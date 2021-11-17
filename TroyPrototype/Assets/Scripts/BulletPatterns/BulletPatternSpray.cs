@@ -68,4 +68,9 @@ public class BulletPatternSpray : BaseBulletPattern
         m_iCurrentAmmoCount = m_iTotalAmmo;
         m_fRange = m_fPelletRangeMax;
     }
+
+    public override float GetBulletForce()
+    {
+        return base.GetBulletDamage();
+    }
 }

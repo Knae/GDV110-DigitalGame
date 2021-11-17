@@ -4,24 +4,20 @@ using UnityEngine;
 
 public class BossShoulderWeapon : MonoBehaviour
 {
-    public Rigidbody2D enemyBody;
+    public Rigidbody2D m_EnemyBody;
     public GameObject bossBody;
     public GameObject gunBody;
     public Transform gunFirePoint;
     public GameObject projectilePrefab;
     [Header("Settings")]
+    [SerializeField] private float m_fHP = 50;
     [SerializeField] private float m_fRotationOffset = 45f;
     [SerializeField] private SpriteRenderer m_sprtRenderer;
     [SerializeField] private Sprite[] m_sprtShoulderSprite;
-    [Header("Weapon Stats - old")]
-    [SerializeField] private float m_fHP = 50;
-    [SerializeField] private float m_fDestroyedAngle = 90.0f;
-    [SerializeField] private float m_fBulletForce = 1.5f;
-    [SerializeField] private float m_fFiringPeriod = 3.0f;
-    [SerializeField] private float m_fFiringCooldown = 2.0f;
-    [SerializeField] private float m_fFiringDelay = 0.2f;
-    [SerializeField] private float m_fRange = 1.0f;
-    [Header("Weapon Stats - new")]
+    [Header("Weapon Stats")]
+    [SerializeField] private float m_fBossFiringCooldown = 2.0f;
+    [SerializeField] private float m_fWeaponRange = 1.0f;
+    [Header("Repeater")]
     [SerializeField] private BulletPatternRepeater m_refRepeaterGun_Boss;
     [SerializeField] private float m_fFiringPeriod_Repeater = 4.0f;
     [SerializeField] private float m_fFiringCooldown_Repeater = 0.5f;
@@ -30,6 +26,7 @@ public class BossShoulderWeapon : MonoBehaviour
     //[SerializeField] private BulletPatternSpray m_refShotgun_Boss;
     //[SerializeField] private float m_fFiringDelay_Shotgun = 1.2f;
     //[SerializeField] private float m_fDamage_ShotgunPellet = 0.2f;
+    [Header("Stream")]
     [SerializeField] private BulletPatternStream m_refFlameStreamGun_Boss;
     [SerializeField] private float m_fFiringTime_Stream = 1.5f;
     [SerializeField] private float m_fFiringCooldown_Stream = 0.5f;
@@ -40,11 +37,22 @@ public class BossShoulderWeapon : MonoBehaviour
     [SerializeField] private bool m_bEnableFiringTime;
     [SerializeField] private bool m_bStopRotation;
     [SerializeField] private float m_fAngle = 0f;
+    [SerializeField] private float m_fPredictedAngle = 0f;
     [SerializeField] private float m_fAngleToTarget = 0f;
     [SerializeField] private float m_fDistanceFromPlayer = 0f;
     [SerializeField] private bool m_bFacingEnemy = false;
     [SerializeField] private string m_strCollidedSightTag;
     [SerializeField] private STATES m_eCurrentState = STATES.NOTFIRING;
+    [SerializeField] private Vector2 m_PlayerPrevLocation;
+    [SerializeField] private Vector2 m_TargetPositionAdjustment;
+    [SerializeField] private Vector2 m_TargetVelocity;
+    [SerializeField] private Vector2 predictedPlayerLocation;
+    [SerializeField] private Vector2 projectedDistanceTravelled_Dir;
+    [SerializeField] private float projectedDistanceTravelled_Mag;
+    [SerializeField] private float timeToProjHit;
+    [SerializeField] private float m_fProjectMass = 0.5f;
+    [SerializeField] private float m_fProjectForce = 5.0f;
+    [SerializeField] private float m_fBossStatePredictModifier = 1.0f;
 
     private float m_fCurrentDelay = 0f;
     private float m_fFiringTime = 0.0f;
@@ -89,7 +97,18 @@ public class BossShoulderWeapon : MonoBehaviour
         m_refFlameStreamGun_Boss.SetAsUsedByAI();
 
         m_refCurrentPattern = m_refRepeaterGun_Boss;
-        m_fRange = m_refCurrentPattern.GetRange();
+        m_fWeaponRange = m_refCurrentPattern.GetRange();
+
+        m_fBossStatePredictModifier = 0.75f;
+        if(projectilePrefab.GetComponent<Rigidbody2D>()!=null)
+        {
+            m_fProjectMass = projectilePrefab.GetComponent<Rigidbody2D>().mass;
+        }
+        else
+        {
+            m_fProjectMass = 0.5f;
+        }
+        m_fProjectForce = m_refCurrentPattern.GetBulletForce();
     }
 
     // Update is called once per frame
@@ -125,6 +144,28 @@ public class BossShoulderWeapon : MonoBehaviour
         }
     }
 
+    void FixedUpdate()
+    {
+        GunsAreThinking(CheckIfPlayerInRange());
+
+        if (!m_ScriptParentBehaviour.GetIfPlayerInSight())
+        {
+            m_PlayerPrevLocation = Vector2.zero;
+            m_TargetPositionAdjustment = Vector2.zero;
+        }
+        else
+        {
+            if (m_PlayerPrevLocation == Vector2.zero)
+            {
+                m_PlayerPrevLocation = m_EnemyBody.transform.position;
+            }
+            Vector2 playerCurrentPosition = m_EnemyBody.transform.position;
+            m_TargetPositionAdjustment = playerCurrentPosition - m_PlayerPrevLocation;
+            m_TargetVelocity = m_TargetPositionAdjustment / Time.deltaTime;
+            m_PlayerPrevLocation = m_EnemyBody.transform.position;
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "ProjectilePlayer")
@@ -134,40 +175,15 @@ public class BossShoulderWeapon : MonoBehaviour
         }
     }
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.gameObject.tag == "ProjectilePlayer")
-    //    {
-    //        m_fHP -= collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
-    //        Destroy(collision.gameObject);
-    //    }
-    //}
-
-    void FixedUpdate()
-    {
-        //if (m_eCurrentState != STATES.DESTROYED && CheckIfPlayerInRange())
-        //{
-        //    m_refCurrentPattern.fireProjectiles();
-        //}
-        GunsAreThinking(CheckIfPlayerInRange());
-    }
-
     void fireWeapon()
     {
         m_refCurrentPattern.fireProjectiles();
-
-        //if (m_fCurrentDelay >= m_fFiringDelay)
-        //{
-        //    GameObject newBullet = Instantiate(projectilePrefab, gunFirePoint.position, gunFirePoint.rotation);
-        //    Rigidbody2D newBulletBody = newBullet.GetComponent<Rigidbody2D>();
-        //    newBulletBody.AddForce(gunFirePoint.up * m_fBulletForce, ForceMode2D.Impulse);
-        //}
     }
 
     bool CheckIfPlayerInRange()
     {
-        m_fDistanceFromPlayer = Vector3.Distance(enemyBody.position, gunFirePoint.transform.position);
-        return m_fDistanceFromPlayer <= m_fRange;
+        m_fDistanceFromPlayer = Vector3.Distance(m_EnemyBody.position, gunFirePoint.transform.position);
+        return m_fDistanceFromPlayer <= m_fWeaponRange;
     }
     void GunsAreThinking(bool _playerInRange)
     {
@@ -184,29 +200,18 @@ public class BossShoulderWeapon : MonoBehaviour
             }
             case STATES.FIRING:
             {
-                //if (m_fCurrentDelay >= m_fFiringDelay)
-                //{
-                //    fireWeapon();
-                //    m_fCurrentDelay = 0;
-                //}
-
                 fireWeapon();
 
-                if (!_playerInRange || !m_bFacingEnemy)
+                if (!_playerInRange || !m_ScriptParentBehaviour.GetIfPlayerInSight())
                 {
                     m_eCurrentState = STATES.NOTFIRING;
                 }
-                //else if (m_fFiringTime >= m_fFiringPeriod)
-                //{
-                //    m_fFiringTime = 0;
-                //    m_fCurrentDelay = 0;
-                //    m_eCurrentState = STATES.COOLINGDOWN;
-                //}
+               
                 break;
             }
             case STATES.COOLINGDOWN:
             {
-                if (m_fCurrentDelay >= m_fFiringCooldown)
+                if (m_fCurrentDelay >= m_fBossFiringCooldown)
                 {
                     m_eCurrentState = STATES.NOTFIRING;
                 }
@@ -214,6 +219,7 @@ public class BossShoulderWeapon : MonoBehaviour
             }
             case STATES.DESTROYED:
             {
+                Destroy(gameObject);
                 break;
             }
         }
@@ -223,13 +229,15 @@ public class BossShoulderWeapon : MonoBehaviour
     {
         if (m_fHP > 0)
         {
-            FindAngleBetweenPoints(enemyBody.transform.position);
+            Vector2 playerCurrentPosition = m_EnemyBody.transform.position;
+            FindAngleToPlayer(playerCurrentPosition);
+            m_fPredictedAngle = FindAngleToPlayer_Prediction();
             if (!CheckIfLookingAtPlayer())
             {
                 if (m_ScriptParentBehaviour.GetIfPlayerInSight() && !m_bStopRotation)
                 {
-                    gunBody.transform.rotation = Quaternion.Euler(0f, 0f, m_fAngle + m_fRotationOffset);
-
+                    //gunBody.transform.rotation = Quaternion.Euler(0f, 0f, m_fAngle + m_fRotationOffset/* + m_fAimAssistAngle*/);
+                    gunBody.transform.rotation = Quaternion.Euler(0f, 0f, m_fPredictedAngle + m_fRotationOffset);
                     if (m_fAngle > 0f && m_sprtShoulderSprite.Length > 1)
                     {
                         m_sprtRenderer.sprite = m_sprtShoulderSprite[1];
@@ -238,6 +246,10 @@ public class BossShoulderWeapon : MonoBehaviour
                     {
                         m_sprtRenderer.sprite = m_sprtShoulderSprite[0];
                     }
+                }
+                else
+                {
+                    //Player not in sight or rotation locked
                 }
                 return false;
             }
@@ -248,7 +260,6 @@ public class BossShoulderWeapon : MonoBehaviour
         }
         else
         {
-            //gunBody.transform.rotation = Quaternion.Euler(0f, 0f, m_fDestroyedAngle);
             return false;
         }
     }
@@ -257,9 +268,21 @@ public class BossShoulderWeapon : MonoBehaviour
     /// Possible common function
     /// </summary>
     /// <param name="_inPointA"></param>
-    private void FindAngleBetweenPoints(Vector3 _inPointA)
+    private void FindAngleToPlayer(Vector3 _inPointA)
     {
         m_fAngle = Mathf.Atan2(_inPointA.y - transform.position.y, _inPointA.x - transform.position.x) * Mathf.Rad2Deg;
+    }
+
+    private float FindAngleToPlayer_Prediction()
+    {
+        Vector2 currentPlayerPosition = m_EnemyBody.transform.position;
+        timeToProjHit = m_fDistanceFromPlayer / (m_fProjectForce/m_fProjectMass);
+        projectedDistanceTravelled_Dir = m_TargetVelocity.normalized;
+        projectedDistanceTravelled_Mag = m_TargetVelocity.magnitude * timeToProjHit;
+        Vector2 projectDistance = projectedDistanceTravelled_Dir * projectedDistanceTravelled_Mag * Random.Range(m_fBossStatePredictModifier-0.1f, m_fBossStatePredictModifier+0.1f);
+        predictedPlayerLocation = currentPlayerPosition + projectDistance;
+        float predictedAngle = Mathf.Atan2(predictedPlayerLocation.y - transform.position.y, predictedPlayerLocation.x - transform.position.x) * Mathf.Rad2Deg;
+       return predictedAngle;
     }
 
     /// <summary>
@@ -269,7 +292,8 @@ public class BossShoulderWeapon : MonoBehaviour
     private bool CheckIfLookingAtPlayer()
     {
         int maskIgnoreProjectileAndBoss = (1 << 8) | (1 << 9) | (1 << 10) | (1 << 12) | (1 << 14);
-        RaycastHit2D checkSight = Physics2D.Raycast(gunFirePoint.position, gunFirePoint.up, m_fRange+5, ~maskIgnoreProjectileAndBoss);
+        RaycastHit2D checkSight = Physics2D.Raycast(gunFirePoint.position, gunFirePoint.up, m_fWeaponRange+5, ~maskIgnoreProjectileAndBoss);
+        //WHY WON"T YOU WORK
         //Debug.DrawRay(gunFirePoint.position, gunFirePoint.up * (m_fRange+10), Color.yellow);
         if (checkSight.collider != null && checkSight.collider.gameObject.tag == "Player")
         {
@@ -302,11 +326,17 @@ public class BossShoulderWeapon : MonoBehaviour
             case WEAPONMODE.SPRAY:
                 break;
         }
-        m_fRange = m_refCurrentPattern.GetRange();
+        m_fWeaponRange = m_refCurrentPattern.GetRange();
+        m_fProjectForce = m_refCurrentPattern.GetBulletForce();
     }
 
     public float GetHP()
     {
         return m_fHP;
+    }
+
+    public void ChangeBossStateModifier(float _inModifier)
+    {
+        m_fBossStatePredictModifier = _inModifier;
     }
 }

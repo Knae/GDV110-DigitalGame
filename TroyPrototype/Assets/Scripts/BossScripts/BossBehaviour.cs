@@ -31,12 +31,13 @@ public class BossBehaviour : MonoBehaviour
     [SerializeField] private bool m_bPlayerSighted = false;
     [SerializeField] private bool m_bWander;
     [SerializeField] private float m_CurrentMechIntegrity;
+    [SerializeField] private BOSSSTATE m_eCurrentState;
 
     private AINavigation m_ScriptAINavigate;
     private UnityEngine.AI.NavMeshAgent m_navMeshAgent;
     private float m_fTimePlayerOutOfSight;
 
-    enum BOSSSTATE
+   public enum BOSSSTATE
     {
         NONE,
         THRESHOLD1,
@@ -54,6 +55,7 @@ public class BossBehaviour : MonoBehaviour
         m_ScriptAINavigate = GetComponent<AINavigation>();
         m_navMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         m_navMeshAgent.speed = m_fMovementSpd;
+        m_eCurrentState = BOSSSTATE.THRESHOLD1;
         m_bWander = true;
     }
 
@@ -140,15 +142,6 @@ public class BossBehaviour : MonoBehaviour
         }
     }
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.gameObject.tag == "ProjectilePlayer")
-    //    {
-    //        HP -= collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
-    //        Destroy(collision.gameObject);
-    //    }
-    //}
-
     private bool CheckIfTooFar()
     {
         CalculateDistance();
@@ -164,26 +157,7 @@ public class BossBehaviour : MonoBehaviour
     private void CalculateDistance()
     {
         distance = Vector2.Distance(m_rgdbdyPlayer.position, m_rgdbdyBossBody.position);
-        //Vector2 vectorDiff = m_rgdbdyPlayer.position - m_rgdbdyBossBody.position;
         m_DirectionToPlayer = (m_rgdbdyPlayer.position - m_rgdbdyBossBody.position).normalized;
-
-        //if (vectorDiff.x == 0)
-        //{
-        //    m_DirectionToPlayer.x = 0;
-        //}
-        //else
-        //{
-        //    m_DirectionToPlayer.x = (vectorDiff.x / (Mathf.Abs(vectorDiff.x)));
-        //}
-
-        //if (vectorDiff.y == 0)
-        //{
-        //    m_DirectionToPlayer.y = 0;
-        //}
-        //else
-        //{
-        //    m_DirectionToPlayer.y = (vectorDiff.y / (Mathf.Abs(vectorDiff.y)));
-        //}
     }
 
     public void CheckIfPlayerinView()
@@ -216,6 +190,10 @@ public class BossBehaviour : MonoBehaviour
         }
     }
 
+    public BOSSSTATE GetBossState()
+    {
+        return m_eCurrentState;
+    }
     private IEnumerator GoToLastKnowLocation()
     {
         m_ScriptAINavigate.PlayerSpotted(1);

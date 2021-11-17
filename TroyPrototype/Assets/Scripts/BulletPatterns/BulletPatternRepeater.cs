@@ -153,33 +153,6 @@ public class BulletPatternRepeater : BaseBulletPattern
                 }
 
             }
-            //if (!m_bIsOnCooldown)
-            //{
-            //    if (m_fCounterTime <= m_fFiringTime)
-            //    {
-            //        m_bIsOnDelay = false;
-            //        //If we've not reached the max firing time, then keep firing
-            //        //while adding to the timer.
-            //        GameObject newBullet = Instantiate(projectilePrefab, gunFirePoint.position, gunFirePoint.rotation);
-            //        Rigidbody2D newBulletBody = newBullet.GetComponent<Rigidbody2D>();
-            //        newBullet.GetComponent<BulletLifetime>().SetBulletRange(m_fRange);
-            //        Vector3 directionRandomizer = new Vector3(Random.Range(-m_fScatterRange, m_fScatterRange), Random.Range(-m_fScatterRange, m_fScatterRange), 0);
-            //        //float forceRandomizer = Random.Range(m_fMinimumForce, m_fMaximumForce);
-            //        newBulletBody.AddForce((gunFirePoint.up + directionRandomizer) * m_fBulletForce, ForceMode2D.Impulse);
-
-            //        //this boolean is so that we don't decrease the counter in the next update if we already fired
-            //        m_bWasFiring = true;
-            //        m_iCurrentAmmoCount--;
-            //        m_fCounterTime += 1.0f * Time.deltaTime;
-            //    }
-            //    else
-            //    {
-            //        //If we've reached max firing time, then start cooldown mode
-            //        m_bIsOnCooldown = true;
-            //        m_bIsOnDelay = true;
-            //        m_fCounterTime = 0f;
-            //    }
-            //}
             return true;
         }
         else
@@ -202,5 +175,10 @@ public class BulletPatternRepeater : BaseBulletPattern
         m_iCurrentAmmoCount = m_iTotalAmmo;
         m_fRange = m_fRepeaterRange;
         //m_bIsOnDelay = false;
+    }
+
+    public override float GetBulletForce()
+    {
+        return base.GetBulletForce();
     }
 }

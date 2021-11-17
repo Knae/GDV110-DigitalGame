@@ -156,7 +156,7 @@ MonoBehaviour:
   m_sprtShoulderSprite:
   - {fileID: 791571116986712617, guid: e6ac2881a9c0d9a4eab72b25e2c36779, type: 3}
   - {fileID: -2568895108108525184, guid: e6ac2881a9c0d9a4eab72b25e2c36779, type: 3}
-  HP: 50
+  m_fHP: 50
   m_fDestroyedAngle: 90
   m_fBulletForce: 1.5
   m_fFiringPeriod: 3
@@ -166,20 +166,24 @@ MonoBehaviour:
   m_refRepeaterGun_Boss: {fileID: 0}
   m_fFiringPeriod_Repeater: 4
   m_fFiringCooldown_Repeater: 0.5
+  m_fFiringWindup_Repeater: 0.2
   m_fDamage_Repeater: 0.5
   m_refFlameStreamGun_Boss: {fileID: 0}
   m_fFiringTime_Stream: 1.5
-  m_fFiringCooldown_Streaam: 0.5
+  m_fFiringCooldown_Stream: 0.5
   m_fDamage_StreamPellet: 0.02
   m_refCurrentPattern: {fileID: 0}
   m_bEnableFiringTime: 0
   m_bStopRotation: 0
   m_fAngle: 0
+  m_fAimAssistAngle: 0
+  m_TargetPositionAdjustment: {x: 0, y: 0}
   m_fAngleToTarget: 0
   m_fDistanceFromPlayer: 0
   m_bFacingEnemy: 0
   m_strCollidedSightTag: 
-  currentState: 1
+  m_eCurrentState: 1
+  m_PlayerPrevLocation: {x: 0, y: 0}
 --- !u!114 &2041929139738243015
 MonoBehaviour:
   m_ObjectHideFlags: 0

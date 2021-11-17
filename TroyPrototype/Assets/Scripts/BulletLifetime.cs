@@ -42,20 +42,6 @@ public class BulletLifetime : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    int check = LayerMask.GetMask("Projectiles");
-    //    if (collision.tag == "Indestructible")
-    //    {
-    //        Destroy(gameObject);
-    //    }
-    //    else if (   (collision.gameObject.tag == "ProjectilePlayer" && !m_bPlayerShot) ||
-    //                (collision.gameObject.tag == "ProjectileEnemy" && m_bPlayerShot) )
-    //    {
-    //        Destroy(collision.gameObject);
-    //        Destroy(gameObject);
-    //    }
-    //}
 
     public void SetBulletRange (float _input)
     {
