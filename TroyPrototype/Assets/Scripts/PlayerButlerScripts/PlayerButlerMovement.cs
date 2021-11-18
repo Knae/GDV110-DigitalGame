@@ -16,8 +16,8 @@ public class PlayerButlerMovement : MonoBehaviour
     [SerializeField] private float m_fMoveSpeed = 2.0f;
 
     [Header("Variables")]
-    [SerializeField] private int maxHealth = 100;
-    [SerializeField] private int currentHealth;
+    [SerializeField] private float maxHealth = 100;
+    [SerializeField] private float currentHealth;
     [SerializeField] private float angle = 0.0f;
 
     [Header("Debug")]
@@ -65,7 +65,8 @@ public class PlayerButlerMovement : MonoBehaviour
         gunObject.transform.rotation = Quaternion.Euler( 0f, 0f, angle);
 
         //process movement
-        playerBody.MovePosition(playerBody.position + (movementvector * Time.deltaTime));
+        //playerBody.MovePosition(playerBody.position + (movementvector * Time.deltaTime));
+        playerBody.velocity = movementvector;
 
         playerTorsoAnimator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
         playerTorsoAnimator.SetFloat("Vertical", Input.GetAxis("Vertical"));
@@ -77,30 +78,23 @@ public class PlayerButlerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "ProjectileEnemy")
         {
-            if (!m_bGodMode)
-            {
-                currentHealth -= collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
-            }
+            int damage = collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
+            TakeDamage(damage);
             Destroy(collision.gameObject);
         }
     }
-
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if(collision.tag == "ProjectileEnemy")
-    //    {
-    //        if (!m_bGodMode)
-    //        {
-    //            currentHealth -= collision.gameObject.GetComponent<BulletLifetime>().GetDamage(); 
-    //        }
-    //        Destroy(collision.gameObject);
-    //    }
-    //}
-
 
     private float FindAngleBetweenPoints(Vector3 _inPointA, Vector3 _inPointB)
     {
         float angle = Mathf.Atan2(_inPointA.y- _inPointB.y, _inPointA.x- _inPointB.x) * Mathf.Rad2Deg;
         return angle;
+    }
+
+    public void TakeDamage(int _inDamage)
+    {
+        if (!m_bGodMode)
+        {
+            currentHealth -= _inDamage;
+        }
     }
 }

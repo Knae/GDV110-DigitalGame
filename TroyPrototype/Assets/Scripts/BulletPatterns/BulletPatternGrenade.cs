@@ -7,14 +7,16 @@ public class BulletPatternGrenade : BaseBulletPattern
     public GameObject enemyBody;
     public ExplosiveProjectile boomBall;
     public Camera worldScreen;
+
     [Header("Pattern Specific Settings - Grenade")]
     [SerializeField] public float m_fScatterRange = 0.25f;
     [SerializeField] public float m_fGrenadeRange = 4.0f;
     [SerializeField] public float m_fAIRangeVariation = 1.5f;
     [SerializeField] public float m_fBulletForce_Grenade = 1.0f;
-    [SerializeField] public float m_fGrenadeDmgRadius = 3.0f;
+    [SerializeField] public float m_fDmgRadius = 1.0f;
+    [SerializeField] public float m_fExplosiveForce = 3.0f;
     [SerializeField] public float m_fFuseTime = 1.2f;
-    [SerializeField] public float m_fTimeBetweenShots_Grenade = 0.1f;
+    [SerializeField] public float m_fTimeBetweenShots_Grenade = 1.5f;
     [SerializeField] public float m_fWindupTime = 0f;
     [SerializeField] public float m_fFiringTime = 1.5f;
     [SerializeField] public float m_fFiringCooldown = 0.5f;
@@ -71,8 +73,10 @@ public class BulletPatternGrenade : BaseBulletPattern
                 }
 
                 ExplosiveProjectile newBomb = Instantiate(boomBall, gunFirePoint.position, gunFirePoint.rotation);
+                //newBomb.AssignCameraSource(camera);
                 newBomb.SetBulletRange(targetRange);
-                newBomb.SetExploRadius(m_fGrenadeDmgRadius);
+                newBomb.SetExploRadius(m_fDmgRadius);
+                newBomb.SetExplosiveForce(m_fExplosiveForce);
                 newBomb.SetFuseTime(m_fFuseTime);
                 Rigidbody2D newBulletBody = newBomb.GetComponent<Rigidbody2D>();
                 Vector3 directionRandomizer = new Vector3(Random.Range(-m_fScatterRange, m_fScatterRange), Random.Range(-m_fScatterRange, m_fScatterRange), 0);

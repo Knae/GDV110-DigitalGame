@@ -10,7 +10,7 @@ public class DestructibleObject : MonoBehaviour
     protected float m_fHP = 20;
     protected float m_fDamageToTake;
 
-    protected virtual void ReceiveDamage(float _inputDamage)
+    public virtual void TakeDamage(float _inputDamage)
     {
         m_fHP -= _inputDamage;
         if(m_fHP <= 0)
@@ -27,23 +27,9 @@ public class DestructibleObject : MonoBehaviour
             {
                 m_fDamageToTake = collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
                 Destroy(collision.gameObject);
-                ReceiveDamage(m_fDamageToTake);
+                TakeDamage(m_fDamageToTake);
                 m_fDamageToTake = 0;
             }
         }
     }
-
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if(m_bCanBeDestroyedByBullets)
-    //    {
-    //        if (collision.tag == "ProjectileEnemy" || collision.tag == "ProjectilePlayer")
-    //        {
-    //            m_fDamageToTake  = collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
-    //            Destroy(collision.gameObject);
-    //            ReceiveDamage(m_fDamageToTake);
-    //            m_fDamageToTake = 0;
-    //        }
-    //    }
-    //}
 };

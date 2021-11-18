@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 4468078469898369578}
   - component: {fileID: 2394257032439768740}
   - component: {fileID: 7186796263555587257}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: projectileExplosive
-  m_TagString: Untagged
+  m_TagString: ProjectileEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,8 +136,10 @@ MonoBehaviour:
   thisBulletCollider: {fileID: 2394257032439768740}
   m_iDamage: 1
   m_fRange: 0
-  m_fExploRadius: 1
+  m_fExploRadius: 5
+  m_fExplosiveForce: 5
   m_fFuseTime: 1.3
   m_fDistanceTraveled: 0
-  m_PrevPos: {x: 0, y: 0, z: 0}
   m_bPrimed: 0
+  m_bWillHurtFriendlies: 0
+  m_PrevPos: {x: 0, y: 0, z: 0}

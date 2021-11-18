@@ -119,7 +119,7 @@ public class GoonBehaviour : MonoBehaviour
     {
         if (collision.tag == "Projectile")
         {
-            HP -= collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
+            TakeDamage(collision.gameObject.GetComponent<BulletLifetime>().GetDamage());           
             Destroy(collision.gameObject);
         }
     }
@@ -275,5 +275,19 @@ public class GoonBehaviour : MonoBehaviour
             m_bWander = false;
             yield break;
         }
+    }
+
+    public void TakeDamage(int _input)
+    {
+        HP -= _input;
+        if(HP <=0)
+        {
+            Die();
+        }
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject);
     }
 }

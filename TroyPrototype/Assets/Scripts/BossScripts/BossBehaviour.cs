@@ -7,6 +7,8 @@ public class BossBehaviour : MonoBehaviour
 {
     public Rigidbody2D m_rgdbdyBossBody;
     public Rigidbody2D m_rgdbdyPlayer;
+    public BossShoulderWeapon m_WpnLeft;
+    public BossShoulderWeapon m_WpnRight;
     public Animator m_animrBossAnimator;
     public SpriteRenderer m_sprtrRenderer;
 
@@ -195,6 +197,16 @@ public class BossBehaviour : MonoBehaviour
     public BOSSSTATE GetBossState()
     {
         return m_eCurrentState;
+    }
+
+    private void UpdateBossState(float _inHp)
+    {
+
+    }
+
+    private float GetCurrentHPTotal()
+    {
+        return HP + m_WpnLeft.GetHP() + m_WpnRight.GetHP();
     }
 
     private IEnumerator GoToLastKnowLocation()
