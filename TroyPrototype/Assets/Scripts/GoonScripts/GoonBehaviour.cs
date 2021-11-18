@@ -9,6 +9,9 @@ public class GoonBehaviour : MonoBehaviour
     //public Animator m_animrGoonAnimator;
     //public SpriteRenderer m_sprtrRenderer;
 
+    public int m_goonType = 0;
+    public bool m_goonCalled = false;
+
     [Header("Behaviour Constants")]
     [SerializeField] private float HP = 15f;
     [SerializeField] private float m_fMovementSpd = 1.0f;
@@ -25,7 +28,7 @@ public class GoonBehaviour : MonoBehaviour
     //If lost sight, then should stop
     [SerializeField] private bool m_bIsMoving = false;
     [SerializeField] private float distance = 0;
-    [SerializeField] private Vector2 bossCurrentSpeed;
+    [SerializeField] private Vector2 goonCurrentSpeed;
     [SerializeField] private Vector2 m_DirectionToPlayer = Vector2.zero;
     [SerializeField] private bool m_bPlayerSighted = false;
     [SerializeField] private bool m_bWander;
@@ -70,31 +73,48 @@ public class GoonBehaviour : MonoBehaviour
         m_navMeshAgent.speed = m_fMovementSpd;
         m_rgdbdyGoonBody.velocity = Vector2.zero;
 
-        if(!m_bUseNavMesh)
+        if (m_goonCalled == false)
         {
-            m_ScriptAINavigate.enabled = false;
-            m_navMeshAgent.enabled = false;
-            if (!m_bIsMoving)
+            if (!m_bUseNavMesh)
             {
-                if (CheckIfTooFar())
+                m_ScriptAINavigate.enabled = false;
+                m_navMeshAgent.enabled = false;
+                if (!m_bIsMoving)
                 {
-                    //m_bIsMoving = true;
-                    m_rgdbdyGoonBody.MovePosition(m_rgdbdyGoonBody.position + (m_DirectionToPlayer * m_fMovementSpd * Time.deltaTime));
-                    //m_animrGoonAnimator.SetFloat("Horizontal", m_DirectionToPlayer.x);
+                    if (CheckIfTooFar())
+                    {
+                        //m_bIsMoving = true;
+                        m_rgdbdyGoonBody.MovePosition(m_rgdbdyGoonBody.position + (m_DirectionToPlayer * m_fMovementSpd * Time.deltaTime));
+                        //m_animrGoonAnimator.SetFloat("Horizontal", m_DirectionToPlayer.x);
+                    }
+                }
+                else
+                {
+                    if (CheckIfCloseEnough())
+                    {
+                        m_bIsMoving = false;
+                        m_DirectionToPlayer = Vector2.zero;
+                        // m_animrGoonAnimator.SetFloat("Horizontal", m_DirectionToPlayer.x);
+                    }
+                    else
+                    {
+                        m_rgdbdyGoonBody.MovePosition(m_rgdbdyGoonBody.position + (m_DirectionToPlayer * m_fMovementSpd * Time.deltaTime));
+                        //m_animrGoonAnimator.SetFloat("Horizontal", m_DirectionToPlayer.x);
+                    }
                 }
             }
             else
             {
-                if (CheckIfCloseEnough())
+                m_ScriptAINavigate.enabled = true;
+                m_navMeshAgent.enabled = true;
+                goonCurrentSpeed = m_navMeshAgent.velocity;
+                if (goonCurrentSpeed.magnitude > 1)
                 {
-                    m_bIsMoving = false;
-                    m_DirectionToPlayer = Vector2.zero;
-                   // m_animrGoonAnimator.SetFloat("Horizontal", m_DirectionToPlayer.x);
+                    //m_animrGoonAnimator.SetFloat("Horizontal", bossCurrentSpeed.x + Mathf.Abs(bossCurrentSpeed.y));
                 }
                 else
                 {
-                    m_rgdbdyGoonBody.MovePosition(m_rgdbdyGoonBody.position + (m_DirectionToPlayer * m_fMovementSpd * Time.deltaTime));
-                    //m_animrGoonAnimator.SetFloat("Horizontal", m_DirectionToPlayer.x);
+                    // m_animrGoonAnimator.SetFloat("Horizontal", 0);
                 }
             }
         }
@@ -102,15 +122,7 @@ public class GoonBehaviour : MonoBehaviour
         {
             m_ScriptAINavigate.enabled = true;
             m_navMeshAgent.enabled = true;
-            bossCurrentSpeed = m_navMeshAgent.velocity;
-            if(bossCurrentSpeed.magnitude > 1 )
-            {
-                //m_animrGoonAnimator.SetFloat("Horizontal", bossCurrentSpeed.x + Mathf.Abs(bossCurrentSpeed.y));
-            }
-            else
-            {
-               // m_animrGoonAnimator.SetFloat("Horizontal", 0);
-            }
+            goonCurrentSpeed = m_navMeshAgent.velocity;
         }
             
     }
