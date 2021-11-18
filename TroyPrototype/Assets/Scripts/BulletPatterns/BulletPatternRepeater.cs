@@ -13,7 +13,7 @@ public class BulletPatternRepeater : BaseBulletPattern
     [SerializeField] public float m_fFiringTime = 1.5f;
     [SerializeField] public float m_fFiringCooldown = 0.5f;
     [SerializeField] public float m_fBulletDamage_Repeater = 0.5f;
-    [SerializeField] public int m_iTotalAmmo_Repeater = 400;
+    [SerializeField] public int m_iTotalAmmo_Repeater = 200;
     [SerializeField] public bool m_bHasCooldown = false;
     [SerializeField] public bool m_bHasWindup = false;
     [Header("Debug")]

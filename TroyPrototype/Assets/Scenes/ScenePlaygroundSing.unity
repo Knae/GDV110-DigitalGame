@@ -121,6 +121,57 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &8092692 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8286293539858408759, guid: fb38649e31ab3af498e551b5b394d819,
+    type: 3}
+  m_PrefabInstance: {fileID: 1871206072}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8092698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8092692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e00fa5dbd135ad4dbd18fb446a0fa10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunFirePoint: {fileID: 775078795}
+  projectilePrefab: {fileID: 0}
+  m_fBulletForceBase: 2
+  m_fFiringDelayBase: 0.5
+  m_fDamageBase: 1
+  m_fRange: 5
+  m_bUsedByAI: 0
+  m_iTotalAmmo: 99
+  m_iCurrentAmmoCount: 0
+  m_fCounterTime: 0
+  m_fBulletForce: 0
+  m_fTimeBetweenShots: 0
+  m_fBulletDamage: 0
+  source: {fileID: 0}
+  clip: {fileID: 0}
+  enemyBody: {fileID: 1691248128}
+  boomBall: {fileID: 7186796263555587257, guid: cd7cba5f903ecdc46896b7c74154bb88,
+    type: 3}
+  worldScreen: {fileID: 0}
+  m_fScatterRange: 0.25
+  m_fGrenadeRange: 4
+  m_fAIRangeVariation: 1.5
+  m_fBulletForce_Grenade: 1
+  m_fGrenadeDmgRadius: 3
+  m_fFuseTime: 1.2
+  m_fTimeBetweenShots_Grenade: 0.1
+  m_fWindupTime: 0
+  m_fFiringTime: 1.5
+  m_fFiringCooldown: 0.5
+  m_fBulletDamage_Grenade: 0.5
+  m_iTotalAmmo_Grenade: 10
+  m_bHasCooldown: 0
+  m_bHasWindup: 0
 --- !u!1 &186385242
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,6 +276,57 @@ AudioSource:
     type: 3}
   m_PrefabInstance: {fileID: 1868311934413127349}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &344624423 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8872810000696805471, guid: 6318487c28c34e24688458f02e051e9e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1868311934413127349}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &344624430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344624423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e00fa5dbd135ad4dbd18fb446a0fa10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunFirePoint: {fileID: 1397697267}
+  projectilePrefab: {fileID: 0}
+  m_fBulletForceBase: 2
+  m_fFiringDelayBase: 0.5
+  m_fDamageBase: 1
+  m_fRange: 5
+  m_bUsedByAI: 0
+  m_iTotalAmmo: 99
+  m_iCurrentAmmoCount: 0
+  m_fCounterTime: 0
+  m_fBulletForce: 0
+  m_fTimeBetweenShots: 0
+  m_fBulletDamage: 0
+  source: {fileID: 0}
+  clip: {fileID: 0}
+  enemyBody: {fileID: 0}
+  boomBall: {fileID: 7186796263555587257, guid: cd7cba5f903ecdc46896b7c74154bb88,
+    type: 3}
+  worldScreen: {fileID: 519420031}
+  m_fScatterRange: 0.25
+  m_fGrenadeRange: 4
+  m_fAIRangeVariation: 1.5
+  m_fBulletForce_Grenade: 1
+  m_fGrenadeDmgRadius: 3
+  m_fFuseTime: 1.2
+  m_fTimeBetweenShots_Grenade: 0.1
+  m_fWindupTime: 0
+  m_fFiringTime: 1.5
+  m_fFiringCooldown: 0.5
+  m_fBulletDamage_Grenade: 0.5
+  m_iTotalAmmo_Grenade: 10
+  m_bHasCooldown: 0
+  m_bHasWindup: 0
 --- !u!1 &348637399
 GameObject:
   m_ObjectHideFlags: 0
@@ -108150,12 +108252,69 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1868311934413127349}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 344624423}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54a3daef9942f2b40a15c236cba88142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &775078795 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2419485722084731687, guid: fb38649e31ab3af498e551b5b394d819,
+    type: 3}
+  m_PrefabInstance: {fileID: 1871206072}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &967106224 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5293484210250526996, guid: fb38649e31ab3af498e551b5b394d819,
+    type: 3}
+  m_PrefabInstance: {fileID: 1871206072}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &967106230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967106224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e00fa5dbd135ad4dbd18fb446a0fa10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunFirePoint: {fileID: 1318140355}
+  projectilePrefab: {fileID: 0}
+  m_fBulletForceBase: 2
+  m_fFiringDelayBase: 0.5
+  m_fDamageBase: 1
+  m_fRange: 5
+  m_bUsedByAI: 0
+  m_iTotalAmmo: 99
+  m_iCurrentAmmoCount: 0
+  m_fCounterTime: 0
+  m_fBulletForce: 0
+  m_fTimeBetweenShots: 0
+  m_fBulletDamage: 0
+  source: {fileID: 0}
+  clip: {fileID: 0}
+  enemyBody: {fileID: 1691248128}
+  boomBall: {fileID: 7186796263555587257, guid: cd7cba5f903ecdc46896b7c74154bb88,
+    type: 3}
+  worldScreen: {fileID: 0}
+  m_fScatterRange: 0.25
+  m_fGrenadeRange: 4
+  m_fAIRangeVariation: 1.5
+  m_fBulletForce_Grenade: 1
+  m_fGrenadeDmgRadius: 3
+  m_fFuseTime: 1.2
+  m_fTimeBetweenShots_Grenade: 0.1
+  m_fWindupTime: 0
+  m_fFiringTime: 1.5
+  m_fFiringCooldown: 0.5
+  m_fBulletDamage_Grenade: 0.5
+  m_iTotalAmmo_Grenade: 10
+  m_bHasCooldown: 0
+  m_bHasWindup: 0
 --- !u!4 &1024924029 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1868311935072767197, guid: 6318487c28c34e24688458f02e051e9e,
@@ -108447,6 +108606,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1318140355 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1881188203482693380, guid: fb38649e31ab3af498e551b5b394d819,
+    type: 3}
+  m_PrefabInstance: {fileID: 1871206072}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1318460055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -108526,6 +108691,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48defa3eefe759e49a8ec05a2cc052d3, type: 3}
+--- !u!4 &1397697267 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8872809999473914561, guid: 6318487c28c34e24688458f02e051e9e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1868311934413127349}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1456293687
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -108785,6 +108956,12 @@ Transform:
 --- !u!50 &1609806443 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 1868311935072767196, guid: 6318487c28c34e24688458f02e051e9e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1868311934413127349}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1691248128 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1868311935072767184, guid: 6318487c28c34e24688458f02e051e9e,
     type: 3}
   m_PrefabInstance: {fileID: 1868311934413127349}
   m_PrefabAsset: {fileID: 0}
@@ -110162,6 +110339,12 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!4 &2008246016 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3487567557427946152, guid: d87d276ed65d6524d8f6c0c1922c8f3b,
+    type: 3}
+  m_PrefabInstance: {fileID: 3487567558379370931}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2060025741
 GameObject:
   m_ObjectHideFlags: 0
@@ -110185,15 +110368,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060025741}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.52, y: -3.13, z: 1.8583287}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1183507119}
   - {fileID: 1696150978}
   - {fileID: 661673079}
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 2008246016}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2076252834
 GameObject:
@@ -110336,7 +110519,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1868311934413127349
 PrefabInstance:
@@ -110380,6 +110563,11 @@ PrefabInstance:
       propertyPath: healthbar
       value: 
       objectReference: {fileID: 1875251851}
+    - target: {fileID: 1868311935072767187, guid: 6318487c28c34e24688458f02e051e9e,
+        type: 3}
+      propertyPath: m_bGodMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1868311935072767187, guid: 6318487c28c34e24688458f02e051e9e,
         type: 3}
       propertyPath: m_fMoveSpeed
@@ -110470,6 +110658,11 @@ PrefabInstance:
       propertyPath: m_bHasCooldown
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7397673796014164822, guid: 6318487c28c34e24688458f02e051e9e,
+        type: 3}
+      propertyPath: m_txtAmmoDisplay
+      value: 
+      objectReference: {fileID: 2076252836}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6318487c28c34e24688458f02e051e9e, type: 3}
 --- !u!1001 &3011390317656560902
@@ -110701,6 +110894,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277377583690189867, guid: 3f30b507b54841a43b2751cd2d0097b5,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277377583690189867, guid: 3f30b507b54841a43b2751cd2d0097b5,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1004010941
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704063520933492552, guid: 3f30b507b54841a43b2751cd2d0097b5,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704063520933492552, guid: 3f30b507b54841a43b2751cd2d0097b5,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704063520933492552, guid: 3f30b507b54841a43b2751cd2d0097b5,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1004010941
       objectReference: {fileID: 0}
     - target: {fileID: 9119231905540451837, guid: 3f30b507b54841a43b2751cd2d0097b5,
         type: 3}

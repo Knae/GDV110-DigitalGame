@@ -176,13 +176,15 @@ public class BossBehaviour : MonoBehaviour
                 m_bPlayerSighted = true;
                 m_bWander = false;
                 m_fTimePlayerOutOfSight = 0;
-                StopCoroutine(GoToLastKnowLocation());
+                StopAllCoroutines();
+                //StopCoroutine(GoToLastKnowLocation());
                 //m_fTimePlayerOutOfSight = 0;
                 print("Found player, moving to where player is.");
             }
             else if(m_bPlayerSighted)
             {
                 m_bPlayerSighted = false;
+                StopCoroutine(GoToLastKnowLocation());
                 StartCoroutine( GoToLastKnowLocation() );
                 print("Lost sight of the player! Moving to last location");
                 //m_ScriptAINavigate.PlayerSpotted((int)(0));
@@ -194,6 +196,7 @@ public class BossBehaviour : MonoBehaviour
     {
         return m_eCurrentState;
     }
+
     private IEnumerator GoToLastKnowLocation()
     {
         m_ScriptAINavigate.PlayerSpotted(1);

@@ -31,6 +31,12 @@ public class BossShoulderWeapon : MonoBehaviour
     [SerializeField] private float m_fFiringTime_Stream = 1.5f;
     [SerializeField] private float m_fFiringCooldown_Stream = 0.5f;
     [SerializeField] private float m_fDamage_StreamPellet = 0.02f;
+
+    [Header("Grenade")]
+    [SerializeField] private BulletPatternGrenade m_refGrenadeGun_Boss;
+    //[SerializeField] private float m_fFiringTime_Grenade = 1.5f;
+    [SerializeField] private float m_fFiringCooldown_Grenade = 0.5f;
+
     [SerializeField] private BaseBulletPattern m_refCurrentPattern;
 
     [Header("Debug Variables")]
@@ -96,7 +102,12 @@ public class BossShoulderWeapon : MonoBehaviour
         m_refFlameStreamGun_Boss.m_fPelletDamage = m_fDamage_StreamPellet;
         m_refFlameStreamGun_Boss.SetAsUsedByAI();
 
+        m_refGrenadeGun_Boss = GetComponent<BulletPatternGrenade>();
+        m_refGrenadeGun_Boss.SetAsUsedByAI();
+        m_refGrenadeGun_Boss.m_fTimeBetweenShots_Grenade = 0.1f;
+
         m_refCurrentPattern = m_refRepeaterGun_Boss;
+        m_refCurrentPattern = m_refGrenadeGun_Boss;
         m_fWeaponRange = m_refCurrentPattern.GetRange();
 
         m_fBossStatePredictModifier = 0.75f;

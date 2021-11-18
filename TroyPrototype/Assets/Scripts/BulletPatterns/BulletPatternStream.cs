@@ -12,7 +12,7 @@ public class BulletPatternStream : BaseBulletPattern
     public float m_fPelletRangeMax = 2.4f;
     public float m_fPelletRangeMin = 2.0f;
     public float m_fBulletForce_Stream = 1.0f;
-    public float m_fFiringTime = 1.5f;
+    public float m_fFiringTime = 1.0f;
     public float m_fFiringCooldown = 0.5f;
     public float m_fPelletDamage = 0.05f;
     public int m_iTotalAmmo_Stream = 200;
@@ -62,7 +62,7 @@ public class BulletPatternStream : BaseBulletPattern
                 {
                     //If we've not reached the max firing time, then keep firing
                     //while adding to the timer.
-                    while (m_iPelletsCreated <= m_iNumberOfPelletsToCreate)
+                    while (m_iPelletsCreated < 1)//= m_iNumberOfPelletsToCreate)
                     {
                         GameObject newBullet = Instantiate(projectilePrefab, gunFirePoint.position, gunFirePoint.rotation);
                         Rigidbody2D newBulletBody = newBullet.GetComponent<Rigidbody2D>();
