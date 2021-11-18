@@ -17,13 +17,15 @@ public class PlayerButlerMovement : MonoBehaviour
 
     [Header("Variables")]
     [SerializeField] private float maxHealth = 100;
-    [SerializeField] private float currentHealth;
+    [SerializeField] public float currentHealth;
     [SerializeField] private float angle = 0.0f;
 
     [Header("Debug")]
     //[SerializeField] private bool m_bDebugMode = false;
     [SerializeField] private bool m_bGodMode = true;
     [SerializeField] private bool m_bHasHealthBar;
+
+    [SerializeField] private bool canRespawn;
 
     private Vector2 movementvector = new Vector3(0, 0, 0);
     private Vector2 mousePos = new Vector3(0, 0, 0);
@@ -32,7 +34,8 @@ public class PlayerButlerMovement : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        if(healthbar!=null)
+
+        if (healthbar!=null)
         {
             healthbar.SetMaxHealth(maxHealth);
             m_bHasHealthBar = true;
@@ -56,6 +59,18 @@ public class PlayerButlerMovement : MonoBehaviour
 
         movementvector.x = Input.GetAxis("Horizontal") * m_fMoveSpeed;
         movementvector.y = Input.GetAxis("Vertical") * m_fMoveSpeed;
+
+        //When HP is 0 then die and then respawn
+
+        Respawn();
+
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            TakeDamage(50);
+            Debug.Log("TAKING DAMAGE");
+        }
+        
     }
 
     void FixedUpdate()
@@ -95,6 +110,35 @@ public class PlayerButlerMovement : MonoBehaviour
         if (!m_bGodMode)
         {
             currentHealth -= _inDamage;
+        }
+    }
+
+    public void AddHealth(int _addHealth)
+    {
+        if (!m_bGodMode)
+        {
+            currentHealth += _addHealth;
+        }
+    }
+
+    void Respawn()
+    {
+        if (canRespawn = true)
+        {
+            if (currentHealth <= 0)
+            {
+
+                Debug.Log("YOU DIED");
+                LevelManager.instance.Respawn();
+                //currentHealth = maxHealth;
+                Destroy(gameObject);
+
+            }
+        }
+        else
+        {
+            canRespawn = false;
+            Debug.Log("Cannot Respawn");
         }
     }
 }

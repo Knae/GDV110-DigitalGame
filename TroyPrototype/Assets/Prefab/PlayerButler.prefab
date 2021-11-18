@@ -343,7 +343,7 @@ MonoBehaviour:
   playerLegsAnimator: {fileID: 1868311934786901440}
   gameCam: {fileID: 0}
   healthbar: {fileID: 0}
-  m_fMoveSpeed: 2
+  m_fMoveSpeed: 3
   maxHealth: 100
   currentHealth: 0
   angle: 0
@@ -427,6 +427,52 @@ MonoBehaviour:
   m_AmmoCountSource: {fileID: 1257486570674982169}
   m_txtAmmoDisplay: {fileID: 0}
   m_iAmmoCount: 0
+--- !u!114 &344624430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8872810000696805471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e00fa5dbd135ad4dbd18fb446a0fa10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunFirePoint: {fileID: 8872809999473914561}
+  projectilePrefab: {fileID: 0}
+  m_fBulletForceBase: 2
+  m_fFiringDelayBase: 0.5
+  m_fDamageBase: 1
+  m_fRange: 5
+  m_bUsedByAI: 0
+  m_iTotalAmmo: 99
+  m_iCurrentAmmoCount: 0
+  m_fCounterTime: 0
+  m_fBulletForce: 0
+  m_fTimeBetweenShots: 0
+  m_fBulletDamage: 0
+  source: {fileID: 0}
+  clip: {fileID: 0}
+  enemyBody: {fileID: 0}
+  boomBall: {fileID: 7186796263555587257, guid: cd7cba5f903ecdc46896b7c74154bb88,
+    type: 3}
+  worldScreen: {fileID: 0}
+  m_fScatterRange: 0.25
+  m_fGrenadeRange: 4
+  m_fAIRangeVariation: 1.5
+  m_fBulletForce_Grenade: 1
+  m_fDmgRadius: 1
+  m_fExplosiveForce: 3
+  m_fFuseTime: 1.2
+  m_fTimeBetweenShots_Grenade: 0.1
+  m_fWindupTime: 0
+  m_fFiringTime: 1.5
+  m_fFiringCooldown: 0.5
+  m_fBulletDamage_Grenade: 0.5
+  m_iTotalAmmo_Grenade: 10
+  m_bHasCooldown: 0
+  m_bHasWindup: 0
 --- !u!1001 &1868311934600684006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -444,6 +490,11 @@ PrefabInstance:
       propertyPath: source
       value: 
       objectReference: {fileID: 3034211711205786522}
+    - target: {fileID: 3304202735012123128, guid: ea91433af69a50d49910dbd2e8562f56,
+        type: 3}
+      propertyPath: m_fRange
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3744246900988011132, guid: ea91433af69a50d49910dbd2e8562f56,
         type: 3}
       propertyPath: m_Volume
@@ -516,6 +567,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea91433af69a50d49910dbd2e8562f56, type: 3}
+--- !u!1 &8872810000696805471 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7119942938870557113, guid: ea91433af69a50d49910dbd2e8562f56,
+    type: 3}
+  m_PrefabInstance: {fileID: 1868311934600684006}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8872810000696805470 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7119942938870557112, guid: ea91433af69a50d49910dbd2e8562f56,
@@ -528,7 +585,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1868311934600684006}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 8872810000696805471}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54a3daef9942f2b40a15c236cba88142, type: 3}
@@ -537,6 +594,12 @@ MonoBehaviour:
 --- !u!82 &3034211711205786522 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 3744246900988011132, guid: ea91433af69a50d49910dbd2e8562f56,
+    type: 3}
+  m_PrefabInstance: {fileID: 1868311934600684006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8872809999473914561 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7119942939825017639, guid: ea91433af69a50d49910dbd2e8562f56,
     type: 3}
   m_PrefabInstance: {fileID: 1868311934600684006}
   m_PrefabAsset: {fileID: 0}
