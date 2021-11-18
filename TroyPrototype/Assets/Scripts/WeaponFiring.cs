@@ -10,7 +10,8 @@ public class WeaponFiring : MonoBehaviour
         BASIC,
         SPRAY,
         STREAM,
-        REPEATER
+        REPEATER,
+        GRENADE
     }
 
     [Header("Debug")]
@@ -22,6 +23,7 @@ public class WeaponFiring : MonoBehaviour
     private BulletPatternSpray m_refBulletSprayPattern;
     private BulletPatternStream m_refBulletStreamPattern;
     private BulletPatternRepeater m_refBulletRepeaterPattern;
+    private BulletPatternGrenade m_refBulletGrenadePattern;
 
     private void Start()
     {
@@ -31,6 +33,7 @@ public class WeaponFiring : MonoBehaviour
         m_refBulletBasicPattern = GetComponent<BulletPatternBasic>();
         m_refBulletStreamPattern = GetComponent<BulletPatternStream>();
         m_refBulletRepeaterPattern = GetComponent<BulletPatternRepeater>();
+        m_refBulletGrenadePattern = GetComponent<BulletPatternGrenade>();
         ChangeWeaponMode(m_refBulletBasicPattern);
     }
 
@@ -66,6 +69,11 @@ public class WeaponFiring : MonoBehaviour
                     break;
                 }
                 case WEAPONMODE.REPEATER:
+                {
+                    SetWeaponToGrenade();
+                    break;
+                }
+                case WEAPONMODE.GRENADE:
                 {
                     SetWeaponToBasic();
                     break;
@@ -107,6 +115,12 @@ public class WeaponFiring : MonoBehaviour
     {
         ChangeWeaponMode(m_refBulletBasicPattern);
         m_iCurrentWeaponMode = WEAPONMODE.BASIC;
+    }
+
+    public void SetWeaponToGrenade()
+    {
+        ChangeWeaponMode(m_refBulletGrenadePattern);
+        m_iCurrentWeaponMode = WEAPONMODE.GRENADE;
     }
 
     public int GetAmmoLeft()

@@ -7,6 +7,8 @@ public class BossBehaviour : MonoBehaviour
 {
     public Rigidbody2D m_rgdbdyBossBody;
     public Rigidbody2D m_rgdbdyPlayer;
+    public BossShoulderWeapon m_WpnLeft;
+    public BossShoulderWeapon m_WpnRight;
     public Animator m_animrBossAnimator;
     public SpriteRenderer m_sprtrRenderer;
 
@@ -176,13 +178,15 @@ public class BossBehaviour : MonoBehaviour
                 m_bPlayerSighted = true;
                 m_bWander = false;
                 m_fTimePlayerOutOfSight = 0;
-                StopCoroutine(GoToLastKnowLocation());
+                StopAllCoroutines();
+                //StopCoroutine(GoToLastKnowLocation());
                 //m_fTimePlayerOutOfSight = 0;
                 print("Found player, moving to where player is.");
             }
             else if(m_bPlayerSighted)
             {
                 m_bPlayerSighted = false;
+                StopCoroutine(GoToLastKnowLocation());
                 StartCoroutine( GoToLastKnowLocation() );
                 print("Lost sight of the player! Moving to last location");
                 //m_ScriptAINavigate.PlayerSpotted((int)(0));
@@ -194,6 +198,17 @@ public class BossBehaviour : MonoBehaviour
     {
         return m_eCurrentState;
     }
+
+    private void UpdateBossState(float _inHp)
+    {
+
+    }
+
+    private float GetCurrentHPTotal()
+    {
+        return HP + m_WpnLeft.GetHP() + m_WpnRight.GetHP();
+    }
+
     private IEnumerator GoToLastKnowLocation()
     {
         m_ScriptAINavigate.PlayerSpotted(1);

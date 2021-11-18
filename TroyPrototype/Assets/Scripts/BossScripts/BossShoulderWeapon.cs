@@ -31,6 +31,14 @@ public class BossShoulderWeapon : MonoBehaviour
     [SerializeField] private float m_fFiringTime_Stream = 1.5f;
     [SerializeField] private float m_fFiringCooldown_Stream = 0.5f;
     [SerializeField] private float m_fDamage_StreamPellet = 0.02f;
+
+    [Header("Grenade")]
+    [SerializeField] private BulletPatternGrenade m_refGrenadeGun_Boss;
+    [SerializeField] private float m_fGrenadeInterval = 1.5f;
+    [SerializeField] private float m_fGrenadeExplosiveForce = 2.0f;
+    [SerializeField] private float m_fGrenadeExplosiveRadius = 1.0f;
+    [SerializeField] private float m_fDamage_Grenade = 5.0f;
+
     [SerializeField] private BaseBulletPattern m_refCurrentPattern;
 
     [Header("Debug Variables")]
@@ -87,6 +95,7 @@ public class BossShoulderWeapon : MonoBehaviour
         m_refRepeaterGun_Boss.m_fBulletDamage_Repeater = m_fDamage_Repeater;
         m_refRepeaterGun_Boss.m_bHasWindup = true;
         m_refRepeaterGun_Boss.m_bHasCooldown = true;
+        m_refRepeaterGun_Boss.ResetSettings();
         m_refRepeaterGun_Boss.SetAsUsedByAI();
 
         //m_refShotgun_Boss = GetComponent<BulletPatternSpray>();
@@ -94,9 +103,19 @@ public class BossShoulderWeapon : MonoBehaviour
         m_refFlameStreamGun_Boss.m_fFiringTime = m_fFiringTime_Stream;
         m_refFlameStreamGun_Boss.m_fFiringCooldown = m_fFiringCooldown_Stream;
         m_refFlameStreamGun_Boss.m_fPelletDamage = m_fDamage_StreamPellet;
+        m_refFlameStreamGun_Boss.ResetSettings();
         m_refFlameStreamGun_Boss.SetAsUsedByAI();
 
+        m_refGrenadeGun_Boss = GetComponent<BulletPatternGrenade>();
+        m_refGrenadeGun_Boss.m_fTimeBetweenShots_Grenade = m_fGrenadeInterval;
+        m_refGrenadeGun_Boss.m_fDmgRadius = m_fGrenadeExplosiveRadius;
+        m_refGrenadeGun_Boss.m_fExplosiveForce = m_fGrenadeExplosiveForce;
+        //m_refGrenadeGun_Boss
+        m_refGrenadeGun_Boss.ResetSettings();
+        m_refGrenadeGun_Boss.SetAsUsedByAI();
+
         m_refCurrentPattern = m_refRepeaterGun_Boss;
+        m_refCurrentPattern = m_refGrenadeGun_Boss;
         m_fWeaponRange = m_refCurrentPattern.GetRange();
 
         m_fBossStatePredictModifier = 0.75f;

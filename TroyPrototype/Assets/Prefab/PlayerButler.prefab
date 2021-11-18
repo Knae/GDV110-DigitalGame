@@ -300,6 +300,7 @@ GameObject:
   - component: {fileID: 2544290109831210130}
   - component: {fileID: 4136934129786803736}
   - component: {fileID: 1382202931498083884}
+  - component: {fileID: 7397673796014164822}
   m_Layer: 11
   m_Name: PlayerButler
   m_TagString: Player
@@ -411,6 +412,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorArrow: {fileID: 2800000, guid: 40890d93e320f104e98ab4131ad31fc1, type: 3}
+--- !u!114 &7397673796014164822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868311935072767184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe3b27f8609a81b448cedc758c8068d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AmmoCountSource: {fileID: 1257486570674982169}
+  m_txtAmmoDisplay: {fileID: 0}
+  m_iAmmoCount: 0
 --- !u!1001 &1868311934600684006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -506,6 +522,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1868311934600684006}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1257486570674982169 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 621196109013265663, guid: ea91433af69a50d49910dbd2e8562f56,
+    type: 3}
+  m_PrefabInstance: {fileID: 1868311934600684006}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54a3daef9942f2b40a15c236cba88142, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &3034211711205786522 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 3744246900988011132, guid: ea91433af69a50d49910dbd2e8562f56,

@@ -6,12 +6,12 @@ public class BulletLifetime : MonoBehaviour
 {
     public CircleCollider2D thisBulletCollider;
 
-    [Header("BulletSettings")]
+    [Header("ProjectileSettings")]
     [SerializeField] private int m_iDamage = 1;
     [SerializeField] private float m_fRange = 0.0f;
     [SerializeField] private float m_fDistanceTraveled = 0f;
     [SerializeField] private Vector3 m_PrevPos = Vector3.zero;
-    [SerializeField] private bool m_bPlayerShot;
+    //[SerializeField] private bool m_bPlayerShot;
 
     private void Awake()
     {
@@ -20,10 +20,10 @@ public class BulletLifetime : MonoBehaviour
 
     void FixedUpdate()
     {
-        m_fDistanceTraveled = (transform.position - m_PrevPos).magnitude;
-        m_fRange -= (transform.position - m_PrevPos).magnitude;
+        m_fDistanceTraveled += (transform.position - m_PrevPos).magnitude;
+        //m_fRange -= (transform.position - m_PrevPos).magnitude;
         m_PrevPos = transform.position;
-        if (m_fRange<0)
+        if (m_fDistanceTraveled >= m_fRange)
         {
             Destroy(gameObject);
         }        
@@ -35,12 +35,12 @@ public class BulletLifetime : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        else if (   (collision.gameObject.tag == "ProjectilePlayer" && !m_bPlayerShot) ||
-                    (collision.gameObject.tag == "ProjectileEnemy" && m_bPlayerShot))
-        {
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
-        }
+        //else if (   (collision.gameObject.tag == "ProjectilePlayer" && !m_bPlayerShot) ||
+        //            (collision.gameObject.tag == "ProjectileEnemy" && m_bPlayerShot))
+        //{
+        //    Destroy(collision.gameObject);
+        //    Destroy(gameObject);
+        //}
     }
 
     public void SetBulletRange (float _input)
