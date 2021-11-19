@@ -7,6 +7,7 @@ public class BossBehaviour : MonoBehaviour
 {
     public Rigidbody2D m_rgdbdyBossBody;
     public Rigidbody2D m_rgdbdyPlayer;
+    public HealthBar m_BossHPBar;
     public BossShoulderWeapon m_WpnLeft;
     public BossShoulderWeapon m_WpnRight;
     public Animator m_animrBossAnimator;
@@ -18,7 +19,7 @@ public class BossBehaviour : MonoBehaviour
     [SerializeField] private float m_fMinimumDistanceFromPlayer = 0.8f;
     [SerializeField] private float m_fMaximumDistanceFromPlayer = 1.1f;
     [SerializeField] private float m_fDelayAfterLosingSight = 2.0f;
-    [SerializeField] private bool m_bUseNavMesh;
+    [SerializeField] private bool m_bUseNavMesh = true;
 
     [Header("WanderSpots")]
     [SerializeField] private Transform[] m_WanderSpot;
@@ -33,7 +34,13 @@ public class BossBehaviour : MonoBehaviour
     [SerializeField] private bool m_bPlayerSighted = false;
     [SerializeField] private bool m_bWander;
     [SerializeField] private float m_CurrentMechIntegrity;
+    [SerializeField] private float m_MaxMechIntegrity;
     [SerializeField] private BOSSSTATE m_eCurrentState;
+    [SerializeField] private Dictionary<BOSSSTATE, float> m_BossThresholds;
+    [SerializeField] private float[] m_fHPPercentageThresholds = new float[] { 0.70f,0.35f,1.0f};
+    [SerializeField] private bool m_bHasHealthBar;
+    [SerializeField] private float HpLeftGun;
+    [SerializeField] private float HpRightGun;
 
     private AINavigation m_ScriptAINavigate;
     private UnityEngine.AI.NavMeshAgent m_navMeshAgent;
@@ -47,6 +54,7 @@ public class BossBehaviour : MonoBehaviour
         THRESHOLD3
     }
 
+
     public bool GetIfPlayerInSight()
     {
         return m_bPlayerSighted;
@@ -54,15 +62,40 @@ public class BossBehaviour : MonoBehaviour
 
     private void Start()
     {
+        m_BossThresholds = new Dictionary<BOSSSTATE, float>();
+        m_BossThresholds.Add(BOSSSTATE.THRESHOLD1, m_fHPPercentageThresholds[0]);
+        m_BossThresholds.Add(BOSSSTATE.THRESHOLD2, m_fHPPercentageThresholds[1]);
+        m_BossThresholds.Add(BOSSSTATE.THRESHOLD3, m_fHPPercentageThresholds[2]);
+        m_MaxMechIntegrity = GetCurrentHPTotal();
+        m_CurrentMechIntegrity = m_MaxMechIntegrity;
+
         m_ScriptAINavigate = GetComponent<AINavigation>();
         m_navMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         m_navMeshAgent.speed = m_fMovementSpd;
         m_eCurrentState = BOSSSTATE.THRESHOLD1;
         m_bWander = true;
+
+        if (m_BossHPBar != null)
+        {
+            m_BossHPBar.SetMaxHealth(m_MaxMechIntegrity);
+            m_bHasHealthBar = true;
+        }
+        else
+        {
+            m_bHasHealthBar = false;
+        }
     }
 
     private void Update()
     {
+        m_CurrentMechIntegrity = GetCurrentHPTotal();
+        CheckBossState(m_CurrentMechIntegrity);
+
+        if(m_bHasHealthBar)
+        {
+            m_BossHPBar.SetHealth(m_CurrentMechIntegrity);
+        }
+
         if (m_ScriptAINavigate == null)
         {
             m_bUseNavMesh = false;
@@ -81,7 +114,6 @@ public class BossBehaviour : MonoBehaviour
                 m_sprtrRenderer.flipX = false;
             }
         }
-       
     }
 
     private void FixedUpdate()
@@ -139,8 +171,29 @@ public class BossBehaviour : MonoBehaviour
     {
         if (collision.gameObject.tag == "ProjectilePlayer")
         {
-            HP -= collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
+            int damageTaken = collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
+            if (m_WpnLeft != null)
+            {
+                m_WpnLeft.TakeDamage(damageTaken);
+            }
+            else if(m_WpnRight != null)
+            {
+                m_WpnRight.TakeDamage(damageTaken);
+            }
+            else
+            {
+                TakeDamage(damageTaken);
+            }
             Destroy(collision.gameObject);
+        }
+    }
+
+    public void TakeDamage(int _input)
+    {
+        HP -= _input;
+        if(HP<=0)
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -170,7 +223,7 @@ public class BossBehaviour : MonoBehaviour
             CalculateDistance();
             //Vector2 vectorToPlayer = m_rgdbdyPlayer.position - m_rgdbdyBossBody.position;
             RaycastHit2D checkSight = Physics2D.Raycast(this.transform.position, m_DirectionToPlayer, m_fMaximumDistanceFromPlayer+5, ~maskIgnoreProjectileAndBoss);
-            Debug.DrawRay(transform.position, m_DirectionToPlayer * (m_fMaximumDistanceFromPlayer + 5), Color.blue);
+            //Debug.DrawRay(transform.position, m_DirectionToPlayer * (m_fMaximumDistanceFromPlayer + 5), Color.blue);
             if (checkSight.collider != null && checkSight.collider.gameObject.tag == "Player")
             {
                 m_ScriptAINavigate.PlayerSpotted((int)(m_fMinimumDistanceFromPlayer));
@@ -199,14 +252,48 @@ public class BossBehaviour : MonoBehaviour
         return m_eCurrentState;
     }
 
-    private void UpdateBossState(float _inHp)
+    private void CheckBossState(float _inHp)
     {
+        if(_inHp <= ( m_MaxMechIntegrity*m_BossThresholds[GetBossState()]) )
+        {
+            AdvanceBossState();
+        }
+    }
 
+    private void AdvanceBossState()
+    {
+        switch (m_eCurrentState)
+        {
+            case BOSSSTATE.THRESHOLD1:
+            {
+                m_WpnLeft.ChangeBossStateModifier(0.85f);
+                m_WpnRight.ChangeBossStateModifier(0.85f);
+                m_eCurrentState = BOSSSTATE.THRESHOLD2;
+                break;
+            }
+            case BOSSSTATE.THRESHOLD2:
+            {
+                m_WpnLeft.ChangeBossStateModifier(1.1f);
+                m_WpnRight.ChangeBossStateModifier(1.1f);
+                m_eCurrentState = BOSSSTATE.THRESHOLD3;
+                break;
+            }
+            case BOSSSTATE.THRESHOLD3:
+            {
+                //It should be dead;
+                break;
+            }
+            default:
+                break;
+        }
     }
 
     private float GetCurrentHPTotal()
     {
-        return HP + m_WpnLeft.GetHP() + m_WpnRight.GetHP();
+        HpLeftGun = m_WpnLeft!=null ? m_WpnLeft.GetHP():0.0f;
+        HpRightGun = m_WpnRight != null ? m_WpnRight.GetHP() : 0.0f;
+
+        return HP + HpLeftGun + HpRightGun;
     }
 
     private IEnumerator GoToLastKnowLocation()

@@ -17,6 +17,7 @@ public class WeaponFiring : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private WEAPONMODE m_iCurrentWeaponMode = WEAPONMODE.BASIC;
     [SerializeField] private int m_iAmmoLeft = 0;
+    [SerializeField] private bool m_bGrenadeEnabled = false;
 
     private BaseBulletPattern m_refCurrentPattern;
     private BulletPatternBasic m_refBulletBasicPattern;
@@ -70,7 +71,14 @@ public class WeaponFiring : MonoBehaviour
                 }
                 case WEAPONMODE.REPEATER:
                 {
-                    SetWeaponToGrenade();
+                    if (m_bGrenadeEnabled)
+                    {
+                        SetWeaponToGrenade();
+                    }
+                    else
+                    {
+                        SetWeaponToBasic();
+                    }
                     break;
                 }
                 case WEAPONMODE.GRENADE:

@@ -370,16 +370,6 @@ PrefabInstance:
       objectReference: {fileID: 1321283922}
     - target: {fileID: 5379251310529786997, guid: fb38649e31ab3af498e551b5b394d819,
         type: 3}
-      propertyPath: m_bUseNavMesh
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5379251310529786997, guid: fb38649e31ab3af498e551b5b394d819,
-        type: 3}
-      propertyPath: m_fMovementSpd
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5379251310529786997, guid: fb38649e31ab3af498e551b5b394d819,
-        type: 3}
       propertyPath: m_rgdbdyPlayer
       value: 
       objectReference: {fileID: 429520955}

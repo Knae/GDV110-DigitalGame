@@ -10,7 +10,7 @@ public class BossShoulderWeapon : MonoBehaviour
     public Transform gunFirePoint;
     public GameObject projectilePrefab;
     [Header("Settings")]
-    [SerializeField] private float m_fHP = 50;
+    [SerializeField] private float m_fHP = 75;
     [SerializeField] private float m_fRotationOffset = 45f;
     [SerializeField] private SpriteRenderer m_sprtRenderer;
     [SerializeField] private Sprite[] m_sprtShoulderSprite;
@@ -89,7 +89,7 @@ public class BossShoulderWeapon : MonoBehaviour
         m_ScriptParentBehaviour = bossBody.GetComponent<BossBehaviour>();
 
         m_refRepeaterGun_Boss = GetComponent<BulletPatternRepeater>();
-        m_refRepeaterGun_Boss.m_fFiringTime =  m_fFiringPeriod_Repeater;
+        m_refRepeaterGun_Boss.m_fFiringTime = m_fFiringPeriod_Repeater;
         m_refRepeaterGun_Boss.m_fFiringCooldown = m_fFiringCooldown_Repeater;
         m_refRepeaterGun_Boss.m_fWindupTime = m_fFiringWindup_Repeater;
         m_refRepeaterGun_Boss.m_fBulletDamage_Repeater = m_fDamage_Repeater;
@@ -115,11 +115,10 @@ public class BossShoulderWeapon : MonoBehaviour
         m_refGrenadeGun_Boss.SetAsUsedByAI();
 
         m_refCurrentPattern = m_refRepeaterGun_Boss;
-        m_refCurrentPattern = m_refGrenadeGun_Boss;
         m_fWeaponRange = m_refCurrentPattern.GetRange();
 
         m_fBossStatePredictModifier = 0.75f;
-        if(projectilePrefab.GetComponent<Rigidbody2D>()!=null)
+        if (projectilePrefab.GetComponent<Rigidbody2D>() != null)
         {
             m_fProjectMass = projectilePrefab.GetComponent<Rigidbody2D>().mass;
         }
@@ -158,7 +157,7 @@ public class BossShoulderWeapon : MonoBehaviour
                             m_fFiringTime = 0;
                         }
                     }
-                } 
+                }
             }
         }
     }
@@ -189,12 +188,17 @@ public class BossShoulderWeapon : MonoBehaviour
     {
         if (collision.gameObject.tag == "ProjectilePlayer")
         {
-            m_fHP -= collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
+            TakeDamage(collision.gameObject.GetComponent<BulletLifetime>().GetDamage());
             Destroy(collision.gameObject);
         }
     }
 
-    void fireWeapon()
+    public void TakeDamage(int _input )
+    {
+        m_fHP -= _input;
+    }
+
+    private void fireWeapon()
     {
         m_refCurrentPattern.fireProjectiles();
     }
