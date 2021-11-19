@@ -89,7 +89,7 @@ public class PlayerButlerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "ProjectileEnemy")
         {
-            int damage = collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
+            float damage = collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
             TakeDamage(damage);
             Destroy(collision.gameObject);
         }
@@ -101,7 +101,7 @@ public class PlayerButlerMovement : MonoBehaviour
         return angle;
     }
 
-    public void TakeDamage(int _inDamage)
+    public void TakeDamage(float _inDamage)
     {
         if (!m_bGodMode)
         {

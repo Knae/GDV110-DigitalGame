@@ -24,7 +24,7 @@ public class GoonBehaviour : MonoBehaviour
     [SerializeField] private Transform[] m_WanderSpot;
 
     [Header("Debug")]
-    //Using isMoving to mark if baoss is moving to player
+    //Using isMoving to mark if boss is moving to player
     //If lost sight, then should stop
     [SerializeField] private bool m_bIsMoving = false;
     [SerializeField] private float distance = 0;
@@ -135,6 +135,7 @@ public class GoonBehaviour : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
+
     //private void OnCollisionEnter2D(Collider2D collision)
     //{
     //    if (collision.tag == "Projectile")
@@ -297,7 +298,7 @@ public class GoonBehaviour : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int _input)
+    public void TakeDamage(float _input)
     {
         HP -= _input;
         if(HP <=0)

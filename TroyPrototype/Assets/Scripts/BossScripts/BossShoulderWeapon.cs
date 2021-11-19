@@ -23,6 +23,7 @@ public class BossShoulderWeapon : MonoBehaviour
     [SerializeField] private float m_fFiringCooldown_Repeater = 0.5f;
     [SerializeField] private float m_fFiringWindup_Repeater = 0.2f;
     [SerializeField] private float m_fDamage_Repeater = 0.5f;
+    [SerializeField] private float m_fBulletForce_Repeater = 2.5f;
     //[SerializeField] private BulletPatternSpray m_refShotgun_Boss;
     //[SerializeField] private float m_fFiringDelay_Shotgun = 1.2f;
     //[SerializeField] private float m_fDamage_ShotgunPellet = 0.2f;
@@ -93,6 +94,7 @@ public class BossShoulderWeapon : MonoBehaviour
         m_refRepeaterGun_Boss.m_fFiringCooldown = m_fFiringCooldown_Repeater;
         m_refRepeaterGun_Boss.m_fWindupTime = m_fFiringWindup_Repeater;
         m_refRepeaterGun_Boss.m_fBulletDamage_Repeater = m_fDamage_Repeater;
+        m_refRepeaterGun_Boss.m_fBulletForce_Repeater = m_fBulletForce_Repeater;
         m_refRepeaterGun_Boss.m_bHasWindup = true;
         m_refRepeaterGun_Boss.m_bHasCooldown = true;
         m_refRepeaterGun_Boss.ResetSettings();
@@ -193,7 +195,7 @@ public class BossShoulderWeapon : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int _input )
+    public void TakeDamage(float _input )
     {
         m_fHP -= _input;
     }

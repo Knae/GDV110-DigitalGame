@@ -12,13 +12,15 @@ public class BaseBulletPattern : MonoBehaviour
     public float m_fBulletForceBase = 2.0f;
     public float m_fFiringDelayBase = 0.5f;
     public float m_fDamageBase = 1f;
+    public float m_fRangeBase = 5.0f;
+    public float m_fForceBase = 1.0f;
+    public int m_iTotalAmmo = 99;
 
     [Header("Debug Variables")]
-    [SerializeField] protected float m_fRange = 5f;
+    [SerializeField] protected float m_fRange;
     [SerializeField] protected bool m_bUsedByAI = false;
-    [SerializeField] protected int m_iTotalAmmo = 99;
-    [SerializeField] protected int m_iCurrentAmmoCount = 0;
-    [SerializeField] protected float m_fCounterTime = 0.0f;
+    [SerializeField] protected int m_iCurrentAmmoCount;
+    [SerializeField] protected float m_fCounterTime;
     [SerializeField] protected float m_fBulletForce;
     [SerializeField] protected float m_fTimeBetweenShots;
     [SerializeField] protected float m_fBulletDamage;
@@ -45,6 +47,7 @@ public class BaseBulletPattern : MonoBehaviour
         {
             GameObject newBullet = Instantiate(projectilePrefab, gunFirePoint.position, gunFirePoint.rotation);
             newBullet.GetComponent<BulletLifetime>().SetBulletRange(m_fRange);
+            newBullet.GetComponent<BulletLifetime>().SetDamage(m_fBulletDamage);
             Rigidbody2D newBulletBody = newBullet.GetComponent<Rigidbody2D>();
             newBulletBody.AddForce(gunFirePoint.up * m_fBulletForce, ForceMode2D.Impulse);
             m_fCounterTime = 0.0f;
@@ -81,13 +84,6 @@ public class BaseBulletPattern : MonoBehaviour
         m_iCurrentAmmoCount = m_iTotalAmmo;
     }
 
-    public virtual void ResetSettings()
-    {
-        m_fBulletForce = m_fBulletForceBase;
-        m_fTimeBetweenShots = m_fFiringDelayBase;
-        m_fBulletDamage = m_fDamageBase;
-        m_iCurrentAmmoCount = m_iTotalAmmo;
-    }
     public virtual int GetCurrentAmmoLeft()
     {
         return m_iCurrentAmmoCount;
@@ -96,5 +92,27 @@ public class BaseBulletPattern : MonoBehaviour
     public virtual float GetBulletForce()
     {
         return m_fBulletForce;
+    }
+
+    public virtual void ResetSettings()
+    {
+        m_fBulletForce = m_fBulletForceBase;
+        m_fTimeBetweenShots = m_fFiringDelayBase;
+        m_fBulletDamage = m_fDamageBase;
+        m_iCurrentAmmoCount = m_iTotalAmmo;
+        m_fRange = m_fRangeBase;
+        m_fBulletForce = m_fBulletForceBase;
+        m_fCounterTime = 0f;
+    }
+
+    public virtual void ResetBaseSettings()
+    {
+        m_fBulletForce = m_fBulletForceBase;
+        m_fTimeBetweenShots = m_fFiringDelayBase;
+        m_fBulletDamage = m_fDamageBase;
+        m_iCurrentAmmoCount = m_iTotalAmmo;
+        m_fRange = m_fRangeBase;
+        m_fBulletForce = m_fBulletForceBase;
+        m_fCounterTime = 0f;
     }
 }

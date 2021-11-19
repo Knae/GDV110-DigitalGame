@@ -88,8 +88,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.tag == "ProjectileEnemy")
         {
-            NumOHeart -= damage;
-            NumOHeart -= collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
+            //NumOHeart -= damage;
+            //NumOHeart -= collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
             Destroy(collision.gameObject);
         }
     }

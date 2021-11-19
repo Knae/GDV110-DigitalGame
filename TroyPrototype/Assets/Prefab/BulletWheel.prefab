@@ -1,0 +1,435 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2068523210370986526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3685325782448920815}
+  - component: {fileID: 4219158070581256292}
+  - component: {fileID: 8562908107746295802}
+  - component: {fileID: 4000109843964674572}
+  m_Layer: 0
+  m_Name: BulletWheel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3685325782448920815
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068523210370986526}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.6349187, y: 0.7169381, z: 1.206091}
+  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_Children:
+  - {fileID: 3843410794348120068}
+  - {fileID: 7886384492808075762}
+  - {fileID: 6677393283946622497}
+  - {fileID: 3826425218887988122}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &4219158070581256292
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068523210370986526}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 106040597
+  m_SortingLayer: 4
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 5efc8b085cf0c284bb86d12ef2025638, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.16, y: 0.16}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!58 &8562908107746295802
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068523210370986526}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.0014276505}
+  serializedVersion: 2
+  m_Radius: 0.04537955
+--- !u!114 &4000109843964674572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068523210370986526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d28681bd5cc0c64d80c36f43f3e958d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShootingPattern: {fileID: 0}
+  m_bEnabled: 0
+  m_fHP: 5
+  m_fLifeTime: 20
+  m_thisRgdBdy2D: {fileID: 0}
+  m_BulletPtnShootingPattern:
+  - {fileID: 5619250112850782878}
+  - {fileID: 9011015763495140467}
+  - {fileID: 5662951257193920705}
+  - {fileID: 2838220302747637757}
+  m_iNumberOfFirePoints: 4
+  m_fActivationDelay: 2
+  m_fRotateSpeed: 100
+  m_fFiringInterval: 0.2
+  m_fProjectileDamage: 1
+  m_fProjectileForce: 1
+  m_fProjectileRange: 5
+  m_fCounter: 0
+--- !u!1 &5290590438203510205
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3826425218887988122}
+  - component: {fileID: 2838220302747637757}
+  m_Layer: 0
+  m_Name: Firepoint (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3826425218887988122
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5290590438203510205}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0.0497, y: -0.0003, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3685325782448920815}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &2838220302747637757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5290590438203510205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b1ccd88766caa744b9d8e01d480a33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunFirePoint: {fileID: 3826425218887988122}
+  projectilePrefab: {fileID: 8393412603370758224, guid: d5d5b48b48e230e48a7bbb554d601bd0,
+    type: 3}
+  m_fBulletForceBase: 2
+  m_fFiringDelayBase: 0.5
+  m_fDamageBase: 1
+  m_fRangeBase: 5
+  m_fForceBase: 1
+  m_iTotalAmmo: 99
+  m_fRange: 0
+  m_bUsedByAI: 0
+  m_iCurrentAmmoCount: 0
+  m_fCounterTime: 0
+  m_fBulletForce: 0
+  m_fTimeBetweenShots: 0
+  m_fBulletDamage: 0
+  source: {fileID: 0}
+  clip: {fileID: 0}
+  m_fScatterRange: 0.15
+  m_fRepeaterRange: 1000
+  m_fBulletForce_Repeater: 5
+  m_fTimeBetweenShots_Repeater: 0.1
+  m_fWindupTime: 0
+  m_fFiringTime: 1.5
+  m_fFiringCooldown: 0.5
+  m_fBulletDamage_Repeater: 0.5
+  m_iTotalAmmo_Repeater: 200
+  m_bHasCooldown: 0
+  m_bHasWindup: 0
+  m_bWasFiring: 0
+  m_fTimeAfterLastShot: 0
+  m_eCurrentState: 1
+--- !u!1 &7194701804385601060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7886384492808075762}
+  - component: {fileID: 5662951257193920705}
+  m_Layer: 0
+  m_Name: Firepoint (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7886384492808075762
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7194701804385601060}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.0464, y: -0.0003, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3685325782448920815}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+--- !u!114 &5662951257193920705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7194701804385601060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b1ccd88766caa744b9d8e01d480a33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunFirePoint: {fileID: 7886384492808075762}
+  projectilePrefab: {fileID: 8393412603370758224, guid: d5d5b48b48e230e48a7bbb554d601bd0,
+    type: 3}
+  m_fBulletForceBase: 2
+  m_fFiringDelayBase: 0.5
+  m_fDamageBase: 1
+  m_fRangeBase: 5
+  m_fForceBase: 1
+  m_iTotalAmmo: 99
+  m_fRange: 0
+  m_bUsedByAI: 0
+  m_iCurrentAmmoCount: 0
+  m_fCounterTime: 0
+  m_fBulletForce: 0
+  m_fTimeBetweenShots: 0
+  m_fBulletDamage: 0
+  source: {fileID: 0}
+  clip: {fileID: 0}
+  m_fScatterRange: 0.15
+  m_fRepeaterRange: 1000
+  m_fBulletForce_Repeater: 5
+  m_fTimeBetweenShots_Repeater: 0.1
+  m_fWindupTime: 0
+  m_fFiringTime: 1.5
+  m_fFiringCooldown: 0.5
+  m_fBulletDamage_Repeater: 0.5
+  m_iTotalAmmo_Repeater: 200
+  m_bHasCooldown: 0
+  m_bHasWindup: 0
+  m_bWasFiring: 0
+  m_fTimeAfterLastShot: 0
+  m_eCurrentState: 1
+--- !u!1 &7339255032241116759
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3843410794348120068}
+  - component: {fileID: 5619250112850782878}
+  m_Layer: 0
+  m_Name: Firepoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3843410794348120068
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7339255032241116759}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.045, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3685325782448920815}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5619250112850782878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7339255032241116759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b1ccd88766caa744b9d8e01d480a33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunFirePoint: {fileID: 3843410794348120068}
+  projectilePrefab: {fileID: 8393412603370758224, guid: d5d5b48b48e230e48a7bbb554d601bd0,
+    type: 3}
+  m_fBulletForceBase: 2
+  m_fFiringDelayBase: 0.5
+  m_fDamageBase: 1
+  m_fRangeBase: 5
+  m_fForceBase: 1
+  m_iTotalAmmo: 99
+  m_fRange: 0
+  m_bUsedByAI: 0
+  m_iCurrentAmmoCount: 0
+  m_fCounterTime: 0
+  m_fBulletForce: 0
+  m_fTimeBetweenShots: 0
+  m_fBulletDamage: 0
+  source: {fileID: 0}
+  clip: {fileID: 0}
+  m_fScatterRange: 0.15
+  m_fRepeaterRange: 1000
+  m_fBulletForce_Repeater: 5
+  m_fTimeBetweenShots_Repeater: 0.1
+  m_fWindupTime: 0
+  m_fFiringTime: 1.5
+  m_fFiringCooldown: 0.5
+  m_fBulletDamage_Repeater: 0.5
+  m_iTotalAmmo_Repeater: 200
+  m_bHasCooldown: 0
+  m_bHasWindup: 0
+  m_bWasFiring: 0
+  m_fTimeAfterLastShot: 0
+  m_eCurrentState: 1
+--- !u!1 &7655959489831138791
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6677393283946622497}
+  - component: {fileID: 9011015763495140467}
+  m_Layer: 0
+  m_Name: Firepoint (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6677393283946622497
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7655959489831138791}
+  m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
+  m_LocalPosition: {x: 0, y: -0.0485, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3685325782448920815}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
+--- !u!114 &9011015763495140467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7655959489831138791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b1ccd88766caa744b9d8e01d480a33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunFirePoint: {fileID: 6677393283946622497}
+  projectilePrefab: {fileID: 8393412603370758224, guid: d5d5b48b48e230e48a7bbb554d601bd0,
+    type: 3}
+  m_fBulletForceBase: 2
+  m_fFiringDelayBase: 0.5
+  m_fDamageBase: 1
+  m_fRangeBase: 5
+  m_fForceBase: 1
+  m_iTotalAmmo: 99
+  m_fRange: 0
+  m_bUsedByAI: 0
+  m_iCurrentAmmoCount: 0
+  m_fCounterTime: 0
+  m_fBulletForce: 0
+  m_fTimeBetweenShots: 0
+  m_fBulletDamage: 0
+  source: {fileID: 0}
+  clip: {fileID: 0}
+  m_fScatterRange: 0.15
+  m_fRepeaterRange: 1000
+  m_fBulletForce_Repeater: 5
+  m_fTimeBetweenShots_Repeater: 0.1
+  m_fWindupTime: 0
+  m_fFiringTime: 1.5
+  m_fFiringCooldown: 0.5
+  m_fBulletDamage_Repeater: 0.5
+  m_iTotalAmmo_Repeater: 200
+  m_bHasCooldown: 0
+  m_bHasWindup: 0
+  m_bWasFiring: 0
+  m_fTimeAfterLastShot: 0
+  m_eCurrentState: 1

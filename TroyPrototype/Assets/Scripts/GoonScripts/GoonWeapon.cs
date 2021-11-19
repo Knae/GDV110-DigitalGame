@@ -125,14 +125,14 @@ public class GoonWeapon : MonoBehaviour
             }
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "ProjectilePlayer")
-        {
-            HP -= collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
-            Destroy(collision.gameObject);
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.tag == "ProjectilePlayer")
+    //    {
+    //        HP -= collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
+    //        Destroy(collision.gameObject);
+    //    }
+    //}
 
     void FixedUpdate()
     {

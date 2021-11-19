@@ -152,7 +152,7 @@ MonoBehaviour:
   gunFirePoint: {fileID: 315913478496159159}
   projectilePrefab: {fileID: 8393412603370758224, guid: d5d5b48b48e230e48a7bbb554d601bd0,
     type: 3}
-  m_fHP: 50
+  m_fHP: 75
   m_fRotationOffset: 45
   m_sprtRenderer: {fileID: 4027092690402909901}
   m_sprtShoulderSprite:
@@ -165,6 +165,7 @@ MonoBehaviour:
   m_fFiringCooldown_Repeater: 0.5
   m_fFiringWindup_Repeater: 0.2
   m_fDamage_Repeater: 0.5
+  m_fBulletForce_Repeater: 2.5
   m_refFlameStreamGun_Boss: {fileID: 0}
   m_fFiringTime_Stream: 1.5
   m_fFiringCooldown_Stream: 0.5
@@ -175,7 +176,7 @@ MonoBehaviour:
   m_fGrenadeExplosiveRadius: 1
   m_fDamage_Grenade: 5
   m_refCurrentPattern: {fileID: 0}
-  m_bEnableFiringTime: 0
+  m_bEnableFiringTime: 1
   m_bStopRotation: 0
   m_fAngle: 0
   m_fPredictedAngle: 0
@@ -212,9 +213,11 @@ MonoBehaviour:
   m_fBulletForceBase: 2
   m_fFiringDelayBase: 0.5
   m_fDamageBase: 1
+  m_fRangeBase: 5
+  m_fForceBase: 1
+  m_iTotalAmmo: 20
   m_fRange: 1000
   m_bUsedByAI: 0
-  m_iTotalAmmo: 20
   m_iCurrentAmmoCount: 0
   m_fCounterTime: 0
   m_fBulletForce: 0
@@ -254,9 +257,11 @@ MonoBehaviour:
   m_fBulletForceBase: 2
   m_fFiringDelayBase: 0.5
   m_fDamageBase: 1
+  m_fRangeBase: 5
+  m_fForceBase: 1
+  m_iTotalAmmo: 20
   m_fRange: 1000
   m_bUsedByAI: 0
-  m_iTotalAmmo: 20
   m_iCurrentAmmoCount: 0
   m_fCounterTime: 0
   m_fBulletForce: 0
@@ -292,9 +297,11 @@ MonoBehaviour:
   m_fBulletForceBase: 2
   m_fFiringDelayBase: 0.5
   m_fDamageBase: 1
+  m_fRangeBase: 5
+  m_fForceBase: 1
+  m_iTotalAmmo: 99
   m_fRange: 5
   m_bUsedByAI: 0
-  m_iTotalAmmo: 99
   m_iCurrentAmmoCount: 0
   m_fCounterTime: 0
   m_fBulletForce: 0

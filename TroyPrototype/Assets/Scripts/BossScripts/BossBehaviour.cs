@@ -171,7 +171,7 @@ public class BossBehaviour : MonoBehaviour
     {
         if (collision.gameObject.tag == "ProjectilePlayer")
         {
-            int damageTaken = collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
+            float damageTaken = collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
             if (m_WpnLeft != null)
             {
                 m_WpnLeft.TakeDamage(damageTaken);
@@ -188,7 +188,7 @@ public class BossBehaviour : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int _input)
+    public void TakeDamage(float  _input)
     {
         HP -= _input;
         if(HP<=0)

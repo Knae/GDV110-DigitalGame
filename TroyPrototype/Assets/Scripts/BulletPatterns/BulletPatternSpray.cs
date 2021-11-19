@@ -37,6 +37,7 @@ public class BulletPatternSpray : BaseBulletPattern
                 {
                     GameObject newBullet = Instantiate(projectilePrefab, gunFirePoint.position, gunFirePoint.rotation);
                     Rigidbody2D newBulletBody = newBullet.GetComponent<Rigidbody2D>();
+                    newBullet.GetComponent<BulletLifetime>().SetDamage(m_fBulletDamage);
                     newBullet.GetComponent<BulletLifetime>().SetBulletRange(Random.Range(m_fPelletRangeMin, m_fPelletRangeMax));
                     Vector3 directionRandomizer = new Vector3(Random.Range(-m_fScatterRange, m_fScatterRange), Random.Range(-m_fScatterRange, m_fScatterRange), 0);
                     float forceRandomizer = Random.Range(m_fMinimumForce, m_fMaximumForce);

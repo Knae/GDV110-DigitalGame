@@ -10,7 +10,7 @@ public class BossWeapons : MonoBehaviour
     public Transform gunFirePoint;
     public GameObject projectilePrefab;
     [Header("Weapon Stats - old")]
-    [SerializeField] private int HP = 50;
+    [SerializeField] private float HP = 50;
     [SerializeField] private float m_fDestroyedAngle = 90.0f;
     [SerializeField] private float m_fBulletForce = 1.5f;
     [SerializeField] private float m_fFiringPeriod = 3.0f;
@@ -103,9 +103,14 @@ public class BossWeapons : MonoBehaviour
     {
         if (collision.gameObject.tag == "ProjectilePlayer")
         {
-            HP -= collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
+            TakeDamage( collision.gameObject.GetComponent<BulletLifetime>().GetDamage());
             Destroy(collision.gameObject);
         }
+    }
+
+    public void TakeDamage(float _input)
+    {
+        HP -= _input;
     }
 
     void FixedUpdate()
@@ -116,12 +121,6 @@ public class BossWeapons : MonoBehaviour
     void fireWeapon()
     {
         m_refCurrentPattern.fireProjectiles();
-        //if (m_fCurrentDelay >= m_fFiringDelay)
-        //{
-        //    GameObject newBullet = Instantiate(projectilePrefab, gunFirePoint.position, gunFirePoint.rotation);
-        //    Rigidbody2D newBulletBody = newBullet.GetComponent<Rigidbody2D>();
-        //    newBulletBody.AddForce(gunFirePoint.up * m_fBulletForce, ForceMode2D.Impulse);
-        //}
     }
 
     bool CheckIfPlayerInRange()

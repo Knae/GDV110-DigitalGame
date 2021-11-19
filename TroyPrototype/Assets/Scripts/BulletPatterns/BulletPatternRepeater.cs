@@ -139,6 +139,7 @@ public class BulletPatternRepeater : BaseBulletPattern
             {
                 GameObject newBullet = Instantiate(projectilePrefab, gunFirePoint.position, gunFirePoint.rotation);
                 newBullet.GetComponent<BulletLifetime>().SetBulletRange(m_fRange);
+                newBullet.GetComponent<BulletLifetime>().SetDamage(m_fBulletDamage);
                 Rigidbody2D newBulletBody = newBullet.GetComponent<Rigidbody2D>();
                 newBulletBody.AddForce(gunFirePoint.up * m_fBulletForce, ForceMode2D.Impulse);
                 m_fTimeAfterLastShot = 0.0f;

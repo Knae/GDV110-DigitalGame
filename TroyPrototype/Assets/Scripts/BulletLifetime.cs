@@ -7,7 +7,7 @@ public class BulletLifetime : MonoBehaviour
     public CircleCollider2D thisBulletCollider;
 
     [Header("ProjectileSettings")]
-    [SerializeField] private int m_iDamage = 1;
+    [SerializeField] private float m_fDamage = 1.0f;
     [SerializeField] private float m_fRange = 0.0f;
     [SerializeField] private float m_fDistanceTraveled = 0f;
     [SerializeField] private Vector3 m_PrevPos = Vector3.zero;
@@ -48,14 +48,14 @@ public class BulletLifetime : MonoBehaviour
         m_fRange = _input;
     }
 
-    public void SetDamage(int _input)
+    public void SetDamage(float _input)
     {
-        m_iDamage = _input;
+        m_fDamage = _input;
     }
 
-    public int GetDamage()
+    public float GetDamage()
     {
-        return m_iDamage;
+        return m_fDamage;
     }
 
     //private void OnDestroy()
