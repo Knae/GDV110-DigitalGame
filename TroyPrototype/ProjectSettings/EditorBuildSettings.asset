@@ -11,4 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TEST.unity
     guid: f1ebdaa3242768f41aeaee83f628b1a1
+  - enabled: 1
+    path: Assets/Scenes/StartMenu.unity
+    guid: 7993c532022fa25428e4572e70a81621
+  - enabled: 1
+    path: Assets/Scenes/MozartTest2.unity
+    guid: 047059652a55da34ba749bbfb98d37cb
+  - enabled: 1
+    path: Assets/Scenes/DeathMenuTest.unity
+    guid: 79e6f97b8407c6c40aea0cbc2a8de054
   m_configObjects: {}

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerButlerMovement : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class PlayerButlerMovement : MonoBehaviour
     [SerializeField] private bool m_bHasHealthBar;
 
     [SerializeField] private bool canRespawn;
+    [SerializeField] private bool isPlayerDead = false;
 
     private Vector2 movementvector = new Vector3(0, 0, 0);
     private Vector2 mousePos = new Vector3(0, 0, 0);
@@ -62,8 +64,8 @@ public class PlayerButlerMovement : MonoBehaviour
 
         //When HP is 0 then die and then respawn
 
-        Respawn();
-
+        //Respawn();
+        Die();
 
         if (Input.GetButtonDown("Fire1"))
         {
@@ -121,24 +123,33 @@ public class PlayerButlerMovement : MonoBehaviour
         }
     }
 
-    void Respawn()
+    //void Respawn()
+    //{
+    //    if (canRespawn = true)
+    //    {
+    //        if (currentHealth <= 0)
+    //        {
+
+    //            Debug.Log("YOU DIED");
+    //            LevelManager.instance.Respawn();
+    //            //currentHealth = maxHealth;
+    //            Destroy(gameObject);
+
+    //        }
+    //    }
+    //    else
+    //    {
+    //        canRespawn = false;
+    //        Debug.Log("Cannot Respawn");
+    //    }
+    //}
+
+    void Die()
     {
-        if (canRespawn = true)
+       if (currentHealth <= 0 )
         {
-            if (currentHealth <= 0)
-            {
-
-                Debug.Log("YOU DIED");
-                LevelManager.instance.Respawn();
-                //currentHealth = maxHealth;
-                Destroy(gameObject);
-
-            }
-        }
-        else
-        {
-            canRespawn = false;
-            Debug.Log("Cannot Respawn");
+            SceneManager.LoadScene("DeathMenuTest");
         }
     }
+
 }
