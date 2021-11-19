@@ -27,6 +27,7 @@ public class PlayerButlerMovement : MonoBehaviour
 
     private Vector2 movementvector = new Vector3(0, 0, 0);
     private Vector2 mousePos = new Vector3(0, 0, 0);
+    private SpriteRenderer m_playerLegsRenderer;
 
 
     void Start()
@@ -41,7 +42,7 @@ public class PlayerButlerMovement : MonoBehaviour
         {
             m_bHasHealthBar = false;
         }
-
+        m_playerLegsRenderer =  transform.Find("PlayerLegs").GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -65,13 +66,23 @@ public class PlayerButlerMovement : MonoBehaviour
         gunObject.transform.rotation = Quaternion.Euler( 0f, 0f, angle);
 
         //process movement
-        //playerBody.MovePosition(playerBody.position + (movementvector * Time.deltaTime));
         playerBody.velocity = movementvector;
 
         playerTorsoAnimator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
         playerTorsoAnimator.SetFloat("Vertical", Input.GetAxis("Vertical"));
         playerLegsAnimator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
         playerLegsAnimator.SetFloat("Vertical", Input.GetAxis("Vertical"));
+
+        if (playerTorsoAnimator.GetFloat("Horizontal") > 0)
+        {
+            m_playerLegsRenderer.flipX = false;
+            playerLegsAnimator.SetBool("Flipped", false);
+        }
+        else if (playerTorsoAnimator.GetFloat("Horizontal") < 0)
+        {
+            m_playerLegsRenderer.flipX = true;
+            playerLegsAnimator.SetBool("Flipped", true);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
