@@ -26,13 +26,13 @@ public class PlayerButlerMovement : MonoBehaviour
     [SerializeField] private bool m_bGodMode = true;
     [SerializeField] private bool m_bHasHealthBar;
 
-    [SerializeField] private bool canRespawn;
-    [SerializeField] private bool isPlayerDead = false;
+    [SerializeField] private bool canRespawn = false;
 
     private Vector2 movementvector = new Vector3(0, 0, 0);
     private Vector2 mousePos = new Vector3(0, 0, 0);
     private SpriteRenderer m_playerLegsRenderer;
 
+    public Transform respawnPoint;
 
     void Start()
     {
@@ -63,17 +63,13 @@ public class PlayerButlerMovement : MonoBehaviour
         movementvector.x = Input.GetAxis("Horizontal") * m_fMoveSpeed;
         movementvector.y = Input.GetAxis("Vertical") * m_fMoveSpeed;
 
-        //When HP is 0 then die and then respawn
-
-        //Respawn();
         Die();
+        Respawn();
 
-        if (Input.GetButtonDown("Fire1"))
-        {
-            TakeDamage(50);
-            Debug.Log("TAKING DAMAGE");
-        }
+    
         
+
+
     }
 
     void FixedUpdate()
@@ -134,30 +130,23 @@ public class PlayerButlerMovement : MonoBehaviour
         }
     }
 
-    //void Respawn()
-    //{
-    //    if (canRespawn = true)
-    //    {
-    //        if (currentHealth <= 0)
-    //        {
-
-    //            Debug.Log("YOU DIED");
-    //            LevelManager.instance.Respawn();
-    //            //currentHealth = maxHealth;
-    //            Destroy(gameObject);
-
-    //        }
-    //    }
-    //    else
-    //    {
-    //        canRespawn = false;
-    //        Debug.Log("Cannot Respawn");
-    //    }
-    //}
+    void Respawn()
+    {
+            if (currentHealth <= 0)
+            {
+                canRespawn = false;
+                Debug.Log("YOU DIED");
+               //LevelManager.instance.Respawn();
+                currentHealth = maxHealth;
+                gameObject.transform.position = respawnPoint.transform.position;
+                
+            }
+       
+    }
 
     void Die()
     {
-       if (currentHealth <= 0 )
+        if (currentHealth <= 0 && canRespawn == false)
         {
             SceneManager.LoadScene("DeathMenuTest");
         }
