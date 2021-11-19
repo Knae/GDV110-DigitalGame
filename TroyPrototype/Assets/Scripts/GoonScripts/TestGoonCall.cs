@@ -5,19 +5,36 @@ using UnityEngine;
 public class TestGoonCall : MonoBehaviour
 {
     public GameObject[] allGoons;
+    public bool bButtonPressed = false;
+
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            allGoons = GameObject.FindGameObjectsWithTag("Enemy");
-
-            foreach (GameObject Enemy in allGoons)
+            if (bButtonPressed == false)
             {
-                if (Enemy.GetComponent<GoonBehaviour>().m_goonType == 0)
+                allGoons = GameObject.FindGameObjectsWithTag("Enemy");
+
+                foreach (GameObject Enemy in allGoons)
                 {
-                    Enemy.GetComponent<GoonBehaviour>().m_goonCalled = true;
+                    if (Enemy.GetComponent<GoonBehaviour>().m_goonType == 0)
+                    {
+                        Enemy.GetComponent<GoonBehaviour>().m_goonCalled = true;
+                    }
                 }
+
+                bButtonPressed = true;
+            }
+            else
+            {
+                for (int i = 0; i < allGoons.Length; i++)
+                {
+                    allGoons[i] = null;
+                }
+                allGoons = null;
+
+                bButtonPressed = false;
             }
         }
     }

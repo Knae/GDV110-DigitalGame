@@ -9,8 +9,8 @@ public class AINavigation : MonoBehaviour
 
     [Header("Notable Variables")]
     [SerializeField] private NavMeshAgent agent;
-    [SerializeField] private Vector3 m_vec3DestinationPosition = new Vector3(0, 0, 0);
-    [SerializeField] private Vector3 m_vec3Position_StartingPosition;
+    [SerializeField] public Vector3 m_vec3DestinationPosition = new Vector3(0, 0, 0);
+    [SerializeField] public Vector3 m_vec3Position_StartingPosition;
     [SerializeField] bool m_bReachedLocation = false;
     // Start is called before the first frame update
     void Start()

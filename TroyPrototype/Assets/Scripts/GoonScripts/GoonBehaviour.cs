@@ -8,6 +8,7 @@ public class GoonBehaviour : MonoBehaviour
     public Rigidbody2D m_rgdbdyPlayer;
     public Animator m_animrGoonAnimator;
     public SpriteRenderer m_sprtrRenderer;
+    public GameObject m_newDefaultPosition;
 
     public int m_goonType = 0;
     public bool m_goonCalled = false;
@@ -28,8 +29,8 @@ public class GoonBehaviour : MonoBehaviour
     //If lost sight, then should stop
     [SerializeField] private bool m_bIsMoving = false;
     [SerializeField] private float distance = 0;
-    [SerializeField] private Vector2 goonCurrentSpeed;
-    [SerializeField] private Vector2 m_DirectionToPlayer = Vector2.zero;
+    [SerializeField] public Vector2 goonCurrentSpeed;
+    [SerializeField] public Vector2 m_DirectionToPlayer = Vector2.zero;
     [SerializeField] private bool m_bPlayerSighted = false;
     [SerializeField] private bool m_bWander;
 
@@ -58,12 +59,12 @@ public class GoonBehaviour : MonoBehaviour
 
         if (m_DirectionToPlayer.x > 0)
         {
-           // m_animrGoonAnimator.SetBool("FaceLeft", false);
+           m_animrGoonAnimator.SetBool("Horizontal", false);
            m_sprtrRenderer.flipX = false;
         }
         else if (m_DirectionToPlayer.x < 0)
         {
-           //m_animrGoonAnimator.SetBool("FaceLeft", true);
+           m_animrGoonAnimator.SetBool("Horizontal", true);
            m_sprtrRenderer.flipX = true;
         }
     }
@@ -73,58 +74,55 @@ public class GoonBehaviour : MonoBehaviour
         m_navMeshAgent.speed = m_fMovementSpd;
         m_rgdbdyGoonBody.velocity = Vector2.zero;
 
-        if (m_goonCalled == false)
+        if (m_goonCalled == true)
         {
-            if (!m_bUseNavMesh)
-            {
-                m_ScriptAINavigate.enabled = false;
-                m_navMeshAgent.enabled = false;
-                if (!m_bIsMoving)
-                {
-                    if (CheckIfTooFar())
-                    {
-                        //m_bIsMoving = true;
-                        m_rgdbdyGoonBody.MovePosition(m_rgdbdyGoonBody.position + (m_DirectionToPlayer * m_fMovementSpd * Time.deltaTime));
-                        m_animrGoonAnimator.SetFloat("Horizontal", m_DirectionToPlayer.x);
-                    }
-                }
-                else
-                {
-                    if (CheckIfCloseEnough())
-                    {
-                        m_bIsMoving = false;
-                        m_DirectionToPlayer = Vector2.zero;
-                        m_animrGoonAnimator.SetFloat("Horizontal", m_DirectionToPlayer.x);
-                    }
-                    else
-                    {
-                        m_rgdbdyGoonBody.MovePosition(m_rgdbdyGoonBody.position + (m_DirectionToPlayer * m_fMovementSpd * Time.deltaTime));
-                       m_animrGoonAnimator.SetFloat("Horizontal", m_DirectionToPlayer.x);
-                    }
-                }
-            }
-            else
-            {
-                m_ScriptAINavigate.enabled = true;
-                m_navMeshAgent.enabled = true;
-                goonCurrentSpeed = m_navMeshAgent.velocity;
-                if (goonCurrentSpeed.magnitude > 1)
-                {
-                    m_animrGoonAnimator.SetFloat("Horizontal", goonCurrentSpeed.x + (Mathf.Abs(goonCurrentSpeed.y) * goonCurrentSpeed.normalized.x));
-                }
-                else
-                {
-                    m_animrGoonAnimator.SetFloat("Horizontal", 0);
-                }
-            }
+            m_ScriptAINavigate.m_vec3Position_StartingPosition = m_newDefaultPosition.transform.position;
+            m_ScriptAINavigate.m_vec3DestinationPosition = m_ScriptAINavigate.m_vec3Position_StartingPosition;
         }
-        else
-        {
-            m_ScriptAINavigate.enabled = true;
-            m_navMeshAgent.enabled = true;
-            goonCurrentSpeed = m_navMeshAgent.velocity;
-        }
-            
+
+
+       if (!m_bUseNavMesh)
+       {
+           m_ScriptAINavigate.enabled = false;
+           m_navMeshAgent.enabled = false;
+           if (!m_bIsMoving)
+           {
+               if (CheckIfTooFar())
+               {
+                   //m_bIsMoving = true;
+                   m_rgdbdyGoonBody.MovePosition(m_rgdbdyGoonBody.position + (m_DirectionToPlayer * m_fMovementSpd * Time.deltaTime));
+                   m_animrGoonAnimator.SetFloat("Horizontal", m_DirectionToPlayer.x);
+               }
+           }
+           else
+           {
+               if (CheckIfCloseEnough())
+               {
+                   m_bIsMoving = false;
+                   m_DirectionToPlayer = Vector2.zero;
+                   m_animrGoonAnimator.SetFloat("Horizontal", m_DirectionToPlayer.x);
+               }
+               else
+               {
+                   m_rgdbdyGoonBody.MovePosition(m_rgdbdyGoonBody.position + (m_DirectionToPlayer * m_fMovementSpd * Time.deltaTime));
+                  m_animrGoonAnimator.SetFloat("Horizontal", m_DirectionToPlayer.x);
+               }
+           }
+       }
+       else
+       {
+           m_ScriptAINavigate.enabled = true;
+           m_navMeshAgent.enabled = true;
+           goonCurrentSpeed = m_navMeshAgent.velocity;
+           if (goonCurrentSpeed.magnitude > 1)
+           {
+               m_animrGoonAnimator.SetFloat("Horizontal", goonCurrentSpeed.x + (Mathf.Abs(goonCurrentSpeed.y) * goonCurrentSpeed.normalized.x));
+           }
+           else
+           {
+               m_animrGoonAnimator.SetFloat("Horizontal", 0);
+           }
+       }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -187,7 +185,7 @@ public class GoonBehaviour : MonoBehaviour
     {
         if(m_bUseNavMesh)
         {
-            int maskIgnoreProjectileAndBoss = (1 << 9) | (1 << 10) | (1 << 12) | (1 << 14);
+            int maskIgnoreProjectileAndBoss = (1 << 8) | (1 << 9) | (1 << 10) | (1 << 12) | (1 << 14);
             Vector2 vectorToPlayer = m_rgdbdyPlayer.position - m_rgdbdyGoonBody.position;
             RaycastHit2D checkSight = Physics2D.Raycast(this.transform.position, vectorToPlayer, m_fMaximumDistanceFromPlayer+10, ~maskIgnoreProjectileAndBoss);
             //Debug.DrawRay(gunFirePoint.position, gunFirePoint.up * (m_fRange+10), Color.yellow);

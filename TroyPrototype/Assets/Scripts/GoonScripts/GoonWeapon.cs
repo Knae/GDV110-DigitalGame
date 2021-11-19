@@ -9,6 +9,7 @@ public class GoonWeapon : MonoBehaviour
     public GameObject gunBody;
     public Transform gunFirePoint;
     public GameObject projectilePrefab;
+
     [Header("Settings")]
     [SerializeField] private float m_fRotationOffset = 45f;
     //[SerializeField] private SpriteRenderer m_sprtRenderer;
@@ -214,6 +215,17 @@ public class GoonWeapon : MonoBehaviour
                 if (m_ScriptParentBehaviour.GetIfPlayerInSight() && !m_bStopRotation)
                 {
                     gunBody.transform.rotation = Quaternion.Euler(0f, 0f, m_fAngle + m_fRotationOffset);
+                }
+                else
+                {
+                    if (m_ScriptParentBehaviour.m_DirectionToPlayer.x > 0 && m_ScriptParentBehaviour.goonCurrentSpeed.magnitude > 0)
+                    {
+                        gunBody.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+                    }
+                    else if ((m_ScriptParentBehaviour.m_DirectionToPlayer.x < 0 && m_ScriptParentBehaviour.goonCurrentSpeed.magnitude > 0))
+                    {
+                        gunBody.transform.rotation = Quaternion.Euler(0f, 0f, 180f);
+                    }
                 }
                 return false;
             }

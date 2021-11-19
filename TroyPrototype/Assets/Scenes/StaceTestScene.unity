@@ -284,6 +284,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1 &302842586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 302842587}
+  m_Layer: 0
+  m_Name: NewGoonDefaultPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &302842587
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302842586}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.34, y: 0.85, z: -853.28735}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &355952007
 GameObject:
   m_ObjectHideFlags: 0
@@ -17842,6 +17872,11 @@ PrefabInstance:
       propertyPath: m_rgdbdyPlayer
       value: 
       objectReference: {fileID: 1790067459}
+    - target: {fileID: 1141572126961011792, guid: 262ba89169f3dd14394f875e2759c66d,
+        type: 3}
+      propertyPath: m_newDefaultPosition
+      value: 
+      objectReference: {fileID: 302842586}
     - target: {fileID: 1141572128647626261, guid: 262ba89169f3dd14394f875e2759c66d,
         type: 3}
       propertyPath: enemyBody
@@ -18397,6 +18432,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868311935072767187, guid: 6318487c28c34e24688458f02e051e9e,
+        type: 3}
+      propertyPath: m_fMoveSpeed
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1868311935072767197, guid: 6318487c28c34e24688458f02e051e9e,
         type: 3}
@@ -119546,7 +119586,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2062467058}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 3.75, y: 0.51, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -119565,6 +119605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allGoons: []
+  bButtonPressed: 0
 --- !u!1001 &1141572127906245949
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -119577,6 +119618,11 @@ PrefabInstance:
       propertyPath: m_rgdbdyPlayer
       value: 
       objectReference: {fileID: 1790067459}
+    - target: {fileID: 1141572126961011792, guid: 262ba89169f3dd14394f875e2759c66d,
+        type: 3}
+      propertyPath: m_newDefaultPosition
+      value: 
+      objectReference: {fileID: 302842586}
     - target: {fileID: 1141572128647626261, guid: 262ba89169f3dd14394f875e2759c66d,
         type: 3}
       propertyPath: enemyBody
