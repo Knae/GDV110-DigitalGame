@@ -7,6 +7,8 @@ public class GoonWeapon : MonoBehaviour
     public Rigidbody2D enemyBody;
     public GameObject goonBody;
     public GameObject gunBody;
+    public SpriteRenderer m_goonSprtrRenderer;
+    public SpriteRenderer m_gunSprtrRenderer;
     public Transform gunFirePoint;
     public GameObject projectilePrefab;
 
@@ -17,7 +19,7 @@ public class GoonWeapon : MonoBehaviour
     [Header("Weapon Stats - old")]
     [SerializeField] private int HP = 50;
     [SerializeField] private float m_fDestroyedAngle = 90.0f;
-    [SerializeField] private float m_fBulletForce = 1.5f;
+    //[SerializeField] private float m_fBulletForce = 1.5f;
     [SerializeField] private float m_fFiringPeriod = 3.0f;
     [SerializeField] private float m_fFiringCooldown = 2.0f;
     [SerializeField] private float m_fFiringDelay = 0.2f;
@@ -31,9 +33,9 @@ public class GoonWeapon : MonoBehaviour
     //[SerializeField] private float m_fFiringDelay_Shotgun = 1.2f;
     //[SerializeField] private float m_fDamage_ShotgunPellet = 0.2f;
     [SerializeField] private BulletPatternStream m_refFlameStreamGun_Boss;
-    [SerializeField] private float m_fFiringTime_Stream = 1.5f;
-    [SerializeField] private float m_fFiringCooldown_Streaam = 0.5f;
-    [SerializeField] private float m_fDamage_StreamPellet = 0.02f;
+    //[SerializeField] private float m_fFiringTime_Stream = 1.5f;
+    //[SerializeField] private float m_fFiringCooldown_Streaam = 0.5f;
+    //[SerializeField] private float m_fDamage_StreamPellet = 0.02f;
     [SerializeField] private BaseBulletPattern m_refCurrentPattern;
 
     [Header("Debug Variables")]
@@ -124,6 +126,15 @@ public class GoonWeapon : MonoBehaviour
                     }
                 } 
             }
+        }
+
+        if (m_goonSprtrRenderer.flipX == false)
+        {
+           m_gunSprtrRenderer.flipY = false;
+        }
+        else 
+        {
+            m_gunSprtrRenderer.flipY = true;
         }
     }
     //private void OnTriggerEnter2D(Collider2D collision)

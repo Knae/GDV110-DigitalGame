@@ -19,6 +19,11 @@ public class WeaponFiring : MonoBehaviour
     [SerializeField] private int m_iAmmoLeft = 0;
     [SerializeField] private bool m_bGrenadeEnabled = false;
 
+    public SpriteRenderer m_currentGunSprite;
+    public Sprite m_shottySprite;
+    public Sprite m_rifleSprite;
+    public Sprite m_flamethrowerSprite;
+
     private BaseBulletPattern m_refCurrentPattern;
     private BulletPatternBasic m_refBulletBasicPattern;
     private BulletPatternSpray m_refBulletSprayPattern;
@@ -104,19 +109,20 @@ public class WeaponFiring : MonoBehaviour
     {
         ChangeWeaponMode(m_refBulletSprayPattern);
         m_iCurrentWeaponMode = WEAPONMODE.SPRAY;
+        m_currentGunSprite.sprite = m_shottySprite;
     }
     public void SetWeaponToStream()
     {
         ChangeWeaponMode(m_refBulletStreamPattern);
-
         m_iCurrentWeaponMode = WEAPONMODE.STREAM;
+        m_currentGunSprite.sprite = m_flamethrowerSprite;
     }
 
     public void SetWeaponToRepeater()
     {
         ChangeWeaponMode(m_refBulletRepeaterPattern);
-
         m_iCurrentWeaponMode = WEAPONMODE.REPEATER;
+        m_currentGunSprite.sprite = m_rifleSprite;
     }
 
     public void SetWeaponToBasic()

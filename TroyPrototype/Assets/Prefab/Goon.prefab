@@ -246,6 +246,7 @@ MonoBehaviour:
     type: 3}
   m_animrGoonAnimator: {fileID: 778960289195070506}
   m_sprtrRenderer: {fileID: 1601660800264098156}
+  m_newDefaultPosition: {fileID: 0}
   m_goonType: 0
   m_goonCalled: 0
   HP: 15
@@ -288,7 +289,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1601660802016989940}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.002, y: 0.013, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8427677883574602993}
@@ -363,9 +364,11 @@ MonoBehaviour:
   m_fBulletForceBase: 1.5
   m_fFiringDelayBase: 0.5
   m_fDamageBase: 1
+  m_fRangeBase: 5
+  m_fForceBase: 1
+  m_iTotalAmmo: 99
   m_fRange: 1000
   m_bUsedByAI: 0
-  m_iTotalAmmo: 99
   m_iCurrentAmmoCount: 0
   m_fCounterTime: 0
   m_fBulletForce: 0
@@ -403,6 +406,8 @@ MonoBehaviour:
     type: 3}
   goonBody: {fileID: 1601660801084737663}
   gunBody: {fileID: 1601660802016989940}
+  m_goonSprtrRenderer: {fileID: 1601660800264098156}
+  m_gunSprtrRenderer: {fileID: 8427677883574603006}
   gunFirePoint: {fileID: 8427677884765533806}
   projectilePrefab: {fileID: 8393412603370758224, guid: d5d5b48b48e230e48a7bbb554d601bd0,
     type: 3}
@@ -571,6 +576,17 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7119942938870557111, guid: ea91433af69a50d49910dbd2e8562f56,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 83989d9782b361b4d8e27d132060097b,
+        type: 3}
+    - target: {fileID: 7119942938870557111, guid: ea91433af69a50d49910dbd2e8562f56,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7119942938870557112, guid: ea91433af69a50d49910dbd2e8562f56,
         type: 3}
       propertyPath: m_RootOrder
@@ -578,13 +594,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7119942938870557112, guid: ea91433af69a50d49910dbd2e8562f56,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7119942938870557112, guid: ea91433af69a50d49910dbd2e8562f56,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7119942938870557112, guid: ea91433af69a50d49910dbd2e8562f56,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.278
+      value: 0.184
       objectReference: {fileID: 0}
     - target: {fileID: 7119942938870557112, guid: ea91433af69a50d49910dbd2e8562f56,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.014
       objectReference: {fileID: 0}
     - target: {fileID: 7119942938870557112, guid: ea91433af69a50d49910dbd2e8562f56,
         type: 3}
@@ -636,6 +662,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7119942939825017639, guid: ea91433af69a50d49910dbd2e8562f56,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.056
+      objectReference: {fileID: 0}
+    - target: {fileID: 7119942939825017639, guid: ea91433af69a50d49910dbd2e8562f56,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.034
+      objectReference: {fileID: 0}
     - target: {fileID: 7119942939825017640, guid: ea91433af69a50d49910dbd2e8562f56,
         type: 3}
       propertyPath: m_Layer
@@ -652,6 +688,12 @@ PrefabInstance:
 --- !u!4 &8427677883574602993 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7119942938870557112, guid: ea91433af69a50d49910dbd2e8562f56,
+    type: 3}
+  m_PrefabInstance: {fileID: 1601660800618947913}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &8427677883574603006 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7119942938870557111, guid: ea91433af69a50d49910dbd2e8562f56,
     type: 3}
   m_PrefabInstance: {fileID: 1601660800618947913}
   m_PrefabAsset: {fileID: 0}

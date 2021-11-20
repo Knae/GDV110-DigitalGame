@@ -433,6 +433,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1868311934107096666}
     m_Modifications:
+    - target: {fileID: 621196109013265663, guid: ea91433af69a50d49910dbd2e8562f56,
+        type: 3}
+      propertyPath: m_rifleSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 83989d9782b361b4d8e27d132060097b,
+        type: 3}
+    - target: {fileID: 621196109013265663, guid: ea91433af69a50d49910dbd2e8562f56,
+        type: 3}
+      propertyPath: m_shottySprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3899a30a0d2d9ea4b952d8f04131f932,
+        type: 3}
+    - target: {fileID: 621196109013265663, guid: ea91433af69a50d49910dbd2e8562f56,
+        type: 3}
+      propertyPath: m_currentGunSprite
+      value: 
+      objectReference: {fileID: 8872810000696805457}
+    - target: {fileID: 621196109013265663, guid: ea91433af69a50d49910dbd2e8562f56,
+        type: 3}
+      propertyPath: m_flamethrowerSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7ba86fb5a5db1cb4cb78716629029467,
+        type: 3}
     - target: {fileID: 3304202735012123128, guid: ea91433af69a50d49910dbd2e8562f56,
         type: 3}
       propertyPath: clip
@@ -513,11 +536,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: sprGun
       objectReference: {fileID: 0}
+    - target: {fileID: 7119942939825017639, guid: ea91433af69a50d49910dbd2e8562f56,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 7119942939825017639, guid: ea91433af69a50d49910dbd2e8562f56,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.031
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea91433af69a50d49910dbd2e8562f56, type: 3}
 --- !u!4 &8872810000696805470 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7119942938870557112, guid: ea91433af69a50d49910dbd2e8562f56,
+    type: 3}
+  m_PrefabInstance: {fileID: 1868311934600684006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &8872810000696805457 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7119942938870557111, guid: ea91433af69a50d49910dbd2e8562f56,
     type: 3}
   m_PrefabInstance: {fileID: 1868311934600684006}
   m_PrefabAsset: {fileID: 0}

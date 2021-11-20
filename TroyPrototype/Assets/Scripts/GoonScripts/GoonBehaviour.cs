@@ -32,11 +32,11 @@ public class GoonBehaviour : MonoBehaviour
     [SerializeField] public Vector2 goonCurrentSpeed;
     [SerializeField] public Vector2 m_DirectionToPlayer = Vector2.zero;
     [SerializeField] private bool m_bPlayerSighted = false;
-    [SerializeField] private bool m_bWander;
+    //[SerializeField] private bool m_bWander;
 
     private AINavigation m_ScriptAINavigate;
     private UnityEngine.AI.NavMeshAgent m_navMeshAgent;
-    private float m_fTimePlayerOutOfSight;
+    //private float m_fTimePlayerOutOfSight;
 
     public bool GetIfPlayerInSight()
     {
@@ -47,7 +47,7 @@ public class GoonBehaviour : MonoBehaviour
     {
         m_ScriptAINavigate = GetComponent<AINavigation>();
         m_navMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        m_bWander = true;
+        //m_bWander = true;
     }
 
     private void Update()
@@ -59,12 +59,12 @@ public class GoonBehaviour : MonoBehaviour
 
         if (m_DirectionToPlayer.x > 0)
         {
-           m_animrGoonAnimator.SetBool("Horizontal", false);
+           //m_animrGoonAnimator.SetFloat("Horizontal", 1);
            m_sprtrRenderer.flipX = false;
         }
         else if (m_DirectionToPlayer.x < 0)
         {
-           m_animrGoonAnimator.SetBool("Horizontal", true);
+           //m_animrGoonAnimator.SetFloat("Horizontal", -1);
            m_sprtrRenderer.flipX = true;
         }
     }
@@ -194,11 +194,12 @@ public class GoonBehaviour : MonoBehaviour
                 m_ScriptAINavigate.PlayerSpotted((int)(m_fMinimumDistanceFromPlayer));
                 m_bIsMoving = true;
                 m_bPlayerSighted = true;
-                m_bWander = false;
-                m_fTimePlayerOutOfSight = 0;
+                //m_bWander = false;
+                //m_fTimePlayerOutOfSight = 0;
                 StopCoroutine(GoToLastKnowLocation());
                 //m_fTimePlayerOutOfSight = 0;
                 print("Found player, moving to where player is.");
+                CalculateDistance();
             }
             else if(m_bPlayerSighted)
             {
@@ -242,7 +243,7 @@ public class GoonBehaviour : MonoBehaviour
             if(!(m_bPlayerSighted))
             {
                 m_ScriptAINavigate.PlayerLost();
-                m_bWander = true;
+                //m_bWander = true;
                 StartCoroutine( Wander() );
                 print("Lost the player!");
             }
@@ -291,12 +292,12 @@ public class GoonBehaviour : MonoBehaviour
         else
         {
             print("No patrol points to wander.");
-            m_bWander = false;
+            //m_bWander = false;
             yield break;
         }
     }
 
-    public void TakeDamage(float _input)
+    public void TakeDamage(float _input) 
     {
         HP -= _input;
         if(HP <=0)
