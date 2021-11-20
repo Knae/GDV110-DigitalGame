@@ -249,7 +249,13 @@ MonoBehaviour:
   m_newDefaultPosition: {fileID: 0}
   m_goonType: 0
   m_goonCalled: 0
-  HP: 15
+  m_gunPrefabShotty: {fileID: 8337017923099760501, guid: dec69d77069a6fb46a5928d924e22e0b,
+    type: 3}
+  m_gunPrefabRifle: {fileID: 8337017923099760501, guid: 15f8487eb2b584746a0d1e5d9d9c7b9d,
+    type: 3}
+  m_gunPrefabFlamerthrower: {fileID: 8337017923099760501, guid: 0f90f8bc1fedab24cbf064f635f7ecc8,
+    type: 3}
+  HP: 1
   m_fMovementSpd: 1.5
   m_fMinimumDistanceFromPlayer: 3.5
   m_fMaximumDistanceFromPlayer: 4.5
@@ -261,7 +267,6 @@ MonoBehaviour:
   goonCurrentSpeed: {x: 0, y: 0}
   m_DirectionToPlayer: {x: 0, y: 0}
   m_bPlayerSighted: 0
-  m_bWander: 0
 --- !u!1 &1601660802016989940
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,7 +419,6 @@ MonoBehaviour:
   m_fRotationOffset: 0
   HP: 50
   m_fDestroyedAngle: 90
-  m_fBulletForce: 1.5
   m_fFiringPeriod: 3
   m_fFiringCooldown: 2
   m_fFiringDelay: 0.2
@@ -424,14 +428,10 @@ MonoBehaviour:
   m_fFiringCooldown_Repeater: 0.5
   m_fDamage_Repeater: 0.5
   m_refFlameStreamGun_Boss: {fileID: 0}
-  m_fFiringTime_Stream: 1.5
-  m_fFiringCooldown_Streaam: 0.5
-  m_fDamage_StreamPellet: 0.02
   m_refCurrentPattern: {fileID: 0}
   m_bEnableFiringTime: 0
   m_bStopRotation: 0
   m_fAngle: 0
-  m_fAngleToTarget: 0
   m_fDistanceFromPlayer: 0
   m_bFacingEnemy: 0
   m_strCollidedSightTag: 

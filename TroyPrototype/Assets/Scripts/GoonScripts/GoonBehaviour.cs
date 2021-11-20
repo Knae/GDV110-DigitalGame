@@ -13,6 +13,11 @@ public class GoonBehaviour : MonoBehaviour
     public int m_goonType = 0;
     public bool m_goonCalled = false;
 
+    [Header("Gun Prefabs")]
+    public GameObject m_gunPrefabShotty;
+    public GameObject m_gunPrefabRifle;
+    public GameObject m_gunPrefabFlamerthrower;
+
     [Header("Behaviour Constants")]
     [SerializeField] private float HP = 15f;
     [SerializeField] private float m_fMovementSpd = 1.0f;
@@ -308,6 +313,24 @@ public class GoonBehaviour : MonoBehaviour
 
     public void Die()
     {
-        Destroy(gameObject);
+        int chanceToSpawnGun = Random.Range(1, 3); // chance to drop an item
+        if (chanceToSpawnGun == 1)
+        {
+            int chooseRandomGun = Random.Range(1, 3); // choose which gun to drop
+            if (chooseRandomGun == 1)
+            {
+                GameObject newShotty = Instantiate(m_gunPrefabShotty, m_rgdbdyGoonBody.position, Quaternion.identity);
+            }
+            else if (chooseRandomGun == 2)
+            {
+                GameObject newRifle = Instantiate(m_gunPrefabRifle, m_rgdbdyGoonBody.position, Quaternion.identity);
+            }
+            else
+            {
+                GameObject newFlamethrower = Instantiate(m_gunPrefabFlamerthrower, m_rgdbdyGoonBody.position, Quaternion.identity);
+            }
+        }
+
+        Destroy(gameObject); // destroy goon
     }
 }

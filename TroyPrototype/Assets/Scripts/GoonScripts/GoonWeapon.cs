@@ -42,7 +42,7 @@ public class GoonWeapon : MonoBehaviour
     [SerializeField] private bool m_bEnableFiringTime;
     [SerializeField] private bool m_bStopRotation;
     [SerializeField] private float m_fAngle = 0f;
-    [SerializeField] private float m_fAngleToTarget = 0f;
+    //[SerializeField] private float m_fAngleToTarget = 0f;
     [SerializeField] private float m_fDistanceFromPlayer = 0f;
     [SerializeField] private bool m_bFacingEnemy = false;
     [SerializeField] private string m_strCollidedSightTag;
