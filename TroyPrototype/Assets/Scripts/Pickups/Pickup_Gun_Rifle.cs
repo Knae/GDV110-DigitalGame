@@ -51,8 +51,8 @@ public class Pickup_Gun_Rifle : MonoBehaviour
         if(m_ObjectNearby != null)
         {
             m_ObjectNearby.GetComponentInChildren<WeaponFiring>().SetWeaponToRepeater();
+            //m_ObjectNearby.GetComponentInChildren<WeaponFiring>().m_refCurrentPattern.m_iCurrentAmmoCount += m_ObjectNearby.GetComponentInChildren<WeaponFiring>().m_refCurrentPattern.m_iTotalAmmo;
             Destroy(gameObject);
         }
-
     }
 }

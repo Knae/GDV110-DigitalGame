@@ -19,7 +19,7 @@ public class BaseBulletPattern : MonoBehaviour
     [Header("Debug Variables")]
     [SerializeField] protected float m_fRange;
     [SerializeField] protected bool m_bUsedByAI = false;
-    [SerializeField] protected int m_iCurrentAmmoCount;
+    [SerializeField] public int m_iCurrentAmmoCount;
     [SerializeField] protected float m_fCounterTime;
     [SerializeField] protected float m_fBulletForce;
     [SerializeField] protected float m_fTimeBetweenShots;
