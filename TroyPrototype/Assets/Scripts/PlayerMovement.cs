@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     public Sprite emptyHearts;
     //damage
 
-    int damage = 1;
+    //int damage = 1;
 
     ///////////////////////////////////////////////
     public float angle = 0.0f;

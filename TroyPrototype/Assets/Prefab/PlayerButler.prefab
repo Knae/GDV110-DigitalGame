@@ -338,6 +338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerBody: {fileID: 1868311935072767196}
   gunObject: {fileID: 1868311934107096667}
+  gunObjectSprite: {fileID: 8872810000696805457}
   playerTorsoAnimator: {fileID: 1868311933991894937}
   playerLegsAnimator: {fileID: 1868311934786901440}
   gameCam: {fileID: 0}

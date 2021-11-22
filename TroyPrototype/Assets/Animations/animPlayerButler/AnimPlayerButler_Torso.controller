@@ -20,7 +20,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 2a2bed4430862a34c9aac229d693a0b4, type: 2}
+  m_Motion: {fileID: 7400000, guid: 5a547f35b4ce6554687b329659bf26d8, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -40,10 +40,10 @@ AnimatorStateMachine:
     m_Position: {x: 340, y: -20, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8782415972605218591}
-    m_Position: {x: 200, y: 70, z: 0}
+    m_Position: {x: 170, y: 100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7895680780766420189}
-    m_Position: {x: 530, y: 80, z: 0}
+    m_Position: {x: 540, y: 100, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -68,13 +68,19 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: Vertical
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
+  - m_Name: Flipped
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -134,7 +140,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 25037396a704ec44ea173c532d39de2f, type: 2}
+  m_Motion: {fileID: 7400000, guid: 5a547f35b4ce6554687b329659bf26d8, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

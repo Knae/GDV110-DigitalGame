@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class PlayerButlerMovement : MonoBehaviour
 {
     public Rigidbody2D playerBody;
-    public GameObject gunObject;
+    public GameObject gunObject; 
+    public SpriteRenderer gunObjectSprite;
     public Animator playerTorsoAnimator;
     public Animator playerLegsAnimator;
     public Camera gameCam;
@@ -28,6 +29,7 @@ public class PlayerButlerMovement : MonoBehaviour
     private Vector2 movementvector = new Vector3(0, 0, 0);
     private Vector2 mousePos = new Vector3(0, 0, 0);
     private SpriteRenderer m_playerLegsRenderer;
+    private SpriteRenderer m_playerTorsoRenderer;
 
 
     void Start()
@@ -43,6 +45,7 @@ public class PlayerButlerMovement : MonoBehaviour
             m_bHasHealthBar = false;
         }
         m_playerLegsRenderer =  transform.Find("PlayerLegs").GetComponent<SpriteRenderer>();
+        m_playerTorsoRenderer = transform.Find("PlayerTorso").GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -64,6 +67,15 @@ public class PlayerButlerMovement : MonoBehaviour
         //lookDir = mousePos - gunObject.transform.position;
         angle = FindAngleBetweenPoints(mousePos, transform.position);
         gunObject.transform.rotation = Quaternion.Euler( 0f, 0f, angle);
+        if (Mathf.Abs(angle) > 90)
+        {
+            gunObjectSprite.flipY = true;
+        }
+        else
+        {
+            gunObjectSprite.flipY = false;
+        }
+
 
         //process movement
         playerBody.velocity = movementvector;
@@ -76,12 +88,16 @@ public class PlayerButlerMovement : MonoBehaviour
         if (playerTorsoAnimator.GetFloat("Horizontal") > 0)
         {
             m_playerLegsRenderer.flipX = false;
+            m_playerTorsoRenderer.flipX = false;
             playerLegsAnimator.SetBool("Flipped", false);
+            //playerTorsoAnimator.SetBool("Flipped", false);
         }
         else if (playerTorsoAnimator.GetFloat("Horizontal") < 0)
         {
             m_playerLegsRenderer.flipX = true;
+            m_playerTorsoRenderer.flipX = true;
             playerLegsAnimator.SetBool("Flipped", true);
+            //playerTorsoAnimator.SetBool("Flipped", true);
         }
     }
 
