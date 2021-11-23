@@ -424,9 +424,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3b27f8609a81b448cedc758c8068d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AmmoCountSource: {fileID: 1257486570674982169}
-  m_txtAmmoDisplay: {fileID: 0}
+  m_AmmoCountSource: {fileID: 3298278934924396360}
+  m_txtAmmoDisplay: {fileID: 8051695079868140039, guid: 057681d102b91e040ae990fc31a603b2,
+    type: 3}
   m_iAmmoCount: 0
+--- !u!114 &3298278934924396360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8872810000696805471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dba4185b75b28564f9952726676b8487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_iCurrentWeaponMode: 1
+  m_iAmmoLeft: 0
+  m_currentGunSprite: {fileID: 8872810000696805457}
+  m_pistolSprite: {fileID: 21300000, guid: 60015639279882843a9dd50c5479596c, type: 3}
+  m_shottySprite: {fileID: 21300000, guid: 3899a30a0d2d9ea4b952d8f04131f932, type: 3}
+  m_rifleSprite: {fileID: 21300000, guid: 83989d9782b361b4d8e27d132060097b, type: 3}
+  m_flamethrowerSprite: {fileID: 21300000, guid: 7ba86fb5a5db1cb4cb78716629029467,
+    type: 3}
+  PistolDisplay: {fileID: 0}
+  ShottyDisplay: {fileID: 0}
+  RepeaterDisplay: {fileID: 0}
+  FlamerDisplay: {fileID: 0}
 --- !u!1001 &1868311934600684006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -434,6 +459,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1868311934107096666}
     m_Modifications:
+    - target: {fileID: 621196109013265663, guid: ea91433af69a50d49910dbd2e8562f56,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 621196109013265663, guid: ea91433af69a50d49910dbd2e8562f56,
         type: 3}
       propertyPath: m_rifleSprite
@@ -547,8 +577,15 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.031
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5982076056824834056, guid: ea91433af69a50d49910dbd2e8562f56, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ea91433af69a50d49910dbd2e8562f56, type: 3}
+--- !u!1 &8872810000696805471 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7119942938870557113, guid: ea91433af69a50d49910dbd2e8562f56,
+    type: 3}
+  m_PrefabInstance: {fileID: 1868311934600684006}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8872810000696805470 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7119942938870557112, guid: ea91433af69a50d49910dbd2e8562f56,
@@ -561,18 +598,6 @@ SpriteRenderer:
     type: 3}
   m_PrefabInstance: {fileID: 1868311934600684006}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1257486570674982169 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 621196109013265663, guid: ea91433af69a50d49910dbd2e8562f56,
-    type: 3}
-  m_PrefabInstance: {fileID: 1868311934600684006}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54a3daef9942f2b40a15c236cba88142, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &3034211711205786522 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 3744246900988011132, guid: ea91433af69a50d49910dbd2e8562f56,

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 668917839262868222}
   - component: {fileID: 708415573091539015}
   - component: {fileID: 3744246900988011132}
+  - component: {fileID: 5982076056824834056}
   m_Layer: 11
   m_Name: sprGun
   m_TagString: Untagged
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 1004010941
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 60015639279882843a9dd50c5479596c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7ba86fb5a5db1cb4cb78716629029467, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,7 +96,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7119942938870557113}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54a3daef9942f2b40a15c236cba88142, type: 3}
   m_Name: 
@@ -103,6 +104,10 @@ MonoBehaviour:
   m_iCurrentWeaponMode: 1
   m_iAmmoLeft: 0
   m_bGrenadeEnabled: 0
+  m_currentGunSprite: {fileID: 0}
+  m_shottySprite: {fileID: 0}
+  m_rifleSprite: {fileID: 0}
+  m_flamethrowerSprite: {fileID: 0}
 --- !u!114 &3304202735012123128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,6 +358,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5982076056824834056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7119942938870557113}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dba4185b75b28564f9952726676b8487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_iCurrentWeaponMode: 1
+  m_iAmmoLeft: 0
+  m_currentGunSprite: {fileID: 0}
+  m_shottySprite: {fileID: 0}
+  m_rifleSprite: {fileID: 0}
+  m_flamethrowerSprite: {fileID: 0}
 --- !u!1 &7119942939825017640
 GameObject:
   m_ObjectHideFlags: 0
