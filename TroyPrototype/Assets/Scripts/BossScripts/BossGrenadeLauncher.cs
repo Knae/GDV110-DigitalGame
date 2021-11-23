@@ -11,7 +11,8 @@ public class BossGrenadeLauncher : MonoBehaviour
         PHASE1,
         PHASE2,
         PHASE3,
-        PHASE4
+        PHASE4,
+        PHASE5
     }
 
     [Header("Boss Grenade Launch Point")]
@@ -33,23 +34,24 @@ public class BossGrenadeLauncher : MonoBehaviour
     [SerializeField] public float m_fExplosiveForce = 3.0f;
     [SerializeField] public float m_fFuseTime = 1.2f;
     [SerializeField] public float m_fTimeBetweenShots_Grenade = 2.0f;
-    [SerializeField] public float m_fBulletDamage_Grenade = 5.0f;
+    [SerializeField] public float m_fBulletDamage_Grenade = 10.0f;
     [Header("Cluster Bombs")]
     [SerializeField] private int   m_iFirePointsAmount_Cluster = 8;
     [SerializeField] private float m_fStartDelay_Cluster = 0f;
     [SerializeField] private float m_fRotateSpeed_Cluster = 100.0f;
-    [SerializeField] private float m_fBombDamage_Cluster = 0.0f;
+    [SerializeField] private float m_fBombDamage_Cluster = 5.0f;
     [SerializeField] private float m_fExplosiveForce_Cluster = 5.0f;
     [SerializeField] private float m_fExplosiveRadius_Cluster = 0.5f;
     [SerializeField] private float m_fProjectileForce_Cluster = 1.0f;
     [SerializeField] private float m_fProjectileRange_Cluster = 5.0f;
     [Header("BulletWheel")]
     [SerializeField] private int m_iFirePointsAmount_Wheel = 2;
+    [SerializeField] private float m_fTimeBetweenWheels = 6.0f;
     [SerializeField] private float m_fLifespan_Wheel = 5.0f;
     [SerializeField] private float m_fStartDelay_Wheel = 0f;
     [SerializeField] private float m_fRotateSpeed_Wheel = 100.0f;
     [SerializeField] private float m_fFiringInterval_Wheel = 0.3f;
-    [SerializeField] private float m_fProjectileDamage_Wheel = 0.0f;
+    [SerializeField] private float m_fProjectileDamage_Wheel = 1.0f;
     [SerializeField] private float m_fProjectileForce_Wheel = 1.5f;
     [SerializeField] private float m_fProjectileRange_Wheel = 3.0f;
 
@@ -77,7 +79,7 @@ public class BossGrenadeLauncher : MonoBehaviour
     [Header("Debug")]
     State m_eGrenadeLauncherState = State.NONE;
     private float m_fCountupGrenades = 0.0f;
-    private float m_fCountupRadialProjectiles = 0.0f;
+    //private float m_fCountupRadialProjectiles = 0.0f;
     private float m_fCountupTurret = 0.0f;
     private int m_iGrenadeCount = 1;
 
@@ -111,7 +113,7 @@ public class BossGrenadeLauncher : MonoBehaviour
     public void ResetTimers()
     {
         m_fCountupGrenades = 0.0f;
-        m_fCountupRadialProjectiles = 0.0f;
+        //m_fCountupRadialProjectiles = 0.0f;
         m_fCountupTurret = 0.0f;
     }
 
@@ -191,13 +193,13 @@ public class BossGrenadeLauncher : MonoBehaviour
 
     private void FireBulletWheel()
     {
-        if (m_fCountupTurret >= m_fTimeBetweenShots_Grenade)
+        if (m_fCountupTurret >= m_fTimeBetweenWheels)
         {
             float distanceToTarget = Vector3.Distance(transform.position, EnemyBody.transform.position);
             float targetRange = Random.Range(distanceToTarget - m_fAIRangeVariation, distanceToTarget + m_fAIRangeVariation);
 
-            BulletWheel newCluster = SetUpBulletWheel(targetRange,m_fLifespan_Wheel);
-            Rigidbody2D newBulletBody = newCluster.GetComponent<Rigidbody2D>();
+            BulletWheel newWheel = SetUpBulletWheel(targetRange,m_fLifespan_Wheel);
+            Rigidbody2D newBulletBody = newWheel.GetComponent<Rigidbody2D>();
             Vector3 directionRandomizer = new Vector3(Random.Range(-m_fScatterRange, m_fScatterRange), Random.Range(-m_fScatterRange, m_fScatterRange), 0);
             newBulletBody.AddForce((FirePoint.up + directionRandomizer) * m_fProjectileForce_Wheel, ForceMode2D.Impulse);
             m_fCountupTurret = 0.0f;
@@ -206,6 +208,18 @@ public class BossGrenadeLauncher : MonoBehaviour
             //    sourceGrenade.PlayOneShot(clipGrenade);
             //}
         }
+    }
+
+    private void SpawnBulletWheelUnderBoss()
+    {
+        //make it last 10 minutes and shoot bullets that go very far
+        BulletWheel newWheel = SetUpBulletWheel(0.0f, 3000.0f);
+        newWheel.m_iNumberOfFirePoints = 4;
+        newWheel.m_fRotateSpeed = 150.0f;
+        newWheel.m_fFiringInterval = 0.2f;
+        newWheel.m_fProjectileDamage = 1.5f;
+        newWheel.m_fProjectileForce = 2.0f;
+        newWheel.m_fProjectileRange = 100.0f;
     }
 
     public void AdvanceState()
@@ -228,6 +242,10 @@ public class BossGrenadeLauncher : MonoBehaviour
                 break;
             }
             case State.PHASE4:
+            {
+                SpawnBulletWheelUnderBoss();
+                break;
+            }
             case State.NONE:
             case State.INACTIVE:
             default:
@@ -261,6 +279,13 @@ public class BossGrenadeLauncher : MonoBehaviour
                 m_iFirePointsAmount_Wheel = 4;
                 m_fLifespan_Wheel = 7.0f;
                 m_eGrenadeLauncherState = State.PHASE4;
+                break;
+            }
+            case State.PHASE5:
+            {
+                m_iFirePointsAmount_Wheel = 4;
+                m_fLifespan_Wheel = 7.0f;
+                m_eGrenadeLauncherState = State.PHASE5;
                 break;
             }
             case State.NONE:

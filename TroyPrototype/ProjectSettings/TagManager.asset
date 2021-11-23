@@ -52,8 +52,8 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Objects
-    uniqueID: 2783122799
+  - name: Background
+    uniqueID: 423303963
     locked: 0
   - name: Player
     uniqueID: 1004010941
@@ -66,4 +66,7 @@ TagManager:
     locked: 0
   - name: DisplayOverEntities
     uniqueID: 1087660929
+    locked: 0
+  - name: Objects
+    uniqueID: 2783122799
     locked: 0

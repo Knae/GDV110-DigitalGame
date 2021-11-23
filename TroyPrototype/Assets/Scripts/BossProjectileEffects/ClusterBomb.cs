@@ -19,6 +19,7 @@ public class ClusterBomb : BaseProjectileEffect
     [Header("ClusterBomb Settings")]
     [SerializeField] public int m_iNumberOfFirePoints = 4;
     [SerializeField] public float m_fActivationDelay = 0f;
+    [SerializeField] public float m_fFuseTime_Cluster = 0.0f;
     [SerializeField] public float m_fRotateSpeed = 0.0f;
     [SerializeField] public float m_fFiringInterval = 0.0f;
     [SerializeField] public float m_fBombDamage = 0.0f;
@@ -46,7 +47,7 @@ public class ClusterBomb : BaseProjectileEffect
             item.m_fGrenadeRange = m_fProjectileRange;
             item.m_fExplosiveForce = m_fExplosiveForce;
             item.m_fDmgRadius = m_fExplosiveRadius;
-            item.m_fFuseTime = m_fActivationDelay;
+            item.m_fFuseTime = m_fFuseTime_Cluster;
             item.m_fTimeBetweenShots_Grenade = m_fFiringInterval;
             item.m_fBulletForce_Grenade = m_fProjectileForce;
             item.SetAsUsedByAI();

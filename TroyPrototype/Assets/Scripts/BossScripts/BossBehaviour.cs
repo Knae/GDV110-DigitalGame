@@ -37,7 +37,7 @@ public class BossBehaviour : MonoBehaviour
     [SerializeField] private float m_MaxMechIntegrity;
     [SerializeField] private BOSSSTATE m_eCurrentState;
     [SerializeField] private Dictionary<BOSSSTATE, float> m_BossThresholds;
-    [SerializeField] private float[] m_fHPPercentageThresholds = new float[] { 0.8f,0.65f,0.45f,0.2f};
+    [SerializeField] private float[] m_fHPPercentageThresholds = new float[] { 0.8f,0.65f,0.45f,0.2f,0.0f};
     [SerializeField] private bool m_bHasHealthBar;
     [SerializeField] private float HpLeftGun;
     [SerializeField] private float HpRightGun;
@@ -70,6 +70,7 @@ public class BossBehaviour : MonoBehaviour
         m_BossThresholds.Add(BOSSSTATE.THRESHOLD2, m_fHPPercentageThresholds[1]);
         m_BossThresholds.Add(BOSSSTATE.THRESHOLD3, m_fHPPercentageThresholds[2]);
         m_BossThresholds.Add(BOSSSTATE.THRESHOLD4, m_fHPPercentageThresholds[3]);
+        m_BossThresholds.Add(BOSSSTATE.THRESHOLD5, m_fHPPercentageThresholds[4]);
         m_MaxMechIntegrity = GetCurrentHPTotal();
         m_CurrentMechIntegrity = m_MaxMechIntegrity;
 
@@ -129,31 +130,31 @@ public class BossBehaviour : MonoBehaviour
 
         if(!m_bUseNavMesh)
         {
-            m_ScriptAINavigate.enabled = false;
-            m_navMeshAgent.enabled = false;
-            if (!m_bIsMoving)
-            {
-                if (CheckIfTooFar())
-                {
-                    //m_bIsMoving = true;
-                    m_rgdbdyBossBody.MovePosition(m_rgdbdyBossBody.position + (m_DirectionToPlayer * m_fMovementSpd * Time.deltaTime));
-                    m_animrBossAnimator.SetFloat("Horizontal", m_DirectionToPlayer.x);
-                }
-            }
-            else
-            {
-                if (CheckIfCloseEnough())
-                {
-                    m_bIsMoving = false;
-                    m_DirectionToPlayer = Vector2.zero;
-                    m_animrBossAnimator.SetFloat("Horizontal", m_DirectionToPlayer.x);
-                }
-                else
-                {
-                    m_rgdbdyBossBody.MovePosition(m_rgdbdyBossBody.position + (m_DirectionToPlayer * m_fMovementSpd * Time.deltaTime));
-                    m_animrBossAnimator.SetFloat("Horizontal", m_DirectionToPlayer.x);
-                }
-            }
+            //m_ScriptAINavigate.enabled = false;
+            //m_navMeshAgent.enabled = false;
+            //if (!m_bIsMoving)
+            //{
+            //    if (CheckIfTooFar())
+            //    {
+            //        //m_bIsMoving = true;
+            //        m_rgdbdyBossBody.MovePosition(m_rgdbdyBossBody.position + (m_DirectionToPlayer * m_fMovementSpd * Time.deltaTime));
+            //        m_animrBossAnimator.SetFloat("Horizontal", m_DirectionToPlayer.x);
+            //    }
+            //}
+            //else
+            //{
+            //    if (CheckIfCloseEnough())
+            //    {
+            //        m_bIsMoving = false;
+            //        m_DirectionToPlayer = Vector2.zero;
+            //        m_animrBossAnimator.SetFloat("Horizontal", m_DirectionToPlayer.x);
+            //    }
+            //    else
+            //    {
+            //        m_rgdbdyBossBody.MovePosition(m_rgdbdyBossBody.position + (m_DirectionToPlayer * m_fMovementSpd * Time.deltaTime));
+            //        m_animrBossAnimator.SetFloat("Horizontal", m_DirectionToPlayer.x);
+            //    }
+            //}
         }
         else
         {
@@ -245,15 +246,16 @@ public class BossBehaviour : MonoBehaviour
         m_DirectionToPlayer = (m_rgdbdyPlayer.position - m_rgdbdyBossBody.position).normalized;
     }
 
+    //needs to be reworked
     public void CheckIfPlayerinView()
     {
-        if(m_bUseNavMesh)
+        int maskIgnoreProjectileAndBoss = (1 << 8) | (1 << 9) | (1 << 10) | (1 << 12) | (1 << 14);
+        CalculateDistance();
+        //Vector2 vectorToPlayer = m_rgdbdyPlayer.position - m_rgdbdyBossBody.position;
+        RaycastHit2D checkSight = Physics2D.Raycast(this.transform.position, m_DirectionToPlayer, m_fMaximumDistanceFromPlayer + 5, ~maskIgnoreProjectileAndBoss);
+        //Debug.DrawRay(transform.position, m_DirectionToPlayer * (m_fMaximumDistanceFromPlayer + 5), Color.blue);
+        if (m_bUseNavMesh)
         {
-            int maskIgnoreProjectileAndBoss = (1<<8) | (1 << 9) | (1 << 10) | (1 << 12) | (1 << 14);
-            CalculateDistance();
-            //Vector2 vectorToPlayer = m_rgdbdyPlayer.position - m_rgdbdyBossBody.position;
-            RaycastHit2D checkSight = Physics2D.Raycast(this.transform.position, m_DirectionToPlayer, m_fMaximumDistanceFromPlayer+5, ~maskIgnoreProjectileAndBoss);
-            //Debug.DrawRay(transform.position, m_DirectionToPlayer * (m_fMaximumDistanceFromPlayer + 5), Color.blue);
             if (checkSight.collider != null && checkSight.collider.gameObject.tag == "Player")
             {
                 m_ScriptAINavigate.PlayerSpotted((int)(m_fMinimumDistanceFromPlayer));
@@ -275,6 +277,16 @@ public class BossBehaviour : MonoBehaviour
                 StartCoroutine( GoToLastKnowLocation() );
                 print("Lost sight of the player! Moving to last location");
                 //m_ScriptAINavigate.PlayerSpotted((int)(0));
+            }
+        }
+        else
+        {
+            if (checkSight.collider != null && checkSight.collider.gameObject.tag == "Player")
+            {
+                if (distance <= m_ExplosiveModule.m_fFireAtRange)
+                {
+                    m_ExplosiveModule.FireWeapons();
+                }
             }
         }
     }
@@ -322,11 +334,18 @@ public class BossBehaviour : MonoBehaviour
             }
             case BOSSSTATE.THRESHOLD4:
             {
+                m_bUseNavMesh = false;
+                m_ExplosiveModule.AdvanceState();
+                m_eCurrentState = BOSSSTATE.THRESHOLD5;
+                break;
+            }
+            case BOSSSTATE.THRESHOLD5:
+            default:
+            {
                 print("IT'S ALREADY DEAD");
                 break;
             }
-            default:
-                break;
+
         }
     }
 
