@@ -373,6 +373,11 @@ PrefabInstance:
       propertyPath: m_rgdbdyPlayer
       value: 
       objectReference: {fileID: 429520955}
+    - target: {fileID: 5386401822993179591, guid: fb38649e31ab3af498e551b5b394d819,
+        type: 3}
+      propertyPath: EnemyBody
+      value: 
+      objectReference: {fileID: 1321283922}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb38649e31ab3af498e551b5b394d819, type: 3}
 --- !u!1 &261452052
@@ -547,6 +552,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b5631f74a931645922033c64de56ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isShaking: 0
+  randomPoint: {x: 0, y: 0, z: 0}
 --- !u!1 &549640353
 GameObject:
   m_ObjectHideFlags: 0

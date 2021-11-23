@@ -53,7 +53,7 @@ public class CameraSlave : MonoBehaviour
                 m_bIsMoving = false;
             }
         }
-        if(m_ShakerScript._isShaking)
+        if(m_ShakerScript!=null && m_ShakerScript._isShaking)
         {
             targetLocation += m_ShakerScript.randomPoint;
         }
