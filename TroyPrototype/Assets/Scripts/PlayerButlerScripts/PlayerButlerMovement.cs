@@ -105,7 +105,15 @@ public class PlayerButlerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "ProjectileEnemy")
         {
-            float damage = collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
+            float damage = 0;
+            if (collision.gameObject.GetComponent<BulletLifetime>()!=null)
+            {
+                damage = collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
+            }
+            else if(collision.gameObject.GetComponent<ExplosiveProjectile>() != null)
+            {
+                damage = collision.gameObject.GetComponent<ExplosiveProjectile>().GetDamage();
+            }
             TakeDamage(damage);
             Destroy(collision.gameObject);
         }
@@ -123,5 +131,10 @@ public class PlayerButlerMovement : MonoBehaviour
         {
             currentHealth -= _inDamage;
         }
+    }
+
+    public void HealPlayer(float _input)
+    {
+        currentHealth += _input;
     }
 }

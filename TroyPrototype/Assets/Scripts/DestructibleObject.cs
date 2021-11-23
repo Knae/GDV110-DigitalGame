@@ -25,10 +25,18 @@ public class DestructibleObject : MonoBehaviour
         {
             if (collision.gameObject.tag == "ProjectileEnemy" || collision.gameObject.tag == "ProjectilePlayer")
             {
-                m_fDamageToTake = collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
-                Destroy(collision.gameObject);
-                TakeDamage(m_fDamageToTake);
-                m_fDamageToTake = 0;
+                if(collision.gameObject.GetComponent<BulletLifetime>()!=null)
+                {
+                    m_fDamageToTake = collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
+                    Destroy(collision.gameObject);
+                    TakeDamage(m_fDamageToTake);
+                    m_fDamageToTake = 0;
+                }
+                else
+                {
+                    print("Hit by non-standard projectile effect. explosive?");
+                }
+                
             }
         }
     }

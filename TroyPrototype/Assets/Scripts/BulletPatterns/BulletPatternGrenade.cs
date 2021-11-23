@@ -17,15 +17,10 @@ public class BulletPatternGrenade : BaseBulletPattern
     [SerializeField] public float m_fExplosiveForce = 3.0f;
     [SerializeField] public float m_fFuseTime = 1.2f;
     [SerializeField] public float m_fTimeBetweenShots_Grenade = 1.5f;
-    [SerializeField] public float m_fWindupTime = 0f;
-    [SerializeField] public float m_fFiringTime = 1.5f;
-    [SerializeField] public float m_fFiringCooldown = 0.5f;
     [SerializeField] public float m_fBulletDamage_Grenade = 0.5f;
     [SerializeField] public int m_iTotalAmmo_Grenade = 10;
-    [SerializeField] public bool m_bHasCooldown = false;
-    [SerializeField] public bool m_bHasWindup = false;
-    //[Header("Debug")]
 
+    //[Header("Debug")]
 
     protected override void Awake()
     {
@@ -41,7 +36,7 @@ public class BulletPatternGrenade : BaseBulletPattern
     {
         if ((m_iCurrentAmmoCount > 0 || m_bUsedByAI))
         {
-            if( m_fCounterTime >= m_fTimeBetweenShots)
+            if (m_fCounterTime >= m_fTimeBetweenShots)
             {
                 float targetRange = 0.0f;
                 if (m_bUsedByAI)
@@ -49,22 +44,21 @@ public class BulletPatternGrenade : BaseBulletPattern
                     if (enemyBody == null)
                     {
                         //If it doesn't know where the enemy is
-                        targetRange = Random.Range(m_fRange-m_fAIRangeVariation,m_fRange+m_fAIRangeVariation);
+                        targetRange = Random.Range(m_fRange - m_fAIRangeVariation, m_fRange + m_fAIRangeVariation);
                     }
                     else
                     {
                         float distanceToTarget = Vector3.Distance(transform.position, enemyBody.transform.position);
                         targetRange = Random.Range(distanceToTarget - m_fAIRangeVariation, distanceToTarget + m_fAIRangeVariation);
-
                     }
                 }
                 else
                 {
-                    if(worldScreen != null)
+                    if (worldScreen != null)
                     {
-                        Vector3 targetPosition = worldScreen.ScreenToWorldPoint( Input.mousePosition);
+                        Vector3 targetPosition = worldScreen.ScreenToWorldPoint(Input.mousePosition);
                         targetRange = Vector2.Distance(targetPosition, gunFirePoint.position);
-                        if(targetRange > (m_fRange))
+                        if (targetRange > (m_fRange))
                         {
                             targetRange = m_fRange;
                         }
@@ -80,7 +74,7 @@ public class BulletPatternGrenade : BaseBulletPattern
                 newBomb.SetFuseTime(m_fFuseTime);
                 Rigidbody2D newBulletBody = newBomb.GetComponent<Rigidbody2D>();
                 Vector3 directionRandomizer = new Vector3(Random.Range(-m_fScatterRange, m_fScatterRange), Random.Range(-m_fScatterRange, m_fScatterRange), 0);
-                newBulletBody.AddForce((gunFirePoint.up+directionRandomizer) * m_fBulletForce, ForceMode2D.Impulse);
+                newBulletBody.AddForce((gunFirePoint.up + directionRandomizer) * m_fBulletForce, ForceMode2D.Impulse);
                 m_fCounterTime = 0.0f;
                 if (source != null)
                 {
@@ -121,7 +115,7 @@ public class BulletPatternGrenade : BaseBulletPattern
     {
         return base.GetBulletForce();
     }
-    
+
     private bool CheckIfPositionOutOfWindow(Vector2 _inPosition)
     {
         if (_inPosition.x > Screen.width || _inPosition.x < 0 || _inPosition.y > Screen.height || _inPosition.y < 0)

@@ -17,13 +17,13 @@ public class BulletWheel : BaseProjectileEffect
     public BaseBulletPattern[] m_BulletPtnShootingPattern;
 
     [Header("BulletWheel Settings")]
-    [SerializeField] private int m_iNumberOfFirePoints = 1;
-    [SerializeField] private float m_fActivationDelay = 0f;
-    [SerializeField] private float m_fRotateSpeed = 0.0f;
-    [SerializeField] private float m_fFiringInterval = 0.0f;
-    [SerializeField] private float m_fProjectileDamage = 0.0f;
-    [SerializeField] private float m_fProjectileForce = 1.5f;
-    [SerializeField] private float m_fProjectileRange = 0.0f;
+    [SerializeField] public int   m_iNumberOfFirePoints = 1;
+    [SerializeField] public float m_fActivationDelay = 0f;
+    [SerializeField] public float m_fRotateSpeed = 0.0f;
+    [SerializeField] public float m_fFiringInterval = 0.0f;
+    [SerializeField] public float m_fProjectileDamage = 0.0f;
+    [SerializeField] public float m_fProjectileForce = 1.5f;
+    [SerializeField] public float m_fProjectileRange = 0.0f;
 
     [Header("Debug Variables - Bullet Wheel")]
     [SerializeField] private float m_fCounter = 0f;
@@ -37,14 +37,7 @@ public class BulletWheel : BaseProjectileEffect
             m_iNumberOfFirePoints = 4;
         }
 
-        foreach (var item in m_BulletPtnShootingPattern)
-        {
-            item.m_fFiringDelayBase = m_fFiringInterval;
-            item.m_fDamageBase = m_fProjectileDamage;
-            item.m_fRangeBase = m_fProjectileRange;
-            item.m_fBulletForceBase = m_fProjectileForce;
-            item.ResetBaseSettings();
-        }
+        ResetBulletSettings();
     }
 
     // Update is called once per frame
@@ -67,13 +60,24 @@ public class BulletWheel : BaseProjectileEffect
         }
     }
 
+    public void ResetBulletSettings()
+    {
+        foreach (var item in m_BulletPtnShootingPattern)
+        {
+            item.m_fFiringDelayBase = m_fFiringInterval;
+            item.m_fDamageBase = m_fProjectileDamage;
+            item.m_fRangeBase = m_fProjectileRange;
+            item.m_fBulletForceBase = m_fProjectileForce;
+            item.ResetBaseSettings();
+        }
+    }
+
     private void FireAttachedGun()
     {
         for(int i=0; i<m_iNumberOfFirePoints;i++)
         {
             m_BulletPtnShootingPattern[i].fireProjectiles();
         }
-        //m_ShootingPattern.fireProjectiles();
     }
 
     public override void TakeDamage(float _input)

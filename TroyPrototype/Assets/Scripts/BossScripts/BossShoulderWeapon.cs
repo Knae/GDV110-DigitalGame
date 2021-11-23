@@ -24,6 +24,7 @@ public class BossShoulderWeapon : MonoBehaviour
     [SerializeField] private float m_fFiringWindup_Repeater = 0.2f;
     [SerializeField] private float m_fDamage_Repeater = 0.5f;
     [SerializeField] private float m_fBulletForce_Repeater = 2.5f;
+    [SerializeField] private float m_fFiringInterval_Repeater = 0.4f;
     //[SerializeField] private BulletPatternSpray m_refShotgun_Boss;
     //[SerializeField] private float m_fFiringDelay_Shotgun = 1.2f;
     //[SerializeField] private float m_fDamage_ShotgunPellet = 0.2f;
@@ -33,12 +34,12 @@ public class BossShoulderWeapon : MonoBehaviour
     [SerializeField] private float m_fFiringCooldown_Stream = 0.5f;
     [SerializeField] private float m_fDamage_StreamPellet = 0.02f;
 
-    [Header("Grenade")]
-    [SerializeField] private BulletPatternGrenade m_refGrenadeGun_Boss;
-    [SerializeField] private float m_fGrenadeInterval = 1.5f;
-    [SerializeField] private float m_fGrenadeExplosiveForce = 2.0f;
-    [SerializeField] private float m_fGrenadeExplosiveRadius = 1.0f;
-    [SerializeField] private float m_fDamage_Grenade = 5.0f;
+    //[Header("Grenade")]
+    //[SerializeField] private BulletPatternGrenade m_refGrenadeGun_Boss;
+    //[SerializeField] private float m_fGrenadeInterval = 1.5f;
+    //[SerializeField] private float m_fGrenadeExplosiveForce = 2.0f;
+    //[SerializeField] private float m_fGrenadeExplosiveRadius = 1.0f;
+    //[SerializeField] private float m_fDamage_Grenade = 5.0f;
 
     [SerializeField] private BaseBulletPattern m_refCurrentPattern;
 
@@ -91,6 +92,7 @@ public class BossShoulderWeapon : MonoBehaviour
 
         m_refRepeaterGun_Boss = GetComponent<BulletPatternRepeater>();
         m_refRepeaterGun_Boss.m_fFiringTime = m_fFiringPeriod_Repeater;
+        m_refRepeaterGun_Boss.m_fTimeBetweenShots_Repeater = m_fFiringInterval_Repeater;
         m_refRepeaterGun_Boss.m_fFiringCooldown = m_fFiringCooldown_Repeater;
         m_refRepeaterGun_Boss.m_fWindupTime = m_fFiringWindup_Repeater;
         m_refRepeaterGun_Boss.m_fBulletDamage_Repeater = m_fDamage_Repeater;
@@ -108,13 +110,13 @@ public class BossShoulderWeapon : MonoBehaviour
         m_refFlameStreamGun_Boss.ResetSettings();
         m_refFlameStreamGun_Boss.SetAsUsedByAI();
 
-        m_refGrenadeGun_Boss = GetComponent<BulletPatternGrenade>();
-        m_refGrenadeGun_Boss.m_fTimeBetweenShots_Grenade = m_fGrenadeInterval;
-        m_refGrenadeGun_Boss.m_fDmgRadius = m_fGrenadeExplosiveRadius;
-        m_refGrenadeGun_Boss.m_fExplosiveForce = m_fGrenadeExplosiveForce;
-        //m_refGrenadeGun_Boss
-        m_refGrenadeGun_Boss.ResetSettings();
-        m_refGrenadeGun_Boss.SetAsUsedByAI();
+        //m_refGrenadeGun_Boss = GetComponent<BulletPatternGrenade>();
+        //m_refGrenadeGun_Boss.m_fTimeBetweenShots_Grenade = m_fGrenadeInterval;
+        //m_refGrenadeGun_Boss.m_fDmgRadius = m_fGrenadeExplosiveRadius;
+        //m_refGrenadeGun_Boss.m_fExplosiveForce = m_fGrenadeExplosiveForce;
+        ////m_refGrenadeGun_Boss
+        //m_refGrenadeGun_Boss.ResetSettings();
+        //m_refGrenadeGun_Boss.SetAsUsedByAI();
 
         m_refCurrentPattern = m_refRepeaterGun_Boss;
         m_fWeaponRange = m_refCurrentPattern.GetRange();

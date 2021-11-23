@@ -15,6 +15,15 @@ public class CameraSlave : MonoBehaviour
     public float m_fSmoothFollow = 1.0f;
 
     private bool m_bIsMoving = false;
+    private Shaker m_ShakerScript;
+
+    private void Start()
+    {
+        if(GetComponent<Shaker>() != null)
+        {
+            m_ShakerScript = GetComponent<Shaker>();
+        }
+    }
 
     // Update is called once per frame
     void LateUpdate()
@@ -43,6 +52,10 @@ public class CameraSlave : MonoBehaviour
             {
                 m_bIsMoving = false;
             }
+        }
+        if(m_ShakerScript._isShaking)
+        {
+            targetLocation += m_ShakerScript.randomPoint;
         }
         gameCamera.transform.position = targetLocation;
     }

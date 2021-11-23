@@ -7,8 +7,8 @@ public class BaseProjectileEffect : MonoBehaviour
     public BaseBulletPattern m_ShootingPattern;
     [Header("Settings")]
     [SerializeField] protected bool m_bEnabled = false;
-    [SerializeField] protected float m_fHP = 5.0f;
-    [SerializeField] protected float m_fLifeTime = 0.0f;
+    [SerializeField] protected float m_fHP = 2.0f;
+    [SerializeField] public float m_fLifeTime = 0.0f;
 
     [Header("Base Debug Variables")]
     [SerializeField] protected Rigidbody2D m_thisRgdBdy2D;

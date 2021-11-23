@@ -37,13 +37,14 @@ public class BossBehaviour : MonoBehaviour
     [SerializeField] private float m_MaxMechIntegrity;
     [SerializeField] private BOSSSTATE m_eCurrentState;
     [SerializeField] private Dictionary<BOSSSTATE, float> m_BossThresholds;
-    [SerializeField] private float[] m_fHPPercentageThresholds = new float[] { 0.70f,0.35f,1.0f};
+    [SerializeField] private float[] m_fHPPercentageThresholds = new float[] { 0.8f,0.65f,0.45f,0.2f};
     [SerializeField] private bool m_bHasHealthBar;
     [SerializeField] private float HpLeftGun;
     [SerializeField] private float HpRightGun;
 
     private AINavigation m_ScriptAINavigate;
     private UnityEngine.AI.NavMeshAgent m_navMeshAgent;
+    private BossGrenadeLauncher m_ExplosiveModule;
     private float m_fTimePlayerOutOfSight;
 
    public enum BOSSSTATE
@@ -51,7 +52,9 @@ public class BossBehaviour : MonoBehaviour
         NONE,
         THRESHOLD1,
         THRESHOLD2,
-        THRESHOLD3
+        THRESHOLD3,
+        THRESHOLD4,
+        THRESHOLD5
     }
 
 
@@ -66,8 +69,11 @@ public class BossBehaviour : MonoBehaviour
         m_BossThresholds.Add(BOSSSTATE.THRESHOLD1, m_fHPPercentageThresholds[0]);
         m_BossThresholds.Add(BOSSSTATE.THRESHOLD2, m_fHPPercentageThresholds[1]);
         m_BossThresholds.Add(BOSSSTATE.THRESHOLD3, m_fHPPercentageThresholds[2]);
+        m_BossThresholds.Add(BOSSSTATE.THRESHOLD4, m_fHPPercentageThresholds[3]);
         m_MaxMechIntegrity = GetCurrentHPTotal();
         m_CurrentMechIntegrity = m_MaxMechIntegrity;
+
+        m_ExplosiveModule = GetComponentInChildren<BossGrenadeLauncher>();
 
         m_ScriptAINavigate = GetComponent<AINavigation>();
         m_navMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -172,13 +178,37 @@ public class BossBehaviour : MonoBehaviour
         if (collision.gameObject.tag == "ProjectilePlayer")
         {
             float damageTaken = collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
-            if (m_WpnLeft != null)
+            //if (m_WpnLeft != null)
+            //{
+            //    m_WpnLeft.TakeDamage(damageTaken);
+            //}
+            //else if(m_WpnRight != null)
+            //{
+            //    m_WpnRight.TakeDamage(damageTaken);
+            //}
+            //else
+            //{
+            //    TakeDamage(damageTaken);
+            //}
+            //Destroy(collision.gameObject);
+            if (m_WpnLeft != null && m_WpnRight != null)
             {
-                m_WpnLeft.TakeDamage(damageTaken);
+                m_WpnLeft.TakeDamage(damageTaken/3);
+                m_WpnRight.TakeDamage(damageTaken/3);
+                TakeDamage(damageTaken/3);
             }
-            else if(m_WpnRight != null)
+            else if(m_WpnLeft != null || m_WpnRight != null)
             {
-                m_WpnRight.TakeDamage(damageTaken);
+                if(m_WpnLeft != null)
+                {
+                    m_WpnLeft.TakeDamage(damageTaken / 2);
+                }
+                else if (m_WpnRight != null)
+                {
+                    m_WpnRight.TakeDamage(damageTaken / 2);
+                }
+
+                TakeDamage(damageTaken/2);
             }
             else
             {
@@ -231,9 +261,11 @@ public class BossBehaviour : MonoBehaviour
                 m_bPlayerSighted = true;
                 m_bWander = false;
                 m_fTimePlayerOutOfSight = 0;
+                if(distance <= m_ExplosiveModule.m_fFireAtRange)
+                {
+                    m_ExplosiveModule.FireWeapons();
+                }
                 StopAllCoroutines();
-                //StopCoroutine(GoToLastKnowLocation());
-                //m_fTimePlayerOutOfSight = 0;
                 print("Found player, moving to where player is.");
             }
             else if(m_bPlayerSighted)
@@ -268,19 +300,29 @@ public class BossBehaviour : MonoBehaviour
             {
                 m_WpnLeft.ChangeBossStateModifier(0.85f);
                 m_WpnRight.ChangeBossStateModifier(0.85f);
+                m_ExplosiveModule.AdvanceState();
                 m_eCurrentState = BOSSSTATE.THRESHOLD2;
                 break;
             }
             case BOSSSTATE.THRESHOLD2:
             {
-                m_WpnLeft.ChangeBossStateModifier(1.1f);
-                m_WpnRight.ChangeBossStateModifier(1.1f);
+                m_WpnLeft.ChangeBossStateModifier(0.95f);
+                m_WpnRight.ChangeBossStateModifier(0.95f);
+                m_ExplosiveModule.AdvanceState();
                 m_eCurrentState = BOSSSTATE.THRESHOLD3;
                 break;
             }
             case BOSSSTATE.THRESHOLD3:
             {
-                //It should be dead;
+                m_WpnLeft.ChangeBossStateModifier(1.2f);
+                m_WpnRight.ChangeBossStateModifier(1.2f);
+                m_ExplosiveModule.AdvanceState();
+                m_eCurrentState = BOSSSTATE.THRESHOLD4;
+                break;
+            }
+            case BOSSSTATE.THRESHOLD4:
+            {
+                print("IT'S ALREADY DEAD");
                 break;
             }
             default:

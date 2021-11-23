@@ -6,6 +6,11 @@ public class Shaker : MonoBehaviour
 {
     Transform _target;
     Vector3 _initialPos;
+    float _maxShakeDuration = 1.5f;
+    float _ShakeRange = 0.15f;
+    float _pendingShakeDuration = 0.0f;
+    public bool _isShaking = false;
+    public Vector3 randomPoint;
 
     void Start()
     {
@@ -13,17 +18,14 @@ public class Shaker : MonoBehaviour
         _initialPos = _target.position;
     }
 
-    float _pendingShakeDuration = 0.0f;
-
     public void Shake (float duration)
     {
-        if (duration > 0)
+        if (duration > 0 && duration <= (_maxShakeDuration-duration))
         {
             _pendingShakeDuration += duration;
         }
-    }
 
-    bool _isShaking = false;
+    }
 
     // Update is called once per frame
     void Update()
@@ -46,13 +48,13 @@ public class Shaker : MonoBehaviour
         var startTime = Time.realtimeSinceStartup;
         while (Time.realtimeSinceStartup < startTime + _pendingShakeDuration)
         {
-            var randomPoint = new Vector3(Random.Range(-0.2f, 0.2f) + _initialPos.x, Random.Range(-0.2f, 0.2f) + _initialPos.y, _initialPos.z);
-            _target.localPosition = randomPoint;
+            randomPoint = new Vector3(Random.Range(-_ShakeRange, _ShakeRange)/* + _initialPos.x*/, Random.Range(-_ShakeRange, _ShakeRange) /*+ _initialPos.y*/, 0.0f);
+           // _target.localPosition = randomPoint;
             yield return null;
         }
 
         _pendingShakeDuration = 0.0f;
-        _target.position = _initialPos;
+        //_target.position = _initialPos;
         _isShaking = false;
     }
 }

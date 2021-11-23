@@ -182,7 +182,7 @@ MonoBehaviour:
   m_WpnRight: {fileID: 2318393447216773362}
   m_animrBossAnimator: {fileID: 5485438182316783214}
   m_sprtrRenderer: {fileID: 41158282028772375}
-  HP: 50
+  HP: 90
   m_fMovementSpd: 1
   m_fMinimumDistanceFromPlayer: 0.8
   m_fMaximumDistanceFromPlayer: 1.1
@@ -199,9 +199,10 @@ MonoBehaviour:
   m_MaxMechIntegrity: 0
   m_eCurrentState: 0
   m_fHPPercentageThresholds:
-  - 0.7
-  - 0.35
-  - 1
+  - 0.8
+  - 0.65
+  - 0.45
+  - 0.2
   m_bHasHealthBar: 0
   HpLeftGun: 0
   HpRightGun: 0
@@ -269,6 +270,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1343723188682267802}
+  - component: {fileID: 5386401822993179591}
   m_Layer: 10
   m_Name: GrenadeLaunchPoint
   m_TagString: Untagged
@@ -290,6 +292,61 @@ Transform:
   m_Father: {fileID: 1614276744023805217}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5386401822993179591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4674868194079970680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733ecd1f105bdbf44992e7600832f02c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyBody: {fileID: 0}
+  FirePoint: {fileID: 1343723188682267802}
+  TurretWheel: {fileID: 4000109843964674572, guid: 3c0fab212ab3b4d44acf2eb2d9f65005,
+    type: 3}
+  ManySmallBooms: {fileID: 99010206272316702, guid: 15e7e3dbfa011b54b904377c554540a6,
+    type: 3}
+  BasicBoom: {fileID: 7186796263555587257, guid: cd7cba5f903ecdc46896b7c74154bb88,
+    type: 3}
+  worldScreen: {fileID: 0}
+  m_fFireAtRange: 4
+  m_fAngleOffset: -90
+  m_fScatterRange: 0.25
+  m_fGrenadeRange: 4
+  m_fAIRangeVariation: 1.5
+  m_fBulletForce_Grenade: 1
+  m_fDmgRadius: 1
+  m_fExplosiveForce: 3
+  m_fFuseTime: 1.2
+  m_fTimeBetweenShots_Grenade: 2
+  m_fBulletDamage_Grenade: 5
+  m_iFirePointsAmount_Cluster: 8
+  m_fStartDelay_Cluster: 0
+  m_fRotateSpeed_Cluster: 100
+  m_fBombDamage_Cluster: 0
+  m_fExplosiveForce_Cluster: 5
+  m_fExplosiveRadius_Cluster: 0.5
+  m_fProjectileForce_Cluster: 1
+  m_fProjectileRange_Cluster: 5
+  m_iFirePointsAmount_Wheel: 2
+  m_fLifespan_Wheel: 5
+  m_fStartDelay_Wheel: 0
+  m_fRotateSpeed_Wheel: 100
+  m_fFiringInterval_Wheel: 0.3
+  m_fProjectileDamage_Wheel: 0
+  m_fProjectileForce_Wheel: 1.5
+  m_fProjectileRange_Wheel: 3
+  m_bEnableGrenades: 0
+  m_bEnableClusters: 0
+  m_bEnableWheel: 0
+  sourceGrenade: {fileID: 0}
+  clipGrenade: {fileID: 0}
+  sourceCluster: {fileID: 0}
+  clipCluster: {fileID: 0}
 --- !u!1001 &2195798485821307571
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -297,6 +354,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1614276744023805217}
     m_Modifications:
+    - target: {fileID: 4491669480728609345, guid: 6f998813992ed014d98a9b5696a4b47c,
+        type: 3}
+      propertyPath: m_fHP
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 4491669480728609345, guid: 6f998813992ed014d98a9b5696a4b47c,
         type: 3}
       propertyPath: bossBody
@@ -408,6 +470,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4491669480728609345, guid: 6f998813992ed014d98a9b5696a4b47c,
+        type: 3}
+      propertyPath: m_fHP
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 4491669480728609345, guid: 6f998813992ed014d98a9b5696a4b47c,
         type: 3}

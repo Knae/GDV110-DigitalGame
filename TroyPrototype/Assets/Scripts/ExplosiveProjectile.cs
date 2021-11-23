@@ -8,24 +8,31 @@ public class ExplosiveProjectile : MonoBehaviour
     public Camera m_SceneCamera;
 
     [Header("ProjectileSettings")]
-    [SerializeField] private int m_iDamage = 5;
-    [SerializeField] private float m_fRange = 0.0f;
-    [SerializeField] private float m_fExploRadius = 0.7f;
-    [SerializeField] private float m_fExplosiveForce = 5.0f;
-    [SerializeField] private float m_fFuseTime = 1.3f;
-    [SerializeField] private float m_fDistanceTraveled = 0f;
+    [SerializeField] public float m_fRange = 0.0f;
+    [SerializeField] public float m_fExploRadius = 0.7f;
+    [SerializeField] public float m_iDamage = 5.0f;
+    [SerializeField] public float m_fExplosiveForce = 5.0f;
+    [SerializeField] public float m_fFuseTime = 1.3f;
+    [SerializeField] public float m_fDistanceTraveled = 0f;
     [Header("Debug Variables")]
     [SerializeField] private const float m_iSpriteRadius = 32.0f;
     [SerializeField] private Shaker m_refCameraShaker;
     [SerializeField] private bool m_bPrimed = false;
     [SerializeField] private bool m_bWillHurtFriendlies = false;
     [SerializeField] private Vector3 m_PrevPos = Vector3.zero;
+    [SerializeField] private Vector2 m_SpriteSize = Vector2.zero;
+    [SerializeField] private SpriteRenderer m_GrenadeSprite = null;
 
     private void Start()
     {
         m_PrevPos = transform.position;
         m_SceneCamera = Camera.main;
         m_refCameraShaker = m_SceneCamera.GetComponent<Shaker>();
+        if (gameObject.GetComponent<SpriteRenderer>() != null)
+        {
+            m_GrenadeSprite = GetComponent<SpriteRenderer>();
+            //m_SpriteSize = m_GrenadeSprite.size;
+        }
     }
 
     void FixedUpdate()
@@ -34,6 +41,15 @@ public class ExplosiveProjectile : MonoBehaviour
         {
             m_fDistanceTraveled += (transform.position - m_PrevPos).magnitude;
             m_PrevPos = transform.position;
+            //if (m_GrenadeSprite != null)
+            //{
+                float modifier = 1 + (3*Mathf.Cos(m_fDistanceTraveled / m_fRange));
+               // Vector2 newSize = new Vector2(m_SpriteSize.x * modifier, m_SpriteSize.y * modifier);
+                print("applied modifer to grenade size: " + modifier);
+                transform.localScale = new Vector3(modifier,modifier,1.0f);
+                //m_GrenadeSprite.size = newSize;
+            //}
+
             if (m_fDistanceTraveled >= m_fRange)
             {
                 PrimeForDetonation();
@@ -51,10 +67,11 @@ public class ExplosiveProjectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(!m_bPrimed)
-        {
-            PrimeForDetonation();
-        }
+        Explode();
+        //if(!m_bPrimed)
+        //{
+        //    PrimeForDetonation();
+        //}
     }
 
     private void Explode()
@@ -96,7 +113,7 @@ public class ExplosiveProjectile : MonoBehaviour
             {
                 Vector2 forceDirection = element.transform.position - grenadePosition;
                 float distance = forceDirection.magnitude;
-                float force = Mathf.Lerp(0, m_fExplosiveForce, (m_fExploRadius - distance));
+                float force = Mathf.Lerp(m_fExplosiveForce, 0, (m_fExploRadius - distance));
                 Vector2 forceToAdd = forceDirection.normalized * force;
                 elementBody.AddForce(forceToAdd, ForceMode2D.Impulse);
             }
@@ -135,7 +152,7 @@ public class ExplosiveProjectile : MonoBehaviour
     {
         m_fExplosiveForce = _input;
     }
-    public void SetDamage(int _input)
+    public void SetDamage(float _input)
     {
         m_iDamage = _input;
     }
@@ -145,7 +162,7 @@ public class ExplosiveProjectile : MonoBehaviour
         m_SceneCamera = _input;
     }
 
-    public int GetDamage()
+    public float GetDamage()
     {
         return m_iDamage;
     }
