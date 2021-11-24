@@ -244,6 +244,7 @@ MonoBehaviour:
   m_rgdbdyGoonBody: {fileID: 1601660801084737651}
   m_rgdbdyPlayer: {fileID: 1868311935072767196, guid: 6318487c28c34e24688458f02e051e9e,
     type: 3}
+  m_player: {fileID: 0}
   m_animrGoonAnimator: {fileID: 778960289195070506}
   m_sprtrRenderer: {fileID: 1601660800264098156}
   m_newDefaultPosition: {fileID: 0}
@@ -255,7 +256,7 @@ MonoBehaviour:
     type: 3}
   m_gunPrefabFlamerthrower: {fileID: 8337017923099760501, guid: 0f90f8bc1fedab24cbf064f635f7ecc8,
     type: 3}
-  HP: 1
+  HP: 4
   m_fMovementSpd: 1.5
   m_fMinimumDistanceFromPlayer: 3.5
   m_fMaximumDistanceFromPlayer: 4.5
@@ -410,6 +411,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBody: {fileID: 1868311935072767196, guid: 6318487c28c34e24688458f02e051e9e,
     type: 3}
+  player: {fileID: 0}
   goonBody: {fileID: 1601660801084737663}
   gunBody: {fileID: 1601660802016989940}
   m_goonSprtrRenderer: {fileID: 1601660800264098156}
@@ -669,6 +671,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4370411510432476081, guid: ea91433af69a50d49910dbd2e8562f56,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5982076056824834056, guid: ea91433af69a50d49910dbd2e8562f56,
         type: 3}
       propertyPath: m_Enabled
       value: 0

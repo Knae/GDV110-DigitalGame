@@ -5,18 +5,27 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MozartTest.unity
     guid: fad65842a5ff31048a61f8254486bb56
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TEST.unity
     guid: f1ebdaa3242768f41aeaee83f628b1a1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/StartMenu.unity
     guid: 7993c532022fa25428e4572e70a81621
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MozartTest2.unity
     guid: 047059652a55da34ba749bbfb98d37cb
+  - enabled: 1
+    path: Assets/Scenes/Level1Lobby.unity
+    guid: b890aa452823d0f44a5a62cd251ac1ce
+  - enabled: 1
+    path: Assets/Scenes/LevelMiddle.unity
+    guid: 54c703d2df47cc14ea403395e4e2b00d
+  - enabled: 1
+    path: Assets/Scenes/LevelBoss.unity
+    guid: 6380bd42e54968642a13c32a360f37c5
   - enabled: 1
     path: Assets/Scenes/DeathMenuTest.unity
     guid: 79e6f97b8407c6c40aea0cbc2a8de054

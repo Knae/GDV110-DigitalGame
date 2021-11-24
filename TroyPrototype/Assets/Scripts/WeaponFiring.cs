@@ -144,7 +144,7 @@ public class WeaponFiring : MonoBehaviour
     private void ChangeWeaponMode(BaseBulletPattern _inputPattern)
     {
         m_refCurrentPattern = _inputPattern;
-        //m_refCurrentPattern.ResetAmmo();
+        m_refCurrentPattern.ResetAmmo();
     }
 
     public void SetWeaponToSpray() // shotty

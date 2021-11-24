@@ -317,9 +317,9 @@ public class GoonBehaviour : MonoBehaviour
 
     public void Die()
     {
-        int chanceToSpawnGun = Random.Range(1, 3); // chance to drop an item
-        if (chanceToSpawnGun == 1)
-        {
+        //int chanceToSpawnGun = Random.Range(1, 3); // chance to drop an item
+        //if (chanceToSpawnGun == 1)
+       // {
             int chooseRandomGun = Random.Range(1, 3); // choose which gun to drop
             if (chooseRandomGun == 1)
             {
@@ -333,7 +333,7 @@ public class GoonBehaviour : MonoBehaviour
             {
                 GameObject newFlamethrower = Instantiate(m_gunPrefabFlamerthrower, m_rgdbdyGoonBody.position, Quaternion.identity);
             }
-        }
+       // }
 
         Destroy(gameObject); // destroy goon
     }

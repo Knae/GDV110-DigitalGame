@@ -477,6 +477,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1868311934107096666}
     m_Modifications:
+    - target: {fileID: 708415573091539015, guid: ea91433af69a50d49910dbd2e8562f56,
+        type: 3}
+      propertyPath: m_bHasCooldown
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708415573091539015, guid: ea91433af69a50d49910dbd2e8562f56,
+        type: 3}
+      propertyPath: m_iTotalAmmo_Repeater
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 708415573091539015, guid: ea91433af69a50d49910dbd2e8562f56,
+        type: 3}
+      propertyPath: m_fTimeBetweenShots_Repeater
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3304202735012123128, guid: ea91433af69a50d49910dbd2e8562f56,
+        type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 35f4ff960a0995f42b72238713004417, type: 3}
     - target: {fileID: 3744246900988011132, guid: ea91433af69a50d49910dbd2e8562f56,
         type: 3}
       propertyPath: m_Volume
