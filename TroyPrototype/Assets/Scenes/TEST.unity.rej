@@ -1,0 +1,14 @@
+diff a/TroyPrototype/Assets/Scenes/TEST.unity b/TroyPrototype/Assets/Scenes/TEST.unity	(rejected hunks)
+@@ -121,12 +121,6 @@
+     debug:
+       m_Flags: 0
+   m_NavMeshData: {fileID: 0}
+---- !u!95 &121714216 stripped
+-Animator:
+-  m_CorrespondingSourceObject: {fileID: 1868311934786901440, guid: 6318487c28c34e24688458f02e051e9e,
+-    type: 3}
+-  m_PrefabInstance: {fileID: 1868311934413127349}
+-  m_PrefabAsset: {fileID: 0}
+ --- !u!1 &186385242
+ GameObject:
+   m_ObjectHideFlags: 0

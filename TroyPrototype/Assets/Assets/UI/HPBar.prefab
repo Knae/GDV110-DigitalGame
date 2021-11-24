@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8281019199980467258}
   - component: {fileID: 8281019199980467259}
-  - component: {fileID: 714520665645800838}
+  - component: {fileID: 2168860661449212556}
   m_Layer: 0
   m_Name: HPBar
   m_TagString: Untagged
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &714520665645800838
+--- !u!114 &2168860661449212556
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 857ce7a31f7e965418b5040b400f4eee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 8281019199980467259}
+  slider: {fileID: 0}
   Low: {r: 0, g: 0, b: 0, a: 0}
   High: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &8281019200154942446
