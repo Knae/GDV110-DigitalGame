@@ -28,7 +28,7 @@ public class BulletPatternStream : BaseBulletPattern
 
     protected override void FixedUpdate()
     {
-        if(m_bIsOnCooldown)
+        if (m_bIsOnCooldown)
         {
             if (m_fCounterTime <= m_fFiringCooldown)
             {
@@ -48,6 +48,11 @@ public class BulletPatternStream : BaseBulletPattern
             }
 
             m_bWasFiring = false;
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            source.Stop();
         }
 
     }
@@ -86,6 +91,7 @@ public class BulletPatternStream : BaseBulletPattern
                     //If we've reached max firing time, then start cooldown mode
                     m_bIsOnCooldown = true;
                     m_fCounterTime = 0f;
+                    source.Stop();
                 }
                 m_iPelletsCreated = 0;
                 m_iCurrentAmmoCount--;

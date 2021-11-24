@@ -80,22 +80,22 @@ public class WeaponFiring : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            SetWeaponToBasic();
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            SetWeaponToSpray();
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            SetWeaponToRepeater();
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            SetWeaponToStream();
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha1))
+        //{
+        //    SetWeaponToBasic();
+        //}
+        //else if (Input.GetKeyDown(KeyCode.Alpha2))
+        //{
+        //    SetWeaponToSpray();
+        //}
+        //else if (Input.GetKeyDown(KeyCode.Alpha3))
+        //{
+        //    SetWeaponToRepeater();
+        //}
+        //else if (Input.GetKeyDown(KeyCode.Alpha4))
+        //{
+        //    SetWeaponToStream();
+        //}
 
         //else if (Input.GetKeyDown(KeyCode.X))
         //{

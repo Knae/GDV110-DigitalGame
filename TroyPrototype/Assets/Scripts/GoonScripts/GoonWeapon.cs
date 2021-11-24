@@ -5,6 +5,7 @@ using UnityEngine;
 public class GoonWeapon : MonoBehaviour
 {
     public Rigidbody2D enemyBody;
+    public GameObject player;
     public GameObject goonBody;
     public GameObject gunBody;
     public SpriteRenderer m_goonSprtrRenderer;
@@ -85,6 +86,9 @@ public class GoonWeapon : MonoBehaviour
 
         m_refCurrentPattern = m_refRepeaterGun_Boss;
         m_fRange = m_refCurrentPattern.GetRange();
+
+        player = GameObject.FindGameObjectWithTag("Player");
+        enemyBody = player.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame

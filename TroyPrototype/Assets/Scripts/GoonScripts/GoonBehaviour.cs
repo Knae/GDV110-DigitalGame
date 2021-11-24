@@ -6,6 +6,8 @@ public class GoonBehaviour : MonoBehaviour
 {
     public Rigidbody2D m_rgdbdyGoonBody;
     public Rigidbody2D m_rgdbdyPlayer;
+    public GameObject m_player;
+
     public Animator m_animrGoonAnimator;
     public SpriteRenderer m_sprtrRenderer;
     public GameObject m_newDefaultPosition;
@@ -53,6 +55,8 @@ public class GoonBehaviour : MonoBehaviour
         m_ScriptAINavigate = GetComponent<AINavigation>();
         m_navMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         //m_bWander = true;
+        m_player = GameObject.FindGameObjectWithTag("Player");
+        m_rgdbdyPlayer = m_player.GetComponent<Rigidbody2D>();
     }
 
     private void Update()
