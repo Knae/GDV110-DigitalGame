@@ -129,7 +129,7 @@ MonoBehaviour:
   m_fRangeBase: 5
   m_fForceBase: 1
   m_iTotalAmmo: 99
-  m_fRange: 10
+  m_fRange: 5
   m_bUsedByAI: 0
   m_iCurrentAmmoCount: 0
   m_fCounterTime: 0
@@ -246,8 +246,8 @@ MonoBehaviour:
   m_fBulletForce: 0
   m_fTimeBetweenShots: 0
   m_fBulletDamage: 0
-  source: {fileID: 0}
-  clip: {fileID: 0}
+  source: {fileID: 3744246900988011132}
+  clip: {fileID: 8300000, guid: c162c67b584f44f409838c7dc230c0db, type: 3}
   m_fScatterRange: 0.15
   m_fRepeaterRange: 100
   m_fBulletForce_Repeater: 5
@@ -407,7 +407,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7119942939825017640}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 7.47, y: 1.89, z: 0}
+  m_LocalPosition: {x: 0.187, y: 0.027, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7119942938870557112}

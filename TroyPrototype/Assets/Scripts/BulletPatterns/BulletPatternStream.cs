@@ -50,11 +50,10 @@ public class BulletPatternStream : BaseBulletPattern
             m_bWasFiring = false;
         }
 
-        if (Input.GetMouseButtonUp(0) && source.isPlaying && source!=null)
-        {
-            source.Stop();
-        }
-
+        //if (Input.GetMouseButtonUp(0) && source.isPlaying && source != null)
+        //{
+        //    source.Stop();
+        //}
     }
 
     public override bool fireProjectiles()

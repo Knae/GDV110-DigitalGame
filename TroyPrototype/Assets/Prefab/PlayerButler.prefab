@@ -338,6 +338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerBody: {fileID: 1868311935072767196}
   gunObject: {fileID: 1868311934107096667}
+  gunObjectSprite: {fileID: 8872810000696805457}
   playerTorsoAnimator: {fileID: 1868311933991894937}
   playerLegsAnimator: {fileID: 1868311934786901440}
   gameCam: {fileID: 0}
@@ -423,7 +424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3b27f8609a81b448cedc758c8068d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AmmoCountSource: {fileID: 1257486570674982169}
+  m_AmmoCountSource: {fileID: 5397856301190924782}
   m_txtAmmoDisplay: {fileID: 0}
   m_iAmmoCount: 0
 --- !u!114 &344624430
@@ -443,9 +444,11 @@ MonoBehaviour:
   m_fBulletForceBase: 2
   m_fFiringDelayBase: 0.5
   m_fDamageBase: 1
+  m_fRangeBase: 5
+  m_fForceBase: 1
+  m_iTotalAmmo: 99
   m_fRange: 5
   m_bUsedByAI: 0
-  m_iTotalAmmo: 99
   m_iCurrentAmmoCount: 0
   m_fCounterTime: 0
   m_fBulletForce: 0
@@ -465,13 +468,8 @@ MonoBehaviour:
   m_fExplosiveForce: 3
   m_fFuseTime: 1.2
   m_fTimeBetweenShots_Grenade: 0.1
-  m_fWindupTime: 0
-  m_fFiringTime: 1.5
-  m_fFiringCooldown: 0.5
   m_fBulletDamage_Grenade: 0.5
   m_iTotalAmmo_Grenade: 10
-  m_bHasCooldown: 0
-  m_bHasWindup: 0
 --- !u!1001 &1868311934600684006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -479,21 +477,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1868311934107096666}
     m_Modifications:
-    - target: {fileID: 3304202735012123128, guid: ea91433af69a50d49910dbd2e8562f56,
-        type: 3}
-      propertyPath: clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 94971da2588f9114998ffdbede1f86b7, type: 3}
-    - target: {fileID: 3304202735012123128, guid: ea91433af69a50d49910dbd2e8562f56,
-        type: 3}
-      propertyPath: source
-      value: 
-      objectReference: {fileID: 3034211711205786522}
-    - target: {fileID: 3304202735012123128, guid: ea91433af69a50d49910dbd2e8562f56,
-        type: 3}
-      propertyPath: m_fRange
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 3744246900988011132, guid: ea91433af69a50d49910dbd2e8562f56,
         type: 3}
       propertyPath: m_Volume
@@ -578,24 +561,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1868311934600684006}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1257486570674982169 stripped
+--- !u!212 &8872810000696805457 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7119942938870557111, guid: ea91433af69a50d49910dbd2e8562f56,
+    type: 3}
+  m_PrefabInstance: {fileID: 1868311934600684006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5397856301190924782 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 621196109013265663, guid: ea91433af69a50d49910dbd2e8562f56,
+  m_CorrespondingSourceObject: {fileID: 5982076056824834056, guid: ea91433af69a50d49910dbd2e8562f56,
     type: 3}
   m_PrefabInstance: {fileID: 1868311934600684006}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8872810000696805471}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54a3daef9942f2b40a15c236cba88142, type: 3}
+  m_Script: {fileID: 11500000, guid: dba4185b75b28564f9952726676b8487, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!82 &3034211711205786522 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 3744246900988011132, guid: ea91433af69a50d49910dbd2e8562f56,
-    type: 3}
-  m_PrefabInstance: {fileID: 1868311934600684006}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8872809999473914561 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7119942939825017639, guid: ea91433af69a50d49910dbd2e8562f56,
