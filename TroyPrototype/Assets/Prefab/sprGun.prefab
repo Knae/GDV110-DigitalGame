@@ -166,8 +166,8 @@ MonoBehaviour:
   m_fBulletForce: 0
   m_fTimeBetweenShots: 0
   m_fBulletDamage: 0
-  source: {fileID: 0}
-  clip: {fileID: 0}
+  source: {fileID: 3744246900988011132}
+  clip: {fileID: 8300000, guid: f8e3dd74dca67e64980b00a658a077ac, type: 3}
   m_iNumberOfPelletsToCreate: 10
   m_fMaximumForce: 4
   m_fMinimumForce: 3.8
@@ -205,8 +205,8 @@ MonoBehaviour:
   m_fBulletForce: 0
   m_fTimeBetweenShots: 0
   m_fBulletDamage: 0
-  source: {fileID: 0}
-  clip: {fileID: 0}
+  source: {fileID: 3744246900988011132}
+  clip: {fileID: 8300000, guid: e6074965be4821f4e82fa282c3a125d8, type: 3}
   m_iNumberOfPelletsToCreate: 5
   m_fMaximumForce: 2
   m_fMinimumForce: 1.8
@@ -365,17 +365,24 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7119942938870557113}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dba4185b75b28564f9952726676b8487, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_iCurrentWeaponMode: 1
   m_iAmmoLeft: 0
-  m_currentGunSprite: {fileID: 0}
-  m_shottySprite: {fileID: 0}
-  m_rifleSprite: {fileID: 0}
-  m_flamethrowerSprite: {fileID: 0}
+  m_currentGunSprite: {fileID: 7119942938870557111}
+  m_pistolSprite: {fileID: 21300000, guid: 60015639279882843a9dd50c5479596c, type: 3}
+  m_shottySprite: {fileID: 21300000, guid: 3899a30a0d2d9ea4b952d8f04131f932, type: 3}
+  m_rifleSprite: {fileID: 21300000, guid: 83989d9782b361b4d8e27d132060097b, type: 3}
+  m_flamethrowerSprite: {fileID: 21300000, guid: 7ba86fb5a5db1cb4cb78716629029467,
+    type: 3}
+  PistolDisplay: {fileID: 0}
+  ShottyDisplay: {fileID: 0}
+  RepeaterDisplay: {fileID: 0}
+  FlamerDisplay: {fileID: 0}
+  m_refCurrentPattern: {fileID: 0}
 --- !u!1 &7119942939825017640
 GameObject:
   m_ObjectHideFlags: 0
