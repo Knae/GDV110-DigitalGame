@@ -50,7 +50,7 @@ public class BulletPatternStream : BaseBulletPattern
             m_bWasFiring = false;
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && source.isPlaying && source!=null)
         {
             source.Stop();
         }

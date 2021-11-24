@@ -203,6 +203,7 @@ MonoBehaviour:
   - 0.65
   - 0.45
   - 0.2
+  - 0
   m_bHasHealthBar: 0
   HpLeftGun: 0
   HpRightGun: 0
@@ -333,6 +334,7 @@ MonoBehaviour:
   m_fProjectileForce_Cluster: 1
   m_fProjectileRange_Cluster: 5
   m_iFirePointsAmount_Wheel: 2
+  m_fTimeBetweenWheels: 6
   m_fLifespan_Wheel: 5
   m_fStartDelay_Wheel: 0
   m_fRotateSpeed_Wheel: 100
