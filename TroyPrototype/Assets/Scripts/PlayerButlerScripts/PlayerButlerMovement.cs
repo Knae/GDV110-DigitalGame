@@ -12,6 +12,8 @@ public class PlayerButlerMovement : MonoBehaviour
     public Animator playerLegsAnimator;
     public Camera gameCam;
     public HealthBar healthbar;
+  
+
 
     [Header("Movement")]
     [SerializeField] private float m_fMoveSpeed = 2.0f;
@@ -32,7 +34,9 @@ public class PlayerButlerMovement : MonoBehaviour
     private Vector2 mousePos = new Vector3(0, 0, 0);
     private SpriteRenderer m_playerLegsRenderer;
 
-    public Transform respawnPoint;
+    //respawn stuff
+    private Vector3 respawnPoint;
+ 
 
     void Start()
     {
@@ -48,6 +52,8 @@ public class PlayerButlerMovement : MonoBehaviour
             m_bHasHealthBar = false;
         }
         m_playerLegsRenderer =  transform.Find("PlayerLegs").GetComponent<SpriteRenderer>();
+
+        respawnPoint = transform.position;
     }
 
     // Update is called once per frame
@@ -66,8 +72,8 @@ public class PlayerButlerMovement : MonoBehaviour
         Die();
         Respawn();
 
-    
-        
+       
+
 
 
     }
@@ -106,7 +112,20 @@ public class PlayerButlerMovement : MonoBehaviour
             TakeDamage(damage);
             Destroy(collision.gameObject);
         }
+        else if (collision.gameObject.tag == "SetSpawn")
+        {
+            canRespawn = true;
+            Debug.Log("OAJHGO");
+            respawnPoint = transform.position;
+            Destroy(collision.gameObject);
+        }
     }
+
+    //private void OnTriggerEnter2D(Collision2D col)
+    //{
+        
+    //}
+
 
     private float FindAngleBetweenPoints(Vector3 _inPointA, Vector3 _inPointB)
     {
@@ -130,15 +149,20 @@ public class PlayerButlerMovement : MonoBehaviour
         }
     }
 
+    //Respwan and Death
+
+    
+
+
     void Respawn()
     {
+    
             if (currentHealth <= 0)
             {
                 canRespawn = false;
                 Debug.Log("YOU DIED");
-               //LevelManager.instance.Respawn();
                 currentHealth = maxHealth;
-                gameObject.transform.position = respawnPoint.transform.position;
+                transform.position = respawnPoint;
                 
             }
        
