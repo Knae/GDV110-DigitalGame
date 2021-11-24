@@ -20,7 +20,7 @@ public class Pickup_Gun_Rifle : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (pickUpAllowed && Input.GetKeyDown(KeyCode.E))
+        if (pickUpAllowed && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space)))
         {
             PickUp();
         }

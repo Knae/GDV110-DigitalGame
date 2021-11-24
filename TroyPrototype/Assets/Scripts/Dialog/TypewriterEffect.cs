@@ -10,7 +10,6 @@ public class TypewriterEffect : MonoBehaviour
     public AudioSource source;
     public AudioClip clip;
 
-
     public Coroutine Run(string textToType, TMP_Text textLabel)
     {
         return StartCoroutine(TypeText(textToType, textLabel));

@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TEST.unity
     guid: f1ebdaa3242768f41aeaee83f628b1a1
+  - enabled: 1
+    path: Assets/Scenes/StaceTestScene.unity
+    guid: a49053effbd464349a15c866903107b1
+  - enabled: 1
+    path: Assets/Scenes/ScenePlaygroundSing.unity
+    guid: 1e8754351ac904e46b4effbacb153651
   m_configObjects: {}
