@@ -44,6 +44,10 @@ public class BulletPatternSpray : BaseBulletPattern
                     newBulletBody.AddForce((gunFirePoint.up + directionRandomizer) * forceRandomizer, ForceMode2D.Impulse);
                     m_iPelletsCreated++;
                 }
+                if (source != null)
+                {
+                    source.PlayOneShot(clip);
+                }
                 m_iPelletsCreated = 0;
                 m_iCurrentAmmoCount--;
                 m_fCounterTime = 0f;

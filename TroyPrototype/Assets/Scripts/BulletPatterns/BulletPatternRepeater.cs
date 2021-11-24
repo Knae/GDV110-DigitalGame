@@ -23,6 +23,7 @@ public class BulletPatternRepeater : BaseBulletPattern
     [SerializeField] private float m_fTimeAfterLastShot = 0f;
     [SerializeField] private STATE m_eCurrentState = STATE.DELAY;
 
+
     enum STATE
     {
         NONE,

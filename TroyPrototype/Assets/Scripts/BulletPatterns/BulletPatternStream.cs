@@ -73,6 +73,10 @@ public class BulletPatternStream : BaseBulletPattern
                         newBulletBody.AddForce((gunFirePoint.up + directionRandomizer) * forceRandomizer, ForceMode2D.Impulse);
                         m_iPelletsCreated++;
                     }
+                    if (source != null && !source.isPlaying) 
+                    {
+                        source.PlayOneShot(clip);
+                    }
                     //this boolean is so that we don't decrease the counter in the next update if we already fired
                     m_bWasFiring = true;
                     m_fCounterTime += 1.0f * Time.deltaTime;
