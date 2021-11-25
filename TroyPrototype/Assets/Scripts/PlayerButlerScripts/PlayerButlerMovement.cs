@@ -171,7 +171,7 @@ public class PlayerButlerMovement : MonoBehaviour
     {
         if (currentHealth <= 0 && canRespawn == false)
         {
-            SceneManager.LoadScene("SplashScreen");
+            SceneManager.LoadScene("Death");
         }
     }
 }
