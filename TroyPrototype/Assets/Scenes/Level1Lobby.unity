@@ -1164,6 +1164,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8886297343460075418, guid: 88c877d0d03542d4483b88318ba8a01c,
         type: 3}
+      propertyPath: sceneName
+      value: LevelMiddle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886297343460075418, guid: 88c877d0d03542d4483b88318ba8a01c,
+        type: 3}
       propertyPath: sceneToLoad
       value: 
       objectReference: {fileID: 102900000, guid: 54c703d2df47cc14ea403395e4e2b00d,
@@ -9282,6 +9287,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8886297343460075418, guid: 88c877d0d03542d4483b88318ba8a01c,
         type: 3}
+      propertyPath: sceneName
+      value: LevelMiddle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886297343460075418, guid: 88c877d0d03542d4483b88318ba8a01c,
+        type: 3}
       propertyPath: sceneToLoad
       value: 
       objectReference: {fileID: 102900000, guid: 54c703d2df47cc14ea403395e4e2b00d,
@@ -9290,6 +9300,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886297343460075419, guid: 88c877d0d03542d4483b88318ba8a01c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1201836
       objectReference: {fileID: 0}
     - target: {fileID: 8886297343460075419, guid: 88c877d0d03542d4483b88318ba8a01c,
         type: 3}
@@ -13085,7 +13100,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &2091924454
 AudioSource:
   m_ObjectHideFlags: 0

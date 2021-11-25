@@ -320,18 +320,19 @@ public class GoonBehaviour : MonoBehaviour
         //int chanceToSpawnGun = Random.Range(1, 3); // chance to drop an item
         //if (chanceToSpawnGun == 1)
        // {
-            int chooseRandomGun = Random.Range(1, 3); // choose which gun to drop
+            int chooseRandomGun = Random.Range(1, 7); // choose which gun to drop
             if (chooseRandomGun == 1)
             {
-                GameObject newShotty = Instantiate(m_gunPrefabShotty, m_rgdbdyGoonBody.position, Quaternion.identity);
+                GameObject newFlamethrower = Instantiate(m_gunPrefabFlamerthrower, m_rgdbdyGoonBody.position, Quaternion.identity);
+           
             }
-            else if (chooseRandomGun == 2)
+            else if (chooseRandomGun >= 2 && chooseRandomGun <= 4)
             {
                 GameObject newRifle = Instantiate(m_gunPrefabRifle, m_rgdbdyGoonBody.position, Quaternion.identity);
             }
             else
             {
-                GameObject newFlamethrower = Instantiate(m_gunPrefabFlamerthrower, m_rgdbdyGoonBody.position, Quaternion.identity);
+                GameObject newShotty = Instantiate(m_gunPrefabShotty, m_rgdbdyGoonBody.position, Quaternion.identity);
             }
        // }
 

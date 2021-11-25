@@ -5160,6 +5160,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8886297343460075418, guid: 88c877d0d03542d4483b88318ba8a01c,
         type: 3}
+      propertyPath: sceneName
+      value: LevelBoss
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886297343460075418, guid: 88c877d0d03542d4483b88318ba8a01c,
+        type: 3}
       propertyPath: sceneToLoad
       value: 
       objectReference: {fileID: 102900000, guid: 6380bd42e54968642a13c32a360f37c5,

@@ -7,14 +7,19 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
-    public Object sceneToLoad;
+    //public Object sceneToLoad;
+    public string sceneName = "Level1Lobby";
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("Player"))
         {
-            SceneManager.LoadScene(sceneToLoad.name);
+            //Destroy(collision.gameObject);
+            //SceneManager.LoadScene("LevelMiddle");
+            SceneManager.LoadScene(sceneName);
+
+            //SceneManager.LoadScene(sceneToLoad.name);
         }
     }
-
 }
