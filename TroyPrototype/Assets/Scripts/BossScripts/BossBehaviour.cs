@@ -123,7 +123,7 @@ public class BossBehaviour : MonoBehaviour
             }
         }
 
-        if (m_MaxMechIntegrity <= 0)
+        if (HP <= 1)
         {
             SceneManager.LoadScene("WinScene");
         }

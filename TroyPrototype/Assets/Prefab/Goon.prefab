@@ -390,7 +390,7 @@ MonoBehaviour:
   m_fWindupTime: 0
   m_fFiringTime: 1.5
   m_fFiringCooldown: 0.5
-  m_fBulletDamage_Repeater: 0.5
+  m_fBulletDamage_Repeater: 0.7
   m_iTotalAmmo_Repeater: 400
   m_bHasCooldown: 0
   m_bHasWindup: 0
@@ -429,7 +429,7 @@ MonoBehaviour:
   m_refRepeaterGun_Boss: {fileID: 1141572128647626266}
   m_fFiringPeriod_Repeater: 2
   m_fFiringCooldown_Repeater: 0.5
-  m_fDamage_Repeater: 0.5
+  m_fDamage_Repeater: 0.7
   m_refFlameStreamGun_Boss: {fileID: 0}
   m_refCurrentPattern: {fileID: 0}
   m_bEnableFiringTime: 0
