@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 //using UnityEngine.AI;
 
 public class BossBehaviour : MonoBehaviour
@@ -120,6 +121,11 @@ public class BossBehaviour : MonoBehaviour
                 m_animrBossAnimator.SetBool("FaceLeft", true);
                 m_sprtrRenderer.flipX = false;
             }
+        }
+
+        if (m_MaxMechIntegrity <= 0)
+        {
+            SceneManager.LoadScene("WinScene");
         }
     }
 
