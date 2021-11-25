@@ -154,7 +154,7 @@ public class BossGrenadeLauncher : MonoBehaviour
                 newBomb.SetFuseTime(m_fFuseTime);
                 Rigidbody2D newBulletBody = newBomb.GetComponent<Rigidbody2D>();
                 Vector3 directionRandomizer = new Vector3(Random.Range(-m_fScatterRange, m_fScatterRange), Random.Range(-m_fScatterRange, m_fScatterRange), 0);
-            newBulletBody.AddForce((FirePoint.up + directionRandomizer) * m_fBulletForce_Grenade, ForceMode2D.Impulse); 
+                newBulletBody.AddForce((FirePoint.up + directionRandomizer) * m_fBulletForce_Grenade, ForceMode2D.Impulse); 
 
              //}
 

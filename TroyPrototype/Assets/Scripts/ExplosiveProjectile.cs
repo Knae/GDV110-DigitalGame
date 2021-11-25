@@ -6,6 +6,7 @@ public class ExplosiveProjectile : MonoBehaviour
 {
     //public CircleCollider2D m_ThisCollider;
     public Camera m_SceneCamera;
+    public EffectExplosion m_Explosion;
 
     [Header("ProjectileSettings")]
     [SerializeField] public float m_fRange = 0.0f;
@@ -120,6 +121,11 @@ public class ExplosiveProjectile : MonoBehaviour
             m_refCameraShaker.Shake(0.5f);
         }
 
+        if(m_Explosion!=null)
+        {
+            EffectExplosion effect = Instantiate(m_Explosion, transform.position, Quaternion.identity);
+            effect.UpdateRadius(m_fExploRadius);
+        }
         Destroy(gameObject);
     }
 

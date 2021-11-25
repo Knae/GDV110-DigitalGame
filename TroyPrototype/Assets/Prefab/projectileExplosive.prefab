@@ -133,13 +133,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1ea0bd8fec933947bad9d22e153443f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisBulletCollider: {fileID: 2394257032439768740}
-  m_iDamage: 1
+  m_SceneCamera: {fileID: 0}
+  m_Explosion: {fileID: 6021982240813240381, guid: eff55c8cc19f9f3498c2868803b47e03,
+    type: 3}
   m_fRange: 0
   m_fExploRadius: 5
+  m_iDamage: 1
   m_fExplosiveForce: 5
   m_fFuseTime: 1.3
   m_fDistanceTraveled: 0
+  m_refCameraShaker: {fileID: 0}
   m_bPrimed: 0
   m_bWillHurtFriendlies: 0
   m_PrevPos: {x: 0, y: 0, z: 0}
+  m_SpriteSize: {x: 0, y: 0}
+  m_GrenadeSprite: {fileID: 0}
