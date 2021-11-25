@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -19103,6 +19103,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoboticBossUsingNavMesh
       objectReference: {fileID: 0}
+    - target: {fileID: 3885167951078592981, guid: fb38649e31ab3af498e551b5b394d819,
+        type: 3}
+      propertyPath: m_Radius
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5379251310529786997, guid: fb38649e31ab3af498e551b5b394d819,
         type: 3}
       propertyPath: m_BossHPBar
@@ -19311,6 +19316,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1141572126961011792, guid: 262ba89169f3dd14394f875e2759c66d,
+        type: 3}
+      propertyPath: m_player
+      value: 
+      objectReference: {fileID: 2114088505}
     - target: {fileID: 1601660801084737650, guid: 262ba89169f3dd14394f875e2759c66d,
         type: 3}
       propertyPath: m_RootOrder

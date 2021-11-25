@@ -213,7 +213,7 @@ MonoBehaviour:
   m_fRangeBase: 5
   m_fForceBase: 1
   m_iTotalAmmo: 20
-  m_fRange: 1000
+  m_fRange: 10
   m_bUsedByAI: 0
   m_iCurrentAmmoCount: 0
   m_fCounterTime: 0

@@ -28,7 +28,7 @@ public class BossGrenadeLauncher : MonoBehaviour
     [Header("Basic Grenade")]
     [SerializeField] public float m_fScatterRange = 0.25f;
     [SerializeField] public float m_fGrenadeRange = 4.0f;
-    [SerializeField] public float m_fAIRangeVariation = 1.5f;
+    [SerializeField] public float m_fAIRangeVariation = 0.5f;
     [SerializeField] public float m_fBulletForce_Grenade = 1.0f;
     [SerializeField] public float m_fDmgRadius = 1.5f;
     [SerializeField] public float m_fExplosiveForce = 50.0f;

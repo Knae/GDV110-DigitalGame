@@ -478,6 +478,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1868311934107096666}
     m_Modifications:
+    - target: {fileID: 668917839262868222, guid: ea91433af69a50d49910dbd2e8562f56,
+        type: 3}
+      propertyPath: m_fPelletDamage
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 708415573091539015, guid: ea91433af69a50d49910dbd2e8562f56,
         type: 3}
       propertyPath: m_bHasCooldown

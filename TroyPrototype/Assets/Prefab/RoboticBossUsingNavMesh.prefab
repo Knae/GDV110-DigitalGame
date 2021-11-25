@@ -314,11 +314,11 @@ MonoBehaviour:
   BasicBoom: {fileID: 7186796263555587257, guid: cd7cba5f903ecdc46896b7c74154bb88,
     type: 3}
   worldScreen: {fileID: 0}
-  m_fFireAtRange: 4
+  m_fFireAtRange: 10
   m_fAngleOffset: -90
   m_fScatterRange: 0.25
   m_fGrenadeRange: 4
-  m_fAIRangeVariation: 1.5
+  m_fAIRangeVariation: 0.5
   m_fBulletForce_Grenade: 1
   m_fDmgRadius: 1.5
   m_fExplosiveForce: 50

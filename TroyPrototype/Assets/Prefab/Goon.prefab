@@ -384,13 +384,13 @@ MonoBehaviour:
   source: {fileID: 1527564115684792136}
   clip: {fileID: 8300000, guid: 94971da2588f9114998ffdbede1f86b7, type: 3}
   m_fScatterRange: 0.15
-  m_fRepeaterRange: 1000
+  m_fRepeaterRange: 5
   m_fBulletForce_Repeater: 2
-  m_fTimeBetweenShots_Repeater: 0.4
+  m_fTimeBetweenShots_Repeater: 0.3
   m_fWindupTime: 0
   m_fFiringTime: 1.5
   m_fFiringCooldown: 0.5
-  m_fBulletDamage_Repeater: 0.7
+  m_fBulletDamage_Repeater: 1.2
   m_iTotalAmmo_Repeater: 400
   m_bHasCooldown: 0
   m_bHasWindup: 0
