@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerButlerMovement : MonoBehaviour
 {
@@ -25,12 +26,15 @@ public class PlayerButlerMovement : MonoBehaviour
     //[SerializeField] private bool m_bDebugMode = false;
     [SerializeField] private bool m_bGodMode = true;
     [SerializeField] private bool m_bHasHealthBar;
+    [SerializeField] private bool canRespawn;
 
     private Vector2 movementvector = new Vector3(0, 0, 0);
     private Vector2 mousePos = new Vector3(0, 0, 0);
     private SpriteRenderer m_playerLegsRenderer;
     private SpriteRenderer m_playerTorsoRenderer;
 
+    //respawn stuff
+    private Vector3 respawnPoint;
 
     void Start()
     {
@@ -60,6 +64,9 @@ public class PlayerButlerMovement : MonoBehaviour
 
         movementvector.x = Input.GetAxis("Horizontal") * m_fMoveSpeed;
         movementvector.y = Input.GetAxis("Vertical") * m_fMoveSpeed;
+
+        Die();
+        Respawn();
     }
 
     void FixedUpdate()
@@ -117,6 +124,13 @@ public class PlayerButlerMovement : MonoBehaviour
             TakeDamage(damage);
             Destroy(collision.gameObject);
         }
+        else if (collision.gameObject.tag == "SetSpawn")
+        {
+            canRespawn = true;
+            Debug.Log("OAJHGO");
+            respawnPoint = transform.position;
+            Destroy(collision.gameObject);
+        }
     }
 
     private float FindAngleBetweenPoints(Vector3 _inPointA, Vector3 _inPointB)
@@ -136,5 +150,28 @@ public class PlayerButlerMovement : MonoBehaviour
     public void HealPlayer(float _input)
     {
         currentHealth += _input;
+    }
+
+
+    void Respawn()
+    {
+
+        if (currentHealth <= 0)
+        {
+            canRespawn = false;
+            Debug.Log("YOU DIED");
+            currentHealth = maxHealth;
+            transform.position = respawnPoint;
+
+        }
+
+    }
+
+    void Die()
+    {
+        if (currentHealth <= 0 && canRespawn == false)
+        {
+            SceneManager.LoadScene("DeathMenuTest");
+        }
     }
 }
