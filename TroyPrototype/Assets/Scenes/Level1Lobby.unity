@@ -1388,6 +1388,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goon
       objectReference: {fileID: 0}
+    - target: {fileID: 1601660801084737663, guid: 262ba89169f3dd14394f875e2759c66d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 262ba89169f3dd14394f875e2759c66d, type: 3}
 --- !u!114 &451734834 stripped
@@ -8477,6 +8482,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goon (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1601660801084737663, guid: 262ba89169f3dd14394f875e2759c66d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 262ba89169f3dd14394f875e2759c66d, type: 3}
 --- !u!1 &966049900
@@ -8747,6 +8757,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DialogueTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949134066347258488, guid: c8382633ace26c84fb54cbea828c3d4b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4949134066347258491, guid: c8382633ace26c84fb54cbea828c3d4b,
         type: 3}
@@ -10990,6 +11005,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 8147338226310263413, guid: 225a5c27dcca8a94781843561be376fe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8147338226310263415, guid: 225a5c27dcca8a94781843561be376fe,
         type: 3}
       propertyPath: objectPlayer
@@ -11103,6 +11123,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerButler
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868311935072767184, guid: 6318487c28c34e24688458f02e051e9e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1868311935072767187, guid: 6318487c28c34e24688458f02e051e9e,
         type: 3}
@@ -11809,7 +11834,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2091924453}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3f9943793e0ec5143b58af284a1cc4f5, type: 3}
