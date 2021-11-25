@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -589,10 +589,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 99148244}
   m_CullTransparentMesh: 0
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
->>>>>>> Stashed changes
 --- !u!114 &162824416 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6916648796725543045, guid: a7e998ea37cd6504f8176b9d6e393c94,
@@ -605,11 +601,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d0b652f32a2cc243917e4028fa0f046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> parent of aeaf0ac (Added furnishings to rooms)
->>>>>>> Stashed changes
 --- !u!1 &172434669
 GameObject:
   m_ObjectHideFlags: 0
@@ -11936,10 +11927,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
->>>>>>> Stashed changes
 --- !u!114 &1960343825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11967,11 +11954,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 9f335ec6f1da9184496baa2895f9b58a, type: 2}
   ResolutionDropdown: {fileID: 162824416}
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> parent of aeaf0ac (Added furnishings to rooms)
->>>>>>> Stashed changes
 --- !u!1001 &2090299947
 PrefabInstance:
   m_ObjectHideFlags: 0
