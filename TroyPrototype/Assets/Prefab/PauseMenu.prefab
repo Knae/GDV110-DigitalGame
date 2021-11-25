@@ -459,7 +459,6 @@ GameObject:
   - component: {fileID: 3436523103398887973}
   - component: {fileID: 3436523103398887971}
   - component: {fileID: 7791647676992275262}
-  - component: {fileID: 1068814331762200371}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -559,20 +558,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 3436523103398887975}
---- !u!114 &1068814331762200371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3436523103398887975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 809bb186f84e0fd47b50d242d772ce6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioMixer: {fileID: 0}
-  ResolutionDropdown: {fileID: 6916648796725543045}
 --- !u!1 &3436523104596566455
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,7 +852,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1068814331762200371}
+      - m_Target: {fileID: 0}
         m_MethodName: SetVolume
         m_Mode: 0
         m_Arguments:
