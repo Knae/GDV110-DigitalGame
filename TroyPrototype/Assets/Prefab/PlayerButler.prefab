@@ -344,10 +344,10 @@ MonoBehaviour:
   gameCam: {fileID: 0}
   healthbar: {fileID: 0}
   m_fMoveSpeed: 3
-  maxHealth: 100
+  maxHealth: 40
   currentHealth: 0
   angle: 0
-  m_bGodMode: 1
+  m_bGodMode: 0
   m_bHasHealthBar: 0
   canRespawn: 0
 --- !u!50 &1868311935072767196

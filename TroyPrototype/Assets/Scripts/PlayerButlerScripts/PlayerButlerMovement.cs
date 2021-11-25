@@ -66,7 +66,7 @@ public class PlayerButlerMovement : MonoBehaviour
         movementvector.y = Input.GetAxis("Vertical") * m_fMoveSpeed;
 
         Die();
-        Respawn();
+        //Respawn();
     }
 
     void FixedUpdate()
@@ -171,7 +171,7 @@ public class PlayerButlerMovement : MonoBehaviour
     {
         if (currentHealth <= 0 && canRespawn == false)
         {
-            SceneManager.LoadScene("DeathMenuTest");
+            SceneManager.LoadScene("Death");
         }
     }
 }
