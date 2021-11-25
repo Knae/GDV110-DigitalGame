@@ -171,7 +171,7 @@ public class PlayerButlerMovement : MonoBehaviour
     {
         if (currentHealth <= 0 && canRespawn == false)
         {
-            SceneManager.LoadScene("Level1Lobby");
+            SceneManager.LoadScene("SplashScreen");
         }
     }
 }
