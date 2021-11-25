@@ -7,7 +7,7 @@ public class DestructibleObject : MonoBehaviour
     [Header("Object Settings")]
     public bool m_bCanBeDestroyedByBullets = true;
 
-    protected float m_fHP = 5;
+    protected float m_fHP = 20;
     protected float m_fDamageToTake;
 
     public virtual void TakeDamage(float _inputDamage)

@@ -4169,6 +4169,10 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 333491669}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+>>>>>>> Stashed changes
 --- !u!1001 &398681055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4937,124 +4941,81 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &648732867
 GameObject:
+=======
+--- !u!1 &540750228
+GameObject:
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 648732869}
-  - component: {fileID: 648732868}
+  - component: {fileID: 540750229}
+  - component: {fileID: 540750231}
+  - component: {fileID: 540750230}
   m_Layer: 0
-  m_Name: PauseSystem
+  m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &648732868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 648732867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0810a8b2b5f1ba4ca779f2c58d2d897, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isPaused: 0
-  isAlreadyPaused: 0
---- !u!4 &648732869
+--- !u!4 &540750229
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 648732867}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.761413, y: 5.180511, z: -434.85934}
+  m_GameObject: {fileID: 540750228}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.982027, y: -0.385986, z: 49.49526}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
+<<<<<<< Updated upstream
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &695007390
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 695007391}
-  - component: {fileID: 695007393}
-  - component: {fileID: 695007392}
-  m_Layer: 5
-  m_Name: Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &695007391
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 695007390}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.814798, y: 5.2663007, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1936585299}
-  m_RootOrder: 0
+=======
+  m_Father: {fileID: 1919483837}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 29.1, y: 343.3}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &695007392
+--- !u!114 &540750230
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 695007390}
+  m_GameObject: {fileID: 540750228}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0110870c0aa7bd044ba0152ef82c3c5b, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &695007393
-CanvasRenderer:
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &540750231
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 695007390}
-  m_CullTransparentMesh: 0
---- !u!1 &703699923
+  m_GameObject: {fileID: 540750228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!1 &554311296
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5062,41 +5023,273 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 703699924}
-  - component: {fileID: 703699925}
+  - component: {fileID: 554311297}
+  - component: {fileID: 554311298}
   m_Layer: 0
-  m_Name: CastLight (2)
+  m_Name: Parametric Light 2D (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &703699924
+--- !u!4 &554311297
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 703699923}
-  m_LocalRotation: {x: -0, y: -0, z: -0.1839352, w: 0.9829384}
-  m_LocalPosition: {x: -14.9, y: -2.18, z: 0}
+  m_GameObject: {fileID: 554311296}
+  m_LocalRotation: {x: -0, y: -0, z: 0.32972094, w: 0.94407845}
+  m_LocalPosition: {x: -13.81013, y: -4.850082, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1528601252}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -21.198002}
---- !u!114 &703699925
+<<<<<<< HEAD
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &695007390
+=======
+  m_Father: {fileID: 1224230975}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 38.504}
+--- !u!114 &554311298
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 703699923}
+  m_GameObject: {fileID: 554311296}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_LightType: 0
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.71
+  m_Color: {r: 0.9622642, g: 0.15886435, b: 0.15886435, a: 1}
+  m_Intensity: 1.27
+  m_LightVolumeOpacity: 0
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_UseNormalMap: 0
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_PointLightDistance: 3
+  m_PointLightQuality: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 23.84
+  m_ShapeLightParametricRadius: 0.81
+  m_ShapeLightFalloffSize: 1.03
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
+--- !u!1001 &565313245
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8886297343460075416, guid: 88c877d0d03542d4483b88318ba8a01c,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.6167688
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886297343460075416, guid: 88c877d0d03542d4483b88318ba8a01c,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.5947428
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886297343460075416, guid: 88c877d0d03542d4483b88318ba8a01c,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.30838442
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886297343460075416, guid: 88c877d0d03542d4483b88318ba8a01c,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.2973714
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886297343460075418, guid: 88c877d0d03542d4483b88318ba8a01c,
+        type: 3}
+      propertyPath: sceneToLoad
+      value: 
+      objectReference: {fileID: 102900000, guid: 6380bd42e54968642a13c32a360f37c5,
+        type: 3}
+    - target: {fileID: 8886297343460075419, guid: 88c877d0d03542d4483b88318ba8a01c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886297343460075419, guid: 88c877d0d03542d4483b88318ba8a01c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886297343460075419, guid: 88c877d0d03542d4483b88318ba8a01c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886297343460075419, guid: 88c877d0d03542d4483b88318ba8a01c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.238802
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886297343460075419, guid: 88c877d0d03542d4483b88318ba8a01c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886297343460075419, guid: 88c877d0d03542d4483b88318ba8a01c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886297343460075419, guid: 88c877d0d03542d4483b88318ba8a01c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886297343460075419, guid: 88c877d0d03542d4483b88318ba8a01c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886297343460075419, guid: 88c877d0d03542d4483b88318ba8a01c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886297343460075419, guid: 88c877d0d03542d4483b88318ba8a01c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886297343460075419, guid: 88c877d0d03542d4483b88318ba8a01c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886297343460075421, guid: 88c877d0d03542d4483b88318ba8a01c,
+        type: 3}
+      propertyPath: m_Name
+      value: SceneTransition
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 88c877d0d03542d4483b88318ba8a01c, type: 3}
+--- !u!1 &599041261
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+>>>>>>> Stashed changes
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 599041262}
+  - component: {fileID: 599041267}
+  - component: {fileID: 599041266}
+  - component: {fileID: 599041265}
+  - component: {fileID: 599041264}
+  - component: {fileID: 599041263}
+  m_Layer: 5
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &599041262
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599041261}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 1936585299}
+  m_Father: {fileID: 1919483837}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &599041263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599041261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660bd216cf0ffe04385d065e68dd03c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typewriterSpeed: 20
+  source: {fileID: 1935443042}
+  clip: {fileID: 8300000, guid: 72620df70f72e644c95110f73cf6e3f0, type: 3}
+--- !u!114 &599041264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599041261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e6e6539cfa13c4d98925e2096f74fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueBox: {fileID: 1936585298}
+  textLabel: {fileID: 1994352900}
+--- !u!114 &599041265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599041261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &599041266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599041261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+<<<<<<< HEAD
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.952
@@ -5128,10 +5321,31 @@ MonoBehaviour:
   - {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &719213597
 GameObject:
+<<<<<<< Updated upstream
+=======
+=======
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+--- !u!223 &599041267
+Canvas:
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+>>>>>>> Stashed changes
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+>>>>>>> Stashed changes
   serializedVersion: 6
   m_Component:
   - component: {fileID: 719213598}
@@ -5259,6 +5473,24 @@ AudioSource:
     m_PostInfinity: 2
     m_RotationOrder: 4
 --- !u!1001 &757410988
+=======
+  m_GameObject: {fileID: 599041261}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!1001 &636778516
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -5268,17 +5500,25 @@ PrefabInstance:
     - target: {fileID: 1601660801084737650, guid: 262ba89169f3dd14394f875e2759c66d,
         type: 3}
       propertyPath: m_RootOrder
+<<<<<<< Updated upstream
       value: 5
+=======
+<<<<<<< HEAD
+      value: 5
+=======
+      value: 13
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 1601660801084737650, guid: 262ba89169f3dd14394f875e2759c66d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.87
+      value: -9.462341
       objectReference: {fileID: 0}
     - target: {fileID: 1601660801084737650, guid: 262ba89169f3dd14394f875e2759c66d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.9
+      value: -3.3333914
       objectReference: {fileID: 0}
     - target: {fileID: 1601660801084737650, guid: 262ba89169f3dd14394f875e2759c66d,
         type: 3}
@@ -5323,32 +5563,115 @@ PrefabInstance:
     - target: {fileID: 1601660801084737663, guid: 262ba89169f3dd14394f875e2759c66d,
         type: 3}
       propertyPath: m_Name
-      value: Goon (9)
+      value: Goon (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 262ba89169f3dd14394f875e2759c66d, type: 3}
+<<<<<<< Updated upstream
 --- !u!1001 &770114172
 PrefabInstance:
   m_ObjectHideFlags: 0
+=======
+<<<<<<< HEAD
+--- !u!1001 &770114172
+=======
+--- !u!1 &648732867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 648732869}
+  - component: {fileID: 648732868}
+  m_Layer: 0
+  m_Name: PauseSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &648732868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648732867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0810a8b2b5f1ba4ca779f2c58d2d897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPaused: 0
+  isAlreadyPaused: 0
+--- !u!4 &648732869
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648732867}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.761413, y: 5.180511, z: -434.85934}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &678316748
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+PrefabInstance:
+  m_ObjectHideFlags: 0
+>>>>>>> Stashed changes
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 1578628014}
     m_Modifications:
+<<<<<<< Updated upstream
     - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+=======
+<<<<<<< HEAD
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+=======
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+>>>>>>> Stashed changes
         type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
     - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+=======
+<<<<<<< HEAD
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+=======
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+>>>>>>> Stashed changes
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
     - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+=======
+<<<<<<< HEAD
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+=======
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+>>>>>>> Stashed changes
         type: 3}
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+>>>>>>> Stashed changes
     - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -5363,6 +5686,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMin.x
       value: 1
+<<<<<<< Updated upstream
       objectReference: {fileID: 0}
     - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
         type: 3}
@@ -5380,40 +5704,144 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+=======
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+=======
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+>>>>>>> Stashed changes
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
     - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+=======
+<<<<<<< HEAD
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+=======
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+>>>>>>> Stashed changes
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
     - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+=======
+<<<<<<< HEAD
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+=======
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+>>>>>>> Stashed changes
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
     - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+=======
+<<<<<<< HEAD
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+=======
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+>>>>>>> Stashed changes
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
     - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+=======
+<<<<<<< HEAD
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+=======
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+>>>>>>> Stashed changes
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
     - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+=======
+<<<<<<< HEAD
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+=======
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+>>>>>>> Stashed changes
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
     - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+=======
+<<<<<<< HEAD
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+=======
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+>>>>>>> Stashed changes
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+>>>>>>> Stashed changes
     - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -5425,20 +5853,53 @@ PrefabInstance:
       value: 60.52304
       objectReference: {fileID: 0}
     - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+<<<<<<< Updated upstream
+=======
+=======
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 369
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -187
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+>>>>>>> Stashed changes
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
     - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+=======
+<<<<<<< HEAD
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+=======
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+>>>>>>> Stashed changes
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
     - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+=======
+<<<<<<< HEAD
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+=======
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+>>>>>>> Stashed changes
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
     - target: {fileID: 8051695079868140033, guid: 057681d102b91e040ae990fc31a603b2,
         type: 3}
       propertyPath: m_Name
@@ -5462,6 +5923,48 @@ PrefabInstance:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 057681d102b91e040ae990fc31a603b2, type: 3}
 --- !u!1 &789259576
+=======
+<<<<<<< HEAD
+    - target: {fileID: 8051695079868140033, guid: 057681d102b91e040ae990fc31a603b2,
+        type: 3}
+      propertyPath: m_Name
+      value: AmmoCount
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051695079868140039, guid: 057681d102b91e040ae990fc31a603b2,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 213
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051695079868140039, guid: 057681d102b91e040ae990fc31a603b2,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051695079868140039, guid: 057681d102b91e040ae990fc31a603b2,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 27
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 057681d102b91e040ae990fc31a603b2, type: 3}
+--- !u!1 &789259576
+=======
+    - target: {fileID: 3818294629363214074, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+        type: 3}
+      propertyPath: m_Name
+      value: WeaponUISprite
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 79ec4a2bb78a77f4a95296ffc3b72805, type: 3}
+--- !u!224 &678316749 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+    type: 3}
+  m_PrefabInstance: {fileID: 678316748}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &695007390
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+>>>>>>> Stashed changes
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5469,20 +5972,123 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< Updated upstream
   - component: {fileID: 789259577}
   m_Layer: 5
   m_Name: DialogueBox
+=======
+<<<<<<< HEAD
+  - component: {fileID: 789259577}
+  m_Layer: 5
+  m_Name: DialogueBox
+=======
+  - component: {fileID: 695007391}
+  - component: {fileID: 695007393}
+  - component: {fileID: 695007392}
+  m_Layer: 5
+  m_Name: Image
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+>>>>>>> Stashed changes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
+<<<<<<< Updated upstream
   m_IsActive: 0
 --- !u!224 &789259577
+RectTransform:
+=======
+<<<<<<< HEAD
+  m_IsActive: 0
+--- !u!224 &789259577
+RectTransform:
+=======
+  m_IsActive: 1
+--- !u!224 &695007391
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695007390}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.814798, y: 5.2663007, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1936585299}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 29.1, y: 343.3}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &695007392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695007390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 0110870c0aa7bd044ba0152ef82c3c5b, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &695007393
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695007390}
+  m_CullTransparentMesh: 0
+--- !u!1 &703699923
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 703699924}
+  - component: {fileID: 703699925}
+  m_Layer: 0
+  m_Name: CastLight (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &703699924
+Transform:
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+>>>>>>> Stashed changes
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+>>>>>>> Stashed changes
   m_GameObject: {fileID: 789259576}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -5500,16 +6106,76 @@ RectTransform:
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &863099065
+<<<<<<< Updated upstream
+=======
+=======
+  m_GameObject: {fileID: 703699923}
+  m_LocalRotation: {x: -0, y: -0, z: -0.1839352, w: 0.9829384}
+  m_LocalPosition: {x: -14.9, y: -2.18, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1528601252}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -21.198002}
+--- !u!114 &703699925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703699923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.952
+  m_Color: {r: 0.35230508, g: 0.8207547, b: 0.47665516, a: 1}
+  m_Intensity: 3
+  m_LightVolumeOpacity: 0
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_UseNormalMap: 0
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 80
+  m_PointLightOuterAngle: 118
+  m_PointLightInnerRadius: 1
+  m_PointLightOuterRadius: 7
+  m_PointLightDistance: 3
+  m_PointLightQuality: 0
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
+--- !u!1001 &757410988
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+>>>>>>> Stashed changes
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 1578628014}
     m_Modifications:
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+>>>>>>> Stashed changes
     - target: {fileID: 3818294628573565715, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 39.000023
+<<<<<<< Updated upstream
       objectReference: {fileID: 0}
     - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
         type: 3}
@@ -5547,15 +6213,134 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+=======
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+=======
+    - target: {fileID: 1601660801084737650, guid: 262ba89169f3dd14394f875e2759c66d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1601660801084737650, guid: 262ba89169f3dd14394f875e2759c66d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 1601660801084737650, guid: 262ba89169f3dd14394f875e2759c66d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1601660801084737650, guid: 262ba89169f3dd14394f875e2759c66d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.4061933
+      objectReference: {fileID: 0}
+    - target: {fileID: 1601660801084737650, guid: 262ba89169f3dd14394f875e2759c66d,
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 100
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+=======
+    - target: {fileID: 1601660801084737650, guid: 262ba89169f3dd14394f875e2759c66d,
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 100
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+=======
+    - target: {fileID: 1601660801084737650, guid: 262ba89169f3dd14394f875e2759c66d,
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+<<<<<<< HEAD
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+=======
+    - target: {fileID: 1601660801084737650, guid: 262ba89169f3dd14394f875e2759c66d,
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+<<<<<<< HEAD
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+=======
+    - target: {fileID: 1601660801084737650, guid: 262ba89169f3dd14394f875e2759c66d,
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+<<<<<<< HEAD
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+=======
+    - target: {fileID: 1601660801084737650, guid: 262ba89169f3dd14394f875e2759c66d,
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+>>>>>>> Stashed changes
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+<<<<<<< Updated upstream
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+=======
+<<<<<<< HEAD
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+=======
+    - target: {fileID: 1601660801084737650, guid: 262ba89169f3dd14394f875e2759c66d,
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+>>>>>>> Stashed changes
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+>>>>>>> Stashed changes
     - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5568,6 +6353,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
         type: 3}
+<<<<<<< Updated upstream
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
@@ -5622,22 +6408,225 @@ PrefabInstance:
       value: WeaponUISprite
       objectReference: {fileID: 0}
     - target: {fileID: 3818294629442909745, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+=======
+      propertyPath: m_AnchoredPosition.x
+      value: 369
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -187
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+=======
+    - target: {fileID: 1601660801084737663, guid: 262ba89169f3dd14394f875e2759c66d,
+        type: 3}
+      propertyPath: m_Name
+      value: Goon (9)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 262ba89169f3dd14394f875e2759c66d, type: 3}
+--- !u!1001 &877614570
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1783871051}
+    m_Modifications:
+    - target: {fileID: 8281019199980467257, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_Name
+      value: BossHp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467257, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+>>>>>>> Stashed changes
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 39.000023
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
     - target: {fileID: 3818294629483414508, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+=======
+<<<<<<< HEAD
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+>>>>>>> Stashed changes
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 39
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
     - target: {fileID: 3818294630466189943, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+=======
+    - target: {fileID: 3818294629363214073, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+>>>>>>> Stashed changes
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 39.000023
       objectReference: {fileID: 0}
+    - target: {fileID: 3818294629363214074, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+        type: 3}
+      propertyPath: m_Name
+      value: WeaponUISprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818294629442909745, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+=======
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 833
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -36
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 39.000023
+      objectReference: {fileID: 0}
+<<<<<<< HEAD
+    - target: {fileID: 3818294629483414508, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+=======
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 39
+      objectReference: {fileID: 0}
+<<<<<<< HEAD
+    - target: {fileID: 3818294630466189943, guid: 79ec4a2bb78a77f4a95296ffc3b72805,
+=======
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 39.000023
+      objectReference: {fileID: 0}
+<<<<<<< HEAD
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79ec4a2bb78a77f4a95296ffc3b72805, type: 3}
+=======
+    - target: {fileID: 8281019200214832302, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019200214832302, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019200214832303, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.7075472
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019200214832303, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.103462085
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019200214832303, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.25009492
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+<<<<<<< Updated upstream
+  m_SourcePrefab: {fileID: 100100000, guid: 79ec4a2bb78a77f4a95296ffc3b72805, type: 3}
+=======
+  m_SourcePrefab: {fileID: 100100000, guid: d1bea2c72ba7656408da59ed9fdc696f, type: 3}
+--- !u!224 &877614571 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+    type: 3}
+  m_PrefabInstance: {fileID: 877614570}
+  m_PrefabAsset: {fileID: 0}
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+>>>>>>> Stashed changes
 --- !u!1 &997016616
 GameObject:
   m_ObjectHideFlags: 0
@@ -5834,6 +6823,104 @@ RectTransform:
   m_AnchoredPosition: {x: -13.8, y: 29}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+<<<<<<< Updated upstream
+--- !u!114 &1063620300
+=======
+<<<<<<< HEAD
+=======
+--- !u!114 &1046479452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046479450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.24528301, g: 0.22792807, b: 0.22792807, a: 0.79607844}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
+--- !u!114 &1046479453
+>>>>>>> Stashed changes
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063620298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: c08c9c2a4fe1c2d41b6fa4e227b9b0e2, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1063620301
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063620298}
+  m_CullTransparentMesh: 0
+<<<<<<< Updated upstream
+=======
+--- !u!1 &1063620298
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1063620299}
+  - component: {fileID: 1063620301}
+  - component: {fileID: 1063620300}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1063620299
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063620298}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.8, y: 1.9, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1936585299}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -13.8, y: 29}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
 --- !u!114 &1063620300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5871,6 +6958,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1063620298}
   m_CullTransparentMesh: 0
+>>>>>>> Stashed changes
 --- !u!1001 &1067502597
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6376,6 +7464,10 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 109.522}
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+>>>>>>> Stashed changes
 --- !u!1 &1253750031
 GameObject:
   m_ObjectHideFlags: 0
@@ -6451,6 +7543,146 @@ CanvasRenderer:
   m_GameObject: {fileID: 1253750031}
   m_CullTransparentMesh: 0
 --- !u!224 &1297236934 stripped
+<<<<<<< Updated upstream
+=======
+=======
+--- !u!1001 &1313300606
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1783871051}
+    m_Modifications:
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -119.551704
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 60.52304
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051695079868140033, guid: 057681d102b91e040ae990fc31a603b2,
+        type: 3}
+      propertyPath: m_Name
+      value: AmmoCount
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051695079868140039, guid: 057681d102b91e040ae990fc31a603b2,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 213
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051695079868140039, guid: 057681d102b91e040ae990fc31a603b2,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051695079868140039, guid: 057681d102b91e040ae990fc31a603b2,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 27
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 057681d102b91e040ae990fc31a603b2, type: 3}
+--- !u!224 &1313300607 stripped
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+>>>>>>> Stashed changes
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
     type: 3}
@@ -6537,6 +7769,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 262ba89169f3dd14394f875e2759c66d, type: 3}
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+>>>>>>> Stashed changes
 --- !u!114 &1370746323 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6916648796725543045, guid: a7e998ea37cd6504f8176b9d6e393c94,
@@ -6549,6 +7785,146 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d0b652f32a2cc243917e4028fa0f046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
+=======
+=======
+--- !u!1001 &1504817518
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1783871051}
+    m_Modifications:
+    - target: {fileID: 8281019199980467257, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_Name
+      value: HPBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -36
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019200214832302, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281019200214832302, guid: d1bea2c72ba7656408da59ed9fdc696f,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d1bea2c72ba7656408da59ed9fdc696f, type: 3}
+--- !u!224 &1504817519 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8281019199980467258, guid: d1bea2c72ba7656408da59ed9fdc696f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1504817518}
+  m_PrefabAsset: {fileID: 0}
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+>>>>>>> Stashed changes
 --- !u!1 &1515462625
 GameObject:
   m_ObjectHideFlags: 0
@@ -6698,6 +8074,143 @@ Transform:
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -159.59901}
 --- !u!1 &1578628013
+<<<<<<< Updated upstream
+=======
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1578628014}
+  - component: {fileID: 1578628019}
+  - component: {fileID: 1578628018}
+  - component: {fileID: 1578628017}
+  - component: {fileID: 1578628015}
+  - component: {fileID: 1578628016}
+  m_Layer: 5
+  m_Name: UICanvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1578628014
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578628013}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 1059225272}
+  - {fileID: 502836270}
+  - {fileID: 1297236934}
+  - {fileID: 1058615153}
+  - {fileID: 1094994595}
+  - {fileID: 789259577}
+  - {fileID: 645043543}
+  m_Father: {fileID: 1919483837}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &1578628015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578628013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 809bb186f84e0fd47b50d242d772ce6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 9f335ec6f1da9184496baa2895f9b58a, type: 2}
+  ResolutionDropdown: {fileID: 1370746323}
+--- !u!114 &1578628016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578628013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3fa73f51f2e1354fb852fac66266e13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenuUI: {fileID: 1059225271}
+--- !u!114 &1578628017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578628013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1578628018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578628013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 1
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+--- !u!223 &1578628019
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578628013}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!1 &1591235852
+>>>>>>> Stashed changes
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6878,6 +8391,10 @@ Transform:
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1633829009
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+>>>>>>> Stashed changes
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6990,6 +8507,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+<<<<<<< Updated upstream
       objectReference: {fileID: 0}
     - target: {fileID: 3436523103398887974, guid: a7e998ea37cd6504f8176b9d6e393c94,
         type: 3}
@@ -7002,6 +8520,20 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3436523103398887974, guid: a7e998ea37cd6504f8176b9d6e393c94,
+=======
+      objectReference: {fileID: 0}
+    - target: {fileID: 3436523103398887974, guid: a7e998ea37cd6504f8176b9d6e393c94,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3436523103398887974, guid: a7e998ea37cd6504f8176b9d6e393c94,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3436523103398887974, guid: a7e998ea37cd6504f8176b9d6e393c94,
+>>>>>>> Stashed changes
         type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -7010,6 +8542,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
+<<<<<<< Updated upstream
+      objectReference: {fileID: 0}
+    - target: {fileID: 3436523103398887974, guid: a7e998ea37cd6504f8176b9d6e393c94,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+=======
       objectReference: {fileID: 0}
     - target: {fileID: 3436523103398887974, guid: a7e998ea37cd6504f8176b9d6e393c94,
         type: 3}
@@ -7018,6 +8556,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3436523103398887974, guid: a7e998ea37cd6504f8176b9d6e393c94,
         type: 3}
+      propertyPath: m_AnchorMin.x
+>>>>>>> Stashed changes
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3436523103398887974, guid: a7e998ea37cd6504f8176b9d6e393c94,
+        type: 3}
+<<<<<<< Updated upstream
       propertyPath: m_AnchorMin.x
       value: 0.5
       objectReference: {fileID: 0}
@@ -7033,6 +8578,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3436523103398887974, guid: a7e998ea37cd6504f8176b9d6e393c94,
         type: 3}
+=======
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3436523103398887974, guid: a7e998ea37cd6504f8176b9d6e393c94,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 294.1856
+      objectReference: {fileID: 0}
+    - target: {fileID: 3436523103398887974, guid: a7e998ea37cd6504f8176b9d6e393c94,
+        type: 3}
+>>>>>>> Stashed changes
       propertyPath: m_SizeDelta.y
       value: 633.6687
       objectReference: {fileID: 0}
@@ -7120,6 +8677,11 @@ PrefabInstance:
     - {fileID: 7791647676992275262, guid: a7e998ea37cd6504f8176b9d6e393c94, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a7e998ea37cd6504f8176b9d6e393c94, type: 3}
 --- !u!1 &1740892158
+<<<<<<< Updated upstream
+=======
+=======
+>>>>>>> parent of aeaf0ac (Added furnishings to rooms)
+>>>>>>> Stashed changes
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
