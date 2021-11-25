@@ -37,7 +37,7 @@ public class BossBehaviour : MonoBehaviour
     [SerializeField] private float m_MaxMechIntegrity;
     [SerializeField] private BOSSSTATE m_eCurrentState;
     [SerializeField] private Dictionary<BOSSSTATE, float> m_BossThresholds;
-    [SerializeField] private float[] m_fHPPercentageThresholds = new float[] { 0.8f,0.65f,0.45f,0.2f,0.0f};
+    [SerializeField] private float[] m_fHPPercentageThresholds = new float[] { 0.8f, 0.65f, 0.45f, 0.2f, 0.0f };
     [SerializeField] private bool m_bHasHealthBar;
     [SerializeField] private float HpLeftGun;
     [SerializeField] private float HpRightGun;
@@ -47,7 +47,7 @@ public class BossBehaviour : MonoBehaviour
     private BossGrenadeLauncher m_ExplosiveModule;
     private float m_fTimePlayerOutOfSight;
 
-   public enum BOSSSTATE
+    public enum BOSSSTATE
     {
         NONE,
         THRESHOLD1,
@@ -98,7 +98,7 @@ public class BossBehaviour : MonoBehaviour
         m_CurrentMechIntegrity = GetCurrentHPTotal();
         CheckBossState(m_CurrentMechIntegrity);
 
-        if(m_bHasHealthBar)
+        if (m_bHasHealthBar)
         {
             m_BossHPBar.SetHealth(m_CurrentMechIntegrity);
         }
@@ -108,7 +108,7 @@ public class BossBehaviour : MonoBehaviour
             m_bUseNavMesh = false;
         }
 
-        if(m_bPlayerSighted)
+        if (m_bPlayerSighted)
         {
             if (m_DirectionToPlayer.x > 0)
             {
@@ -127,8 +127,9 @@ public class BossBehaviour : MonoBehaviour
     {
         m_navMeshAgent.speed = m_fMovementSpd;
         m_rgdbdyBossBody.velocity = Vector2.zero;
+        m_rgdbdyBossBody.angularVelocity = 0.0f;
 
-        if(!m_bUseNavMesh)
+        if (!m_bUseNavMesh)
         {
             //m_ScriptAINavigate.enabled = false;
             //m_navMeshAgent.enabled = false;
@@ -161,17 +162,17 @@ public class BossBehaviour : MonoBehaviour
             m_ScriptAINavigate.enabled = true;
             m_navMeshAgent.enabled = true;
             bossCurrentSpeed = m_navMeshAgent.velocity;
-            if(bossCurrentSpeed.magnitude > 1 )
+            if (bossCurrentSpeed.magnitude > 1)
             {
                 //Make sure that horizontal has a value as long as currentSpeed is not zero in either axis
-                m_animrBossAnimator.SetFloat("Horizontal", bossCurrentSpeed.x + (Mathf.Abs(bossCurrentSpeed.y)* bossCurrentSpeed.normalized.x) );
+                m_animrBossAnimator.SetFloat("Horizontal", bossCurrentSpeed.x + (Mathf.Abs(bossCurrentSpeed.y) * bossCurrentSpeed.normalized.x));
             }
             else
             {
                 m_animrBossAnimator.SetFloat("Horizontal", 0);
             }
         }
-            
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -179,28 +180,16 @@ public class BossBehaviour : MonoBehaviour
         if (collision.gameObject.tag == "ProjectilePlayer")
         {
             float damageTaken = collision.gameObject.GetComponent<BulletLifetime>().GetDamage();
-            //if (m_WpnLeft != null)
-            //{
-            //    m_WpnLeft.TakeDamage(damageTaken);
-            //}
-            //else if(m_WpnRight != null)
-            //{
-            //    m_WpnRight.TakeDamage(damageTaken);
-            //}
-            //else
-            //{
-            //    TakeDamage(damageTaken);
-            //}
-            //Destroy(collision.gameObject);
+
             if (m_WpnLeft != null && m_WpnRight != null)
             {
-                m_WpnLeft.TakeDamage(damageTaken/3);
-                m_WpnRight.TakeDamage(damageTaken/3);
-                TakeDamage(damageTaken/3);
+                m_WpnLeft.TakeDamage(damageTaken / 3);
+                m_WpnRight.TakeDamage(damageTaken / 3);
+                TakeDamage(damageTaken / 3);
             }
-            else if(m_WpnLeft != null || m_WpnRight != null)
+            else if (m_WpnLeft != null || m_WpnRight != null)
             {
-                if(m_WpnLeft != null)
+                if (m_WpnLeft != null)
                 {
                     m_WpnLeft.TakeDamage(damageTaken / 2);
                 }
@@ -209,7 +198,7 @@ public class BossBehaviour : MonoBehaviour
                     m_WpnRight.TakeDamage(damageTaken / 2);
                 }
 
-                TakeDamage(damageTaken/2);
+                TakeDamage(damageTaken / 2);
             }
             else
             {
@@ -219,10 +208,10 @@ public class BossBehaviour : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float  _input)
+    public void TakeDamage(float _input)
     {
         HP -= _input;
-        if(HP<=0)
+        if (HP <= 0)
         {
             Destroy(gameObject);
         }
@@ -263,18 +252,18 @@ public class BossBehaviour : MonoBehaviour
                 m_bPlayerSighted = true;
                 m_bWander = false;
                 m_fTimePlayerOutOfSight = 0;
-                if(distance <= m_ExplosiveModule.m_fFireAtRange)
+                if (distance <= m_ExplosiveModule.m_fFireAtRange)
                 {
                     m_ExplosiveModule.FireWeapons();
                 }
                 StopAllCoroutines();
                 print("Found player, moving to where player is.");
             }
-            else if(m_bPlayerSighted)
+            else if (m_bPlayerSighted)
             {
                 m_bPlayerSighted = false;
                 StopCoroutine(GoToLastKnowLocation());
-                StartCoroutine( GoToLastKnowLocation() );
+                StartCoroutine(GoToLastKnowLocation());
                 print("Lost sight of the player! Moving to last location");
                 //m_ScriptAINavigate.PlayerSpotted((int)(0));
             }
@@ -298,7 +287,7 @@ public class BossBehaviour : MonoBehaviour
 
     private void CheckBossState(float _inHp)
     {
-        if(_inHp <= ( m_MaxMechIntegrity*m_BossThresholds[GetBossState()]) )
+        if (_inHp <= (m_MaxMechIntegrity * m_BossThresholds[GetBossState()]))
         {
             AdvanceBossState();
         }
@@ -310,24 +299,27 @@ public class BossBehaviour : MonoBehaviour
         {
             case BOSSSTATE.THRESHOLD1:
             {
-                m_WpnLeft.ChangeBossStateModifier(0.85f);
-                m_WpnRight.ChangeBossStateModifier(0.85f);
+                ChangeWeaponSettings(0.85f,0.4f);
+                //m_WpnLeft.ChangeBossStateModifier(0.85f);
+                //m_WpnRight.ChangeBossStateModifier(0.85f);
                 m_ExplosiveModule.AdvanceState();
                 m_eCurrentState = BOSSSTATE.THRESHOLD2;
                 break;
             }
             case BOSSSTATE.THRESHOLD2:
             {
-                m_WpnLeft.ChangeBossStateModifier(0.95f);
-                m_WpnRight.ChangeBossStateModifier(0.95f);
+                ChangeWeaponSettings(0.95f, 0.3f);
                 m_ExplosiveModule.AdvanceState();
                 m_eCurrentState = BOSSSTATE.THRESHOLD3;
                 break;
             }
             case BOSSSTATE.THRESHOLD3:
             {
-                m_WpnLeft.ChangeBossStateModifier(1.2f);
-                m_WpnRight.ChangeBossStateModifier(1.2f);
+                ChangeWeaponSettings(1.1f, 2.5f);
+                //m_WpnLeft.ChangeBossStateModifier(1.2f);
+                //m_WpnLeft.ChangeRepeaterFireRate(0.3f);
+                //m_WpnRight.ChangeBossStateModifier(1.2f);
+                //m_WpnRight.ChangeRepeaterFireRate(0.3f);
                 m_ExplosiveModule.AdvanceState();
                 m_eCurrentState = BOSSSTATE.THRESHOLD4;
                 break;
@@ -335,6 +327,9 @@ public class BossBehaviour : MonoBehaviour
             case BOSSSTATE.THRESHOLD4:
             {
                 m_bUseNavMesh = false;
+                ChangeWeaponSettings(1.15f, 2.0f);
+                //m_WpnLeft.ChangeRepeaterFireRate(0.3f);
+                //m_WpnRight.ChangeRepeaterFireRate(0.3f);
                 m_ExplosiveModule.AdvanceState();
                 m_eCurrentState = BOSSSTATE.THRESHOLD5;
                 break;
@@ -351,7 +346,7 @@ public class BossBehaviour : MonoBehaviour
 
     private float GetCurrentHPTotal()
     {
-        HpLeftGun = m_WpnLeft!=null ? m_WpnLeft.GetHP():0.0f;
+        HpLeftGun = m_WpnLeft != null ? m_WpnLeft.GetHP() : 0.0f;
         HpRightGun = m_WpnRight != null ? m_WpnRight.GetHP() : 0.0f;
 
         return HP + HpLeftGun + HpRightGun;
@@ -365,14 +360,14 @@ public class BossBehaviour : MonoBehaviour
 
         yield return null;
 
-        while(/*!(m_bPlayerSighted || */!m_ScriptAINavigate.GetIfReachedPosition() )
+        while (/*!(m_bPlayerSighted || */!m_ScriptAINavigate.GetIfReachedPosition())
         {
             CalculateDistance();
             m_animrBossAnimator.SetFloat("Horizontal", m_DirectionToPlayer.x);
             yield return null;
         }
 
-        if(m_ScriptAINavigate.GetIfReachedPosition())
+        if (m_ScriptAINavigate.GetIfReachedPosition())
         {
             m_bIsMoving = false;
             print("Reached last known location. Waiting....");
@@ -386,11 +381,11 @@ public class BossBehaviour : MonoBehaviour
                 yield return null;
             }
 
-            if(!(m_bPlayerSighted))
+            if (!(m_bPlayerSighted))
             {
                 m_ScriptAINavigate.PlayerLost();
                 m_bWander = true;
-                StartCoroutine( Wander() );
+                StartCoroutine(Wander());
                 print("Lost the player!");
             }
         }
@@ -400,21 +395,21 @@ public class BossBehaviour : MonoBehaviour
 
     private IEnumerator Wander()
     {
-       while(!m_ScriptAINavigate.GetIfReachedPosition())
+        while (!m_ScriptAINavigate.GetIfReachedPosition())
         {
             yield return null;
         }
 
         Vector2 chosenPatrolPoint = Vector2.zero;
-        if( m_WanderSpot.Length > 0 )
+        if (m_WanderSpot.Length > 0)
         {
             print("Start Wandering...");
             WaitForSeconds delay = new WaitForSeconds(3);
             while (!m_bPlayerSighted)
             {
-                while(chosenPatrolPoint == Vector2.zero)
+                while (chosenPatrolPoint == Vector2.zero)
                 {
-                   int randomIndex =  ((int)Random.value) * 10 % (m_WanderSpot.Length);
+                    int randomIndex = ((int)Random.value) * 10 % (m_WanderSpot.Length);
                     chosenPatrolPoint = m_WanderSpot[randomIndex].position;
                 }
 
@@ -422,12 +417,12 @@ public class BossBehaviour : MonoBehaviour
 
                 yield return null;
 
-                while(!m_ScriptAINavigate.GetIfReachedPosition())
+                while (!m_ScriptAINavigate.GetIfReachedPosition())
                 {
                     yield return null;
                 }
 
-                if(m_ScriptAINavigate.GetIfReachedPosition())
+                if (m_ScriptAINavigate.GetIfReachedPosition())
                 {
                     chosenPatrolPoint = Vector2.zero;
                 }
@@ -441,5 +436,21 @@ public class BossBehaviour : MonoBehaviour
             m_bWander = false;
             yield break;
         }
+    }
+
+    void ChangeWeaponSettings(float _inAimModifier, float _fireRate)
+    {
+        if(m_WpnLeft!=null)
+        {
+            m_WpnLeft.ChangeBossStateModifier(_inAimModifier);
+            m_WpnLeft.ChangeRepeaterFireRate(_fireRate);
+        }
+
+        if(m_WpnRight!=null)
+        {
+            m_WpnRight.ChangeBossStateModifier(_inAimModifier);
+            m_WpnRight.ChangeRepeaterFireRate(_fireRate);
+        }
+
     }
 }

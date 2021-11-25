@@ -152,7 +152,7 @@ MonoBehaviour:
   gunFirePoint: {fileID: 315913478496159159}
   projectilePrefab: {fileID: 8393412603370758224, guid: d5d5b48b48e230e48a7bbb554d601bd0,
     type: 3}
-  m_fHP: 75
+  m_fHP: 45
   m_fRotationOffset: 45
   m_sprtRenderer: {fileID: 4027092690402909901}
   m_sprtShoulderSprite:
@@ -166,15 +166,12 @@ MonoBehaviour:
   m_fFiringWindup_Repeater: 0.2
   m_fDamage_Repeater: 0.5
   m_fBulletForce_Repeater: 2.5
+  m_fFiringInterval_Repeater: 0.4
   m_refFlameStreamGun_Boss: {fileID: 0}
   m_fFiringTime_Stream: 1.5
   m_fFiringCooldown_Stream: 0.5
   m_fDamage_StreamPellet: 0.02
-  m_refGrenadeGun_Boss: {fileID: 0}
-  m_fGrenadeInterval: 1.5
-  m_fGrenadeExplosiveForce: 2
-  m_fGrenadeExplosiveRadius: 1
-  m_fDamage_Grenade: 5
+  m_fRange_StreamPellet: 1.5
   m_refCurrentPattern: {fileID: 0}
   m_bEnableFiringTime: 1
   m_bStopRotation: 0
@@ -321,13 +318,8 @@ MonoBehaviour:
   m_fExplosiveForce: 50
   m_fFuseTime: 1.2
   m_fTimeBetweenShots_Grenade: 1.5
-  m_fWindupTime: 0
-  m_fFiringTime: 1.5
-  m_fFiringCooldown: 0.5
   m_fBulletDamage_Grenade: 20
   m_iTotalAmmo_Grenade: 10
-  m_bHasCooldown: 0
-  m_bHasWindup: 0
 --- !u!1 &7046081518697967591
 GameObject:
   m_ObjectHideFlags: 0

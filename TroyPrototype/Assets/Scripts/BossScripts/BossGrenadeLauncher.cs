@@ -30,8 +30,8 @@ public class BossGrenadeLauncher : MonoBehaviour
     [SerializeField] public float m_fGrenadeRange = 4.0f;
     [SerializeField] public float m_fAIRangeVariation = 1.5f;
     [SerializeField] public float m_fBulletForce_Grenade = 1.0f;
-    [SerializeField] public float m_fDmgRadius = 1.0f;
-    [SerializeField] public float m_fExplosiveForce = 3.0f;
+    [SerializeField] public float m_fDmgRadius = 1.5f;
+    [SerializeField] public float m_fExplosiveForce = 50.0f;
     [SerializeField] public float m_fFuseTime = 1.2f;
     [SerializeField] public float m_fTimeBetweenShots_Grenade = 2.0f;
     [SerializeField] public float m_fBulletDamage_Grenade = 10.0f;
@@ -40,8 +40,8 @@ public class BossGrenadeLauncher : MonoBehaviour
     [SerializeField] private float m_fStartDelay_Cluster = 0f;
     [SerializeField] private float m_fRotateSpeed_Cluster = 100.0f;
     [SerializeField] private float m_fBombDamage_Cluster = 5.0f;
-    [SerializeField] private float m_fExplosiveForce_Cluster = 5.0f;
-    [SerializeField] private float m_fExplosiveRadius_Cluster = 0.5f;
+    [SerializeField] private float m_fExplosiveForce_Cluster = 20.0f;
+    [SerializeField] private float m_fExplosiveRadius_Cluster = 1.0f;
     [SerializeField] private float m_fProjectileForce_Cluster = 1.0f;
     [SerializeField] private float m_fProjectileRange_Cluster = 5.0f;
     [Header("BulletWheel")]
@@ -284,6 +284,7 @@ public class BossGrenadeLauncher : MonoBehaviour
             case State.PHASE5:
             {
                 m_iFirePointsAmount_Wheel = 4;
+                m_fRotateSpeed_Wheel = 150.0f;
                 m_fLifespan_Wheel = 7.0f;
                 m_eGrenadeLauncherState = State.PHASE5;
                 break;

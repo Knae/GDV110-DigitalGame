@@ -68,10 +68,6 @@ public class ExplosiveProjectile : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Explode();
-        //if(!m_bPrimed)
-        //{
-        //    PrimeForDetonation();
-        //}
     }
 
     private void Explode()
@@ -108,21 +104,15 @@ public class ExplosiveProjectile : MonoBehaviour
                     }
                 }
             }
-            Rigidbody2D elementBody = element.GetComponent<Rigidbody2D>();
-            if (elementBody != null)
+            if (element.tag == "Player")
             {
+                Rigidbody2D elementBody = element.GetComponent<Rigidbody2D>();
                 Vector2 forceDirection = element.transform.position - grenadePosition;
                 float distance = forceDirection.magnitude;
                 float force = Mathf.Lerp(m_fExplosiveForce, 0, (m_fExploRadius - distance));
                 Vector2 forceToAdd = forceDirection.normalized * force;
                 elementBody.AddForce(forceToAdd, ForceMode2D.Impulse);
             }
-
-            //Rigidbody2D targetBody = element.GetComponent<Rigidbody2D>();
-            //if(targetBody!=null)
-            //{
-            //    targetBody.
-            //}
         }
 
         if(m_refCameraShaker!=null)

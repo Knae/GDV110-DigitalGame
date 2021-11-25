@@ -108968,7 +108968,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BossHPBar
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2064139518}
     - target: {fileID: 5379251310529786997, guid: fb38649e31ab3af498e551b5b394d819,
         type: 3}
       propertyPath: m_rgdbdyPlayer
@@ -110324,6 +110324,18 @@ Transform:
   m_Father: {fileID: 2008246016}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2064139518 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2168860661449212556, guid: d1bea2c72ba7656408da59ed9fdc696f,
+    type: 3}
+  m_PrefabInstance: {fileID: 2139853376}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 857ce7a31f7e965418b5040b400f4eee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &2076252835 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8051695079868140032, guid: 057681d102b91e040ae990fc31a603b2,
