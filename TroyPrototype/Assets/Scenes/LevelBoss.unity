@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -485,6 +485,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DestPotPlant1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3487567557427946148, guid: 3172a62f7cd6f394284bf77b172d19b9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Destructible
+      objectReference: {fileID: 0}
     - target: {fileID: 3487567557427946152, guid: 3172a62f7cd6f394284bf77b172d19b9,
         type: 3}
       propertyPath: m_RootOrder
@@ -857,7 +862,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &158171779
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1064,6 +1069,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DestBonsai
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487567557427946148, guid: c75bfa13027531f41ba0bdba68e5c20a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Destructible
       objectReference: {fileID: 0}
     - target: {fileID: 3487567557427946152, guid: c75bfa13027531f41ba0bdba68e5c20a,
         type: 3}
@@ -1557,7 +1567,7 @@ GameObject:
   - component: {fileID: 296738638}
   m_Layer: 0
   m_Name: labtableMetalEquipment_Furn (2)
-  m_TagString: Untagged
+  m_TagString: Indestructible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1858,6 +1868,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487567558171739247, guid: f2d737b8b27534741ac69b344844d1ba,
+        type: 3}
+      propertyPath: m_TagString
+      value: Destructible
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2d737b8b27534741ac69b344844d1ba, type: 3}
@@ -19012,13 +19027,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4949134066347258492, guid: c8382633ace26c84fb54cbea828c3d4b,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 6.588956
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949134066347258492, guid: c8382633ace26c84fb54cbea828c3d4b,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.324
+      value: 0.077
       objectReference: {fileID: 0}
     - target: {fileID: 4949134066347258492, guid: c8382633ace26c84fb54cbea828c3d4b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.066
+      value: -9.69
       objectReference: {fileID: 0}
     - target: {fileID: 4949134066347258492, guid: c8382633ace26c84fb54cbea828c3d4b,
         type: 3}
@@ -19143,6 +19163,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487567558171739247, guid: 95ea5450c0f1f7648ad624c620006bd8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Destructible
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95ea5450c0f1f7648ad624c620006bd8, type: 3}
@@ -19450,6 +19475,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487567558171739247, guid: 95ea5450c0f1f7648ad624c620006bd8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Destructible
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95ea5450c0f1f7648ad624c620006bd8, type: 3}
@@ -28885,7 +28915,7 @@ GameObject:
   - component: {fileID: 1328503626}
   m_Layer: 0
   m_Name: labtableMetalEquipment_Furn
-  m_TagString: Untagged
+  m_TagString: Indestructible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29132,6 +29162,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DestPotPlant1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487567557427946148, guid: 3172a62f7cd6f394284bf77b172d19b9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Destructible
       objectReference: {fileID: 0}
     - target: {fileID: 3487567557427946152, guid: 3172a62f7cd6f394284bf77b172d19b9,
         type: 3}
@@ -30346,6 +30381,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DestPotPlant1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3487567557427946148, guid: 3172a62f7cd6f394284bf77b172d19b9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Destructible
+      objectReference: {fileID: 0}
     - target: {fileID: 3487567557427946152, guid: 3172a62f7cd6f394284bf77b172d19b9,
         type: 3}
       propertyPath: m_RootOrder
@@ -31102,7 +31142,7 @@ GameObject:
   - component: {fileID: 1983158906}
   m_Layer: 0
   m_Name: labtableMetalEquipment_Furn (1)
-  m_TagString: Untagged
+  m_TagString: Indestructible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31241,9 +31281,9 @@ GameObject:
   - component: {fileID: 2099399439}
   - component: {fileID: 2099399441}
   - component: {fileID: 2099399440}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: labtableMetalEquipment_Furn (3)
-  m_TagString: Untagged
+  m_TagString: Indestructible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
